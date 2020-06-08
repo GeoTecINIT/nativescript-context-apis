@@ -1,7 +1,7 @@
 {
 	"name": "nativescript-context-apis",
 	"version": "1.0.0",
-	"description": "Your awesome NativeScript plugin.",
+	"description": "Painless access to contextual information for your NativeScript apps",
 	"main": "context-apis",
 	"typings": "index.d.ts",
 	"nativescript": {
@@ -21,8 +21,10 @@
 		"tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
 		"ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
 		"prepack": "npm run build.native",
-		"demo.ios": "npm i && cd ../demo && tns run ios",
-		"demo.android": "npm i && cd ../demo && tns run android",
+		"demo.ios": "npm i && cd ../demo && tns run ios --watch",
+		"demo.android": "npm i && cd ../demo && tns run android --watch",
+		"test.ios": "npm i && cd ../demo && tns test ios --watch",
+		"test.android": "npm i && cd ../demo && tns test android --watch",
 		"demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
 		"plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-context-apis && tns plugin add ../src",
 		"clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
@@ -33,10 +35,16 @@
 		"Android",
 		"iOS"
 	],
-	"author": {
-		"name": "Your Name",
-		"email": "youremail@yourdomain.com"
-	},
+	"authors": [
+		{
+			"name": "Alberto González Pérez",
+			"email": "algonzal@uji.es"
+		},
+		{
+			"name": "Miguel Matey Sanz",
+			"email": "matey@uji.es"
+		}
+	],
 	"bugs": {
 		"url": "https://github.com/GeoTecINIT/nativescript-context-apis/issues"
 	},
