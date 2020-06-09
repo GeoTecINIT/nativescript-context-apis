@@ -53,5 +53,10 @@
             "check-separator",
             "check-type"
         ]
+    },
+    "linterOptions": {
+        "exclude": [
+            "src/typings/**/*.d.ts"
+        ]
     }
 }

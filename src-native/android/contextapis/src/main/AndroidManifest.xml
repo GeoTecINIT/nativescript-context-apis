@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.uji.geotec.contextapis">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application>
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".activityrecognition.ActivityTransitionReceiver"
+            android:exported="false" />
+
+        <receiver android:name=".activityrecognition.ActivityUpdateReceiver"
+            android:exported="false" />
+    </application>
+
+</manifest>
