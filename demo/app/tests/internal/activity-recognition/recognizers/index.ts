@@ -3,6 +3,7 @@ import { RecognitionCallback } from "nativescript-context-apis/internal/activity
 import { ActivityChange } from "nativescript-context-apis/internal/activity-recognition";
 import { RecognizerStateStore } from "nativescript-context-apis/internal/activity-recognition/recognizers/state/store";
 import { Resolution } from "nativescript-context-apis/internal/activity-recognition";
+import { RecognizerManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/recognizer-manager";
 
 export function createCallbackManagerMock(): RecognizerCallbackManager {
     return {
@@ -30,6 +31,17 @@ export function createRecognizersStateStoreMock(): RecognizerStateStore {
             return Promise.resolve();
         },
         markAsInactive(recognizer: Resolution): Promise<void> {
+            return Promise.resolve();
+        },
+    };
+}
+
+export function createRecognizerManagerMock(): RecognizerManager {
+    return {
+        startListening(): Promise<void> {
+            return Promise.resolve();
+        },
+        stopListening(): Promise<void> {
             return Promise.resolve();
         },
     };
