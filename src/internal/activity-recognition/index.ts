@@ -24,3 +24,5 @@ export function getActivityRecognizer(
 }
 
 export { ActivityRecognizer, RecognitionCallback } from "./recognizers";
+export { HumanActivity } from "./human-activity";
+export { ActivityChange, Transition } from "./activity-change";
