@@ -3,9 +3,9 @@ import { getLowResRecognizer } from "./recognizers/low-res";
 import { getMediumResRecognizer } from "./recognizers/medium-res";
 
 export enum Resolution {
-  LOW = "Low",
-  MEDIUM = "Medium",
-  HIGH = "High", // Reserved for a custom activity recognizer
+  LOW = "low",
+  MEDIUM = "medium",
+  HIGH = "high", // Reserved for a custom activity recognizer
 }
 
 export function getActivityRecognizer(
@@ -18,7 +18,7 @@ export function getActivityRecognizer(
       return getMediumResRecognizer();
     default:
       throw new Error(
-        `${resolution} resolution recognizer has not been implemented yet`
+        `"${resolution}" resolution recognizer has not been implemented yet`
       );
   }
 }

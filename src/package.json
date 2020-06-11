@@ -59,6 +59,8 @@
 		"tslint": "^5.12.1",
 		"semver": "^5.6.0"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@nano-sql/adapter-sqlite-nativescript": "^2.0.3"
+	},
 	"bootstrapper": "nativescript-plugin-seed"
 }
