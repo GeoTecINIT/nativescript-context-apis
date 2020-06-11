@@ -3,8 +3,8 @@ import {
     getActivityRecognizer,
     Resolution,
 } from "nativescript-context-apis/internal/activity-recognition";
-import { AndroidLowResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/low-res/android";
-import { AndroidMediumResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/medium-res/android";
+import { AndroidLowResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/low-res/android/recognizer.android";
+import { AndroidMediumResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/medium-res/android/recognizer.android";
 
 describe("Activity recognition module", () => {
     it("returns a low res recognizer when asked", () => {

@@ -1,7 +1,7 @@
 import { android as androidApp } from "tns-core-modules/application/application";
 
 import { ActivityRecognizer } from "../index";
-import { getAndroidMediumResRecognizer } from "./android";
+import { getAndroidMediumResRecognizer } from "./android/recognizer.android";
 
 export function getMediumResRecognizer(): ActivityRecognizer {
   if (androidApp) {
