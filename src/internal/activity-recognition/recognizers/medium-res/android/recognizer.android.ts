@@ -1,15 +1,31 @@
 import { ActivityRecognizer, RecognitionCallback } from "../../index";
 
 export class AndroidMediumResRecognizer implements ActivityRecognizer {
+  isReady(): Promise<boolean> {
+    throw new Error("Unimplemented");
+  }
+
+  prepare(): Promise<void> {
+    throw new Error("Unimplemented");
+  }
+
   setup(): Promise<void> {
     throw new Error("Unimplemented");
   }
 
-  startRecognizing(callback: RecognitionCallback): Promise<number> {
+  startRecognizing(): Promise<void> {
     throw new Error("Unimplemented");
   }
 
-  stopRecognizing(listenerId?: number) {
+  stopRecognizing(): Promise<void> {
+    throw new Error("Unimplemented");
+  }
+
+  listenActivityChanges(callback: RecognitionCallback): number {
+    throw new Error("Unimplemented");
+  }
+
+  stopListening(listenerId?: number) {
     throw new Error("Unimplemented");
   }
 }

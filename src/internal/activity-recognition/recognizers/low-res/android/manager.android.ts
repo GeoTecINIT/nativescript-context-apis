@@ -1,11 +1,19 @@
-import { RecognizerStateStore } from "../../state/store";
+import { RecognizerManager } from "../../recognizer-manager";
 
-export class AndroidLowResRecognizerManager {
-  constructor(private recognizerState: RecognizerStateStore) {}
+export class AndroidLowResRecognizerManager implements RecognizerManager {
+  isReady(): Promise<boolean> {
+    throw new Error("Unimplemented");
+  }
 
-  async setup(): Promise<void> {}
+  prepare(): Promise<void> {
+    throw new Error("Unimplemented");
+  }
 
-  async startListening(): Promise<void> {}
+  async startListening(): Promise<void> {
+    throw new Error("Unimplemented");
+  }
 
-  async stopListening(): Promise<void> {}
+  async stopListening(): Promise<void> {
+    throw new Error("Unimplemented");
+  }
 }
