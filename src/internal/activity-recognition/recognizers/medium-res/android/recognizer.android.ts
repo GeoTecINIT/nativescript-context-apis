@@ -1,7 +1,7 @@
 import { ActivityRecognizer, RecognitionCallback } from "../../index";
 
 export class AndroidMediumResRecognizer implements ActivityRecognizer {
-  isReady(): Promise<boolean> {
+  isReady(): boolean {
     throw new Error("Unimplemented");
   }
 

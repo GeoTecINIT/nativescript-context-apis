@@ -19,7 +19,7 @@ export class AndroidLowResRecognizer implements ActivityRecognizer {
     private callbackManager: RecognizerCallbackManager
   ) {}
 
-  isReady(): Promise<boolean> {
+  isReady(): boolean {
     return this.recognitionManager.isReady();
   }
 

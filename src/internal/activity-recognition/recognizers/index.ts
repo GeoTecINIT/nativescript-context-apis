@@ -3,7 +3,7 @@ import { ActivityChange } from "../activity-change";
 export type RecognitionCallback = (activityChange: ActivityChange) => void;
 
 export interface ActivityRecognizer {
-  isReady(): Promise<boolean>;
+  isReady(): boolean;
   prepare(): Promise<void>;
   setup(): Promise<void>;
   startRecognizing(): Promise<void>;

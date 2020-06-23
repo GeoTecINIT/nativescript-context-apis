@@ -38,8 +38,8 @@ export function createRecognizersStateStoreMock(): RecognizerStateStore {
 
 export function createRecognizerManagerMock(): RecognizerManager {
     return {
-        isReady(): Promise<boolean> {
-            return Promise.resolve(true);
+        isReady(): boolean {
+            return true;
         },
         prepare() {
             return Promise.resolve();

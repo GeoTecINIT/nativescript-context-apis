@@ -46,8 +46,8 @@ describe("Android low resolution activity recognizer", () => {
         spyOn(callbackManager, "notifyAll");
     });
 
-    it("allows to ask the underlying system if it is ready", async () => {
-        const isReady = await recognizer.isReady();
+    it("allows to ask the underlying system if it is ready", () => {
+        const isReady = recognizer.isReady();
         expect(recognizerManager.isReady).toHaveBeenCalled();
         expect(isReady).toBeTrue();
     });
