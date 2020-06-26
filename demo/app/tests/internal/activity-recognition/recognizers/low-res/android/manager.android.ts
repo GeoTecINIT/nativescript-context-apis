@@ -19,11 +19,21 @@ describe("Android low res recognition manager", () => {
     });
 
     it("allows to start listening to native transition changes", async () => {
-        await recognizerManager.startListening();
+        try {
+            await recognizerManager.startListening();
+        } catch (e) {
+            const isReady = recognizerManager.isReady();
+            expect(isReady).toBeFalse();
+        }
     });
 
     it("allows to stop listening to native transition changes", async () => {
-        await recognizerManager.stopListening();
+        try {
+            await recognizerManager.stopListening();
+        } catch (e) {
+            const isReady = recognizerManager.isReady();
+            expect(isReady).toBeFalse();
+        }
     });
 
     afterAll(async () => {

@@ -13,22 +13,37 @@ import OnSuccessListener = com.google.android.gms.tasks.OnSuccessListener;
 import OnFailureListener = com.google.android.gms.tasks.OnFailureListener;
 import ActivityRecognition = com.google.android.gms.location.ActivityRecognition;
 import Task = com.google.android.gms.tasks.Task;
+import GoogleApiAvailability = com.google.android.gms.common.GoogleApiAvailability;
+
+const CONNECTION_RESULT_SUCCESS = 0;
 
 export class AndroidLowResRecognizerManager implements RecognizerManager {
   private pendingIntent: PendingIntent;
 
   isReady(): boolean {
+    if (!this.isGooglePlayServicesAvailable()) {
+      return false;
+    }
     if (android.os.Build.VERSION.SDK_INT < 29) {
       return true;
     }
     return hasPermission(android.Manifest.permission.ACTIVITY_RECOGNITION);
   }
 
-  prepare(): Promise<void> {
-    if (android.os.Build.VERSION.SDK_INT < 29) {
-      return Promise.resolve();
+  async prepare(): Promise<void> {
+    if (!this.isGooglePlayServicesAvailable()) {
+      await this.promisify(
+        GoogleApiAvailability.getInstance().makeGooglePlayServicesAvailable(
+          androidApp.foregroundActivity
+        )
+      );
     }
-    return requestPermission(android.Manifest.permission.ACTIVITY_RECOGNITION);
+    if (android.os.Build.VERSION.SDK_INT < 29) {
+      return;
+    }
+    if (!hasPermission(android.Manifest.permission.ACTIVITY_RECOGNITION)) {
+      await requestPermission(android.Manifest.permission.ACTIVITY_RECOGNITION);
+    }
   }
 
   async startListening(): Promise<void> {
@@ -120,6 +135,14 @@ export class AndroidLowResRecognizerManager implements RecognizerManager {
     return new Intent(
       androidApp.context,
       es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiver.class
+    );
+  }
+
+  private isGooglePlayServicesAvailable(): boolean {
+    return (
+      GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
+        androidApp.context
+      ) === CONNECTION_RESULT_SUCCESS
     );
   }
 
