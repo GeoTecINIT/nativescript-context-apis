@@ -2,7 +2,10 @@ import { RecognizerCallbackManager } from "nativescript-context-apis/internal/ac
 import { RecognitionCallback } from "nativescript-context-apis/internal/activity-recognition/recognizers";
 import { ActivityChange } from "nativescript-context-apis/internal/activity-recognition";
 import { RecognizerStateStore } from "nativescript-context-apis/internal/activity-recognition/recognizers/state/store";
-import { Resolution } from "nativescript-context-apis/internal/activity-recognition";
+import {
+    Resolution,
+    HumanActivity,
+} from "nativescript-context-apis/internal/activity-recognition";
 import { RecognizerManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/recognizer-manager";
 
 export function createCallbackManagerMock(): RecognizerCallbackManager {
@@ -31,6 +34,15 @@ export function createRecognizersStateStoreMock(): RecognizerStateStore {
             return Promise.resolve();
         },
         markAsInactive(recognizer: Resolution): Promise<void> {
+            return Promise.resolve();
+        },
+        getLastActivity(recognizer: Resolution): Promise<HumanActivity> {
+            return Promise.resolve(null);
+        },
+        updateLastActivity(
+            recognizer: Resolution,
+            activity: HumanActivity
+        ): Promise<void> {
             return Promise.resolve();
         },
     };

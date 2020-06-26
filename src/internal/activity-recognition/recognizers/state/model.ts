@@ -5,5 +5,6 @@ export const recognizersStateModel: InanoSQLTableConfig = {
   model: {
     "id:string": { pk: true },
     "active:boolean": {},
+    "lastActivity:string": {},
   },
 };
