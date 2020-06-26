@@ -1,5 +1,4 @@
-import { Common } from './context-apis.common';
+import { Common } from "./context-apis.common";
 
-export class ContextApis extends Common {
-
-}
+export class ContextApis extends Common {}
+export const contextApis = new ContextApis();

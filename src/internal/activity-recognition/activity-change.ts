@@ -1,13 +1,13 @@
 import { HumanActivity } from "./human-activity";
 
 export enum Transition {
-  STARTED,
-  ENDED,
+  STARTED = "started",
+  ENDED = "ended",
 }
 
 export interface ActivityChange {
   type: HumanActivity;
-  change: Transition;
+  transition: Transition;
   confidence?: number;
   timestamp: Date;
 }

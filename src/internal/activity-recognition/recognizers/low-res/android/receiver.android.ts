@@ -6,6 +6,7 @@ import { getAndroidLowResRecognizer } from "./recognizer.android";
 import { HumanActivity } from "../../../human-activity";
 import { ActivityChange, Transition } from "../../../activity-change";
 import ActivityTransitionEvent = com.google.android.gms.location.ActivityTransitionEvent;
+import SystemClock = android.os.SystemClock;
 
 export class AndroidActivityTransitionReceiver
   implements ActivityTransitionReceiver {
@@ -24,7 +25,7 @@ export class AndroidActivityTransitionReceiver
       const event = events[i] as ActivityTransitionEvent;
       const activityChange: ActivityChange = {
         type: this.activityTypeToHumanActivity(event.getActivityType()),
-        change: this.transitionTypeToActivityTransition(
+        transition: this.transitionTypeToActivityTransition(
           event.getTransitionType()
         ),
         timestamp: this.elapsedRealtimeToDate(event.getElapsedRealTimeNanos()),
@@ -69,8 +70,18 @@ export class AndroidActivityTransitionReceiver
   }
 
   private elapsedRealtimeToDate(elapsed: number) {
+    const nanosSinceBoot = SystemClock.elapsedRealtimeNanos();
     const now = Date.now();
-    const elapsedMillis = elapsed / 1e6;
+    const diff = nanosSinceBoot - elapsed;
+    const elapsedMillis = diff / 1e6;
     return new Date(now - elapsedMillis);
   }
+}
+
+let _transitionReceiver: AndroidActivityTransitionReceiver;
+export function getAndroidActivityTransitionReceiver(): AndroidActivityTransitionReceiver {
+  if (!_transitionReceiver) {
+    _transitionReceiver = new AndroidActivityTransitionReceiver();
+  }
+  return _transitionReceiver;
 }

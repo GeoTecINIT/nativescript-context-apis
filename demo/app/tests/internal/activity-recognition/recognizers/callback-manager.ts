@@ -12,7 +12,7 @@ describe("Recognizer callback manager", () => {
 
     const activityChange: ActivityChange = {
         type: HumanActivity.RUNNING,
-        change: Transition.STARTED,
+        transition: Transition.STARTED,
         timestamp: new Date(),
     };
 

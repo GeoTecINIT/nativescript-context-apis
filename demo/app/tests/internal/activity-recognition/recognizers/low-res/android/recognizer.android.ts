@@ -151,7 +151,7 @@ describe("Android low resolution activity recognizer", () => {
     it("propagates an activity change to all its listeners", () => {
         const activityChange: ActivityChange = {
             type: HumanActivity.RUNNING,
-            change: Transition.STARTED,
+            transition: Transition.STARTED,
             timestamp: new Date(),
         };
         recognizer.onNewActivityChange(activityChange);
