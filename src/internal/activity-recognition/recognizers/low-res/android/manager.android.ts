@@ -1,14 +1,11 @@
-import {
-  AndroidAbstractRecognizerManager,
-  StartOptions,
-} from "../../abstract-manager.android";
+import { AndroidAbstractRecognizerManager } from "../../abstract-manager.android";
+import { StartOptions } from "../../index";
 
 import ActivityTransitionReceiver = es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiver;
-
 import Context = android.content.Context;
 import PendingIntent = android.app.PendingIntent;
-import Task = com.google.android.gms.tasks.Task;
 
+import Task = com.google.android.gms.tasks.Task;
 import ActivityRecognition = com.google.android.gms.location.ActivityRecognition;
 import ActivityTransitionRequest = com.google.android.gms.location.ActivityTransitionRequest;
 import ArrayList = java.util.ArrayList;

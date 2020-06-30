@@ -1,67 +1,29 @@
+import { AbstractActivityRecognizer } from "../../abstract-recognizer";
+
 import {
   recognizersStateStoreDb,
   RecognizerStateStore,
 } from "../../state/store";
-import { RecognizerManager } from "../../recognizer-manager";
-import { AndroidLowResRecognizerManager } from "./manager.android";
 import { RecognizerCallbackManager } from "../../callback-manager";
+import { RecognizerManager } from "../../recognizer-manager";
 
-import { ActivityRecognizer, RecognitionCallback } from "../../index";
 import { ActivityChange } from "../../../activity-change";
 import { Resolution } from "../../../index";
 
-export class AndroidLowResRecognizer implements ActivityRecognizer {
-  private readonly recognizerType = Resolution.LOW;
+import { AndroidLowResRecognizerManager } from "./manager.android";
 
+export class AndroidLowResRecognizer extends AbstractActivityRecognizer {
   constructor(
-    private recognizersState: RecognizerStateStore,
-    private recognitionManager: RecognizerManager,
-    private callbackManager: RecognizerCallbackManager
-  ) {}
-
-  isReady(): boolean {
-    return this.recognitionManager.isReady();
-  }
-
-  async prepare(): Promise<void> {
-    await this.recognitionManager.prepare();
-  }
-
-  async setup(): Promise<void> {
-    const active = await this.recognizersState.isActive(this.recognizerType);
-    if (active) {
-      await this.recognitionManager.startListening();
-    }
-  }
-
-  async startRecognizing(): Promise<void> {
-    const active = await this.recognizersState.isActive(this.recognizerType);
-    if (active) {
-      return;
-    }
-    await this.recognitionManager.startListening();
-    await this.recognizersState.markAsActive(this.recognizerType);
-  }
-
-  async stopRecognizing(): Promise<void> {
-    const active = await this.recognizersState.isActive(this.recognizerType);
-    if (!active) {
-      return;
-    }
-    await this.recognitionManager.stopListening();
-    await this.recognizersState.markAsInactive(this.recognizerType);
-  }
-
-  listenActivityChanges(callback: RecognitionCallback): number {
-    return this.callbackManager.add(callback);
-  }
-
-  stopListening(listenerId?: number) {
-    if (typeof listenerId === "number") {
-      this.callbackManager.remove(listenerId);
-    } else {
-      this.callbackManager.removeAll();
-    }
+    recognizersState: RecognizerStateStore,
+    callbackManager: RecognizerCallbackManager,
+    recognitionManager: RecognizerManager
+  ) {
+    super(
+      Resolution.LOW,
+      recognizersState,
+      callbackManager,
+      recognitionManager
+    );
   }
 
   onNewActivityChange(activityChange: ActivityChange) {
@@ -74,8 +36,8 @@ export function getAndroidLowResRecognizer(): AndroidLowResRecognizer {
   if (!_instance) {
     _instance = new AndroidLowResRecognizer(
       recognizersStateStoreDb,
-      new AndroidLowResRecognizerManager(),
-      new RecognizerCallbackManager()
+      new RecognizerCallbackManager(),
+      new AndroidLowResRecognizerManager()
     );
   }
   return _instance;

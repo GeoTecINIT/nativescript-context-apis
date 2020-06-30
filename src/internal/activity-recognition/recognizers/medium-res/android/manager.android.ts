@@ -1,7 +1,5 @@
-import {
-  AndroidAbstractRecognizerManager,
-  StartOptions,
-} from "../../abstract-manager.android";
+import { AndroidAbstractRecognizerManager } from "../../abstract-manager.android";
+import { StartOptions } from "../../index";
 
 import ActivityUpdateReceiver = es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiver;
 import ActivityRecognition = com.google.android.gms.location.ActivityRecognition;

@@ -1,6 +1,7 @@
 export {
   getActivityRecognizer,
   ActivityRecognizer,
+  StartOptions,
   RecognitionCallback,
   Resolution,
   ActivityChange,

@@ -2,6 +2,8 @@ import { RecognizerManager } from "./recognizer-manager";
 import { hasPermission, requestPermission } from "nativescript-permissions";
 import { android as androidApp } from "@nativescript/core/application";
 
+import { StartOptions } from "./index";
+
 import Intent = android.content.Intent;
 import PendingIntent = android.app.PendingIntent;
 import Context = android.content.Context;
@@ -111,10 +113,6 @@ export abstract class AndroidAbstractRecognizerManager
     }
     return this.pendingIntent;
   }
-}
-
-export interface StartOptions {
-  detectionInterval?: number;
 }
 
 const CONNECTION_RESULT_SUCCESS = 0;
