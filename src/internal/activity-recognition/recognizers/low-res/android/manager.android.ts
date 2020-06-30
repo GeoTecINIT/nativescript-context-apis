@@ -1,94 +1,43 @@
-import { android as androidApp } from "tns-core-modules/application/application";
+import {
+  AndroidAbstractRecognizerManager,
+  StartOptions,
+} from "../../abstract-manager.android";
 
-import { RecognizerManager } from "../../recognizer-manager";
-import { hasPermission, requestPermission } from "nativescript-permissions";
+import ActivityTransitionReceiver = es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiver;
 
+import Context = android.content.Context;
+import PendingIntent = android.app.PendingIntent;
+import Task = com.google.android.gms.tasks.Task;
+
+import ActivityRecognition = com.google.android.gms.location.ActivityRecognition;
 import ActivityTransitionRequest = com.google.android.gms.location.ActivityTransitionRequest;
 import ArrayList = java.util.ArrayList;
 import ActivityTransition = com.google.android.gms.location.ActivityTransition;
-import PendingIntent = android.app.PendingIntent;
-import Intent = android.content.Intent;
 import DetectedActivity = com.google.android.gms.location.DetectedActivity;
-import OnSuccessListener = com.google.android.gms.tasks.OnSuccessListener;
-import OnFailureListener = com.google.android.gms.tasks.OnFailureListener;
-import ActivityRecognition = com.google.android.gms.location.ActivityRecognition;
-import Task = com.google.android.gms.tasks.Task;
-import GoogleApiAvailability = com.google.android.gms.common.GoogleApiAvailability;
 
-const CONNECTION_RESULT_SUCCESS = 0;
-
-export class AndroidLowResRecognizerManager implements RecognizerManager {
-  private pendingIntent: PendingIntent;
-
-  isReady(): boolean {
-    if (!this.isGooglePlayServicesAvailable()) {
-      return false;
-    }
-    if (android.os.Build.VERSION.SDK_INT < 29) {
-      return true;
-    }
-    return hasPermission(android.Manifest.permission.ACTIVITY_RECOGNITION);
+export class AndroidLowResRecognizerManager extends AndroidAbstractRecognizerManager {
+  constructor() {
+    super(ActivityTransitionReceiver.class);
   }
 
-  async prepare(): Promise<void> {
-    if (!this.isGooglePlayServicesAvailable()) {
-      await this.promisify(
-        GoogleApiAvailability.getInstance().makeGooglePlayServicesAvailable(
-          androidApp.foregroundActivity
-        )
-      );
-    }
-    if (android.os.Build.VERSION.SDK_INT < 29) {
-      return;
-    }
-    if (!hasPermission(android.Manifest.permission.ACTIVITY_RECOGNITION)) {
-      await requestPermission(android.Manifest.permission.ACTIVITY_RECOGNITION);
-    }
-  }
-
-  async startListening(): Promise<void> {
-    if (this.isUp()) {
-      return;
-    }
-
-    if (!this.isReady()) {
-      throw new Error(
-        "Manager is not ready!. Call isReady() before start listening."
-      );
-    }
-
+  protected handleStart(
+    context: Context,
+    pendingIntent: PendingIntent,
+    options: StartOptions
+  ): Task<any> {
     const request = this.buildTransitionRequest();
-    const task = ActivityRecognition.getClient(
-      androidApp.context
-    ).requestActivityTransitionUpdates(request, this.getPendingIntent());
-
-    await this.promisify(task);
+    return ActivityRecognition.getClient(
+      context
+    ).requestActivityTransitionUpdates(request, pendingIntent);
   }
 
-  async stopListening(): Promise<void> {
-    if (!this.isUp()) {
-      return;
-    }
-
-    const pendingIntent = this.getPendingIntent();
-    const task = ActivityRecognition.getClient(
-      androidApp.context
+  protected handleStop(
+    context: Context,
+    pendingIntent: PendingIntent
+  ): Task<any> {
+    return ActivityRecognition.getClient(
+      context
     ).removeActivityTransitionUpdates(pendingIntent);
-    pendingIntent.cancel();
-    this.pendingIntent = null;
-
-    await this.promisify(task);
-  }
-
-  private isUp(): boolean {
-    const receiverIntent = this.createReceiverIntent();
-    const pendingIntent = PendingIntent.getBroadcast(
-      androidApp.context,
-      0,
-      receiverIntent,
-      PendingIntent.FLAG_NO_CREATE
-    );
-    return pendingIntent !== null;
   }
 
   private buildTransitionRequest(): ActivityTransitionRequest {
@@ -116,54 +65,5 @@ export class AndroidLowResRecognizerManager implements RecognizerManager {
       );
     });
     return transitions;
-  }
-
-  private getPendingIntent(): PendingIntent {
-    if (!this.pendingIntent) {
-      const receiverIntent = this.createReceiverIntent();
-      this.pendingIntent = PendingIntent.getBroadcast(
-        androidApp.context,
-        0,
-        receiverIntent,
-        0
-      );
-    }
-    return this.pendingIntent;
-  }
-
-  private createReceiverIntent(): Intent {
-    return new Intent(
-      androidApp.context,
-      es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiver.class
-    );
-  }
-
-  private isGooglePlayServicesAvailable(): boolean {
-    return (
-      GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
-        androidApp.context
-      ) === CONNECTION_RESULT_SUCCESS
-    );
-  }
-
-  private promisify(task: Task<any>): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-      task.addOnSuccessListener(this.getOnSuccessListener(resolve));
-      task.addOnFailureListener(this.getOnFailureListener(reject));
-    });
-  }
-
-  private getOnSuccessListener(onSuccess: () => void) {
-    return new OnSuccessListener({
-      onSuccess,
-    });
-  }
-
-  private getOnFailureListener(onFailure: (e: Error) => void) {
-    return new OnFailureListener({
-      onFailure(ex: java.lang.Exception) {
-        onFailure(new Error(ex.getMessage()));
-      },
-    });
   }
 }
