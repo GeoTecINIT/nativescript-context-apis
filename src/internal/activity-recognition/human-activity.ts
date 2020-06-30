@@ -4,4 +4,5 @@ export enum HumanActivity {
   RUNNING = "running",
   ON_BICYCLE = "on_bicycle",
   IN_VEHICLE = "in_vehicle",
+  TILTING = "tilting", // Device angle changed significantly
 }

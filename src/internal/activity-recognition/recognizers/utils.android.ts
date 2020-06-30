@@ -1,6 +1,5 @@
 import { HumanActivity } from "../human-activity";
 import { Transition } from "../activity-change";
-
 import DetectedActivity = com.google.android.gms.location.DetectedActivity;
 import ActivityTransition = com.google.android.gms.location.ActivityTransition;
 import SystemClock = android.os.SystemClock;
@@ -15,10 +14,14 @@ export function activityTypeToHumanActivity(
       return HumanActivity.WALKING;
     case DetectedActivity.RUNNING:
       return HumanActivity.RUNNING;
+    case DetectedActivity.ON_FOOT:
+      return HumanActivity.WALKING;
     case DetectedActivity.ON_BICYCLE:
       return HumanActivity.ON_BICYCLE;
     case DetectedActivity.IN_VEHICLE:
       return HumanActivity.IN_VEHICLE;
+    case DetectedActivity.TILTING:
+      return HumanActivity.TILTING;
     default:
       throw new Error(
         `Unrecognized activity: ${activityType} (search Android docs for DetectedActivity int value meaning).`
