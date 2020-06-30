@@ -22,7 +22,19 @@ export function onNavigatingTo(args: NavigatedData) {
         })
         .catch((err) => {
             console.error(
-                `An error occurred while listening to activity changes: ${err}`
+                `An error occurred while listening to low res activity changes: ${err}`
+            );
+        });
+
+    listenToMediumResActivityUpdates()
+        .then(() => {
+            console.log(
+                "Medium res activity recognizer is now listening to activity changes!"
+            );
+        })
+        .catch((err) => {
+            console.error(
+                `An error occurred while listening to medium res activity changes: ${err}`
             );
         });
 }
@@ -37,11 +49,40 @@ async function listenToLowResActivityUpdates() {
     console.log("Low res activity recognizer is ready");
     const listenerId = lowResRecognizer.listenActivityChanges(
         (activityChange) => {
-            console.log(activityChange);
+            console.log(
+                `LowResRecognizer. ActivityChange: ${JSON.stringify(
+                    activityChange
+                )}`
+            );
         }
     );
     console.log(
         `Low res activity recognizer has registered a listener (id: ${listenerId})`
     );
     await lowResRecognizer.startRecognizing();
+}
+
+async function listenToMediumResActivityUpdates() {
+    const mediumResRecognizer = contextApis.getActivityRecognizer(
+        Resolution.MEDIUM
+    );
+    const isReady = mediumResRecognizer.isReady();
+    if (!isReady) {
+        console.log("Up to prepare medium res activity recognizer...");
+        await mediumResRecognizer.prepare();
+    }
+    console.log("Medium res activity recognizer is ready");
+    const listenerId = mediumResRecognizer.listenActivityChanges(
+        (activityChange) => {
+            console.log(
+                `MediumResRecognizer. ActivityChange: ${JSON.stringify(
+                    activityChange
+                )}`
+            );
+        }
+    );
+    console.log(
+        `Medium res activity recognizer has registered a listener (id: ${listenerId})`
+    );
+    await mediumResRecognizer.startRecognizing({ detectionInterval: 10 * 1e3 });
 }
