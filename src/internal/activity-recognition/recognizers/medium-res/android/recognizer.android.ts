@@ -29,6 +29,11 @@ export class AndroidMediumResRecognizer extends AbstractActivityRecognizer {
     const lastActivity = await this.recognizerState.getLastActivity(
       this.recognizerType
     );
+
+    if (lastActivity === result.type) {
+      return;
+    }
+
     if (lastActivity) {
       this.callbackManager.notifyAll({
         type: lastActivity,

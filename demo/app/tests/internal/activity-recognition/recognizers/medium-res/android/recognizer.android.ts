@@ -200,4 +200,17 @@ describe("Android medium resolution activity recognizer", () => {
         );
         expect(callbackManager.notifyAll).toHaveBeenCalledWith(activityChange);
     });
+
+    it("does nothing when an activity is the same than the last one", async () => {
+        spyOn(recognizerState, "getLastActivity")
+            .withArgs(recognizerType)
+            .and.returnValue(Promise.resolve(HumanActivity.STILL));
+
+        await recognizer.onRecognitionResult({
+            type: HumanActivity.STILL,
+            confidence: 0.95,
+            timestamp: new Date(),
+        });
+        expect(callbackManager.notifyAll).not.toHaveBeenCalled();
+    });
 });
