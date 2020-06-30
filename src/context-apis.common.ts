@@ -8,7 +8,7 @@ import {
 export class Common extends Observable {
   async init(): Promise<void> {
     await getActivityRecognizer(Resolution.LOW).setup();
-    // await getActivityRecognizer(Resolution.MEDIUM).setup();
+    await getActivityRecognizer(Resolution.MEDIUM).setup();
     // await getActivityRecognizer(Resolution.HIGH).setup();
   }
 
