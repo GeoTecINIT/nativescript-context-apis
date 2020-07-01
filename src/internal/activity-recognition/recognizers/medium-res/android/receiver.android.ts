@@ -1,6 +1,8 @@
 import ActivityUpdateReceiver = es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiver;
 import ActivityRecognitionResult = com.google.android.gms.location.ActivityRecognitionResult;
 
+import DetectedActivity = com.google.android.gms.location.DetectedActivity;
+
 import {
   ActivityUpdate,
   getAndroidMediumResRecognizer,
@@ -22,6 +24,10 @@ export class AndroidActivityUpdateReceiver implements ActivityUpdateReceiver {
     const recognizer = getAndroidMediumResRecognizer();
 
     const mostProbableActivity = result.getMostProbableActivity();
+    if (mostProbableActivity.getType() === DetectedActivity.UNKNOWN) {
+      return;
+    }
+
     const activityUpdate: ActivityUpdate = {
       type: activityTypeToHumanActivity(mostProbableActivity.getType()),
       confidence: mostProbableActivity.getConfidence() / 100.0,
