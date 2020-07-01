@@ -5,84 +5,82 @@ logic, and to set up your page’s data binding.
 */
 
 import { NavigatedData, Page } from "tns-core-modules/ui/page";
+import {
+    on,
+    resumeEvent,
+    suspendEvent,
+} from "tns-core-modules/application/application";
 
 import { HomeViewModel } from "./home-view-model";
 import { contextApis } from "nativescript-context-apis";
-import { Resolution } from "nativescript-context-apis/activity-recognition";
+import { Resolution } from "../../../src/internal/activity-recognition";
+
+const activityRecognizers = [Resolution.LOW, Resolution.MEDIUM];
 
 export function onNavigatingTo(args: NavigatedData) {
     const page = <Page>args.object;
 
     page.bindingContext = new HomeViewModel();
-    listenToLowResActivityUpdates()
-        .then(() => {
-            console.log(
-                "Low res activity recognizer is now listening to activity changes!"
-            );
-        })
-        .catch((err) => {
-            console.error(
-                `An error occurred while listening to low res activity changes: ${err}`
-            );
-        });
 
-    listenToMediumResActivityUpdates()
-        .then(() => {
-            console.log(
-                "Medium res activity recognizer is now listening to activity changes!"
-            );
-        })
-        .catch((err) => {
-            console.error(
-                `An error occurred while listening to medium res activity changes: ${err}`
-            );
-        });
+    on(resumeEvent, () => {
+        listenToActivityChanges();
+    });
+
+    on(suspendEvent, () => {
+        stopListeningToChanges();
+    });
+
+    listenToActivityChanges(true);
 }
 
-async function listenToLowResActivityUpdates() {
-    const lowResRecognizer = contextApis.getActivityRecognizer(Resolution.LOW);
-    const isReady = lowResRecognizer.isReady();
-    if (!isReady) {
-        console.log("Up to prepare low res activity recognizer...");
-        await lowResRecognizer.prepare();
-    }
-    console.log("Low res activity recognizer is ready");
-    const listenerId = lowResRecognizer.listenActivityChanges(
-        (activityChange) => {
-            console.log(
-                `LowResRecognizer. ActivityChange: ${JSON.stringify(
-                    activityChange
-                )}`
+export function listenToActivityChanges(addListener = false) {
+    activityRecognizers.forEach((recognizerType) => {
+        listenToActivityChangesFor(recognizerType, addListener).catch((err) => {
+            console.error(
+                `An error occurred while listening to ${recognizerType} res activity changes: ${err}`
             );
-        }
-    );
-    console.log(
-        `Low res activity recognizer has registered a listener (id: ${listenerId})`
-    );
-    await lowResRecognizer.startRecognizing();
+        });
+    });
 }
 
-async function listenToMediumResActivityUpdates() {
-    const mediumResRecognizer = contextApis.getActivityRecognizer(
-        Resolution.MEDIUM
-    );
-    const isReady = mediumResRecognizer.isReady();
+function stopListeningToChanges() {
+    activityRecognizers.forEach((recognizerType) => {
+        contextApis.getActivityRecognizer(recognizerType).stopRecognizing();
+        console.log(
+            `low res activity recognizer is no longer listening to changes`
+        );
+    });
+}
+
+async function listenToActivityChangesFor(
+    recognizerType: Resolution,
+    addListener: boolean
+) {
+    const recognizer = contextApis.getActivityRecognizer(recognizerType);
+    const isReady = recognizer.isReady();
     if (!isReady) {
-        console.log("Up to prepare medium res activity recognizer...");
-        await mediumResRecognizer.prepare();
+        console.log(
+            `Up to prepare ${recognizerType} res activity recognizer...`
+        );
+        await recognizer.prepare();
     }
-    console.log("Medium res activity recognizer is ready");
-    const listenerId = mediumResRecognizer.listenActivityChanges(
-        (activityChange) => {
-            console.log(
-                `MediumResRecognizer. ActivityChange: ${JSON.stringify(
-                    activityChange
-                )}`
-            );
-        }
-    );
+    console.log(`${recognizerType} res activity recognizer is ready`);
+    if (addListener) {
+        const listenerId = recognizer.listenActivityChanges(
+            (activityChange) => {
+                console.log(
+                    `${recognizerType}ResRecognizer. ActivityChange: ${JSON.stringify(
+                        activityChange
+                    )}`
+                );
+            }
+        );
+        console.log(
+            `${recognizerType} res activity recognizer has registered a listener (id: ${listenerId})`
+        );
+    }
+    await recognizer.startRecognizing();
     console.log(
-        `Medium res activity recognizer has registered a listener (id: ${listenerId})`
+        `${recognizerType} res activity recognizer is now listening to activity changes!`
     );
-    await mediumResRecognizer.startRecognizing({ detectionInterval: 10 * 1e3 });
 }
