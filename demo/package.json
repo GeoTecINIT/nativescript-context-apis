@@ -15,6 +15,7 @@
     "@nativescript/theme": "~2.3.0",
     "nativescript-context-apis": "file:../src",
     "nativescript-unit-test-runner": "^0.7.0",
+    "rxjs": "^6.5.5",
     "tns-core-modules": "~6.5.0"
   },
   "devDependencies": {
