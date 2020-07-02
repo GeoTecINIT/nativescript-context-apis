@@ -8,21 +8,21 @@ Painless access to contextual information for your NativeScript apps. Does your 
 
 Currently we offer:
 
-* Coarse- and medium-grained human activity detection (Android only): Coarse activity detection (user being still, walking, running, riding a bike or on a vehicle) will notify your app when the user starts or ends an activity and when did it happen. Medium grained detection will allow you to specify the detection interval and leaves for you in-activity filtering. For example, the plugin will report a transition from being in a vehicle to being still when the vehicle stops at a traffic light, thing that does not happen with the coarse activity detection mechanism. [More info here](https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient).
-* Current user location and location stream (with distance filtering): The plugin offers coarse- and fine-grained location reporting. We offer the functionality set by the [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) plugin, extending it with [RxJS Observable](https://rxjs-dev.firebaseapp.com/guide/observable) streams for location stream. By obtaining user locations wrapped in an Observable, you'll able to filter them, take the best one among a small amount of them or control the stream quite easily by means of the [RxJS Operators](https://rxjs-dev.firebaseapp.com/guide/operators).
+- **Coarse- and medium-grained human activity detection (Android only):** Coarse activity detection (user being still, walking, running, riding a bike or on a vehicle) will notify your app when the user starts or ends an activity and when did it happen. Medium grained detection will allow you to specify the detection interval and leaves for you in-activity filtering. For example, the plugin will report a transition from being in a vehicle to being still when the vehicle stops at a traffic light, thing that does not happen with the coarse activity detection mechanism. [More info here](https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient).
+- **Current user location and location stream (with distance filtering):** The plugin offers coarse- and fine-grained location reporting. We offer the functionality set by the [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) plugin, extending it with [RxJS Observable](https://rxjs-dev.firebaseapp.com/guide/observable) streams for location stream. By obtaining user locations wrapped in an Observable, you'll able to filter them, take the best one among a small amount of them or control the stream quite easily by means of the [RxJS Operators](https://rxjs-dev.firebaseapp.com/guide/operators).
 
 What we plan to offer in the future:
-* Low level access to on-device sensors (accelerometer, gyroscope, compass, etc.).
-* Human activity detection in iOS too.
-* A whole new fine-grained human activity detection mechanism, based on real-time sensor monitoring.
-* User location reverse geocoding.
-* Weather at current user location. 
+- Low level access to on-device sensors (accelerometer, gyroscope, compass, etc.).
+- Human activity detection in iOS too.
+- A whole new fine-grained human activity detection mechanism, based on real-time sensor monitoring.
+- User location reverse geocoding.
+- Weather at current user location. 
 
 ## (Optional) Prerequisites
 
 ### Android only
 
-Given that we rely on  [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) and use Google Play Services APIs for activity detection on Android devices, you might find Google Play Services version conflicts with other installed plugins.
+Given that we rely on [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) and use Google Play Services APIs for activity detection on Android devices, you might find Google Play Services version conflicts with other installed plugins.
 
 In order to avoid them, we advise you to force a specific Google Play Services version. For a better human activity detection functionality, version 17 or above is highly recommended. In order to do so, please, indicate the Google Play Services Version number in your `app/App_Resources/Android/before-plugins.gradle` file (if the file does not exist, just create it):
 
@@ -190,7 +190,7 @@ async function printLocationUpdates(): Promise<Subscription> {
     const stream = provider.locationStream({
           highAccuracy: true, // Again, accuracy is high by default
           stdInterval: 1000, // The location fetch interval
-          minInterval: 100, // Oportunistic interval (another app asked for a location)
+          minInterval: 100, // Opportunistic interval (another app asked for a location)
           timeout: 5000, // You can also specify the operation timeout (highly advised)
           maxAge: 60000, // And filter-out old locations
       });
@@ -205,17 +205,133 @@ async function printLocationUpdates(): Promise<Subscription> {
 }
 ```
 
+> Note: Check plugin demo app for further usage details
+
 ## API
 
-(WIP)
-
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
-    
-| Property | Default | Description |
+| Method signature | Return type | Description |
 | --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
-    
+| init() | `Promise<void>` | Meant to be called on application start. Only needed if your app listens to human activity changes |
+| getActivityRecognizer(resolution: [Resolution](#available-recognizer-resolutions)) | [`ActivityRecognizer`](#activityrecognizer) | Meant to be called on application start. Only needed if your app listens to human activity changes |
+| geolocationProvider | [`GeolocationProvider`](#geolocationprovider) | Property which gives access to the geolocation provider singleton |
+
+
+### Human activity recognition
+
+#### Available recognizer resolutions
+
+| Type | Description |
+| ---- | ----------- |
+| `Resolution.LOW` | Coarse-grained activity recognition. Activity changes are delivered in a push-based manner. |
+| `Resolution.MEDIUM` | Medium-grained activity recognition. Activity changes are queried at a configurable delay |
+| `Resolution.HIGH` | _Available soon_ |
+
+#### Available human activities
+
+| Type | Description |
+| ---- | ----------- |
+| `HumanActivity.STILL` | No significant movement has been detected |
+| `HumanActivity.WALKING` | Low frequency on-foot movements |
+| `HumanActivity.RUNNING` | High frequency on-foot movements |
+| `HumanActivity.ON_BICYCLE` | The device is worn while riding a bicycle |
+| `HumanActivity.IN_VEHICLE` | The device is commuting at a high speed |
+| `HumanActivity.TILTING` | Device's angle has changed noticeably |
+
+#### Available activity transitions
+
+| Type | Description |
+| ---- | ----------- |
+| `Transition.STARTED` | The related human activity has started |
+| `Transition.ENDED` | The related human activity has ended |
+
+#### [ActivityChange](https://github.com/GeoTecINIT/nativescript-context-apis/blob/master/src/internal/activity-recognition/activity-change.ts)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| type | [`HumanActivity`](#available-human-activities) | The human activity whose change has been detected |
+| transition | [`Transition`](#available-activity-transitions) | Indicates if the activity has started or ended |
+| confidence | `number` | If the underlying recognizer supports it, the degree of confidence of the detected activity (from 0 to 1) |
+| timestamp | `Date` | Indicates when was the activity change detected |
+
+#### Activity recognizer [StartOptions](https://github.com/GeoTecINIT/nativescript-context-apis/blob/master/src/internal/activity-recognition/recognizers/index.ts)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| detectionInterval | `number` | (Optional) Allows to specify recognizer detection interval (ignored in `Resolution.LOW` due to its push-based nature) |
+
+#### [ActivityRecognizer](https://github.com/GeoTecINIT/nativescript-context-apis/blob/master/src/internal/activity-recognition/recognizers/index.ts)
+
+| Method signature | Return type | Description |
+| --- | --- | --- |
+| isReady() | `boolean` | Allows to check if the activity recognizer is ready or not (i.e., required permissions have been granted) |
+| prepare() | `Promise<boolean>` | Allows to prepare the activity recognizer for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
+| setup() | `Promise<void>` | For internal usage only. Allows to adjust the recognizer to the previous state before the app was closed |
+| startRecognizing(options?: [StartOptions](#activity-recognizer-startoptions)) | `Promise<void>` | Tell the activity recognizer to start working |
+| stopRecognizing() | `Promise<void>` | Tell the activity recognizer to stop working |
+| listenActivityChanges(callback: (activityChange: ActivityChange) => void) | `number` | Add an activity changes listener |
+| stopListening(listenerId?: number) | `void` | Remove an activity changes listener. If no listener number is passed by, all the listeners will be removed instead |
+
+### Geolocation access
+
+#### [Geolocation](https://github.com/GeoTecINIT/nativescript-context-apis/blob/master/src/internal/geolocation/geolocation.ts)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| latitude | `number` | Location's latitude |
+| longitude | `number` | Location's longitude |
+| altitude | `number` | Location's altitude |
+| horizontalAccuracy | `number` | Location's horizontal accuracy (in meters) |
+| verticalAccuracy | `number` | Location's vertical accuracy (in meters) |
+| speed | `number` | Speed by the time of the location fix (in m/s) |
+| direction | `number` | Location bearing (in degrees) |
+| timestamp | `Date` | Time of the location fix |
+
+| Method signature | Return type | Description |
+| --- | --- | --- |
+| distance(to: Geolocation _OR_ GeolocationLike) | `number` | Allows to check the distance from a geolocation to another or a [GeolocationLike](#geolocationlike) object |
+
+#### [GeolocationLike](https://github.com/GeoTecINIT/nativescript-context-apis/blob/master/src/internal/geolocation/geolocation.ts) (Interface)
+
+Same as [Geolocation](#geolocation), but only latitude and longitude are mandatory. The rest of the attributes are optional.
+
+#### Geolocation acquire options
+
+Before requesting user's current location some options can be customized in order to achieve the expected result.
+
+| Property | Type | Description |
+| --- | --- | --- |
+| highAccuracy | `boolean` | Indicate if high accuracy (battery consuming) geolocation should be used. True by default |
+| timeout | `number` | Location fix maximum wait time. 5 minutes by default |
+| allowBackground | `boolean` | (iOS only) indicate if the location is going to be collected in the background. False by default |
+
+> Note: These options are identical (only the name changes) to the ones from [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation). Check plugin docs in case of doubt.
+
+#### Geolocation stream options
+
+Before requesting user's current location some options can be customized in order to achieve the expected result.
+
+| Property | Type | Description |
+| --- | --- | --- |
+| highAccuracy | `boolean` | Indicate if high accuracy (battery consuming) geolocation should be used. True by default |
+| distanceFilter | `number` | The distance in meters that the user has to cover before reporting a new location. None by default |
+| stdInterval | `number` | (Android only) The standard location fetch interval (in milliseconds). 1 minute by default |
+| minInterval | `number` | (Android only) Opportunistic location report interval (in milliseconds). 5 seconds by default. Used when another app requests the location of the user at a higher interval |
+| maxAge | `number` | How old at a maximum reported locations can be (in milliseconds from `Date.now()`). Unlimited by default |
+| timeout | `number` | Location fix maximum wait time. 5 minutes by default |
+| allowBackground | `boolean` | (iOS only) indicate if the location is going to be collected in the background. False by default |
+| saveBattery | `boolean` | (iOS only) indicate location reporting should be paused when app is no longer visible. True by default |
+
+> Note: These options are identical (only the name changes) to the ones from [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation). Check plugin docs in case of doubt.
+
+#### [GeolocationProvider](https://github.com/GeoTecINIT/nativescript-context-apis/blob/master/src/internal/geolocation/index.ts)
+
+| Method signature | Return type | Description |
+| --- | --- | --- |
+| isReady() | `boolean` | Allows to check if the provider is ready or not (i.e., required permissions have been granted) |
+| prepare() | `Promise<boolean>` | Allows to prepare the provider for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
+| acquireLocation(options: [AcquireOptions](#geolocation-acquire-options) | `Promise<Geolocation>` | Allows to obtain user's current location |
+| locationStream(options: [StreamOptions](#geolocation-stream-options) | `Observable<Geolocation>` | Allows to actively obtain user's location updates |
+
 ## Plugin authors
 
 <a href="https://github.com/agonper" title="Alberto González Pérez">
