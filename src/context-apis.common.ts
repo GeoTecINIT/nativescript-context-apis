@@ -7,11 +7,15 @@ import {
 
 import { GeolocationProvider, getGeolocationProvider } from "./geolocation";
 
+const recognizerTypes = [Resolution.LOW, Resolution.MEDIUM];
+
 export class Common extends Observable {
   async init(): Promise<void> {
-    await getActivityRecognizer(Resolution.LOW).setup();
-    await getActivityRecognizer(Resolution.MEDIUM).setup();
-    // await getActivityRecognizer(Resolution.HIGH).setup();
+    await Promise.all(
+      recognizerTypes.map((recognizerType) =>
+        getActivityRecognizer(recognizerType).setup()
+      )
+    );
   }
 
   getActivityRecognizer(resolution: Resolution): ActivityRecognizer {
