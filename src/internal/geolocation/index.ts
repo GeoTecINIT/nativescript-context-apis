@@ -18,10 +18,7 @@ export class GeolocationProvider {
     return this.adapter.isReady();
   }
 
-  prepare(
-    watchAlways = allowBackgroundByDefault,
-    openSettingsIfDenied = false
-  ): Promise<void> {
+  prepare(watchAlways = false, openSettingsIfDenied = false): Promise<void> {
     return this.adapter.prepare(watchAlways, openSettingsIfDenied);
   }
 
@@ -88,7 +85,7 @@ function geolocationOptionsToPluginOptions(
 }
 
 let _geolocationProvider: GeolocationProvider;
-function getGeolocationProvider(): GeolocationProvider {
+export function getGeolocationProvider(): GeolocationProvider {
   if (!_geolocationProvider) {
     _geolocationProvider = new GeolocationProvider(new GeolocationAdapter());
   }

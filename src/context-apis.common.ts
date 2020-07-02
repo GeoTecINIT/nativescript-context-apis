@@ -5,6 +5,8 @@ import {
   Resolution,
 } from "./activity-recognition";
 
+import { GeolocationProvider, getGeolocationProvider } from "./geolocation";
+
 export class Common extends Observable {
   async init(): Promise<void> {
     await getActivityRecognizer(Resolution.LOW).setup();
@@ -14,5 +16,9 @@ export class Common extends Observable {
 
   getActivityRecognizer(resolution: Resolution): ActivityRecognizer {
     return getActivityRecognizer(resolution);
+  }
+
+  get geolocationProvider(): GeolocationProvider {
+    return getGeolocationProvider();
   }
 }
