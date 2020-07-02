@@ -1,8 +1,7 @@
-import { android as androidApp } from "tns-core-modules/application/application";
 import { AndroidMediumResRecognizerManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/medium-res/android/manager.android";
 
 describe("Android medium res recognition manager", () => {
-    if (!androidApp) {
+    if (typeof android === "undefined") {
         return;
     }
 

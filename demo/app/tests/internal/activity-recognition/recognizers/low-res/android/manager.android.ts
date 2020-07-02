@@ -1,8 +1,7 @@
-import { android as androidApp } from "tns-core-modules/application/application";
 import { AndroidLowResRecognizerManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/low-res/android/manager.android";
 
 describe("Android low res recognition manager", () => {
-    if (!androidApp) {
+    if (typeof android === "undefined") {
         return;
     }
 
