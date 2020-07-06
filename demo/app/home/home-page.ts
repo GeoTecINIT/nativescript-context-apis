@@ -113,7 +113,7 @@ function stopListeningToChanges() {
     activityRecognizers.forEach((recognizerType) => {
         contextApis.getActivityRecognizer(recognizerType).stopRecognizing();
         console.log(
-            `low res activity recognizer is no longer listening to changes`
+            `${recognizerType} res activity recognizer is no longer listening to changes`
         );
     });
 }

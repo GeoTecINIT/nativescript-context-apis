@@ -7,7 +7,9 @@ import { getAndroidActivityTransitionReceiver } from "./internal/activity-recogn
 import ActivityUpdateReceiver = es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiver;
 import ActivityUpdateReceiverDelegate = es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiverDelegate;
 import { getAndroidActivityUpdateReceiver } from "./internal/activity-recognition/recognizers/medium-res/android/receiver.android";
+
 import BootReceiver = es.uji.geotec.contextapis.BootReceiver;
+import BootReceiverDelegate = es.uji.geotec.contextapis.BootReceiverDelegate;
 import { getBootReceiver } from "./internal/activity-recognition/recognizers/boot-receiver.android";
 
 export class ContextApis extends Common {
@@ -23,11 +25,12 @@ export class ContextApis extends Common {
   }
 
   private wireUpBootReceiver() {
-    BootReceiver.setBootReceiverDelegate({
-      onReceive: (context, intent) => {
-        getBootReceiver().onReceive(context, intent);
-      },
-    });
+    BootReceiver.setBootReceiverDelegate(
+      new BootReceiverDelegate({
+        onReceive: (context, intent) =>
+          getBootReceiver().onReceive(context, intent),
+      })
+    );
   }
 
   private wireUpActivityTransitionReceiver() {

@@ -14,12 +14,9 @@ import OnFailureListener = com.google.android.gms.tasks.OnFailureListener;
 
 export abstract class AndroidAbstractRecognizerManager
   implements RecognizerManager {
-  private readonly receiverIntent: Intent;
   private pendingIntent: PendingIntent;
 
-  protected constructor(receiver: java.lang.Class<any>) {
-    this.receiverIntent = new Intent(androidApp.context, receiver);
-  }
+  protected constructor(private receiver: java.lang.Class<any>) {}
 
   isReady(): boolean {
     if (!isGooglePlayServicesAvailable()) {
@@ -95,7 +92,7 @@ export abstract class AndroidAbstractRecognizerManager
     const pendingIntent = PendingIntent.getBroadcast(
       androidApp.context,
       0,
-      this.receiverIntent,
+      this.getReceiverIntent(),
       PendingIntent.FLAG_NO_CREATE
     );
     return pendingIntent !== null;
@@ -103,7 +100,7 @@ export abstract class AndroidAbstractRecognizerManager
 
   private getPendingIntent(): PendingIntent {
     if (!this.pendingIntent) {
-      const receiverIntent = this.receiverIntent;
+      const receiverIntent = this.getReceiverIntent();
       this.pendingIntent = PendingIntent.getBroadcast(
         androidApp.context,
         0,
@@ -112,6 +109,10 @@ export abstract class AndroidAbstractRecognizerManager
       );
     }
     return this.pendingIntent;
+  }
+
+  private getReceiverIntent(): Intent {
+    return new Intent(androidApp.context, this.receiver);
   }
 }
 
