@@ -22,6 +22,14 @@ class PluginDb {
     await this.createDBProcedure;
     this.dbInitialized = true;
   }
+
+  async instance(tableName: string) {
+    await this.createDB();
+    if (nSQL().selectedDB !== dbName) {
+      nSQL().useDatabase(dbName);
+    }
+    return nSQL(tableName);
+  }
 }
 
 export const pluginDb = new PluginDb();

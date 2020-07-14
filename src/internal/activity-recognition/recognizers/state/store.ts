@@ -1,5 +1,3 @@
-import { nSQL } from "@nano-sql/core/lib";
-
 import { HumanActivity, Resolution } from "../../index";
 import { pluginDb } from "../../../persistence/plugin-db";
 import { recognizersStateModel } from "./model";
@@ -19,8 +17,8 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
   private tableName = recognizersStateModel.name;
 
   async isActive(recognizer: Resolution): Promise<boolean> {
-    await pluginDb.createDB();
-    const rows = await nSQL(this.tableName)
+    const instance = await this.db();
+    const rows = await instance
       .query("select")
       .where(["id", "=", recognizer])
       .exec();
@@ -39,8 +37,8 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
   }
 
   async getLastActivity(recognizer: Resolution): Promise<HumanActivity> {
-    await pluginDb.createDB();
-    const rows = await nSQL(this.tableName)
+    const instance = await this.db();
+    const rows = await instance
       .query("select")
       .where(["id", "=", recognizer])
       .exec();
@@ -55,22 +53,26 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
     recognizer: Resolution,
     activity: HumanActivity
   ): Promise<void> {
-    await pluginDb.createDB();
     const isActive = await this.isActive(recognizer);
     if (!isActive) {
       return null;
     }
-    await nSQL(`${this.tableName}.lastActivity`)
+    const instance = await this.db(`${this.tableName}.lastActivity`);
+    await instance
       .query("upsert", activity)
       .where(["id", "=", recognizer])
       .exec();
   }
 
   private async updateStatus(recognizer: Resolution, active: boolean) {
-    await pluginDb.createDB();
-    await nSQL(this.tableName)
+    const instance = await this.db();
+    await instance
       .query("upsert", { id: recognizer, active, lastActivity: null })
       .exec();
+  }
+
+  private db(tableName = this.tableName) {
+    return pluginDb.instance(tableName);
   }
 }
 
