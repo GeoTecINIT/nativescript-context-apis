@@ -40,7 +40,6 @@ describe("Android medium resolution activity recognizer", () => {
 
         spyOn(recognizerManager, "isReady").and.callThrough();
         spyOn(recognizerManager, "prepare");
-        spyOn(recognizerManager, "stopListening");
 
         spyOn(callbackManager, "add").and.callThrough();
         spyOn(callbackManager, "remove");
@@ -63,24 +62,21 @@ describe("Android medium resolution activity recognizer", () => {
         spyOn(recognizerManager, "startListening");
         spyOn(recognizerState, "isActive")
             .withArgs(recognizerType)
-            .and.returnValue(Promise.resolve(false));
-        await recognizer.setup();
-        expect(recognizerManager.startListening).not.toHaveBeenCalled();
-    });
-
-    it("does not restart listening when already active", async () => {
-        spyOn(recognizerManager, "startListening");
-        spyOn(recognizerState, "isActive")
-            .withArgs(recognizerType)
             .and.returnValue(Promise.resolve(true));
         await recognizer.setup();
         expect(recognizerManager.startListening).toHaveBeenCalled();
     });
 
-    it("allows to start the recognition by activating the underlying subsystem", async () => {
+    it("does not (re)start listening when inactive", async () => {
+        spyOn(recognizerManager, "startListening");
         spyOn(recognizerState, "isActive")
             .withArgs(recognizerType)
             .and.returnValue(Promise.resolve(false));
+        await recognizer.setup();
+        expect(recognizerManager.startListening).not.toHaveBeenCalled();
+    });
+
+    it("allows to start the recognition by activating the underlying subsystem", async () => {
         spyOn(recognizerManager, "startListening");
         await recognizer.startRecognizing();
         expect(recognizerManager.startListening).toHaveBeenCalled();
@@ -90,32 +86,18 @@ describe("Android medium resolution activity recognizer", () => {
     });
 
     it("does not mark the recognizer as active if the activation fails", async () => {
-        spyOn(recognizerState, "isActive")
-            .withArgs(recognizerType)
-            .and.returnValue(Promise.resolve(false));
         const listenError = new Error("Could not start listening");
         spyOn(recognizerManager, "startListening").and.rejectWith(listenError);
         await expectAsync(recognizer.startRecognizing()).toBeRejectedWith(
             listenError
         );
-    });
-
-    it("does not activate the underlying system if the recognizer is already active", async () => {
-        spyOn(recognizerState, "isActive")
-            .withArgs(recognizerType)
-            .and.returnValue(Promise.resolve(true));
-        spyOn(recognizerManager, "startListening");
-        await recognizer.startRecognizing();
-        expect(recognizerManager.startListening).not.toHaveBeenCalled();
         expect(recognizerState.markAsActive).not.toHaveBeenCalledWith(
             recognizerType
         );
     });
 
     it("allows to stop the recognition by deactivating the underlying subsystem", async () => {
-        spyOn(recognizerState, "isActive")
-            .withArgs(recognizerType)
-            .and.returnValue(Promise.resolve(true));
+        spyOn(recognizerManager, "stopListening");
         await recognizer.stopRecognizing();
         expect(recognizerManager.stopListening).toHaveBeenCalled();
         expect(recognizerState.markAsInactive).toHaveBeenCalledWith(
@@ -123,13 +105,18 @@ describe("Android medium resolution activity recognizer", () => {
         );
     });
 
-    it("does not deactivate the underlying system if the recognizer is already inactive", async () => {
-        spyOn(recognizerState, "isActive")
-            .withArgs(recognizerType)
-            .and.returnValue(Promise.resolve(false));
+    it("marks the recognizer as inactive even though the deactivation fails", async () => {
+        const deactivationError = new Error(
+            "Could not stop listening due to permissions not granted"
+        );
+        spyOn(recognizerManager, "stopListening").and.rejectWith(
+            deactivationError
+        );
         await recognizer.stopRecognizing();
-        expect(recognizerManager.stopListening).not.toHaveBeenCalled();
-        expect(recognizerState.markAsInactive).not.toHaveBeenCalledWith(
+        await expectAsync(recognizerManager.stopListening()).toBeRejectedWith(
+            deactivationError
+        );
+        expect(recognizerState.markAsInactive).toHaveBeenCalledWith(
             recognizerType
         );
     });
