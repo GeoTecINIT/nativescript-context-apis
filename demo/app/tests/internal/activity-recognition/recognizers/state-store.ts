@@ -3,6 +3,7 @@ import {
     Resolution,
     HumanActivity,
 } from "nativescript-context-apis/internal/activity-recognition";
+import { StartOptions } from "nativescript-context-apis/internal/activity-recognition/recognizers";
 
 describe("Recognizers state store", () => {
     const recognizer = Resolution.HIGH;
@@ -12,8 +13,28 @@ describe("Recognizers state store", () => {
         expect(isActive == true || isActive == false).toBeTrue();
     });
 
+    it("returns the start options of a recognizer marked as active", async () => {
+        const expectedStartOptions: StartOptions = { detectionInterval: 60000 };
+        await recognizersStateStoreDb.markAsActive(
+            recognizer,
+            expectedStartOptions
+        );
+        const startOptions = await recognizersStateStoreDb.getStartOptions(
+            recognizer
+        );
+        expect(startOptions).toEqual(expectedStartOptions);
+    });
+
+    it("returns no start options when the recognizer is marked as inactive", async () => {
+        await recognizersStateStoreDb.markAsInactive(recognizer);
+        const startOptions = await recognizersStateStoreDb.getStartOptions(
+            recognizer
+        );
+        expect(startOptions).toBeNull();
+    });
+
     it("marks a recognizer as active", async () => {
-        await recognizersStateStoreDb.markAsActive(recognizer);
+        await recognizersStateStoreDb.markAsActive(recognizer, {});
         const isActive = await recognizersStateStoreDb.isActive(recognizer);
         expect(isActive).toBeTrue();
     });
@@ -33,7 +54,7 @@ describe("Recognizers state store", () => {
     });
 
     it("successfully updates the last activity of an active recognizer", async () => {
-        await recognizersStateStoreDb.markAsActive(recognizer);
+        await recognizersStateStoreDb.markAsActive(recognizer, {});
         const activity = HumanActivity.RUNNING;
         await recognizersStateStoreDb.updateLastActivity(recognizer, activity);
         const lastActivity = await recognizersStateStoreDb.getLastActivity(

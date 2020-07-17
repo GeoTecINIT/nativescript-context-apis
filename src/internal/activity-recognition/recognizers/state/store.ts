@@ -1,10 +1,14 @@
-import { HumanActivity, Resolution } from "../../index";
+import { HumanActivity, Resolution, StartOptions } from "../../index";
 import { pluginDb } from "../../../persistence/plugin-db";
 import { recognizersStateModel } from "./model";
 
 export interface RecognizerStateStore {
   isActive(recognizer: Resolution): Promise<boolean>;
-  markAsActive(recognizer: Resolution): Promise<void>;
+  getStartOptions(recognizer: Resolution): Promise<StartOptions>;
+  markAsActive(
+    recognizer: Resolution,
+    startOptions: StartOptions
+  ): Promise<void>;
   markAsInactive(recognizer: Resolution): Promise<void>;
   getLastActivity(recognizer: Resolution): Promise<HumanActivity>;
   updateLastActivity(
@@ -17,19 +21,31 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
   private tableName = recognizersStateModel.name;
 
   async isActive(recognizer: Resolution): Promise<boolean> {
-    const instance = await this.db();
-    const rows = await instance
-      .query("select")
-      .where(["id", "=", recognizer])
-      .exec();
-    if (rows.length === 0) {
+    const recognizerData = await this.getRecognizerData(recognizer);
+    if (!recognizerData) {
       return false;
     }
-    return rows[0].active;
+    return recognizerData.active;
   }
 
-  async markAsActive(recognizer: Resolution): Promise<void> {
-    await this.updateStatus(recognizer, true);
+  async getStartOptions(recognizer: Resolution): Promise<StartOptions> {
+    const isActive = await this.isActive(recognizer);
+    if (!isActive) {
+      return null;
+    }
+
+    const recognizerData = await this.getRecognizerData(recognizer);
+    if (!recognizerData) {
+      return null;
+    }
+    return JSON.parse(recognizerData.startOptions);
+  }
+
+  async markAsActive(
+    recognizer: Resolution,
+    startOptions: StartOptions
+  ): Promise<void> {
+    await this.updateStatus(recognizer, true, startOptions);
   }
 
   async markAsInactive(recognizer: Resolution): Promise<void> {
@@ -64,11 +80,34 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
       .exec();
   }
 
-  private async updateStatus(recognizer: Resolution, active: boolean) {
+  private async updateStatus(
+    recognizer: Resolution,
+    active: boolean,
+    startOptions: StartOptions = {}
+  ) {
     const instance = await this.db();
     await instance
-      .query("upsert", { id: recognizer, active, lastActivity: null })
+      .query("upsert", {
+        id: recognizer,
+        active,
+        startOptions: JSON.stringify(startOptions),
+        lastActivity: null,
+      })
       .exec();
+  }
+
+  private async getRecognizerData(
+    recognizer: Resolution
+  ): Promise<{ [key: string]: any }> {
+    const instance = await this.db();
+    const rows = await instance
+      .query("select")
+      .where(["id", "=", recognizer])
+      .exec();
+    if (rows.length === 0) {
+      return null;
+    }
+    return rows[0];
   }
 
   private db(tableName = this.tableName) {

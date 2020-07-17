@@ -3,6 +3,7 @@ import { RecognizerManager } from "nativescript-context-apis/internal/activity-r
 import { RecognizerCallbackManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/callback-manager";
 import { AndroidLowResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/low-res/android/recognizer.android";
 import { Resolution } from "nativescript-context-apis/internal/activity-recognition";
+import { StartOptions } from "nativescript-context-apis/internal/activity-recognition/recognizers";
 import {
     createRecognizersStateStoreMock,
     createCallbackManagerMock,
@@ -16,6 +17,7 @@ import {
 
 describe("Android low resolution activity recognizer", () => {
     const recognizerType = Resolution.LOW;
+    const startOptions: StartOptions = {};
 
     let recognizerState: RecognizerStateStore;
     let callbackManager: RecognizerCallbackManager;
@@ -32,7 +34,7 @@ describe("Android low resolution activity recognizer", () => {
             recognizerManager
         );
         spyOn(recognizerState, "markAsActive")
-            .withArgs(recognizerType)
+            .withArgs(recognizerType, startOptions)
             .and.returnValue(Promise.resolve());
         spyOn(recognizerState, "markAsInactive")
             .withArgs(recognizerType)
@@ -63,8 +65,13 @@ describe("Android low resolution activity recognizer", () => {
         spyOn(recognizerState, "isActive")
             .withArgs(recognizerType)
             .and.returnValue(Promise.resolve(true));
+        spyOn(recognizerState, "getStartOptions").and.returnValue(
+            Promise.resolve(startOptions)
+        );
         await recognizer.setup();
-        expect(recognizerManager.startListening).toHaveBeenCalled();
+        expect(recognizerManager.startListening).toHaveBeenCalledWith(
+            startOptions
+        );
     });
 
     it("does not (re)start listening when inactive", async () => {
@@ -78,10 +85,11 @@ describe("Android low resolution activity recognizer", () => {
 
     it("allows to start the recognition by activating the underlying subsystem", async () => {
         spyOn(recognizerManager, "startListening");
-        await recognizer.startRecognizing();
+        await recognizer.startRecognizing(startOptions);
         expect(recognizerManager.startListening).toHaveBeenCalled();
         expect(recognizerState.markAsActive).toHaveBeenCalledWith(
-            recognizerType
+            recognizerType,
+            startOptions
         );
     });
 
@@ -91,9 +99,7 @@ describe("Android low resolution activity recognizer", () => {
         await expectAsync(recognizer.startRecognizing()).toBeRejectedWith(
             listenError
         );
-        expect(recognizerState.markAsActive).not.toHaveBeenCalledWith(
-            recognizerType
-        );
+        expect(recognizerState.markAsActive).not.toHaveBeenCalled();
     });
 
     it("allows to stop the recognition by deactivating the underlying subsystem", async () => {

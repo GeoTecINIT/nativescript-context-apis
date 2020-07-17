@@ -3,6 +3,7 @@ import { RecognizerManager } from "nativescript-context-apis/internal/activity-r
 import { RecognizerCallbackManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/callback-manager";
 import { AndroidMediumResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/medium-res/android/recognizer.android";
 import { Resolution } from "nativescript-context-apis/internal/activity-recognition";
+import { StartOptions } from "nativescript-context-apis/internal/activity-recognition/recognizers";
 import {
     createRecognizersStateStoreMock,
     createCallbackManagerMock,
@@ -16,6 +17,7 @@ import {
 
 describe("Android medium resolution activity recognizer", () => {
     const recognizerType = Resolution.MEDIUM;
+    const startOptions: StartOptions = { detectionInterval: 60000 };
 
     let recognizerState: RecognizerStateStore;
     let callbackManager: RecognizerCallbackManager;
@@ -32,7 +34,7 @@ describe("Android medium resolution activity recognizer", () => {
             recognizerManager
         );
         spyOn(recognizerState, "markAsActive")
-            .withArgs(recognizerType)
+            .withArgs(recognizerType, startOptions)
             .and.returnValue(Promise.resolve());
         spyOn(recognizerState, "markAsInactive")
             .withArgs(recognizerType)
@@ -63,8 +65,13 @@ describe("Android medium resolution activity recognizer", () => {
         spyOn(recognizerState, "isActive")
             .withArgs(recognizerType)
             .and.returnValue(Promise.resolve(true));
+        spyOn(recognizerState, "getStartOptions").and.returnValue(
+            Promise.resolve(startOptions)
+        );
         await recognizer.setup();
-        expect(recognizerManager.startListening).toHaveBeenCalled();
+        expect(recognizerManager.startListening).toHaveBeenCalledWith(
+            startOptions
+        );
     });
 
     it("does not (re)start listening when inactive", async () => {
@@ -78,22 +85,21 @@ describe("Android medium resolution activity recognizer", () => {
 
     it("allows to start the recognition by activating the underlying subsystem", async () => {
         spyOn(recognizerManager, "startListening");
-        await recognizer.startRecognizing();
+        await recognizer.startRecognizing(startOptions);
         expect(recognizerManager.startListening).toHaveBeenCalled();
         expect(recognizerState.markAsActive).toHaveBeenCalledWith(
-            recognizerType
+            recognizerType,
+            startOptions
         );
     });
 
     it("does not mark the recognizer as active if the activation fails", async () => {
         const listenError = new Error("Could not start listening");
         spyOn(recognizerManager, "startListening").and.rejectWith(listenError);
-        await expectAsync(recognizer.startRecognizing()).toBeRejectedWith(
-            listenError
-        );
-        expect(recognizerState.markAsActive).not.toHaveBeenCalledWith(
-            recognizerType
-        );
+        await expectAsync(
+            recognizer.startRecognizing(startOptions)
+        ).toBeRejectedWith(listenError);
+        expect(recognizerState.markAsActive).not.toHaveBeenCalled();
     });
 
     it("allows to stop the recognition by deactivating the underlying subsystem", async () => {
