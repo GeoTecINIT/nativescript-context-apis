@@ -29,20 +29,20 @@ export abstract class AbstractActivityRecognizer implements ActivityRecognizer {
   }
 
   async startRecognizing(options: StartOptions = {}): Promise<void> {
-    const active = await this.recognizerState.isActive(this.recognizerType);
-    if (active) {
-      return;
-    }
     await this.recognitionManager.startListening(options);
     await this.recognizerState.markAsActive(this.recognizerType);
   }
 
   async stopRecognizing(): Promise<void> {
-    const active = await this.recognizerState.isActive(this.recognizerType);
-    if (!active) {
-      return;
+    try {
+      await this.recognitionManager.stopListening();
+    } catch (e) {
+      console.error(
+        `Could not deactivate ${this.recognizerType} res activity recognizer: ${
+          e.stack ? e.stack : e
+        }`
+      );
     }
-    await this.recognitionManager.stopListening();
     await this.recognizerState.markAsInactive(this.recognizerType);
   }
 
