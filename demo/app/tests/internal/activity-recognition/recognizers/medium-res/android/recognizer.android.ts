@@ -85,12 +85,25 @@ describe("Android medium resolution activity recognizer", () => {
 
     it("allows to start the recognition by activating the underlying subsystem", async () => {
         spyOn(recognizerManager, "startListening");
+        spyOn(recognizerState, "isActive")
+            .withArgs(recognizerType)
+            .and.returnValue(Promise.resolve(false));
         await recognizer.startRecognizing(startOptions);
         expect(recognizerManager.startListening).toHaveBeenCalled();
         expect(recognizerState.markAsActive).toHaveBeenCalledWith(
             recognizerType,
             startOptions
         );
+    });
+
+    it("allows to restart the recognition without overwriting existing state", async () => {
+        spyOn(recognizerManager, "startListening");
+        spyOn(recognizerState, "isActive")
+            .withArgs(recognizerType)
+            .and.returnValue(Promise.resolve(true));
+        await recognizer.startRecognizing(startOptions);
+        expect(recognizerManager.startListening).toHaveBeenCalled();
+        expect(recognizerState.markAsActive).not.toHaveBeenCalled();
     });
 
     it("does not mark the recognizer as active if the activation fails", async () => {

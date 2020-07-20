@@ -46,7 +46,7 @@ export abstract class AndroidAbstractRecognizerManager
 
   async startListening(options: StartOptions = {}): Promise<void> {
     if (this.isUp()) {
-      return;
+      await this.stopListening();
     }
 
     if (!this.isReady()) {

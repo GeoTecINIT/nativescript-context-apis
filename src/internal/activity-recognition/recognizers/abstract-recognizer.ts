@@ -33,6 +33,10 @@ export abstract class AbstractActivityRecognizer implements ActivityRecognizer {
 
   async startRecognizing(options: StartOptions = {}): Promise<void> {
     await this.recognitionManager.startListening(options);
+    const active = await this.recognizerState.isActive(this.recognizerType);
+    if (active) {
+      return;
+    }
     await this.recognizerState.markAsActive(this.recognizerType, options);
   }
 
