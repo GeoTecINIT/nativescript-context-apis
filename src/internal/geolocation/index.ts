@@ -55,7 +55,7 @@ export interface StreamOptions extends AcquireOptions {
   saveBattery?: boolean;
 }
 
-export { Geolocation } from "./geolocation";
+export { Geolocation, GeolocationLike } from "./geolocation";
 
 function geolocationOptionsToPluginOptions(
   options: AcquireOptions | StreamOptions

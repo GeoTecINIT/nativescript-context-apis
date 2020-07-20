@@ -6,6 +6,7 @@ import {
     Resolution,
     HumanActivity,
 } from "nativescript-context-apis/internal/activity-recognition";
+import { StartOptions } from "nativescript-context-apis/internal/activity-recognition/recognizers";
 import { RecognizerManager } from "nativescript-context-apis/internal/activity-recognition/recognizers/recognizer-manager";
 
 export function createCallbackManagerMock(): RecognizerCallbackManager {
@@ -30,7 +31,13 @@ export function createRecognizersStateStoreMock(): RecognizerStateStore {
         isActive(recognizer: Resolution): Promise<boolean> {
             return Promise.resolve(false);
         },
-        markAsActive(recognizer: Resolution): Promise<void> {
+        getStartOptions(recognizer: Resolution): Promise<StartOptions> {
+            return Promise.resolve(null);
+        },
+        markAsActive(
+            recognizer: Resolution,
+            startOptions: StartOptions
+        ): Promise<void> {
             return Promise.resolve();
         },
         markAsInactive(recognizer: Resolution): Promise<void> {
