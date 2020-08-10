@@ -2,7 +2,7 @@ import { android as androidApp } from "tns-core-modules/application/application"
 
 import { ActivityRecognizer } from "..";
 import { getAndroidHighResRecognizer } from "./android/recognizer.android";
-import { getCustomModel } from "./android/tf-model.android";
+import { getAndroidCustomModel } from "./android/tf-model.android";
 
 import FirebaseCustomRemoteModel = com.google.firebase.ml.custom.FirebaseCustomRemoteModel;
 
