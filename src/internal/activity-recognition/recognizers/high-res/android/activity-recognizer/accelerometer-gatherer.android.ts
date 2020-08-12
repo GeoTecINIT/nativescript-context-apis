@@ -48,6 +48,12 @@ export class AccelerometerGatherer {
                         timestamp: parsedData.time
                     };
                     this.addNewRecord(accelerometerData);
+                },
+                onAccuracyChanged: (
+                    sensor: android.hardware.Sensor,
+                    accuracy: number
+                ) => {
+                    console.log('accuracy', accuracy);
                 }
             });
         }

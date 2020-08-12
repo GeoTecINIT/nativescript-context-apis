@@ -22,7 +22,7 @@ import {
 } from "nativescript-context-apis/geolocation";
 import { of, Subscription } from "rxjs";
 
-const activityRecognizers = [Resolution.LOW, Resolution.MEDIUM];
+const activityRecognizers = [Resolution.LOW, Resolution.MEDIUM, Resolution.HIGH];
 
 export function onNavigatingTo(args: NavigatedData) {
     const page = <Page>args.object;
@@ -82,12 +82,12 @@ async function printLocationUpdates(): Promise<Subscription> {
 
     const stream = ok
         ? provider.locationStream({
-              highAccuracy: true,
-              stdInterval: 1000,
-              minInterval: 100,
-              timeout: 5000,
-              maxAge: 60000,
-          })
+            highAccuracy: true,
+            stdInterval: 1000,
+            minInterval: 100,
+            timeout: 5000,
+            maxAge: 60000,
+        })
         : of<Geolocation>(null);
 
     return stream.subscribe(
@@ -124,6 +124,7 @@ async function listenToActivityChangesFor(
 ) {
     const recognizer = contextApis.getActivityRecognizer(recognizerType);
     const isReady = recognizer.isReady();
+    console.log(`${recognizerType} res activity ready: ${isReady}`);
     if (!isReady) {
         console.log(
             `Up to prepare ${recognizerType} res activity recognizer...`

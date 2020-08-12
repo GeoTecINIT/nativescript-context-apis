@@ -15,6 +15,7 @@ export class ActivityRecognizerManager {
 
     private enoughAccelerometerRecordsGathered(records: AccelerometerData[]): void {
         // TODO: DO SOMETHING (⌐■_■)
+        console.log(`ActivityRecognizerManager: ${JSON.stringify(records)}`);
     }
 }
 

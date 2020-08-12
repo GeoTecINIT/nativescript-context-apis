@@ -1087,12 +1087,12 @@ declare module androidx {
 	export module arch {
 		export module core {
 			export module internal {
-				export class FastSafeIterableMap<K, V>  extends androidx.arch.core.internal.SafeIterableMap<any,any> {
-					public static class: java.lang.Class<androidx.arch.core.internal.FastSafeIterableMap<any,any>>;
+				export class FastSafeIterableMap<K, V> extends androidx.arch.core.internal.SafeIterableMap<any, any> {
+					public static class: java.lang.Class<androidx.arch.core.internal.FastSafeIterableMap<any, any>>;
 					public remove(param0: any): any;
-					public ceil(param0: any): java.util.Map.Entry<any,any>;
+					public ceil(param0: any): java.util.Map.Entry<any, any>;
 					public constructor();
-					public get(param0: any): androidx.arch.core.internal.SafeIterableMap.Entry<any,any>;
+					public get(param0: any): androidx.arch.core.internal.SafeIterableMap.Entry<any, any>;
 					public putIfAbsent(param0: any, param1: any): any;
 					public contains(param0: any): boolean;
 				}
@@ -1105,34 +1105,34 @@ declare module androidx {
 	export module arch {
 		export module core {
 			export module internal {
-				export class SafeIterableMap<K, V>  extends java.lang.Iterable<java.util.Map.Entry<any,any>> {
-					public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap<any,any>>;
-					public descendingIterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
-					public put(param0: any, param1: any): androidx.arch.core.internal.SafeIterableMap.Entry<any,any>;
-					public eldest(): java.util.Map.Entry<any,any>;
-					public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+				export class SafeIterableMap<K, V> extends java.lang.Iterable<java.util.Map.Entry<any, any>> {
+					public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap<any, any>>;
+					public descendingIterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
+					public put(param0: any, param1: any): androidx.arch.core.internal.SafeIterableMap.Entry<any, any>;
+					public eldest(): java.util.Map.Entry<any, any>;
+					public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 					public size(): number;
 					public equals(param0: any): boolean;
 					public remove(param0: any): any;
 					public iteratorWithAdditions(): androidx.arch.core.internal.SafeIterableMap.IteratorWithAdditions;
 					public toString(): string;
 					public constructor();
-					public newest(): java.util.Map.Entry<any,any>;
-					public get(param0: any): androidx.arch.core.internal.SafeIterableMap.Entry<any,any>;
+					public newest(): java.util.Map.Entry<any, any>;
+					public get(param0: any): androidx.arch.core.internal.SafeIterableMap.Entry<any, any>;
 					public putIfAbsent(param0: any, param1: any): any;
 					public hashCode(): number;
 				}
 				export module SafeIterableMap {
-					export class AscendingIterator<K, V>  extends androidx.arch.core.internal.SafeIterableMap.ListIterator<any,any> {
-						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.AscendingIterator<any,any>>;
-						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<any,any>): void;
+					export class AscendingIterator<K, V> extends androidx.arch.core.internal.SafeIterableMap.ListIterator<any, any> {
+						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.AscendingIterator<any, any>>;
+						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<any, any>): void;
 					}
-					export class DescendingIterator<K, V>  extends androidx.arch.core.internal.SafeIterableMap.ListIterator<any,any> {
-						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.DescendingIterator<any,any>>;
-						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<any,any>): void;
+					export class DescendingIterator<K, V> extends androidx.arch.core.internal.SafeIterableMap.ListIterator<any, any> {
+						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.DescendingIterator<any, any>>;
+						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<any, any>): void;
 					}
-					export class Entry<K, V>  extends java.util.Map.Entry<any,any> {
-						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.Entry<any,any>>;
+					export class Entry<K, V> extends java.util.Map.Entry<any, any> {
+						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.Entry<any, any>>;
 						public setValue(param0: any): any;
 						public getValue(): any;
 						public getKey(): any;
@@ -1142,26 +1142,26 @@ declare module androidx {
 					}
 					export class IteratorWithAdditions extends java.lang.Object {
 						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.IteratorWithAdditions>;
-						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<any,any>): void;
-						public next(): java.util.Map.Entry<any,any>;
+						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<any, any>): void;
+						public next(): java.util.Map.Entry<any, any>;
 						public hasNext(): boolean;
 					}
-					export abstract class ListIterator<K, V>  extends java.lang.Object {
-						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.ListIterator<any,any>>;
-						public next(): java.util.Map.Entry<K,V>;
+					export abstract class ListIterator<K, V> extends java.lang.Object {
+						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.ListIterator<any, any>>;
+						public next(): java.util.Map.Entry<K, V>;
 						public hasNext(): boolean;
-						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<K,V>): void;
+						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<K, V>): void;
 					}
-					export class SupportRemove<K, V>  extends java.lang.Object {
-						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.SupportRemove<any,any>>;
+					export class SupportRemove<K, V> extends java.lang.Object {
+						public static class: java.lang.Class<androidx.arch.core.internal.SafeIterableMap.SupportRemove<any, any>>;
 						/**
 						 * Constructs a new instance of the androidx.arch.core.internal.SafeIterableMap$SupportRemove interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 						 */
 						public constructor(implementation: {
-							supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<K,V>): void;
+							supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<K, V>): void;
 						});
 						public constructor();
-						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<K,V>): void;
+						public supportRemove(param0: androidx.arch.core.internal.SafeIterableMap.Entry<K, V>): void;
 					}
 				}
 			}
@@ -1173,8 +1173,8 @@ declare module androidx {
 	export module arch {
 		export module core {
 			export module util {
-				export class Function<I, O>  extends java.lang.Object {
-					public static class: java.lang.Class<androidx.arch.core.util.Function<any,any>>;
+				export class Function<I, O> extends java.lang.Object {
+					public static class: java.lang.Class<androidx.arch.core.util.Function<any, any>>;
 					/**
 					 * Constructs a new instance of the androidx.arch.core.util.Function<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 					 */
@@ -1233,18 +1233,18 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class ArrayMap<K, V>  extends java.util.Map {
-			public static class: java.lang.Class<androidx.collection.ArrayMap<any,any>>;
+		export class ArrayMap<K, V> extends java.util.Map {
+			public static class: java.lang.Class<androidx.collection.ArrayMap<any, any>>;
 			public containsAll(param0: java.util.Collection<any>): boolean;
-			public constructor(param0: androidx.collection.SimpleArrayMap<any,any>);
-			public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
+			public constructor(param0: androidx.collection.SimpleArrayMap<any, any>);
+			public entrySet(): java.util.Set<java.util.Map.Entry<any, any>>;
 			public keySet(): java.util.Set<any>;
-			public putAll(param0: java.util.Map<any,any>): void;
+			public putAll(param0: java.util.Map<any, any>): void;
 			public constructor(param0: number);
-			public putAll(param0: androidx.collection.SimpleArrayMap<any,any>): void;
+			public putAll(param0: androidx.collection.SimpleArrayMap<any, any>): void;
 			public removeAll(param0: java.util.Collection<any>): boolean;
 			public constructor();
-			public constructor(param0: androidx.collection.SimpleArrayMap<any,any>);
+			public constructor(param0: androidx.collection.SimpleArrayMap<any, any>);
 			public values(): java.util.Collection<any>;
 			public retainAll(param0: java.util.Collection<any>): boolean;
 		}
@@ -1253,7 +1253,7 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class ArraySet<E>  extends java.lang.Object {
+		export class ArraySet<E> extends java.lang.Object {
 			public static class: java.lang.Class<androidx.collection.ArraySet<any>>;
 			public removeAll(param0: androidx.collection.ArraySet<any>): boolean;
 			public equals(param0: any): boolean;
@@ -1288,7 +1288,7 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class CircularArray<E>  extends java.lang.Object {
+		export class CircularArray<E> extends java.lang.Object {
 			public static class: java.lang.Class<androidx.collection.CircularArray<any>>;
 			public addFirst(param0: E): void;
 			public clear(): void;
@@ -1344,7 +1344,7 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class LongSparseArray<E>  extends java.lang.Cloneable {
+		export class LongSparseArray<E> extends java.lang.Cloneable {
 			public static class: java.lang.Class<androidx.collection.LongSparseArray<any>>;
 			public containsKey(param0: number): boolean;
 			public append(param0: number, param1: any): void;
@@ -1374,8 +1374,8 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class LruCache<K, V>  extends java.lang.Object {
-			public static class: java.lang.Class<androidx.collection.LruCache<any,any>>;
+		export class LruCache<K, V> extends java.lang.Object {
+			public static class: java.lang.Class<androidx.collection.LruCache<any, any>>;
 			public put(param0: K, param1: V): V;
 			public size(): number;
 			public putCount(): number;
@@ -1387,7 +1387,7 @@ declare module androidx {
 			public maxSize(): number;
 			public create(param0: K): V;
 			public hitCount(): number;
-			public snapshot(): java.util.Map<K,V>;
+			public snapshot(): java.util.Map<K, V>;
 			public entryRemoved(param0: boolean, param1: K, param2: V, param3: V): void;
 			public toString(): string;
 			public sizeOf(param0: K, param1: V): number;
@@ -1401,9 +1401,9 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export abstract class MapCollections<K, V>  extends java.lang.Object {
-			public static class: java.lang.Class<androidx.collection.MapCollections<any,any>>;
-			public getEntrySet(): java.util.Set<java.util.Map.Entry<K,V>>;
+		export abstract class MapCollections<K, V> extends java.lang.Object {
+			public static class: java.lang.Class<androidx.collection.MapCollections<any, any>>;
+			public getEntrySet(): java.util.Set<java.util.Map.Entry<K, V>>;
 			public colGetEntry(param0: number, param1: number): any;
 			public getKeySet(): java.util.Set<K>;
 			public colIndexOfValue(param0: any): number;
@@ -1411,7 +1411,7 @@ declare module androidx {
 			public static removeAllHelper(param0: java.util.Map, param1: java.util.Collection): boolean;
 			public getValues(): java.util.Collection<V>;
 			public toArrayHelper(param0: native.Array<any>, param1: number): native.Array<any>;
-			public colGetMap(): java.util.Map<K,V>;
+			public colGetMap(): java.util.Map<K, V>;
 			public colPut(param0: K, param1: V): void;
 			public static equalsSetHelper(param0: java.util.Set, param1: any): boolean;
 			public colRemoveAt(param0: number): void;
@@ -1423,18 +1423,18 @@ declare module androidx {
 			public colIndexOfKey(param0: any): number;
 		}
 		export module MapCollections {
-			export class ArrayIterator<T>  extends java.util.Iterator<any> {
+			export class ArrayIterator<T> extends java.util.Iterator<any> {
 				public static class: java.lang.Class<androidx.collection.MapCollections.ArrayIterator<any>>;
 				public remove(): void;
 				public next(): any;
 				public hasNext(): boolean;
 			}
-			export class EntrySet extends java.util.Set<java.util.Map.Entry<any,any>> {
+			export class EntrySet extends java.util.Set<java.util.Map.Entry<any, any>> {
 				public static class: java.lang.Class<androidx.collection.MapCollections.EntrySet>;
-				public add(param0: java.util.Map.Entry<any,any>): boolean;
+				public add(param0: java.util.Map.Entry<any, any>): boolean;
 				public addAll(param0: java.util.Collection<any>): boolean;
 				public contains(param0: any): boolean;
-				public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+				public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 				public toArray(param0: native.Array<any>): native.Array<any>;
 				public retainAll(param0: java.util.Collection<any>): boolean;
 				public size(): number;
@@ -1472,7 +1472,7 @@ declare module androidx {
 				public hashCode(): number;
 				public hasNext(): boolean;
 				public equals(param0: any): boolean;
-				public next(): java.util.Map.Entry<any,any>;
+				public next(): java.util.Map.Entry<any, any>;
 				public getValue(): any;
 				public toString(): string;
 				public setValue(param0: any): any;
@@ -1499,8 +1499,8 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class SimpleArrayMap<K, V>  extends java.lang.Object {
-			public static class: java.lang.Class<androidx.collection.SimpleArrayMap<any,any>>;
+		export class SimpleArrayMap<K, V> extends java.lang.Object {
+			public static class: java.lang.Class<androidx.collection.SimpleArrayMap<any, any>>;
 			public clear(): void;
 			public equals(param0: any): boolean;
 			public isEmpty(): boolean;
@@ -1510,7 +1510,7 @@ declare module androidx {
 			public valueAt(param0: number): V;
 			public constructor(param0: number);
 			public removeAt(param0: number): V;
-			public constructor(param0: androidx.collection.SimpleArrayMap<K,V>);
+			public constructor(param0: androidx.collection.SimpleArrayMap<K, V>);
 			public setValueAt(param0: number, param1: V): V;
 			public constructor();
 			public get(param0: any): V;
@@ -1519,7 +1519,7 @@ declare module androidx {
 			public indexOfKey(param0: any): number;
 			public remove(param0: any): V;
 			public containsKey(param0: any): boolean;
-			public putAll(param0: androidx.collection.SimpleArrayMap<any,any>): void;
+			public putAll(param0: androidx.collection.SimpleArrayMap<any, any>): void;
 			public keyAt(param0: number): K;
 			public hashCode(): number;
 		}
@@ -1528,7 +1528,7 @@ declare module androidx {
 
 declare module androidx {
 	export module collection {
-		export class SparseArrayCompat<E>  extends java.lang.Cloneable {
+		export class SparseArrayCompat<E> extends java.lang.Cloneable {
 			public static class: java.lang.Class<androidx.collection.SparseArrayCompat<any>>;
 			public containsKey(param0: number): boolean;
 			public append(param0: number, param1: any): void;
@@ -1626,7 +1626,7 @@ declare module androidx {
 					public constructor();
 					public getBehavior(): androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<any>;
 				}
-				export abstract class Behavior<V>  extends java.lang.Object {
+				export abstract class Behavior<V> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<any>>;
 					public onNestedScrollAccepted(param0: androidx.coordinatorlayout.widget.CoordinatorLayout, param1: V, param2: globalAndroid.view.View, param3: globalAndroid.view.View, param4: number, param5: number): void;
 					/** @deprecated */
@@ -1732,7 +1732,7 @@ declare module androidx {
 declare module androidx {
 	export module coordinatorlayout {
 		export module widget {
-			export class DirectedAcyclicGraph<T>  extends java.lang.Object {
+			export class DirectedAcyclicGraph<T> extends java.lang.Object {
 				public static class: java.lang.Class<androidx.coordinatorlayout.widget.DirectedAcyclicGraph<any>>;
 				public addNode(param0: T): void;
 				public contains(param0: T): boolean;
@@ -1847,7 +1847,7 @@ declare module androidx {
 				}
 				export class SharedElementCallback21Impl {
 					public static class: java.lang.Class<androidx.core.app.ActivityCompat.SharedElementCallback21Impl>;
-					public onMapSharedElements(param0: java.util.List<string>, param1: java.util.Map<string,globalAndroid.view.View>): void;
+					public onMapSharedElements(param0: java.util.List<string>, param1: java.util.Map<string, globalAndroid.view.View>): void;
 					public onSharedElementStart(param0: java.util.List<string>, param1: java.util.List<globalAndroid.view.View>, param2: java.util.List<globalAndroid.view.View>): void;
 					public onCaptureSharedElementSnapshot(param0: globalAndroid.view.View, param1: globalAndroid.graphics.Matrix, param2: globalAndroid.graphics.RectF): globalAndroid.os.Parcelable;
 					public onRejectSharedElements(param0: java.util.List<globalAndroid.view.View>): void;
@@ -1890,7 +1890,7 @@ declare module androidx {
 				public static makeCustomAnimation(param0: globalAndroid.content.Context, param1: number, param2: number): androidx.core.app.ActivityOptionsCompat;
 				public requestUsageTimeReport(param0: globalAndroid.app.PendingIntent): void;
 				public static makeTaskLaunchBehind(): androidx.core.app.ActivityOptionsCompat;
-				public static makeSceneTransitionAnimation(param0: globalAndroid.app.Activity, param1: native.Array<androidx.core.util.Pair<globalAndroid.view.View,string>>): androidx.core.app.ActivityOptionsCompat;
+				public static makeSceneTransitionAnimation(param0: globalAndroid.app.Activity, param1: native.Array<androidx.core.util.Pair<globalAndroid.view.View, string>>): androidx.core.app.ActivityOptionsCompat;
 				public static makeScaleUpAnimation(param0: globalAndroid.view.View, param1: number, param2: number, param3: number, param4: number): androidx.core.app.ActivityOptionsCompat;
 			}
 			export module ActivityOptionsCompat {
@@ -2129,7 +2129,7 @@ declare module androidx {
 				public constructor();
 			}
 			export module JobIntentService {
-				export class CommandProcessor extends globalAndroid.os.AsyncTask<java.lang.Void,java.lang.Void,java.lang.Void> {
+				export class CommandProcessor extends globalAndroid.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Void> {
 					public static class: java.lang.Class<androidx.core.app.JobIntentService.CommandProcessor>;
 					public doInBackground(param0: native.Array<java.lang.Void>): java.lang.Void;
 					public onCancelled(param0: java.lang.Void): void;
@@ -2937,10 +2937,10 @@ declare module androidx {
 				public getExtras(): globalAndroid.os.Bundle;
 				public getLabel(): string;
 				public static addResultsToIntent(param0: native.Array<androidx.core.app.RemoteInput>, param1: globalAndroid.content.Intent, param2: globalAndroid.os.Bundle): void;
-				public static getDataResultsFromIntent(param0: globalAndroid.content.Intent, param1: string): java.util.Map<string,globalAndroid.net.Uri>;
+				public static getDataResultsFromIntent(param0: globalAndroid.content.Intent, param1: string): java.util.Map<string, globalAndroid.net.Uri>;
 				public static getResultsFromIntent(param0: globalAndroid.content.Intent): globalAndroid.os.Bundle;
 				public isDataOnly(): boolean;
-				public static addDataResultToIntent(param0: androidx.core.app.RemoteInput, param1: globalAndroid.content.Intent, param2: java.util.Map<string,globalAndroid.net.Uri>): void;
+				public static addDataResultToIntent(param0: androidx.core.app.RemoteInput, param1: globalAndroid.content.Intent, param2: java.util.Map<string, globalAndroid.net.Uri>): void;
 				public getAllowedDataTypes(): java.util.Set<string>;
 			}
 			export module RemoteInput {
@@ -3056,7 +3056,7 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.core.app.SharedElementCallback>;
 				public onCreateSnapshotView(param0: globalAndroid.content.Context, param1: globalAndroid.os.Parcelable): globalAndroid.view.View;
 				public onSharedElementEnd(param0: java.util.List<string>, param1: java.util.List<globalAndroid.view.View>, param2: java.util.List<globalAndroid.view.View>): void;
-				public onMapSharedElements(param0: java.util.List<string>, param1: java.util.Map<string,globalAndroid.view.View>): void;
+				public onMapSharedElements(param0: java.util.List<string>, param1: java.util.Map<string, globalAndroid.view.View>): void;
 				public onSharedElementsArrived(param0: java.util.List<string>, param1: java.util.List<globalAndroid.view.View>, param2: androidx.core.app.SharedElementCallback.OnSharedElementsReadyListener): void;
 				public onCaptureSharedElementSnapshot(param0: globalAndroid.view.View, param1: globalAndroid.graphics.Matrix, param2: globalAndroid.graphics.RectF): globalAndroid.os.Parcelable;
 				public onSharedElementStart(param0: java.util.List<string>, param1: java.util.List<globalAndroid.view.View>, param2: java.util.List<globalAndroid.view.View>): void;
@@ -3841,7 +3841,7 @@ declare module androidx {
 				public createFromFontInfo(param0: globalAndroid.content.Context, param1: globalAndroid.os.CancellationSignal, param2: native.Array<androidx.core.provider.FontsContractCompat.FontInfo>, param3: number): globalAndroid.graphics.Typeface;
 			}
 			export module TypefaceCompatBaseImpl {
-				export class StyleExtractor<T>  extends java.lang.Object {
+				export class StyleExtractor<T> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.core.graphics.TypefaceCompatBaseImpl.StyleExtractor<any>>;
 					/**
 					 * Constructs a new instance of the androidx.core.graphics.TypefaceCompatBaseImpl$StyleExtractor interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -4697,7 +4697,7 @@ declare module androidx {
 				public static newCreator(param0: androidx.core.os.ParcelableCompatCreatorCallbacks<any>): globalAndroid.os.Parcelable.Creator;
 			}
 			export module ParcelableCompat {
-				export class ParcelableCompatCreatorHoneycombMR2<T>  extends globalAndroid.os.Parcelable.ClassLoaderCreator<any> {
+				export class ParcelableCompatCreatorHoneycombMR2<T> extends globalAndroid.os.Parcelable.ClassLoaderCreator<any> {
 					public static class: java.lang.Class<androidx.core.os.ParcelableCompat.ParcelableCompatCreatorHoneycombMR2<any>>;
 					public createFromParcel(param0: globalAndroid.os.Parcel): any;
 					public createFromParcel(param0: globalAndroid.os.Parcel, param1: java.lang.ClassLoader): any;
@@ -4711,7 +4711,7 @@ declare module androidx {
 declare module androidx {
 	export module core {
 		export module os {
-			export class ParcelableCompatCreatorCallbacks<T>  extends java.lang.Object {
+			export class ParcelableCompatCreatorCallbacks<T> extends java.lang.Object {
 				public static class: java.lang.Class<androidx.core.os.ParcelableCompatCreatorCallbacks<any>>;
 				/**
 				 * Constructs a new instance of the androidx.core.os.ParcelableCompatCreatorCallbacks<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -4776,7 +4776,7 @@ declare module androidx {
 			export class FontsContractCompat {
 				public static class: java.lang.Class<androidx.core.provider.FontsContractCompat>;
 				public static PARCEL_FONT_RESULTS: string;
-				public static prepareFontData(param0: globalAndroid.content.Context, param1: native.Array<androidx.core.provider.FontsContractCompat.FontInfo>, param2: globalAndroid.os.CancellationSignal): java.util.Map<globalAndroid.net.Uri,java.nio.ByteBuffer>;
+				public static prepareFontData(param0: globalAndroid.content.Context, param1: native.Array<androidx.core.provider.FontsContractCompat.FontInfo>, param2: globalAndroid.os.CancellationSignal): java.util.Map<globalAndroid.net.Uri, java.nio.ByteBuffer>;
 				public static getProvider(param0: globalAndroid.content.pm.PackageManager, param1: androidx.core.provider.FontRequest, param2: globalAndroid.content.res.Resources): globalAndroid.content.pm.ProviderInfo;
 				public static resetCache(): void;
 				public static buildTypeface(param0: globalAndroid.content.Context, param1: globalAndroid.os.CancellationSignal, param2: native.Array<androidx.core.provider.FontsContractCompat.FontInfo>): globalAndroid.graphics.Typeface;
@@ -4862,7 +4862,7 @@ declare module androidx {
 				public getGeneration(): number;
 			}
 			export module SelfDestructiveThread {
-				export class ReplyCallback<T>  extends java.lang.Object {
+				export class ReplyCallback<T> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.core.provider.SelfDestructiveThread.ReplyCallback<any>>;
 					/**
 					 * Constructs a new instance of the androidx.core.provider.SelfDestructiveThread$ReplyCallback interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -5171,7 +5171,7 @@ declare module androidx {
 declare module androidx {
 	export module core {
 		export module util {
-			export class Consumer<T>  extends java.lang.Object {
+			export class Consumer<T> extends java.lang.Object {
 				public static class: java.lang.Class<androidx.core.util.Consumer<any>>;
 				/**
 				 * Constructs a new instance of the androidx.core.util.Consumer<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -5227,14 +5227,14 @@ declare module androidx {
 declare module androidx {
 	export module core {
 		export module util {
-			export class Pair<F, S>  extends java.lang.Object {
-				public static class: java.lang.Class<androidx.core.util.Pair<any,any>>;
+			export class Pair<F, S> extends java.lang.Object {
+				public static class: java.lang.Class<androidx.core.util.Pair<any, any>>;
 				public first: F;
 				public second: S;
 				public hashCode(): number;
 				public constructor(param0: F, param1: S);
 				public equals(param0: any): boolean;
-				public static create(param0: any, param1: any): androidx.core.util.Pair<any,any>;
+				public static create(param0: any, param1: any): androidx.core.util.Pair<any, any>;
 				public toString(): string;
 			}
 		}
@@ -5264,7 +5264,7 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.core.util.Pools>;
 			}
 			export module Pools {
-				export class Pool<T>  extends java.lang.Object {
+				export class Pool<T> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.core.util.Pools.Pool<any>>;
 					/**
 					 * Constructs a new instance of the androidx.core.util.Pools$Pool interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -5277,13 +5277,13 @@ declare module androidx {
 					public acquire(): T;
 					public release(param0: T): boolean;
 				}
-				export class SimplePool<T>  extends androidx.core.util.Pools.Pool<any> {
+				export class SimplePool<T> extends androidx.core.util.Pools.Pool<any> {
 					public static class: java.lang.Class<androidx.core.util.Pools.SimplePool<any>>;
 					public acquire(): any;
 					public release(param0: any): boolean;
 					public constructor(param0: number);
 				}
-				export class SynchronizedPool<T>  extends androidx.core.util.Pools.SimplePool<any> {
+				export class SynchronizedPool<T> extends androidx.core.util.Pools.SimplePool<any> {
 					public static class: java.lang.Class<androidx.core.util.Pools.SynchronizedPool<any>>;
 					public acquire(): any;
 					public release(param0: any): boolean;
@@ -8133,11 +8133,11 @@ declare module androidx {
 		export module widget {
 			export class FocusStrategy {
 				public static class: java.lang.Class<androidx.customview.widget.FocusStrategy>;
-				public static findNextFocusInAbsoluteDirection(param0: any, param1: androidx.customview.widget.FocusStrategy.CollectionAdapter<any,any>, param2: androidx.customview.widget.FocusStrategy.BoundsAdapter<any>, param3: any, param4: globalAndroid.graphics.Rect, param5: number): any;
-				public static findNextFocusInRelativeDirection(param0: any, param1: androidx.customview.widget.FocusStrategy.CollectionAdapter<any,any>, param2: androidx.customview.widget.FocusStrategy.BoundsAdapter<any>, param3: any, param4: number, param5: boolean, param6: boolean): any;
+				public static findNextFocusInAbsoluteDirection(param0: any, param1: androidx.customview.widget.FocusStrategy.CollectionAdapter<any, any>, param2: androidx.customview.widget.FocusStrategy.BoundsAdapter<any>, param3: any, param4: globalAndroid.graphics.Rect, param5: number): any;
+				public static findNextFocusInRelativeDirection(param0: any, param1: androidx.customview.widget.FocusStrategy.CollectionAdapter<any, any>, param2: androidx.customview.widget.FocusStrategy.BoundsAdapter<any>, param3: any, param4: number, param5: boolean, param6: boolean): any;
 			}
 			export module FocusStrategy {
-				export class BoundsAdapter<T>  extends java.lang.Object {
+				export class BoundsAdapter<T> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.customview.widget.FocusStrategy.BoundsAdapter<any>>;
 					/**
 					 * Constructs a new instance of the androidx.customview.widget.FocusStrategy$BoundsAdapter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -8148,8 +8148,8 @@ declare module androidx {
 					public constructor();
 					public obtainBounds(param0: T, param1: globalAndroid.graphics.Rect): void;
 				}
-				export class CollectionAdapter<T, V>  extends java.lang.Object {
-					public static class: java.lang.Class<androidx.customview.widget.FocusStrategy.CollectionAdapter<any,any>>;
+				export class CollectionAdapter<T, V> extends java.lang.Object {
+					public static class: java.lang.Class<androidx.customview.widget.FocusStrategy.CollectionAdapter<any, any>>;
 					/**
 					 * Constructs a new instance of the androidx.customview.widget.FocusStrategy$CollectionAdapter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 					 */
@@ -8161,7 +8161,7 @@ declare module androidx {
 					public get(param0: T, param1: number): V;
 					public size(param0: T): number;
 				}
-				export class SequentialComparator<T>  extends java.util.Comparator<any> {
+				export class SequentialComparator<T> extends java.util.Comparator<any> {
 					public static class: java.lang.Class<androidx.customview.widget.FocusStrategy.SequentialComparator<any>>;
 					public compare(param0: any, param1: any): number;
 				}
@@ -8923,7 +8923,7 @@ declare module androidx {
 				/** @deprecated */
 				public doLoaderStop(param0: boolean): void;
 				/** @deprecated */
-				public restoreLoaderNonConfig(param0: androidx.collection.SimpleArrayMap<string,androidx.loader.app.LoaderManager>): void;
+				public restoreLoaderNonConfig(param0: androidx.collection.SimpleArrayMap<string, androidx.loader.app.LoaderManager>): void;
 				/** @deprecated */
 				public dumpLoaders(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
 				public getSupportFragmentManager(): androidx.fragment.app.FragmentManager;
@@ -8949,7 +8949,7 @@ declare module androidx {
 				/** @deprecated */
 				public doLoaderRetain(): void;
 				/** @deprecated */
-				public retainLoaderNonConfig(): androidx.collection.SimpleArrayMap<string,androidx.loader.app.LoaderManager>;
+				public retainLoaderNonConfig(): androidx.collection.SimpleArrayMap<string, androidx.loader.app.LoaderManager>;
 				public findFragmentByWho(param0: string): androidx.fragment.app.Fragment;
 				public dispatchPause(): void;
 				public dispatchCreate(): void;
@@ -8971,7 +8971,7 @@ declare module androidx {
 declare module androidx {
 	export module fragment {
 		export module app {
-			export abstract class FragmentHostCallback<E>  extends androidx.fragment.app.FragmentContainer {
+			export abstract class FragmentHostCallback<E> extends androidx.fragment.app.FragmentContainer {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentHostCallback<any>>;
 				public onShouldSaveFragmentState(param0: androidx.fragment.app.Fragment): boolean;
 				public onSupportInvalidateOptionsMenu(): void;
@@ -9737,7 +9737,7 @@ declare module androidx {
 
 declare module androidx {
 	export module lifecycle {
-		export abstract class ComputableLiveData<T>  extends java.lang.Object {
+		export abstract class ComputableLiveData<T> extends java.lang.Object {
 			public static class: java.lang.Class<androidx.lifecycle.ComputableLiveData<any>>;
 			public constructor(param0: java.util.concurrent.Executor);
 			public invalidate(): void;
@@ -9932,7 +9932,7 @@ declare module androidx {
 
 declare module androidx {
 	export module lifecycle {
-		export abstract class LiveData<T>  extends java.lang.Object {
+		export abstract class LiveData<T> extends java.lang.Object {
 			public static class: java.lang.Class<androidx.lifecycle.LiveData<any>>;
 			public onInactive(): void;
 			public onActive(): void;
@@ -9951,7 +9951,7 @@ declare module androidx {
 			export class AlwaysActiveObserver extends androidx.lifecycle.LiveData.ObserverWrapper {
 				public static class: java.lang.Class<androidx.lifecycle.LiveData.AlwaysActiveObserver>;
 			}
-			export class LifecycleBoundObserver extends androidx.lifecycle.LiveData.ObserverWrapper implements androidx.lifecycle.GenericLifecycleObserver  {
+			export class LifecycleBoundObserver extends androidx.lifecycle.LiveData.ObserverWrapper implements androidx.lifecycle.GenericLifecycleObserver {
 				public static class: java.lang.Class<androidx.lifecycle.LiveData.LifecycleBoundObserver>;
 				public onStateChanged(param0: androidx.lifecycle.LifecycleOwner, param1: androidx.lifecycle.Lifecycle.Event): void;
 			}
@@ -9964,7 +9964,7 @@ declare module androidx {
 
 declare module androidx {
 	export module lifecycle {
-		export class MediatorLiveData<T>  extends androidx.lifecycle.MutableLiveData<any> {
+		export class MediatorLiveData<T> extends androidx.lifecycle.MutableLiveData<any> {
 			public static class: java.lang.Class<androidx.lifecycle.MediatorLiveData<any>>;
 			public onInactive(): void;
 			public removeSource(param0: androidx.lifecycle.LiveData<any>): void;
@@ -9973,7 +9973,7 @@ declare module androidx {
 			public addSource(param0: androidx.lifecycle.LiveData<any>, param1: androidx.lifecycle.Observer<any>): void;
 		}
 		export module MediatorLiveData {
-			export class Source<V>  extends androidx.lifecycle.Observer<any> {
+			export class Source<V> extends androidx.lifecycle.Observer<any> {
 				public static class: java.lang.Class<androidx.lifecycle.MediatorLiveData.Source<any>>;
 				public onChanged(param0: any): void;
 			}
@@ -9993,7 +9993,7 @@ declare module androidx {
 
 declare module androidx {
 	export module lifecycle {
-		export class MutableLiveData<T>  extends androidx.lifecycle.LiveData<any> {
+		export class MutableLiveData<T> extends androidx.lifecycle.LiveData<any> {
 			public static class: java.lang.Class<androidx.lifecycle.MutableLiveData<any>>;
 			public postValue(param0: any): void;
 			public constructor();
@@ -10004,7 +10004,7 @@ declare module androidx {
 
 declare module androidx {
 	export module lifecycle {
-		export class Observer<T>  extends java.lang.Object {
+		export class Observer<T> extends java.lang.Object {
 			public static class: java.lang.Class<androidx.lifecycle.Observer<any>>;
 			/**
 			 * Constructs a new instance of the androidx.lifecycle.Observer<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -10089,8 +10089,8 @@ declare module androidx {
 	export module lifecycle {
 		export class Transformations {
 			public static class: java.lang.Class<androidx.lifecycle.Transformations>;
-			public static map(param0: androidx.lifecycle.LiveData<any>, param1: androidx.arch.core.util.Function<any,any>): androidx.lifecycle.LiveData<any>;
-			public static switchMap(param0: androidx.lifecycle.LiveData<any>, param1: androidx.arch.core.util.Function<any,any>): androidx.lifecycle.LiveData<any>;
+			public static map(param0: androidx.lifecycle.LiveData<any>, param1: androidx.arch.core.util.Function<any, any>): androidx.lifecycle.LiveData<any>;
+			public static switchMap(param0: androidx.lifecycle.LiveData<any>, param1: androidx.arch.core.util.Function<any, any>): androidx.lifecycle.LiveData<any>;
 		}
 	}
 }
@@ -10186,7 +10186,7 @@ declare module androidx {
 				public constructor();
 			}
 			export module LoaderManager {
-				export class LoaderCallbacks<D>  extends java.lang.Object {
+				export class LoaderCallbacks<D> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.loader.app.LoaderManager.LoaderCallbacks<any>>;
 					/**
 					 * Constructs a new instance of the androidx.loader.app.LoaderManager$LoaderCallbacks interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -10222,7 +10222,7 @@ declare module androidx {
 				public hasRunningLoaders(): boolean;
 			}
 			export module LoaderManagerImpl {
-				export class LoaderInfo<D>  extends androidx.lifecycle.MutableLiveData<any> implements androidx.loader.content.Loader.OnLoadCompleteListener<any>  {
+				export class LoaderInfo<D> extends androidx.lifecycle.MutableLiveData<any> implements androidx.loader.content.Loader.OnLoadCompleteListener<any>  {
 					public static class: java.lang.Class<androidx.loader.app.LoaderManagerImpl.LoaderInfo<any>>;
 					public onInactive(): void;
 					public removeObserver(param0: androidx.lifecycle.Observer<any>): void;
@@ -10232,7 +10232,7 @@ declare module androidx {
 					public onLoadComplete(param0: androidx.loader.content.Loader<any>, param1: any): void;
 					public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
 				}
-				export class LoaderObserver<D>  extends androidx.lifecycle.Observer<any> {
+				export class LoaderObserver<D> extends androidx.lifecycle.Observer<any> {
 					public static class: java.lang.Class<androidx.loader.app.LoaderManagerImpl.LoaderObserver<any>>;
 					public toString(): string;
 					public onChanged(param0: any): void;
@@ -10251,7 +10251,7 @@ declare module androidx {
 declare module androidx {
 	export module loader {
 		export module content {
-			export abstract class AsyncTaskLoader<D>  extends androidx.loader.content.Loader<any> {
+			export abstract class AsyncTaskLoader<D> extends androidx.loader.content.Loader<any> {
 				public static class: java.lang.Class<androidx.loader.content.AsyncTaskLoader<any>>;
 				public onLoadInBackground(): any;
 				public onForceLoad(): void;
@@ -10267,7 +10267,7 @@ declare module androidx {
 				public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
 			}
 			export module AsyncTaskLoader {
-				export class LoadTask extends androidx.loader.content.ModernAsyncTask<java.lang.Void,java.lang.Void,any> implements java.lang.Runnable  {
+				export class LoadTask extends androidx.loader.content.ModernAsyncTask<java.lang.Void, java.lang.Void, any> implements java.lang.Runnable {
 					public static class: java.lang.Class<androidx.loader.content.AsyncTaskLoader.LoadTask>;
 					public onCancelled(param0: any): void;
 					public run(): void;
@@ -10319,7 +10319,7 @@ declare module androidx {
 declare module androidx {
 	export module loader {
 		export module content {
-			export class Loader<D>  extends java.lang.Object {
+			export class Loader<D> extends java.lang.Object {
 				public static class: java.lang.Class<androidx.loader.content.Loader<any>>;
 				public onStartLoading(): void;
 				public rollbackContentChanged(): void;
@@ -10361,7 +10361,7 @@ declare module androidx {
 					public deliverSelfNotifications(): boolean;
 					public constructor(param0: androidx.loader.content.Loader<any>);
 				}
-				export class OnLoadCanceledListener<D>  extends java.lang.Object {
+				export class OnLoadCanceledListener<D> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.loader.content.Loader.OnLoadCanceledListener<any>>;
 					/**
 					 * Constructs a new instance of the androidx.loader.content.Loader$OnLoadCanceledListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -10372,7 +10372,7 @@ declare module androidx {
 					public constructor();
 					public onLoadCanceled(param0: androidx.loader.content.Loader<D>): void;
 				}
-				export class OnLoadCompleteListener<D>  extends java.lang.Object {
+				export class OnLoadCompleteListener<D> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.loader.content.Loader.OnLoadCompleteListener<any>>;
 					/**
 					 * Constructs a new instance of the androidx.loader.content.Loader$OnLoadCompleteListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -10391,17 +10391,17 @@ declare module androidx {
 declare module androidx {
 	export module loader {
 		export module content {
-			export abstract class ModernAsyncTask<Params, Progress, Result>  extends java.lang.Object {
-				public static class: java.lang.Class<androidx.loader.content.ModernAsyncTask<any,any,any>>;
+			export abstract class ModernAsyncTask<Params, Progress, Result> extends java.lang.Object {
+				public static class: java.lang.Class<androidx.loader.content.ModernAsyncTask<any, any, any>>;
 				public static THREAD_POOL_EXECUTOR: java.util.concurrent.Executor;
 				public onPostExecute(param0: Result): void;
 				public getStatus(): androidx.loader.content.ModernAsyncTask.Status;
 				public onProgressUpdate(param0: native.Array<Progress>): void;
 				public get(): Result;
-				public execute(param0: native.Array<Params>): androidx.loader.content.ModernAsyncTask<Params,Progress,Result>;
+				public execute(param0: native.Array<Params>): androidx.loader.content.ModernAsyncTask<Params, Progress, Result>;
 				public static setDefaultExecutor(param0: java.util.concurrent.Executor): void;
 				public doInBackground(param0: native.Array<Params>): Result;
-				public executeOnExecutor(param0: java.util.concurrent.Executor, param1: native.Array<Params>): androidx.loader.content.ModernAsyncTask<Params,Progress,Result>;
+				public executeOnExecutor(param0: java.util.concurrent.Executor, param1: native.Array<Params>): androidx.loader.content.ModernAsyncTask<Params, Progress, Result>;
 				public publishProgress(param0: native.Array<Progress>): void;
 				public onPreExecute(): void;
 				public static execute(param0: java.lang.Runnable): void;
@@ -10412,7 +10412,7 @@ declare module androidx {
 				public get(param0: number, param1: java.util.concurrent.TimeUnit): Result;
 			}
 			export module ModernAsyncTask {
-				export class AsyncTaskResult<Data>  extends java.lang.Object {
+				export class AsyncTaskResult<Data> extends java.lang.Object {
 					public static class: java.lang.Class<androidx.loader.content.ModernAsyncTask.AsyncTaskResult<any>>;
 				}
 				export class InternalHandler {
@@ -10427,8 +10427,8 @@ declare module androidx {
 					public static values(): native.Array<androidx.loader.content.ModernAsyncTask.Status>;
 					public static valueOf(param0: string): androidx.loader.content.ModernAsyncTask.Status;
 				}
-				export abstract class WorkerRunnable<Params, Result>  extends java.util.concurrent.Callable<any> {
-					public static class: java.lang.Class<androidx.loader.content.ModernAsyncTask.WorkerRunnable<any,any>>;
+				export abstract class WorkerRunnable<Params, Result> extends java.util.concurrent.Callable<any> {
+					public static class: java.lang.Class<androidx.loader.content.ModernAsyncTask.WorkerRunnable<any, any>>;
 				}
 			}
 		}
@@ -11829,7 +11829,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module clearcut {
-					export class zza extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.internal.clearcut.zzj,com.google.android.gms.common.api.Api.ApiOptions.NoOptions> {
+					export class zza extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.internal.clearcut.zzj, com.google.android.gms.common.api.Api.ApiOptions.NoOptions> {
 						public static class: java.lang.Class<com.google.android.gms.clearcut.zza>;
 					}
 				}
@@ -12553,17 +12553,17 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export class Api<O>  extends java.lang.Object {
+						export class Api<O> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.Api<any>>;
-							public constructor(param0: string, param1: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,any>, param2: com.google.android.gms.common.api.Api.ClientKey<any>);
-							public zah(): com.google.android.gms.common.api.Api.BaseClientBuilder<any,O>;
+							public constructor(param0: string, param1: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, any>, param2: com.google.android.gms.common.api.Api.ClientKey<any>);
+							public zah(): com.google.android.gms.common.api.Api.BaseClientBuilder<any, O>;
 							public getClientKey(): com.google.android.gms.common.api.Api.AnyClientKey<any>;
-							public zai(): com.google.android.gms.common.api.Api.AbstractClientBuilder<any,O>;
+							public zai(): com.google.android.gms.common.api.Api.AbstractClientBuilder<any, O>;
 							public getName(): string;
 						}
 						export module Api {
-							export abstract class AbstractClientBuilder<T, O>  extends com.google.android.gms.common.api.Api.BaseClientBuilder<any,any> {
-								public static class: java.lang.Class<com.google.android.gms.common.api.Api.AbstractClientBuilder<any,any>>;
+							export abstract class AbstractClientBuilder<T, O> extends com.google.android.gms.common.api.Api.BaseClientBuilder<any, any> {
+								public static class: java.lang.Class<com.google.android.gms.common.api.Api.AbstractClientBuilder<any, any>>;
 								public buildClient(param0: globalAndroid.content.Context, param1: globalAndroid.os.Looper, param2: com.google.android.gms.common.internal.ClientSettings, param3: any, param4: com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks, param5: com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener): any;
 								public constructor();
 							}
@@ -12576,7 +12576,7 @@ declare module com {
 								});
 								public constructor();
 							}
-							export class AnyClientKey<C>  extends java.lang.Object {
+							export class AnyClientKey<C> extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.gms.common.api.Api.AnyClientKey<any>>;
 								public constructor();
 							}
@@ -12643,8 +12643,8 @@ declare module com {
 									public constructor();
 								}
 							}
-							export class BaseClientBuilder<T, O>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.api.Api.BaseClientBuilder<any,any>>;
+							export class BaseClientBuilder<T, O> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.api.Api.BaseClientBuilder<any, any>>;
 								public static API_PRIORITY_GAMES: number;
 								public static API_PRIORITY_PLUS: number;
 								public static API_PRIORITY_OTHER: number;
@@ -12695,11 +12695,11 @@ declare module com {
 								public isConnecting(): boolean;
 								public providesSignIn(): boolean;
 							}
-							export class ClientKey<C>  extends com.google.android.gms.common.api.Api.AnyClientKey<any> {
+							export class ClientKey<C> extends com.google.android.gms.common.api.Api.AnyClientKey<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.Api.ClientKey<any>>;
 								public constructor();
 							}
-							export class SimpleClient<T>  extends com.google.android.gms.common.api.Api.AnyClient {
+							export class SimpleClient<T> extends com.google.android.gms.common.api.Api.AnyClient {
 								public static class: java.lang.Class<com.google.android.gms.common.api.Api.SimpleClient<any>>;
 								/**
 								 * Constructs a new instance of the com.google.android.gms.common.api.Api$SimpleClient interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -12718,10 +12718,10 @@ declare module com {
 								public getServiceDescriptor(): string;
 								public setState(param0: number, param1: any): void;
 							}
-							export class zaa<T, O>  extends com.google.android.gms.common.api.Api.BaseClientBuilder<any,any> {
-								public static class: java.lang.Class<com.google.android.gms.common.api.Api.zaa<any,any>>;
+							export class zaa<T, O> extends com.google.android.gms.common.api.Api.BaseClientBuilder<any, any> {
+								public static class: java.lang.Class<com.google.android.gms.common.api.Api.zaa<any, any>>;
 							}
-							export class zab<C>  extends com.google.android.gms.common.api.Api.AnyClientKey<any> {
+							export class zab<C> extends com.google.android.gms.common.api.Api.AnyClientKey<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.Api.zab<any>>;
 							}
 						}
@@ -12761,8 +12761,8 @@ declare module com {
 					export module api {
 						export class AvailabilityException {
 							public static class: java.lang.Class<com.google.android.gms.common.api.AvailabilityException>;
-							public constructor(param0: androidx.collection.ArrayMap<com.google.android.gms.common.api.internal.zai<any>,com.google.android.gms.common.ConnectionResult>);
-							public zaj(): androidx.collection.ArrayMap<com.google.android.gms.common.api.internal.zai<any>,com.google.android.gms.common.ConnectionResult>;
+							public constructor(param0: androidx.collection.ArrayMap<com.google.android.gms.common.api.internal.zai<any>, com.google.android.gms.common.ConnectionResult>);
+							public zaj(): androidx.collection.ArrayMap<com.google.android.gms.common.api.internal.zai<any>, com.google.android.gms.common.ConnectionResult>;
 							public getMessage(): string;
 							public getConnectionResult(param0: com.google.android.gms.common.api.GoogleApi<any>): com.google.android.gms.common.ConnectionResult;
 						}
@@ -12824,7 +12824,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export class BatchResultToken<R>  extends java.lang.Object {
+						export class BatchResultToken<R> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.BatchResultToken<any>>;
 							public mId: number;
 						}
@@ -12895,8 +12895,8 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export class DataBufferResponse<T, R>  extends com.google.android.gms.common.api.Response<any> implements com.google.android.gms.common.data.DataBuffer<any>  {
-							public static class: java.lang.Class<com.google.android.gms.common.api.DataBufferResponse<any,any>>;
+						export class DataBufferResponse<T, R> extends com.google.android.gms.common.api.Response<any> implements com.google.android.gms.common.data.DataBuffer<any>  {
+							public static class: java.lang.Class<com.google.android.gms.common.api.DataBufferResponse<any, any>>;
 							public constructor();
 							public singleRefIterator(): java.util.Iterator<any>;
 							public getMetadata(): globalAndroid.os.Bundle;
@@ -12925,14 +12925,14 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export class GoogleApi<O>  extends java.lang.Object {
+						export class GoogleApi<O> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.GoogleApi<any>>;
 							public zabm: com.google.android.gms.common.api.internal.GoogleApiManager;
-							public doRegisterEventListener(param0: com.google.android.gms.common.api.internal.RegistrationMethods<any,any>): com.google.android.gms.tasks.Task<any>;
+							public doRegisterEventListener(param0: com.google.android.gms.common.api.internal.RegistrationMethods<any, any>): com.google.android.gms.tasks.Task<any>;
 							public registerListener(param0: any, param1: string): com.google.android.gms.common.api.internal.ListenerHolder<any>;
 							public zaa(param0: globalAndroid.os.Looper, param1: com.google.android.gms.common.api.internal.GoogleApiManager.zaa<O>): com.google.android.gms.common.api.Api.Client;
-							public doWrite(param0: com.google.android.gms.common.api.internal.TaskApiCall<any,any>): com.google.android.gms.tasks.Task<any>;
-							public doBestEffortWrite(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+							public doWrite(param0: com.google.android.gms.common.api.internal.TaskApiCall<any, any>): com.google.android.gms.tasks.Task<any>;
+							public doBestEffortWrite(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 							public doUnregisterEventListener(param0: com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<any>): com.google.android.gms.tasks.Task<java.lang.Boolean>;
 							public getLooper(): globalAndroid.os.Looper;
 							public getApi(): com.google.android.gms.common.api.Api<O>;
@@ -12943,22 +12943,22 @@ declare module com {
 							public zak(): com.google.android.gms.common.api.internal.zai<O>;
 							public createClientSettingsBuilder(): com.google.android.gms.common.internal.ClientSettings.Builder;
 							/** @deprecated */
-							public doRegisterEventListener(param0: com.google.android.gms.common.api.internal.RegisterListenerMethod<any,any>, param1: com.google.android.gms.common.api.internal.UnregisterListenerMethod<any,any>): com.google.android.gms.tasks.Task<any>;
+							public doRegisterEventListener(param0: com.google.android.gms.common.api.internal.RegisterListenerMethod<any, any>, param1: com.google.android.gms.common.api.internal.UnregisterListenerMethod<any, any>): com.google.android.gms.tasks.Task<any>;
 							public getInstanceId(): number;
 							/** @deprecated */
 							public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.Api<O>, param2: O, param3: globalAndroid.os.Looper, param4: com.google.android.gms.common.api.internal.StatusExceptionMapper);
-							public doRead(param0: com.google.android.gms.common.api.internal.TaskApiCall<any,any>): com.google.android.gms.tasks.Task<any>;
+							public doRead(param0: com.google.android.gms.common.api.internal.TaskApiCall<any, any>): com.google.android.gms.tasks.Task<any>;
 							public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.Api<O>, param2: globalAndroid.os.Looper);
 							public getApplicationContext(): globalAndroid.content.Context;
-							public doWrite(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+							public doWrite(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 							/** @deprecated */
 							public constructor(param0: globalAndroid.app.Activity, param1: com.google.android.gms.common.api.Api<O>, param2: O, param3: com.google.android.gms.common.api.internal.StatusExceptionMapper);
 							public disconnectService(): com.google.android.gms.tasks.Task<java.lang.Boolean>;
 							public zaa(param0: globalAndroid.content.Context, param1: globalAndroid.os.Handler): com.google.android.gms.common.api.internal.zace;
-							public doBestEffortWrite(param0: com.google.android.gms.common.api.internal.TaskApiCall<any,any>): com.google.android.gms.tasks.Task<any>;
+							public doBestEffortWrite(param0: com.google.android.gms.common.api.internal.TaskApiCall<any, any>): com.google.android.gms.tasks.Task<any>;
 							public asGoogleApiClient(): com.google.android.gms.common.api.GoogleApiClient;
 							public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.Api<O>, param2: O, param3: com.google.android.gms.common.api.GoogleApi.Settings);
-							public doRead(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+							public doRead(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 						}
 						export module GoogleApi {
 							export class Settings {
@@ -13030,7 +13030,7 @@ declare module com {
 							public blockingConnect(): com.google.android.gms.common.ConnectionResult;
 							public zab(param0: com.google.android.gms.common.api.internal.zacm<any>): void;
 							public connect(): void;
-							public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+							public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 							public maybeSignOut(): void;
 							public clearDefaultAccountAndReconnect(): com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>;
 							public stopAutoManage(param0: androidx.fragment.app.FragmentActivity): void;
@@ -13044,7 +13044,7 @@ declare module com {
 							public unregisterConnectionFailedListener(param0: com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener): void;
 							public getConnectionResult(param0: com.google.android.gms.common.api.Api<any>): com.google.android.gms.common.ConnectionResult;
 							public isConnecting(): boolean;
-							public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+							public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 							public registerListener(param0: any): com.google.android.gms.common.api.internal.ListenerHolder<any>;
 							public blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
 							public maybeSignIn(param0: com.google.android.gms.common.api.internal.SignInConnectionListener): boolean;
@@ -13115,7 +13115,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export abstract class OptionalPendingResult<R>  extends com.google.android.gms.common.api.PendingResult<any> {
+						export abstract class OptionalPendingResult<R> extends com.google.android.gms.common.api.PendingResult<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.api.OptionalPendingResult<any>>;
 							public constructor();
 							public get(): any;
@@ -13134,7 +13134,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export abstract class PendingResult<R>  extends java.lang.Object {
+						export abstract class PendingResult<R> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.PendingResult<any>>;
 							public constructor();
 							public cancel(): void;
@@ -13142,7 +13142,7 @@ declare module com {
 							public await(param0: number, param1: java.util.concurrent.TimeUnit): R;
 							public await(): R;
 							public addStatusListener(param0: com.google.android.gms.common.api.PendingResult.StatusListener): void;
-							public then(param0: com.google.android.gms.common.api.ResultTransform<any,any>): com.google.android.gms.common.api.TransformedResult<any>;
+							public then(param0: com.google.android.gms.common.api.ResultTransform<any, any>): com.google.android.gms.common.api.TransformedResult<any>;
 							public setResultCallback(param0: com.google.android.gms.common.api.ResultCallback<any>, param1: number, param2: java.util.concurrent.TimeUnit): void;
 							public setResultCallback(param0: com.google.android.gms.common.api.ResultCallback<any>): void;
 							public zam(): java.lang.Integer;
@@ -13184,7 +13184,7 @@ declare module com {
 							public static canceledPendingResult(): com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>;
 						}
 						export module PendingResults {
-							export class zaa<R>  extends com.google.android.gms.common.api.internal.BasePendingResult<any> {
+							export class zaa<R> extends com.google.android.gms.common.api.internal.BasePendingResult<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.PendingResults.zaa<any>>;
 								public constructor(param0: any);
 								public constructor(param0: com.google.android.gms.common.api.GoogleApiClient);
@@ -13194,7 +13194,7 @@ declare module com {
 								/** @deprecated */
 								public constructor(param0: globalAndroid.os.Looper);
 							}
-							export class zab<R>  extends com.google.android.gms.common.api.internal.BasePendingResult<any> {
+							export class zab<R> extends com.google.android.gms.common.api.internal.BasePendingResult<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.PendingResults.zab<any>>;
 								public constructor(param0: com.google.android.gms.common.api.GoogleApiClient);
 								public constructor(param0: com.google.android.gms.common.api.internal.BasePendingResult.CallbackHandler<any>);
@@ -13204,7 +13204,7 @@ declare module com {
 								/** @deprecated */
 								public constructor(param0: globalAndroid.os.Looper);
 							}
-							export class zac<R>  extends com.google.android.gms.common.api.internal.BasePendingResult<any> {
+							export class zac<R> extends com.google.android.gms.common.api.internal.BasePendingResult<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.PendingResults.zac<any>>;
 								public constructor(param0: com.google.android.gms.common.api.GoogleApiClient);
 								public constructor(param0: com.google.android.gms.common.api.internal.BasePendingResult.CallbackHandler<any>);
@@ -13270,7 +13270,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export abstract class ResolvingResultCallbacks<R>  extends com.google.android.gms.common.api.ResultCallbacks<any> {
+						export abstract class ResolvingResultCallbacks<R> extends com.google.android.gms.common.api.ResultCallbacks<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.api.ResolvingResultCallbacks<any>>;
 							public constructor();
 							public onSuccess(param0: any): void;
@@ -13292,7 +13292,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export class Response<T>  extends java.lang.Object {
+						export class Response<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.Response<any>>;
 							public constructor();
 							public getResult(): T;
@@ -13336,7 +13336,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export class ResultCallback<R>  extends java.lang.Object {
+						export class ResultCallback<R> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.ResultCallback<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.common.api.ResultCallback<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -13360,7 +13360,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export abstract class ResultCallbacks<R>  extends com.google.android.gms.common.api.ResultCallback<any> {
+						export abstract class ResultCallbacks<R> extends com.google.android.gms.common.api.ResultCallback<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.api.ResultCallbacks<any>>;
 							public constructor();
 							public onSuccess(param0: any): void;
@@ -13380,8 +13380,8 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export abstract class ResultTransform<R, S>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.common.api.ResultTransform<any,any>>;
+						export abstract class ResultTransform<R, S> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.common.api.ResultTransform<any, any>>;
 							public constructor();
 							public onSuccess(param0: R): com.google.android.gms.common.api.PendingResult<S>;
 							public createFailedResult(param0: com.google.android.gms.common.api.Status): com.google.android.gms.common.api.PendingResult<S>;
@@ -13464,10 +13464,10 @@ declare module com {
 			export module gms {
 				export module common {
 					export module api {
-						export abstract class TransformedResult<R>  extends java.lang.Object {
+						export abstract class TransformedResult<R> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.api.TransformedResult<any>>;
 							public constructor();
-							public then(param0: com.google.android.gms.common.api.ResultTransform<any,any>): com.google.android.gms.common.api.TransformedResult<any>;
+							public then(param0: com.google.android.gms.common.api.ResultTransform<any, any>): com.google.android.gms.common.api.TransformedResult<any>;
 							public andFinally(param0: com.google.android.gms.common.api.ResultCallbacks<any>): void;
 						}
 					}
@@ -13594,8 +13594,8 @@ declare module com {
 								public constructor();
 							}
 							export module BaseImplementation {
-								export abstract class ApiMethodImpl<R, A>  extends com.google.android.gms.common.api.internal.BasePendingResult<any> implements com.google.android.gms.common.api.internal.BaseImplementation.ResultHolder<any>  {
-									public static class: java.lang.Class<com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>>;
+								export abstract class ApiMethodImpl<R, A> extends com.google.android.gms.common.api.internal.BasePendingResult<any> implements com.google.android.gms.common.api.internal.BaseImplementation.ResultHolder<any>  {
+									public static class: java.lang.Class<com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>>;
 									public constructor();
 									public getApi(): com.google.android.gms.common.api.Api<any>;
 									/** @deprecated */
@@ -13612,7 +13612,7 @@ declare module com {
 									public setResult(param0: any): void;
 									public constructor(param0: com.google.android.gms.common.api.Api<any>, param1: com.google.android.gms.common.api.GoogleApiClient);
 								}
-								export class ResultHolder<R>  extends java.lang.Object {
+								export class ResultHolder<R> extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.gms.common.api.internal.BaseImplementation.ResultHolder<any>>;
 									/**
 									 * Constructs a new instance of the com.google.android.gms.common.api.internal.BaseImplementation$ResultHolder interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -13641,11 +13641,11 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class BasePendingResult<R>  extends com.google.android.gms.common.api.PendingResult<any> {
+							export abstract class BasePendingResult<R> extends com.google.android.gms.common.api.PendingResult<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.BasePendingResult<any>>;
 								public setResultCallback(param0: com.google.android.gms.common.api.ResultCallback<any>): void;
 								public setCancelToken(param0: com.google.android.gms.common.internal.ICancelToken): void;
-								public then(param0: com.google.android.gms.common.api.ResultTransform<any,any>): com.google.android.gms.common.api.TransformedResult<any>;
+								public then(param0: com.google.android.gms.common.api.ResultTransform<any, any>): com.google.android.gms.common.api.TransformedResult<any>;
 								public static zab(param0: com.google.android.gms.common.api.Result): void;
 								public cancel(): void;
 								public zab(param0: com.google.android.gms.common.api.Status): void;
@@ -13668,7 +13668,7 @@ declare module com {
 								public zam(): java.lang.Integer;
 							}
 							export module BasePendingResult {
-								export class CallbackHandler<R>  extends com.google.android.gms.internal.base.zap {
+								export class CallbackHandler<R> extends com.google.android.gms.internal.base.zap {
 									public static class: java.lang.Class<com.google.android.gms.common.api.internal.BasePendingResult.CallbackHandler<any>>;
 									public constructor();
 									public zaa(param0: com.google.android.gms.common.api.ResultCallback<any>, param1: any): void;
@@ -13696,7 +13696,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class DataHolderNotifier<L>  extends com.google.android.gms.common.api.internal.ListenerHolder.Notifier<any> {
+							export abstract class DataHolderNotifier<L> extends com.google.android.gms.common.api.internal.ListenerHolder.Notifier<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.DataHolderNotifier<any>>;
 								public onNotifyListenerFailed(): void;
 								public notifyListener(param0: any, param1: com.google.android.gms.common.data.DataHolder): void;
@@ -13751,18 +13751,18 @@ declare module com {
 								public zaa(param0: com.google.android.gms.common.api.internal.zaae): void;
 								public static zabc(): com.google.android.gms.common.api.internal.GoogleApiManager;
 								public zabd(): number;
-								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: com.google.android.gms.common.api.internal.RegisterListenerMethod<any,any>, param2: com.google.android.gms.common.api.internal.UnregisterListenerMethod<any,any>): com.google.android.gms.tasks.Task<any>;
+								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: com.google.android.gms.common.api.internal.RegisterListenerMethod<any, any>, param2: com.google.android.gms.common.api.internal.UnregisterListenerMethod<any, any>): com.google.android.gms.tasks.Task<any>;
 								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<any>): com.google.android.gms.tasks.Task<any>;
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: number): void;
 								public static reportSignOut(): void;
-								public zaa(param0: java.lang.Iterable<any>): com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>>;
+								public zaa(param0: java.lang.Iterable<any>): com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>>;
 								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>): void;
 								public static zab(param0: globalAndroid.content.Context): com.google.android.gms.common.api.internal.GoogleApiManager;
-								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: number, param2: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): void;
-								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: number, param2: com.google.android.gms.common.api.internal.TaskApiCall<any,any>, param3: com.google.android.gms.tasks.TaskCompletionSource<any>, param4: com.google.android.gms.common.api.internal.StatusExceptionMapper): void;
+								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: number, param2: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): void;
+								public zaa(param0: com.google.android.gms.common.api.GoogleApi<any>, param1: number, param2: com.google.android.gms.common.api.internal.TaskApiCall<any, any>, param3: com.google.android.gms.tasks.TaskCompletionSource<any>, param4: com.google.android.gms.common.api.internal.StatusExceptionMapper): void;
 							}
 							export module GoogleApiManager {
-								export class zaa<O>  extends java.lang.Object {
+								export class zaa<O> extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.gms.common.api.internal.GoogleApiManager.zaa<any>>;
 									public zag(param0: com.google.android.gms.common.ConnectionResult): void;
 									public zabm(): com.google.android.gms.common.ConnectionResult;
@@ -13778,7 +13778,7 @@ declare module com {
 									public zabp(): boolean;
 									public onConnectionSuspended(param0: number): void;
 									public zaab(): com.google.android.gms.common.api.Api.Client;
-									public zabk(): java.util.Map<com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<any>,com.google.android.gms.common.api.internal.zabw>;
+									public zabk(): java.util.Map<com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<any>, com.google.android.gms.common.api.internal.zabw>;
 									public onConnectionFailed(param0: com.google.android.gms.common.ConnectionResult): void;
 									public resume(): void;
 									public zaav(): void;
@@ -13972,7 +13972,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class ListenerHolder<L>  extends java.lang.Object {
+							export class ListenerHolder<L> extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.ListenerHolder<any>>;
 								public getListenerKey(): com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<L>;
 								public clear(): void;
@@ -13980,12 +13980,12 @@ declare module com {
 								public hasListener(): boolean;
 							}
 							export module ListenerHolder {
-								export class ListenerKey<L>  extends java.lang.Object {
+								export class ListenerKey<L> extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<any>>;
 									public hashCode(): number;
 									public equals(param0: any): boolean;
 								}
-								export class Notifier<L>  extends java.lang.Object {
+								export class Notifier<L> extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.gms.common.api.internal.ListenerHolder.Notifier<any>>;
 									/**
 									 * Constructs a new instance of the com.google.android.gms.common.api.internal.ListenerHolder$Notifier interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -14045,10 +14045,10 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class OptionalPendingResultImpl<R>  extends com.google.android.gms.common.api.OptionalPendingResult<any> {
+							export class OptionalPendingResultImpl<R> extends com.google.android.gms.common.api.OptionalPendingResult<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.OptionalPendingResultImpl<any>>;
 								public setResultCallback(param0: com.google.android.gms.common.api.ResultCallback<any>): void;
-								public then(param0: com.google.android.gms.common.api.ResultTransform<any,any>): com.google.android.gms.common.api.TransformedResult<any>;
+								public then(param0: com.google.android.gms.common.api.ResultTransform<any, any>): com.google.android.gms.common.api.TransformedResult<any>;
 								public cancel(): void;
 								public get(): any;
 								public constructor();
@@ -14076,8 +14076,8 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class PendingResultFacade<A, B>  extends com.google.android.gms.common.api.PendingResult<any> {
-								public static class: java.lang.Class<com.google.android.gms.common.api.internal.PendingResultFacade<any,any>>;
+							export abstract class PendingResultFacade<A, B> extends com.google.android.gms.common.api.PendingResult<any> {
+								public static class: java.lang.Class<com.google.android.gms.common.api.internal.PendingResultFacade<any, any>>;
 							}
 						}
 					}
@@ -14094,8 +14094,8 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class RegisterListenerMethod<A, L>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.api.internal.RegisterListenerMethod<any,any>>;
+							export abstract class RegisterListenerMethod<A, L> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.api.internal.RegisterListenerMethod<any, any>>;
 								public registerListener(param0: A, param1: com.google.android.gms.tasks.TaskCompletionSource<java.lang.Void>): void;
 								public getListenerKey(): com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<L>;
 								public clearListener(): void;
@@ -14119,25 +14119,25 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class RegistrationMethods<A, L>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.api.internal.RegistrationMethods<any,any>>;
-								public zajz: com.google.android.gms.common.api.internal.RegisterListenerMethod<A,L>;
-								public zaka: com.google.android.gms.common.api.internal.UnregisterListenerMethod<A,L>;
-								public static builder(): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<any,any>;
+							export class RegistrationMethods<A, L> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.api.internal.RegistrationMethods<any, any>>;
+								public zajz: com.google.android.gms.common.api.internal.RegisterListenerMethod<A, L>;
+								public zaka: com.google.android.gms.common.api.internal.UnregisterListenerMethod<A, L>;
+								public static builder(): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<any, any>;
 							}
 							export module RegistrationMethods {
-								export class Builder<A, L>  extends java.lang.Object {
-									public static class: java.lang.Class<com.google.android.gms.common.api.internal.RegistrationMethods.Builder<any,any>>;
-									public setAutoResolveMissingFeatures(param0: boolean): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
-									public withHolder(param0: com.google.android.gms.common.api.internal.ListenerHolder<L>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
+								export class Builder<A, L> extends java.lang.Object {
+									public static class: java.lang.Class<com.google.android.gms.common.api.internal.RegistrationMethods.Builder<any, any>>;
+									public setAutoResolveMissingFeatures(param0: boolean): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
+									public withHolder(param0: com.google.android.gms.common.api.internal.ListenerHolder<L>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
 									/** @deprecated */
-									public register(param0: com.google.android.gms.common.util.BiConsumer<A,com.google.android.gms.tasks.TaskCompletionSource<java.lang.Void>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
-									public unregister(param0: com.google.android.gms.common.api.internal.RemoteCall<A,com.google.android.gms.tasks.TaskCompletionSource<java.lang.Boolean>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
-									public register(param0: com.google.android.gms.common.api.internal.RemoteCall<A,com.google.android.gms.tasks.TaskCompletionSource<java.lang.Void>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
-									public build(): com.google.android.gms.common.api.internal.RegistrationMethods<A,L>;
-									public setFeatures(param0: native.Array<com.google.android.gms.common.Feature>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
+									public register(param0: com.google.android.gms.common.util.BiConsumer<A, com.google.android.gms.tasks.TaskCompletionSource<java.lang.Void>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
+									public unregister(param0: com.google.android.gms.common.api.internal.RemoteCall<A, com.google.android.gms.tasks.TaskCompletionSource<java.lang.Boolean>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
+									public register(param0: com.google.android.gms.common.api.internal.RemoteCall<A, com.google.android.gms.tasks.TaskCompletionSource<java.lang.Void>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
+									public build(): com.google.android.gms.common.api.internal.RegistrationMethods<A, L>;
+									public setFeatures(param0: native.Array<com.google.android.gms.common.Feature>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
 									/** @deprecated */
-									public unregister(param0: com.google.android.gms.common.util.BiConsumer<A,com.google.android.gms.tasks.TaskCompletionSource<java.lang.Boolean>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A,L>;
+									public unregister(param0: com.google.android.gms.common.util.BiConsumer<A, com.google.android.gms.tasks.TaskCompletionSource<java.lang.Boolean>>): com.google.android.gms.common.api.internal.RegistrationMethods.Builder<A, L>;
 								}
 							}
 						}
@@ -14155,8 +14155,8 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class RemoteCall<T, U>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.api.internal.RemoteCall<any,any>>;
+							export class RemoteCall<T, U> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.api.internal.RemoteCall<any, any>>;
 								/**
 								 * Constructs a new instance of the com.google.android.gms.common.api.internal.RemoteCall<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 								 */
@@ -14278,24 +14278,24 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class TaskApiCall<A, ResultT>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.api.internal.TaskApiCall<any,any>>;
+							export abstract class TaskApiCall<A, ResultT> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.api.internal.TaskApiCall<any, any>>;
 								/** @deprecated */
 								public constructor();
 								public zabt(): native.Array<com.google.android.gms.common.Feature>;
 								public doExecute(param0: A, param1: com.google.android.gms.tasks.TaskCompletionSource<ResultT>): void;
 								public shouldAutoResolveMissingFeatures(): boolean;
-								public static builder(): com.google.android.gms.common.api.internal.TaskApiCall.Builder<any,any>;
+								public static builder(): com.google.android.gms.common.api.internal.TaskApiCall.Builder<any, any>;
 							}
 							export module TaskApiCall {
-								export class Builder<A, ResultT>  extends java.lang.Object {
-									public static class: java.lang.Class<com.google.android.gms.common.api.internal.TaskApiCall.Builder<any,any>>;
-									public setFeatures(param0: native.Array<com.google.android.gms.common.Feature>): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A,ResultT>;
-									public build(): com.google.android.gms.common.api.internal.TaskApiCall<A,ResultT>;
-									public run(param0: com.google.android.gms.common.api.internal.RemoteCall<A,com.google.android.gms.tasks.TaskCompletionSource<ResultT>>): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A,ResultT>;
-									public setAutoResolveMissingFeatures(param0: boolean): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A,ResultT>;
+								export class Builder<A, ResultT> extends java.lang.Object {
+									public static class: java.lang.Class<com.google.android.gms.common.api.internal.TaskApiCall.Builder<any, any>>;
+									public setFeatures(param0: native.Array<com.google.android.gms.common.Feature>): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A, ResultT>;
+									public build(): com.google.android.gms.common.api.internal.TaskApiCall<A, ResultT>;
+									public run(param0: com.google.android.gms.common.api.internal.RemoteCall<A, com.google.android.gms.tasks.TaskCompletionSource<ResultT>>): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A, ResultT>;
+									public setAutoResolveMissingFeatures(param0: boolean): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A, ResultT>;
 									/** @deprecated */
-									public execute(param0: com.google.android.gms.common.util.BiConsumer<A,com.google.android.gms.tasks.TaskCompletionSource<ResultT>>): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A,ResultT>;
+									public execute(param0: com.google.android.gms.common.util.BiConsumer<A, com.google.android.gms.tasks.TaskCompletionSource<ResultT>>): com.google.android.gms.common.api.internal.TaskApiCall.Builder<A, ResultT>;
 								}
 							}
 						}
@@ -14336,8 +14336,8 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class UnregisterListenerMethod<A, L>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.api.internal.UnregisterListenerMethod<any,any>>;
+							export abstract class UnregisterListenerMethod<A, L> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.api.internal.UnregisterListenerMethod<any, any>>;
 								public getListenerKey(): com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<L>;
 								public unregisterListener(param0: A, param1: com.google.android.gms.tasks.TaskCompletionSource<java.lang.Boolean>): void;
 								public constructor(param0: com.google.android.gms.common.api.internal.ListenerHolder.ListenerKey<L>);
@@ -14384,10 +14384,10 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zaaa extends com.google.android.gms.tasks.OnCompleteListener<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>> {
+							export class zaaa extends com.google.android.gms.tasks.OnCompleteListener<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaaa>;
 								public onComplete(param0: com.google.android.gms.tasks.Task<any>): void;
-								public onComplete(param0: com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>>): void;
+								public onComplete(param0: com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>>): void;
 							}
 						}
 					}
@@ -14551,11 +14551,11 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaah>;
 								public disconnect(): boolean;
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: com.google.android.gms.common.api.Api<any>, param2: boolean): void;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public constructor(param0: com.google.android.gms.common.api.internal.zabe);
 								public begin(): void;
 								public onConnected(param0: globalAndroid.os.Bundle): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public connect(): void;
 								public onConnectionSuspended(param0: number): void;
 							}
@@ -14616,11 +14616,11 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaak>;
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: com.google.android.gms.common.api.Api<any>, param2: boolean): void;
 								public disconnect(): boolean;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public begin(): void;
 								public onConnected(param0: globalAndroid.os.Bundle): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
-								public constructor(param0: com.google.android.gms.common.api.internal.zabe, param1: com.google.android.gms.common.internal.ClientSettings, param2: java.util.Map<com.google.android.gms.common.api.Api<any>,java.lang.Boolean>, param3: com.google.android.gms.common.GoogleApiAvailabilityLight, param4: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>, param5: java.util.concurrent.locks.Lock, param6: globalAndroid.content.Context);
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
+								public constructor(param0: com.google.android.gms.common.api.internal.zabe, param1: com.google.android.gms.common.internal.ClientSettings, param2: java.util.Map<com.google.android.gms.common.api.Api<any>, java.lang.Boolean>, param3: com.google.android.gms.common.GoogleApiAvailabilityLight, param4: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>, param5: java.util.concurrent.locks.Lock, param6: globalAndroid.content.Context);
 								public connect(): void;
 								public onConnectionSuspended(param0: number): void;
 							}
@@ -14680,7 +14680,7 @@ declare module com {
 						export module internal {
 							export class zaan extends com.google.android.gms.common.api.internal.zaau {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaan>;
-								public constructor(param0: java.util.Map<com.google.android.gms.common.api.Api.Client,com.google.android.gms.common.api.internal.zaam>);
+								public constructor(param0: java.util.Map<com.google.android.gms.common.api.Api.Client, com.google.android.gms.common.api.internal.zaam>);
 								public zaan(): void;
 							}
 						}
@@ -14843,11 +14843,11 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaav>;
 								public disconnect(): boolean;
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: com.google.android.gms.common.api.Api<any>, param2: boolean): void;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public constructor(param0: com.google.android.gms.common.api.internal.zabe);
 								public begin(): void;
 								public onConnected(param0: globalAndroid.os.Bundle): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public connect(): void;
 								public onConnectionSuspended(param0: number): void;
 							}
@@ -14869,7 +14869,7 @@ declare module com {
 							export class zaaw extends com.google.android.gms.common.api.GoogleApiClient implements com.google.android.gms.common.api.internal.zabt {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaaw>;
 								public unregisterConnectionCallbacks(param0: com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks): void;
-								public constructor(param0: globalAndroid.content.Context, param1: java.util.concurrent.locks.Lock, param2: globalAndroid.os.Looper, param3: com.google.android.gms.common.internal.ClientSettings, param4: com.google.android.gms.common.GoogleApiAvailability, param5: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>, param6: java.util.Map<com.google.android.gms.common.api.Api<any>,java.lang.Boolean>, param7: java.util.List<com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks>, param8: java.util.List<com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener>, param9: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>,com.google.android.gms.common.api.Api.Client>, param10: number, param11: number, param12: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>, param13: boolean);
+								public constructor(param0: globalAndroid.content.Context, param1: java.util.concurrent.locks.Lock, param2: globalAndroid.os.Looper, param3: com.google.android.gms.common.internal.ClientSettings, param4: com.google.android.gms.common.GoogleApiAvailability, param5: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>, param6: java.util.Map<com.google.android.gms.common.api.Api<any>, java.lang.Boolean>, param7: java.util.List<com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks>, param8: java.util.List<com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener>, param9: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>, com.google.android.gms.common.api.Api.Client>, param10: number, param11: number, param12: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>, param13: boolean);
 								public blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
 								public getClient(param0: com.google.android.gms.common.api.Api.AnyClientKey<any>): com.google.android.gms.common.api.Api.Client;
 								public zab(param0: globalAndroid.os.Bundle): void;
@@ -14884,7 +14884,7 @@ declare module com {
 								public hasConnectedApi(param0: com.google.android.gms.common.api.Api<any>): boolean;
 								public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
 								public clearDefaultAccountAndReconnect(): com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public registerConnectionCallbacks(param0: com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks): void;
 								public blockingConnect(): com.google.android.gms.common.ConnectionResult;
 								public constructor();
@@ -14899,7 +14899,7 @@ declare module com {
 								public getConnectionResult(param0: com.google.android.gms.common.api.Api<any>): com.google.android.gms.common.ConnectionResult;
 								public reconnect(): void;
 								public hasApi(param0: com.google.android.gms.common.api.Api<any>): boolean;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public disconnect(): void;
 								public isConnecting(): boolean;
 								public registerListener(param0: any): com.google.android.gms.common.api.internal.ListenerHolder<any>;
@@ -15066,8 +15066,8 @@ declare module com {
 								 */
 								public constructor(implementation: {
 									begin(): void;
-									enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
-									execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+									enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
+									execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 									disconnect(): boolean;
 									connect(): void;
 									onConnected(param0: globalAndroid.os.Bundle): void;
@@ -15077,10 +15077,10 @@ declare module com {
 								public constructor();
 								public disconnect(): boolean;
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: com.google.android.gms.common.api.Api<any>, param2: boolean): void;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public begin(): void;
 								public onConnected(param0: globalAndroid.os.Bundle): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public connect(): void;
 								public onConnectionSuspended(param0: number): void;
 							}
@@ -15101,7 +15101,7 @@ declare module com {
 						export module internal {
 							export class zabe implements com.google.android.gms.common.api.internal.zabs, com.google.android.gms.common.api.internal.zar {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zabe>;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
 								public blockingConnect(): com.google.android.gms.common.ConnectionResult;
 								public maybeSignOut(): void;
@@ -15110,10 +15110,10 @@ declare module com {
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: com.google.android.gms.common.api.Api<any>, param2: boolean): void;
 								public isConnected(): boolean;
 								public getConnectionResult(param0: com.google.android.gms.common.api.Api<any>): com.google.android.gms.common.ConnectionResult;
-								public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.internal.zaaw, param2: java.util.concurrent.locks.Lock, param3: globalAndroid.os.Looper, param4: com.google.android.gms.common.GoogleApiAvailabilityLight, param5: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>,com.google.android.gms.common.api.Api.Client>, param6: com.google.android.gms.common.internal.ClientSettings, param7: java.util.Map<com.google.android.gms.common.api.Api<any>,java.lang.Boolean>, param8: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>, param9: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>, param10: com.google.android.gms.common.api.internal.zabt);
+								public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.internal.zaaw, param2: java.util.concurrent.locks.Lock, param3: globalAndroid.os.Looper, param4: com.google.android.gms.common.GoogleApiAvailabilityLight, param5: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>, com.google.android.gms.common.api.Api.Client>, param6: com.google.android.gms.common.internal.ClientSettings, param7: java.util.Map<com.google.android.gms.common.api.Api<any>, java.lang.Boolean>, param8: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>, param9: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>, param10: com.google.android.gms.common.api.internal.zabt);
 								public onConnected(param0: globalAndroid.os.Bundle): void;
 								public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public disconnect(): void;
 								public zaw(): void;
 								public isConnecting(): boolean;
@@ -15326,13 +15326,13 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zabp<O>  extends com.google.android.gms.common.api.internal.zaag {
+							export class zabp<O> extends com.google.android.gms.common.api.internal.zaag {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zabp<any>>;
 								public constructor(param0: com.google.android.gms.common.api.GoogleApi<any>);
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public constructor();
 								public constructor(param0: string);
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public zab(param0: com.google.android.gms.common.api.internal.zacm<any>): void;
 								public getContext(): globalAndroid.content.Context;
 								public zaa(param0: com.google.android.gms.common.api.internal.zacm<any>): void;
@@ -15401,8 +15401,8 @@ declare module com {
 								 * Constructs a new instance of the com.google.android.gms.common.api.internal.zabs interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 								 */
 								public constructor(implementation: {
-									enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
-									execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+									enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
+									execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 									connect(): void;
 									blockingConnect(): com.google.android.gms.common.ConnectionResult;
 									blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
@@ -15416,7 +15416,7 @@ declare module com {
 									zaw(): void;
 								});
 								public constructor();
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
 								public blockingConnect(): com.google.android.gms.common.ConnectionResult;
 								public maybeSignOut(): void;
@@ -15425,7 +15425,7 @@ declare module com {
 								public isConnected(): boolean;
 								public getConnectionResult(param0: com.google.android.gms.common.api.Api<any>): com.google.android.gms.common.ConnectionResult;
 								public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public disconnect(): void;
 								public zaw(): void;
 								public isConnecting(): boolean;
@@ -15522,9 +15522,9 @@ declare module com {
 						export module internal {
 							export class zabw {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zabw>;
-								public zajx: com.google.android.gms.common.api.internal.RegisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient,any>;
-								public zajy: com.google.android.gms.common.api.internal.UnregisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient,any>;
-								public constructor(param0: com.google.android.gms.common.api.internal.RegisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient,any>, param1: com.google.android.gms.common.api.internal.UnregisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient,any>);
+								public zajx: com.google.android.gms.common.api.internal.RegisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient, any>;
+								public zajy: com.google.android.gms.common.api.internal.UnregisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient, any>;
+								public constructor(param0: com.google.android.gms.common.api.internal.RegisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient, any>, param1: com.google.android.gms.common.api.internal.UnregisterListenerMethod<com.google.android.gms.common.api.Api.AnyClient, any>);
 							}
 						}
 					}
@@ -15559,7 +15559,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zaby extends com.google.android.gms.common.api.internal.RemoteCall<any,any> {
+							export class zaby extends com.google.android.gms.common.api.internal.RemoteCall<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaby>;
 								public accept(param0: any, param1: any): void;
 							}
@@ -15578,7 +15578,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zabz extends com.google.android.gms.common.api.internal.RemoteCall<any,any> {
+							export class zabz extends com.google.android.gms.common.api.internal.RemoteCall<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zabz>;
 								public accept(param0: any, param1: any): void;
 							}
@@ -15618,7 +15618,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zaca extends com.google.android.gms.common.api.internal.RegisterListenerMethod<any,any> {
+							export class zaca extends com.google.android.gms.common.api.internal.RegisterListenerMethod<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaca>;
 								public registerListener(param0: any, param1: com.google.android.gms.tasks.TaskCompletionSource<java.lang.Void>): void;
 							}
@@ -15637,7 +15637,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zacb extends com.google.android.gms.common.api.internal.UnregisterListenerMethod<any,any> {
+							export class zacb extends com.google.android.gms.common.api.internal.UnregisterListenerMethod<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zacb>;
 								public unregisterListener(param0: any, param1: com.google.android.gms.tasks.TaskCompletionSource<java.lang.Boolean>): void;
 							}
@@ -15675,11 +15675,11 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zacd<R>  extends com.google.android.gms.common.api.PendingResult<any> {
+							export class zacd<R> extends com.google.android.gms.common.api.PendingResult<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zacd<any>>;
 								public constructor(param0: com.google.android.gms.common.api.Status);
 								public setResultCallback(param0: com.google.android.gms.common.api.ResultCallback<any>): void;
-								public then(param0: com.google.android.gms.common.api.ResultTransform<any,any>): com.google.android.gms.common.api.TransformedResult<any>;
+								public then(param0: com.google.android.gms.common.api.ResultTransform<any, any>): com.google.android.gms.common.api.TransformedResult<any>;
 								public cancel(): void;
 								public isCanceled(): boolean;
 								public addStatusListener(param0: com.google.android.gms.common.api.PendingResult.StatusListener): void;
@@ -15708,7 +15708,7 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zace>;
 								public zag(param0: com.google.android.gms.common.api.Status): void;
 								public zaa(param0: com.google.android.gms.common.api.internal.zach): void;
-								public constructor(param0: globalAndroid.content.Context, param1: globalAndroid.os.Handler, param2: com.google.android.gms.common.internal.ClientSettings, param3: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>);
+								public constructor(param0: globalAndroid.content.Context, param1: globalAndroid.os.Handler, param2: com.google.android.gms.common.internal.ClientSettings, param3: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>);
 								public zaa(param0: com.google.android.gms.common.ConnectionResult, param1: com.google.android.gms.signin.internal.zaa): void;
 								public zaa(param0: com.google.android.gms.common.api.Status, param1: com.google.android.gms.auth.api.signin.GoogleSignInAccount): void;
 								public constructor();
@@ -15821,7 +15821,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zacj extends com.google.android.gms.common.api.internal.RemoteCall<any,any> {
+							export class zacj extends com.google.android.gms.common.api.internal.RemoteCall<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zacj>;
 								public accept(param0: any, param1: any): void;
 							}
@@ -15840,7 +15840,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zack extends com.google.android.gms.common.api.internal.TaskApiCall<any,any> {
+							export class zack extends com.google.android.gms.common.api.internal.TaskApiCall<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zack>;
 								public doExecute(param0: any, param1: com.google.android.gms.tasks.TaskCompletionSource<any>): void;
 							}
@@ -15859,7 +15859,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zacl extends com.google.android.gms.tasks.Continuation<java.lang.Boolean,java.lang.Void> {
+							export class zacl extends com.google.android.gms.tasks.Continuation<java.lang.Boolean, java.lang.Void> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zacl>;
 								public then(param0: com.google.android.gms.tasks.Task<any>): any;
 							}
@@ -15878,10 +15878,10 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zacm<R>  extends com.google.android.gms.common.api.TransformedResult<any> implements com.google.android.gms.common.api.ResultCallback<any>  {
+							export class zacm<R> extends com.google.android.gms.common.api.TransformedResult<any> implements com.google.android.gms.common.api.ResultCallback<any>  {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zacm<any>>;
 								public constructor(param0: java.lang.ref.WeakReference<com.google.android.gms.common.api.GoogleApiClient>);
-								public then(param0: com.google.android.gms.common.api.ResultTransform<any,any>): com.google.android.gms.common.api.TransformedResult<any>;
+								public then(param0: com.google.android.gms.common.api.ResultTransform<any, any>): com.google.android.gms.common.api.TransformedResult<any>;
 								public zaa(param0: com.google.android.gms.common.api.PendingResult<any>): void;
 								public constructor();
 								public onResult(param0: any): void;
@@ -15947,7 +15947,7 @@ declare module com {
 							export class zacp {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zacp>;
 								public static zakx: com.google.android.gms.common.api.Status;
-								public constructor(param0: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>,com.google.android.gms.common.api.Api.Client>);
+								public constructor(param0: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>, com.google.android.gms.common.api.Api.Client>);
 								public release(): void;
 								public zabx(): void;
 							}
@@ -16031,7 +16031,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export abstract class zad<T>  extends com.google.android.gms.common.api.internal.zac {
+							export abstract class zad<T> extends com.google.android.gms.common.api.internal.zac {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zad<any>>;
 								public zacn: com.google.android.gms.tasks.TaskCompletionSource<any>;
 								public constructor(param0: number, param1: com.google.android.gms.tasks.TaskCompletionSource<any>);
@@ -16057,7 +16057,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zae<A>  extends com.google.android.gms.common.api.internal.zab {
+							export class zae<A> extends com.google.android.gms.common.api.internal.zab {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zae<any>>;
 								public zaa(param0: com.google.android.gms.common.api.Status): void;
 								public constructor(param0: number);
@@ -16105,12 +16105,12 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zag<ResultT>  extends com.google.android.gms.common.api.internal.zac {
+							export class zag<ResultT> extends com.google.android.gms.common.api.internal.zac {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zag<any>>;
 								public zaa(param0: com.google.android.gms.common.api.Status): void;
 								public zac(param0: com.google.android.gms.common.api.internal.GoogleApiManager.zaa<any>): boolean;
 								public constructor(param0: number);
-								public constructor(param0: number, param1: com.google.android.gms.common.api.internal.TaskApiCall<com.google.android.gms.common.api.Api.AnyClient,any>, param2: com.google.android.gms.tasks.TaskCompletionSource<any>, param3: com.google.android.gms.common.api.internal.StatusExceptionMapper);
+								public constructor(param0: number, param1: com.google.android.gms.common.api.internal.TaskApiCall<com.google.android.gms.common.api.Api.AnyClient, any>, param2: com.google.android.gms.tasks.TaskCompletionSource<any>, param3: com.google.android.gms.common.api.internal.StatusExceptionMapper);
 								public zaa(param0: java.lang.RuntimeException): void;
 								public zaa(param0: com.google.android.gms.common.api.internal.zaab, param1: boolean): void;
 								public zaa(param0: com.google.android.gms.common.api.internal.GoogleApiManager.zaa<any>): void;
@@ -16155,7 +16155,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zai<O>  extends java.lang.Object {
+							export class zai<O> extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zai<any>>;
 								public equals(param0: any): boolean;
 								public zan(): string;
@@ -16218,7 +16218,7 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zak>;
 								public constructor(param0: java.lang.Iterable<any>);
 								public zap(): java.util.Set<com.google.android.gms.common.api.internal.zai<any>>;
-								public getTask(): com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>>;
+								public getTask(): com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>>;
 								public zaa(param0: com.google.android.gms.common.api.internal.zai<any>, param1: com.google.android.gms.common.ConnectionResult, param2: string): void;
 							}
 						}
@@ -16400,7 +16400,7 @@ declare module com {
 						export module internal {
 							export class zas extends com.google.android.gms.common.api.internal.zabs {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zas>;
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
 								public blockingConnect(): com.google.android.gms.common.ConnectionResult;
 								public maybeSignOut(): void;
@@ -16409,10 +16409,10 @@ declare module com {
 								public isConnected(): boolean;
 								public getConnectionResult(param0: com.google.android.gms.common.api.Api<any>): com.google.android.gms.common.ConnectionResult;
 								public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public disconnect(): void;
 								public zaw(): void;
-								public static zaa(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.internal.zaaw, param2: java.util.concurrent.locks.Lock, param3: globalAndroid.os.Looper, param4: com.google.android.gms.common.GoogleApiAvailabilityLight, param5: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>,com.google.android.gms.common.api.Api.Client>, param6: com.google.android.gms.common.internal.ClientSettings, param7: java.util.Map<com.google.android.gms.common.api.Api<any>,java.lang.Boolean>, param8: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>, param9: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>): com.google.android.gms.common.api.internal.zas;
+								public static zaa(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.internal.zaaw, param2: java.util.concurrent.locks.Lock, param3: globalAndroid.os.Looper, param4: com.google.android.gms.common.GoogleApiAvailabilityLight, param5: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>, com.google.android.gms.common.api.Api.Client>, param6: com.google.android.gms.common.internal.ClientSettings, param7: java.util.Map<com.google.android.gms.common.api.Api<any>, java.lang.Boolean>, param8: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>, param9: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>): com.google.android.gms.common.api.internal.zas;
 								public isConnecting(): boolean;
 							}
 						}
@@ -16491,7 +16491,7 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zaw<O>  extends com.google.android.gms.common.api.GoogleApi<any> {
+							export class zaw<O> extends com.google.android.gms.common.api.GoogleApi<any> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaw<any>>;
 								public constructor(param0: globalAndroid.app.Activity, param1: com.google.android.gms.common.api.Api<any>, param2: any, param3: com.google.android.gms.common.api.GoogleApi.Settings);
 								public zaab(): com.google.android.gms.common.api.Api.Client;
@@ -16505,7 +16505,7 @@ declare module com {
 								public zaa(param0: globalAndroid.content.Context, param1: globalAndroid.os.Handler): com.google.android.gms.common.api.internal.zace;
 								/** @deprecated */
 								public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.Api<any>, param2: any, param3: globalAndroid.os.Looper, param4: com.google.android.gms.common.api.internal.StatusExceptionMapper);
-								public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.Api<any>, param2: globalAndroid.os.Looper, param3: com.google.android.gms.common.api.Api.Client, param4: com.google.android.gms.common.api.internal.zaq, param5: com.google.android.gms.common.internal.ClientSettings, param6: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>);
+								public constructor(param0: globalAndroid.content.Context, param1: com.google.android.gms.common.api.Api<any>, param2: globalAndroid.os.Looper, param3: com.google.android.gms.common.api.Api.Client, param4: com.google.android.gms.common.api.internal.zaq, param5: com.google.android.gms.common.internal.ClientSettings, param6: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>);
 							}
 						}
 					}
@@ -16524,8 +16524,8 @@ declare module com {
 						export module internal {
 							export class zax extends com.google.android.gms.common.api.internal.zabs {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zax>;
-								public constructor(param0: globalAndroid.content.Context, param1: java.util.concurrent.locks.Lock, param2: globalAndroid.os.Looper, param3: com.google.android.gms.common.GoogleApiAvailabilityLight, param4: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>,com.google.android.gms.common.api.Api.Client>, param5: com.google.android.gms.common.internal.ClientSettings, param6: java.util.Map<com.google.android.gms.common.api.Api<any>,java.lang.Boolean>, param7: com.google.android.gms.common.api.Api.AbstractClientBuilder<any,com.google.android.gms.signin.SignInOptions>, param8: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>, param9: com.google.android.gms.common.api.internal.zaaw, param10: boolean);
-								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public constructor(param0: globalAndroid.content.Context, param1: java.util.concurrent.locks.Lock, param2: globalAndroid.os.Looper, param3: com.google.android.gms.common.GoogleApiAvailabilityLight, param4: java.util.Map<com.google.android.gms.common.api.Api.AnyClientKey<any>, com.google.android.gms.common.api.Api.Client>, param5: com.google.android.gms.common.internal.ClientSettings, param6: java.util.Map<com.google.android.gms.common.api.Api<any>, java.lang.Boolean>, param7: com.google.android.gms.common.api.Api.AbstractClientBuilder<any, com.google.android.gms.signin.SignInOptions>, param8: java.util.ArrayList<com.google.android.gms.common.api.internal.zaq>, param9: com.google.android.gms.common.api.internal.zaaw, param10: boolean);
+								public enqueue(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public blockingConnect(param0: number, param1: java.util.concurrent.TimeUnit): com.google.android.gms.common.ConnectionResult;
 								public blockingConnect(): com.google.android.gms.common.ConnectionResult;
 								public maybeSignOut(): void;
@@ -16534,7 +16534,7 @@ declare module com {
 								public isConnected(): boolean;
 								public getConnectionResult(param0: com.google.android.gms.common.api.Api<any>): com.google.android.gms.common.ConnectionResult;
 								public dump(param0: string, param1: java.io.FileDescriptor, param2: java.io.PrintWriter, param3: native.Array<string>): void;
-								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,any>;
+								public execute(param0: com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>): com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, any>;
 								public disconnect(): void;
 								public zaw(): void;
 								public isConnecting(): boolean;
@@ -16572,10 +16572,10 @@ declare module com {
 				export module common {
 					export module api {
 						export module internal {
-							export class zaz extends com.google.android.gms.tasks.OnCompleteListener<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>> {
+							export class zaz extends com.google.android.gms.tasks.OnCompleteListener<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>> {
 								public static class: java.lang.Class<com.google.android.gms.common.api.internal.zaz>;
 								public onComplete(param0: com.google.android.gms.tasks.Task<any>): void;
-								public onComplete(param0: com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>>): void;
+								public onComplete(param0: com.google.android.gms.tasks.Task<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>>): void;
 							}
 						}
 					}
@@ -16783,7 +16783,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module config {
-						export abstract class GservicesValue<T>  extends java.lang.Object {
+						export abstract class GservicesValue<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.config.GservicesValue<any>>;
 							public mKey: string;
 							public static value(param0: string, param1: string): com.google.android.gms.common.config.GservicesValue<string>;
@@ -16910,7 +16910,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export abstract class AbstractDataBuffer<T>  extends com.google.android.gms.common.data.DataBuffer<any> {
+						export abstract class AbstractDataBuffer<T> extends com.google.android.gms.common.data.DataBuffer<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.data.AbstractDataBuffer<any>>;
 							public mDataHolder: com.google.android.gms.common.data.DataHolder;
 							public singleRefIterator(): java.util.Iterator<any>;
@@ -16961,7 +16961,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export class DataBuffer<T>  extends java.lang.Object {
+						export class DataBuffer<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.data.DataBuffer<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.common.data.DataBuffer<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -17002,7 +17002,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export class DataBufferIterator<T>  extends java.util.Iterator<any> {
+						export class DataBufferIterator<T> extends java.util.Iterator<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.data.DataBufferIterator<any>>;
 							public zalk: com.google.android.gms.common.data.DataBuffer<any>;
 							public zall: number;
@@ -17132,7 +17132,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export class DataBufferSafeParcelable<T>  extends com.google.android.gms.common.data.AbstractDataBuffer<any> {
+						export class DataBufferSafeParcelable<T> extends com.google.android.gms.common.data.AbstractDataBuffer<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.data.DataBufferSafeParcelable<any>>;
 							public singleRefIterator(): java.util.Iterator<any>;
 							public constructor(param0: com.google.android.gms.common.data.DataHolder, param1: globalAndroid.os.Parcelable.Creator<any>);
@@ -17216,7 +17216,7 @@ declare module com {
 							export class Builder {
 								public static class: java.lang.Class<com.google.android.gms.common.data.DataHolder.Builder>;
 								public build(param0: number, param1: globalAndroid.os.Bundle): com.google.android.gms.common.data.DataHolder;
-								public zaa(param0: java.util.HashMap<string,any>): com.google.android.gms.common.data.DataHolder.Builder;
+								public zaa(param0: java.util.HashMap<string, any>): com.google.android.gms.common.data.DataHolder.Builder;
 								public build(param0: number): com.google.android.gms.common.data.DataHolder;
 								public withRow(param0: globalAndroid.content.ContentValues): com.google.android.gms.common.data.DataHolder.Builder;
 							}
@@ -17238,7 +17238,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export abstract class EntityBuffer<T>  extends com.google.android.gms.common.data.AbstractDataBuffer<any> {
+						export abstract class EntityBuffer<T> extends com.google.android.gms.common.data.AbstractDataBuffer<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.data.EntityBuffer<any>>;
 							public singleRefIterator(): java.util.Iterator<any>;
 							public getMetadata(): globalAndroid.os.Bundle;
@@ -17268,7 +17268,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export class Freezable<T>  extends java.lang.Object {
+						export class Freezable<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.data.Freezable<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.common.data.Freezable<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -17314,7 +17314,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module data {
-						export class SingleRefDataBufferIterator<T>  extends com.google.android.gms.common.data.DataBufferIterator<any> {
+						export class SingleRefDataBufferIterator<T> extends com.google.android.gms.common.data.DataBufferIterator<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.data.SingleRefDataBufferIterator<any>>;
 							public constructor(param0: com.google.android.gms.common.data.DataBuffer<any>);
 							public next(): any;
@@ -17352,7 +17352,7 @@ declare module com {
 						export class zab extends com.google.android.gms.common.data.DataHolder.Builder {
 							public static class: java.lang.Class<com.google.android.gms.common.data.zab>;
 							public withRow(param0: globalAndroid.content.ContentValues): com.google.android.gms.common.data.DataHolder.Builder;
-							public zaa(param0: java.util.HashMap<string,any>): com.google.android.gms.common.data.DataHolder.Builder;
+							public zaa(param0: java.util.HashMap<string, any>): com.google.android.gms.common.data.DataHolder.Builder;
 						}
 					}
 				}
@@ -17412,7 +17412,7 @@ declare module com {
 								public constructor();
 								public onImageLoaded(param0: globalAndroid.net.Uri, param1: globalAndroid.graphics.drawable.Drawable, param2: boolean): void;
 							}
-							export class zaa extends androidx.collection.LruCache<com.google.android.gms.common.images.zab,globalAndroid.graphics.Bitmap> {
+							export class zaa extends androidx.collection.LruCache<com.google.android.gms.common.images.zab, globalAndroid.graphics.Bitmap> {
 								public static class: java.lang.Class<com.google.android.gms.common.images.ImageManager.zaa>;
 							}
 							export class zab {
@@ -17703,7 +17703,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module internal {
-						export abstract class BaseGmsClient<T>  extends java.lang.Object {
+						export abstract class BaseGmsClient<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.BaseGmsClient<any>>;
 							public static CONNECT_STATE_DISCONNECTED: number;
 							public static CONNECT_STATE_CONNECTED: number;
@@ -17818,7 +17818,7 @@ declare module com {
 								public constructor();
 								public constructor(param0: globalAndroid.os.Looper);
 							}
-							export abstract class zzc<TListener>  extends java.lang.Object {
+							export abstract class zzc<TListener> extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.gms.common.internal.BaseGmsClient.zzc<any>>;
 								public removeListener(): void;
 								public constructor(param0: TListener);
@@ -17913,10 +17913,10 @@ declare module com {
 							public getGravityForPopups(): number;
 							public getRealClientPackageName(): string;
 							public setClientSessionId(param0: java.lang.Integer): void;
-							public constructor(param0: globalAndroid.accounts.Account, param1: java.util.Set<com.google.android.gms.common.api.Scope>, param2: java.util.Map<com.google.android.gms.common.api.Api<any>,com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>, param3: number, param4: globalAndroid.view.View, param5: string, param6: string, param7: com.google.android.gms.signin.SignInOptions, param8: boolean);
+							public constructor(param0: globalAndroid.accounts.Account, param1: java.util.Set<com.google.android.gms.common.api.Scope>, param2: java.util.Map<com.google.android.gms.common.api.Api<any>, com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>, param3: number, param4: globalAndroid.view.View, param5: string, param6: string, param7: com.google.android.gms.signin.SignInOptions, param8: boolean);
 							public static createDefault(param0: globalAndroid.content.Context): com.google.android.gms.common.internal.ClientSettings;
 							public getViewForPopups(): globalAndroid.view.View;
-							public getOptionalApiSettings(): java.util.Map<com.google.android.gms.common.api.Api<any>,com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>;
+							public getOptionalApiSettings(): java.util.Map<com.google.android.gms.common.api.Api<any>, com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>;
 							public isSignInClientDisconnectFixEnabled(): boolean;
 							public getRequiredScopes(): java.util.Set<com.google.android.gms.common.api.Scope>;
 							public getRealClientClassName(): string;
@@ -17927,7 +17927,7 @@ declare module com {
 							public getAccount(): globalAndroid.accounts.Account;
 							public getAllRequestedScopes(): java.util.Set<com.google.android.gms.common.api.Scope>;
 							public getSignInOptions(): com.google.android.gms.signin.SignInOptions;
-							public constructor(param0: globalAndroid.accounts.Account, param1: java.util.Set<com.google.android.gms.common.api.Scope>, param2: java.util.Map<com.google.android.gms.common.api.Api<any>,com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>, param3: number, param4: globalAndroid.view.View, param5: string, param6: string, param7: com.google.android.gms.signin.SignInOptions);
+							public constructor(param0: globalAndroid.accounts.Account, param1: java.util.Set<com.google.android.gms.common.api.Scope>, param2: java.util.Map<com.google.android.gms.common.api.Api<any>, com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>, param3: number, param4: globalAndroid.view.View, param5: string, param6: string, param7: com.google.android.gms.signin.SignInOptions);
 						}
 						export module ClientSettings {
 							export class Builder {
@@ -17940,7 +17940,7 @@ declare module com {
 								public build(): com.google.android.gms.common.internal.ClientSettings;
 								public setViewForPopups(param0: globalAndroid.view.View): com.google.android.gms.common.internal.ClientSettings.Builder;
 								public addAllRequiredScopes(param0: java.util.Collection<com.google.android.gms.common.api.Scope>): com.google.android.gms.common.internal.ClientSettings.Builder;
-								public setOptionalApiSettingsMap(param0: java.util.Map<com.google.android.gms.common.api.Api<any>,com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>): com.google.android.gms.common.internal.ClientSettings.Builder;
+								public setOptionalApiSettingsMap(param0: java.util.Map<com.google.android.gms.common.api.Api<any>, com.google.android.gms.common.internal.ClientSettings.OptionalApiSettings>): com.google.android.gms.common.internal.ClientSettings.Builder;
 								public addRequiredScope(param0: com.google.android.gms.common.api.Scope): com.google.android.gms.common.internal.ClientSettings.Builder;
 								public constructor();
 								public setRealClientPackageName(param0: string): com.google.android.gms.common.internal.ClientSettings.Builder;
@@ -18093,7 +18093,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module internal {
-						export abstract class GmsClient<T>  extends com.google.android.gms.common.internal.BaseGmsClient<any> {
+						export abstract class GmsClient<T> extends com.google.android.gms.common.internal.BaseGmsClient<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.GmsClient<any>>;
 							public requiresGooglePlayServices(): boolean;
 							public getServiceBrokerBinder(): globalAndroid.os.IBinder;
@@ -18534,7 +18534,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module internal {
-						export abstract class LegacyInternalGmsClient<T>  extends com.google.android.gms.common.internal.GmsClient<any> {
+						export abstract class LegacyInternalGmsClient<T> extends com.google.android.gms.common.internal.GmsClient<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.LegacyInternalGmsClient<any>>;
 							public onConnectedLocked(param0: any): void;
 							public isConnectionFailedListenerRegistered(param0: com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener): boolean;
@@ -18636,12 +18636,12 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.PendingResultUtil>;
 							public constructor();
 							public static toVoidTask(param0: com.google.android.gms.common.api.PendingResult<any>): com.google.android.gms.tasks.Task<any>;
-							public static toTask(param0: com.google.android.gms.common.api.PendingResult<any>, param1: com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any,any>): com.google.android.gms.tasks.Task<any>;
+							public static toTask(param0: com.google.android.gms.common.api.PendingResult<any>, param1: com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any, any>): com.google.android.gms.tasks.Task<any>;
 							public static toResponseTask(param0: com.google.android.gms.common.api.PendingResult<any>, param1: com.google.android.gms.common.api.Response<any>): com.google.android.gms.tasks.Task<any>;
 						}
 						export module PendingResultUtil {
-							export class ResultConverter<R, T>  extends java.lang.Object {
-								public static class: java.lang.Class<com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any,any>>;
+							export class ResultConverter<R, T> extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any, any>>;
 								/**
 								 * Constructs a new instance of the com.google.android.gms.common.internal.PendingResultUtil$ResultConverter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 								 */
@@ -18935,7 +18935,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module internal {
-						export class SimpleClientAdapter<T>  extends com.google.android.gms.common.internal.GmsClient<any> {
+						export class SimpleClientAdapter<T> extends com.google.android.gms.common.internal.GmsClient<any> {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.SimpleClientAdapter<any>>;
 							public getStartServiceAction(): string;
 							public getClient(): com.google.android.gms.common.api.Api.SimpleClient<any>;
@@ -19412,7 +19412,7 @@ declare module com {
 				export module common {
 					export module internal {
 						export module service {
-							export class zab extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.common.internal.service.zai,com.google.android.gms.common.api.Api.ApiOptions.NoOptions> {
+							export class zab extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.common.internal.service.zai, com.google.android.gms.common.api.Api.ApiOptions.NoOptions> {
 								public static class: java.lang.Class<com.google.android.gms.common.internal.service.zab>;
 							}
 						}
@@ -19518,7 +19518,7 @@ declare module com {
 				export module common {
 					export module internal {
 						export module service {
-							export abstract class zag<R>  extends com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any,com.google.android.gms.common.internal.service.zai> {
+							export abstract class zag<R> extends com.google.android.gms.common.api.internal.BaseImplementation.ApiMethodImpl<any, com.google.android.gms.common.internal.service.zai> {
 								public static class: java.lang.Class<com.google.android.gms.common.internal.service.zag<any>>;
 								public constructor(param0: com.google.android.gms.common.api.Api<any>, param1: com.google.android.gms.common.api.GoogleApiClient);
 								public constructor(param0: com.google.android.gms.common.api.internal.BasePendingResult.CallbackHandler<any>);
@@ -19887,7 +19887,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module internal {
-						export class zak extends com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any,any> {
+						export class zak extends com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any, any> {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.zak>;
 							public convert(param0: any): any;
 						}
@@ -19904,7 +19904,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module internal {
-						export class zal extends com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any,java.lang.Void> {
+						export class zal extends com.google.android.gms.common.internal.PendingResultUtil.ResultConverter<any, java.lang.Void> {
 							public static class: java.lang.Class<com.google.android.gms.common.internal.zal>;
 							public convert(param0: any): any;
 						}
@@ -20406,7 +20406,7 @@ declare module com {
 				export module common {
 					export module server {
 						export module converter {
-							export class StringToIntConverter extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable implements com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<string,java.lang.Integer>  {
+							export class StringToIntConverter extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable implements com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<string, java.lang.Integer>  {
 								public static class: java.lang.Class<com.google.android.gms.common.server.converter.StringToIntConverter>;
 								public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.gms.common.server.converter.StringToIntConverter>;
 								public convert(param0: any): any;
@@ -20442,8 +20442,8 @@ declare module com {
 							export class zaa extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable {
 								public static class: java.lang.Class<com.google.android.gms.common.server.converter.zaa>;
 								public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.gms.common.server.converter.zaa>;
-								public zaci(): com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any,any>;
-								public static zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any,any>): com.google.android.gms.common.server.converter.zaa;
+								public zaci(): com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any, any>;
+								public static zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any, any>): com.google.android.gms.common.server.converter.zaa;
 								public writeToParcel(param0: globalAndroid.os.Parcel, param1: number): void;
 							}
 						}
@@ -20521,51 +20521,51 @@ declare module com {
 							export abstract class FastJsonResponse {
 								public static class: java.lang.Class<com.google.android.gms.common.server.response.FastJsonResponse>;
 								public toString(): string;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.Map): void;
-								public setIntegerInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: number): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Integer>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.Map<string,string>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.math.BigInteger): void;
-								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Float>): void;
-								public addConcreteTypeInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: com.google.android.gms.common.server.response.FastJsonResponse): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: number): void;
-								public setStringsInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<string>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.math.BigDecimal): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.math.BigDecimal): void;
-								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public setLongInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: number): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public setDecodedBytesInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: native.Array<number>): void;
-								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Long>): void;
-								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Boolean>): void;
-								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: native.Array<number>): void;
-								public static zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: any): any;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: boolean): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.math.BigInteger): void;
-								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string): void;
-								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.math.BigInteger>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: number): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.Map): void;
+								public setIntegerInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: number): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Integer>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.Map<string, string>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.math.BigInteger): void;
+								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Float>): void;
+								public addConcreteTypeInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: com.google.android.gms.common.server.response.FastJsonResponse): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: number): void;
+								public setStringsInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<string>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.math.BigDecimal): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.math.BigDecimal): void;
+								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public setLongInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: number): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public setDecodedBytesInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: native.Array<number>): void;
+								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Long>): void;
+								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Boolean>): void;
+								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: native.Array<number>): void;
+								public static zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: any): any;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: boolean): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.math.BigInteger): void;
+								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string): void;
+								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.math.BigInteger>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: number): void;
 								public constructor();
-								public zah(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public getFieldMappings(): java.util.Map<string,com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>>;
-								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Double>): void;
+								public zah(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public getFieldMappings(): java.util.Map<string, com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>>;
+								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Double>): void;
 								public isPrimitiveFieldSet(param0: string): boolean;
-								public addConcreteTypeArrayInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList): void;
-								public isFieldSet(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>): boolean;
+								public addConcreteTypeArrayInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList): void;
+								public isFieldSet(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>): boolean;
 								public getValueObject(param0: string): any;
-								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.math.BigDecimal>): void;
-								public setBooleanInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: boolean): void;
-								public getFieldValue(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>): any;
-								public setStringInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: string): void;
+								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.math.BigDecimal>): void;
+								public setBooleanInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: boolean): void;
+								public getFieldValue(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>): any;
+								public setStringInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: string): void;
 							}
 							export module FastJsonResponse {
-								export class Field<I, O>  extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable {
-									public static class: java.lang.Class<com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>>;
+								export class Field<I, O> extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable {
+									public static class: java.lang.Class<com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>>;
 									public zapr: number;
 									public zaps: boolean;
 									public zapt: number;
@@ -20574,30 +20574,30 @@ declare module com {
 									public zapw: number;
 									public zapx: java.lang.Class<any>;
 									public static CREATOR: com.google.android.gms.common.server.response.zai;
-									public static forBase64(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<native.Array<number>,native.Array<number>>;
+									public static forBase64(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<native.Array<number>, native.Array<number>>;
 									public zacp(): com.google.android.gms.common.server.response.FastJsonResponse;
 									public convertBack(param0: any): any;
 									public writeToParcel(param0: globalAndroid.os.Parcel, param1: number): void;
-									public static forConcreteTypeArray(param0: string, param1: number, param2: java.lang.Class): com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>;
-									public static forBoolean(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Boolean,java.lang.Boolean>;
+									public static forConcreteTypeArray(param0: string, param1: number, param2: java.lang.Class): com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>;
+									public static forBoolean(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Boolean, java.lang.Boolean>;
 									public toString(): string;
 									public convert(param0: any): any;
-									public static forLong(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Long,java.lang.Long>;
-									public static forStrings(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.util.ArrayList<string>,java.util.ArrayList<string>>;
-									public static forFloat(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Float,java.lang.Float>;
-									public zacl(): com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>;
+									public static forLong(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Long, java.lang.Long>;
+									public static forStrings(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.util.ArrayList<string>, java.util.ArrayList<string>>;
+									public static forFloat(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Float, java.lang.Float>;
+									public zacl(): com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>;
 									public getSafeParcelableFieldId(): number;
-									public static forString(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<string,string>;
-									public static forDouble(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Double,java.lang.Double>;
-									public zacq(): java.util.Map<string,com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>>;
+									public static forString(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<string, string>;
+									public static forDouble(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Double, java.lang.Double>;
+									public zacq(): java.util.Map<string, com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>>;
 									public zaa(param0: com.google.android.gms.common.server.response.zak): void;
-									public static forConcreteType(param0: string, param1: number, param2: java.lang.Class): com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>;
-									public static forInteger(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Integer,java.lang.Integer>;
-									public static withConverter(param0: string, param1: number, param2: com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any,any>, param3: boolean): com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>;
+									public static forConcreteType(param0: string, param1: number, param2: java.lang.Class): com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>;
+									public static forInteger(param0: string, param1: number): com.google.android.gms.common.server.response.FastJsonResponse.Field<java.lang.Integer, java.lang.Integer>;
+									public static withConverter(param0: string, param1: number, param2: com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any, any>, param3: boolean): com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>;
 									public zacn(): boolean;
 								}
-								export class FieldConverter<I, O>  extends java.lang.Object {
-									public static class: java.lang.Class<com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any,any>>;
+								export class FieldConverter<I, O> extends java.lang.Object {
+									public static class: java.lang.Class<com.google.android.gms.common.server.response.FastJsonResponse.FieldConverter<any, any>>;
 									/**
 									 * Constructs a new instance of the com.google.android.gms.common.server.response.FastJsonResponse$FieldConverter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 									 */
@@ -20629,7 +20629,7 @@ declare module com {
 				export module common {
 					export module server {
 						export module response {
-							export class FastParser<T>  extends java.lang.Object {
+							export class FastParser<T> extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.gms.common.server.response.FastParser<any>>;
 								public constructor();
 								public parse(param0: java.io.InputStream, param1: T): void;
@@ -20641,7 +20641,7 @@ declare module com {
 									public constructor(param0: string);
 									public constructor(param0: string, param1: java.lang.Throwable);
 								}
-								export class zaa<O>  extends java.lang.Object {
+								export class zaa<O> extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.gms.common.server.response.FastParser.zaa<any>>;
 									/**
 									 * Constructs a new instance of the com.google.android.gms.common.server.response.FastParser$zaa interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -20697,47 +20697,47 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.common.server.response.SafeParcelResponse>;
 								public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.gms.common.server.response.SafeParcelResponse>;
 								public toString(): string;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.Map): void;
-								public setIntegerInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: number): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Integer>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.Map<string,string>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.Map): void;
+								public setIntegerInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: number): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Integer>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.Map<string, string>): void;
 								public static from(param0: com.google.android.gms.common.server.response.FastJsonResponse): com.google.android.gms.common.server.response.SafeParcelResponse;
 								public writeToParcel(param0: globalAndroid.os.Parcel, param1: number): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.math.BigInteger): void;
-								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Float>): void;
-								public addConcreteTypeInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: com.google.android.gms.common.server.response.FastJsonResponse): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: number): void;
-								public setStringsInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<string>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.math.BigDecimal): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.math.BigDecimal): void;
-								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public setLongInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: number): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public setDecodedBytesInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: native.Array<number>): void;
-								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Long>): void;
-								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Boolean>): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: native.Array<number>): void;
-								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public static zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: any): any;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: boolean): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.math.BigInteger): void;
-								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: java.util.ArrayList): void;
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string): void;
-								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.math.BigInteger>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.math.BigInteger): void;
+								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Float>): void;
+								public addConcreteTypeInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: com.google.android.gms.common.server.response.FastJsonResponse): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: number): void;
+								public setStringsInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<string>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.math.BigDecimal): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.math.BigDecimal): void;
+								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public setLongInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: number): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public setDecodedBytesInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: native.Array<number>): void;
+								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Long>): void;
+								public zad(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zac(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Boolean>): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: native.Array<number>): void;
+								public zag(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public static zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: any): any;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: boolean): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.math.BigInteger): void;
+								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: java.util.ArrayList): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string): void;
+								public zab(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.math.BigInteger>): void;
 								public constructor(param0: com.google.android.gms.common.server.response.zak, param1: string);
-								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: number): void;
+								public zaa(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: number): void;
 								public constructor();
-								public getFieldMappings(): java.util.Map<string,com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>>;
-								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.lang.Double>): void;
+								public getFieldMappings(): java.util.Map<string, com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>>;
+								public zae(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.lang.Double>): void;
 								public isPrimitiveFieldSet(param0: string): boolean;
-								public addConcreteTypeArrayInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList): void;
+								public addConcreteTypeArrayInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList): void;
 								public getValueObject(param0: string): any;
-								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: java.util.ArrayList<java.math.BigDecimal>): void;
-								public setBooleanInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: boolean): void;
-								public setStringInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>, param1: string, param2: string): void;
+								public zaf(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: java.util.ArrayList<java.math.BigDecimal>): void;
+								public setBooleanInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: boolean): void;
+								public setStringInternal(param0: com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>, param1: string, param2: string): void;
 							}
 						}
 					}
@@ -20906,7 +20906,7 @@ declare module com {
 				export module common {
 					export module server {
 						export module response {
-							export class zai extends globalAndroid.os.Parcelable.Creator<com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>> {
+							export class zai extends globalAndroid.os.Parcelable.Creator<com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>> {
 								public static class: java.lang.Class<com.google.android.gms.common.server.response.zai>;
 								public constructor();
 							}
@@ -20949,10 +20949,10 @@ declare module com {
 								public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.gms.common.server.response.zak>;
 								public zaa(param0: java.lang.Class<any>): boolean;
 								public toString(): string;
-								public zai(param0: string): java.util.Map<string,com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>>;
+								public zai(param0: string): java.util.Map<string, com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>>;
 								public zacs(): void;
 								public constructor();
-								public zaa(param0: java.lang.Class<any>, param1: java.util.Map<string,com.google.android.gms.common.server.response.FastJsonResponse.Field<any,any>>): void;
+								public zaa(param0: java.lang.Class<any>, param1: java.util.Map<string, com.google.android.gms.common.server.response.FastJsonResponse.Field<any, any>>): void;
 								public writeToParcel(param0: globalAndroid.os.Parcel, param1: number): void;
 								public zacr(): void;
 								public constructor(param0: java.lang.Class<any>);
@@ -21330,8 +21330,8 @@ declare module com {
 			export module gms {
 				export module common {
 					export module util {
-						export class BiConsumer<T, U>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.common.util.BiConsumer<any,any>>;
+						export class BiConsumer<T, U> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.common.util.BiConsumer<any, any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.common.util.BiConsumer<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 							 */
@@ -21388,14 +21388,6 @@ declare module com {
 							public nanoTime(): number;
 							public elapsedRealtime(): number;
 							public currentTimeMillis(): number;
-						}
-							export module  {
-						export module Clock {
-								export class CC {
-									public static class: java.lang.Class<com.google.android.gms.common.util.Clock..CC>;
-									public static currentThreadTimeMillis(param0: com.google.android.gms.common.util.Clock): number;
-								}
-							}
 						}
 					}
 				}
@@ -21613,7 +21605,7 @@ declare module com {
 					export module util {
 						export class HttpUtils {
 							public static class: java.lang.Class<com.google.android.gms.common.util.HttpUtils>;
-							public static parse(param0: java.net.URI, param1: string): java.util.Map<string,string>;
+							public static parse(param0: java.net.URI, param1: string): java.util.Map<string, string>;
 						}
 					}
 				}
@@ -21679,7 +21671,7 @@ declare module com {
 						export class MapUtils {
 							public static class: java.lang.Class<com.google.android.gms.common.util.MapUtils>;
 							public constructor();
-							public static writeStringMapToJson(param0: java.lang.StringBuilder, param1: java.util.HashMap<string,string>): void;
+							public static writeStringMapToJson(param0: java.lang.StringBuilder, param1: java.util.HashMap<string, string>): void;
 						}
 					}
 				}
@@ -21760,7 +21752,7 @@ declare module com {
 			export module gms {
 				export module common {
 					export module util {
-						export class Predicate<T>  extends java.lang.Object {
+						export class Predicate<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.common.util.Predicate<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.common.util.Predicate<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -22144,7 +22136,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module common {
-					export class zaa extends com.google.android.gms.tasks.Continuation<java.util.Map<com.google.android.gms.common.api.internal.zai<any>,string>,java.lang.Void> {
+					export class zaa extends com.google.android.gms.tasks.Continuation<java.util.Map<com.google.android.gms.common.api.internal.zai<any>, string>, java.lang.Void> {
 						public static class: java.lang.Class<com.google.android.gms.common.zaa>;
 						public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					}
@@ -22380,7 +22372,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module dynamic {
-					export abstract class DeferredLifecycleHelper<T>  extends java.lang.Object {
+					export abstract class DeferredLifecycleHelper<T> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.dynamic.DeferredLifecycleHelper<any>>;
 						public constructor();
 						public onResume(): void;
@@ -22650,7 +22642,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module dynamic {
-					export class ObjectWrapper<T>  extends com.google.android.gms.dynamic.IObjectWrapper.Stub {
+					export class ObjectWrapper<T> extends com.google.android.gms.dynamic.IObjectWrapper.Stub {
 						public static class: java.lang.Class<com.google.android.gms.dynamic.ObjectWrapper<any>>;
 						public static unwrap(param0: com.google.android.gms.dynamic.IObjectWrapper): any;
 						public static wrap(param0: any): com.google.android.gms.dynamic.IObjectWrapper;
@@ -22666,7 +22658,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module dynamic {
-					export class OnDelegateCreatedListener<T>  extends java.lang.Object {
+					export class OnDelegateCreatedListener<T> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.dynamic.OnDelegateCreatedListener<any>>;
 						/**
 						 * Constructs a new instance of the com.google.android.gms.dynamic.OnDelegateCreatedListener<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -22688,7 +22680,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module dynamic {
-					export abstract class RemoteCreator<T>  extends java.lang.Object {
+					export abstract class RemoteCreator<T> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.dynamic.RemoteCreator<any>>;
 						public getRemoteCreator(param0: globalAndroid.os.IBinder): T;
 						public getRemoteCreatorInstance(param0: globalAndroid.content.Context): T;
@@ -23326,7 +23318,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module base {
-						export class zak extends androidx.collection.LruCache<any,globalAndroid.graphics.drawable.Drawable> {
+						export class zak extends androidx.collection.LruCache<any, globalAndroid.graphics.drawable.Drawable> {
 							public static class: java.lang.Class<com.google.android.gms.internal.base.zak>;
 							public constructor();
 							public constructor(param0: number);
@@ -23552,7 +23544,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzae<T>  extends java.lang.Object {
+						export abstract class zzae<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzae<any>>;
 							public get(): T;
 							public static maybeInit(param0: globalAndroid.content.Context): void;
@@ -23682,7 +23674,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzam<V>  extends java.lang.Object {
+						export class zzam<V> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzam<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzam<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -23705,7 +23697,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzan<T>  extends java.lang.Object {
+						export class zzan<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzan<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzan<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -23749,12 +23741,12 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzap>;
 						}
 						export module zzap {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzap.zza,com.google.android.gms.internal.clearcut.zzap.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzap.zza,com.google.android.gms.internal.clearcut.zzap.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzap.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzap.zza,com.google.android.gms.internal.clearcut.zzap.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzap.zza,com.google.android.gms.internal.clearcut.zzap.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzap.zza.zza>;
 									public isInitialized(): boolean;
 								}
@@ -23809,8 +23801,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzas<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzdo*/ {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzas<any,any>>;
+						export abstract class zzas<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzdo*/ {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzas<any, any>>;
 							public constructor();
 							public isInitialized(): boolean;
 						}
@@ -23827,8 +23819,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzat<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzdp*/ {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzat<any,any>>;
+						export abstract class zzat<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzdp*/ {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzat<any, any>>;
 							public constructor();
 							public isInitialized(): boolean;
 						}
@@ -23845,7 +23837,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzau<MessageType>  extends java.lang.Object {
+						export class zzau<MessageType> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzau<any>>;
 							public constructor();
 						}
@@ -23862,7 +23854,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzav<E>  extends java.util.AbstractList<any> implements any /* com.google.android.gms.internal.clearcut.zzcn<any>*/  {
+						export abstract class zzav<E> extends java.util.AbstractList<any> implements any /* com.google.android.gms.internal.clearcut.zzcn<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzav<any>>;
 							public addAll(param0: number, param1: java.util.Collection<any>): boolean;
 							public remove(param0: number): any;
@@ -24306,8 +24298,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzbr<ContainingType, Type>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzbr<any,any>>;
+						export class zzbr<ContainingType, Type> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzbr<any, any>>;
 							public constructor();
 						}
 					}
@@ -24355,7 +24347,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzbu<T>  extends java.lang.Object {
+						export abstract class zzbu<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzbu<any>>;
 						}
 					}
@@ -24419,9 +24411,9 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzby<FieldDescriptorType>  extends java.lang.Object {
+						export class zzby<FieldDescriptorType> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzby<any>>;
-							public iterator(): java.util.Iterator<java.util.Map.Entry<FieldDescriptorType,any>>;
+							public iterator(): java.util.Iterator<java.util.Map.Entry<FieldDescriptorType, any>>;
 							public hashCode(): number;
 							public equals(param0: any): boolean;
 							public isInitialized(): boolean;
@@ -24472,7 +24464,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzca<T>  extends java.lang.Comparable<any> {
+						export class zzca<T> extends java.lang.Comparable<any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzca<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzca<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -24592,8 +24584,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzcg<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzas<any,any>*/ {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg<any,any>>;
+						export abstract class zzcg<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzas<any,any>*/ {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg<any, any>>;
 							public constructor();
 							public hashCode(): number;
 							public toString(): string;
@@ -24601,33 +24593,33 @@ declare module com {
 							public isInitialized(): boolean;
 						}
 						export module zzcg {
-							export class zza<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzat<any,any>*/ {
-								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zza<any,any>>;
+							export class zza<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzat<any,any>*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zza<any, any>>;
 								public constructor(param0: any);
 								public isInitialized(): boolean;
 								public constructor();
 							}
-							export class zzb<T>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzau<any>*/ {
+							export class zzb<T> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzau<any>*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzb<any>>;
 								public constructor(param0: any);
 								public constructor();
 							}
-							export class zzc<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<any,any>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
-								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzc<any,any>>;
+							export class zzc<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<any,any>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzc<any, any>>;
 								public constructor(param0: any);
 								public isInitialized(): boolean;
 								public constructor();
 							}
-							export abstract class zzd<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<any,any>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
-								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzd<any,any>>;
+							export abstract class zzd<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<any,any>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzd<any, any>>;
 								public isInitialized(): boolean;
 								public constructor();
 							}
 							export class zze extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzca<com.google.android.gms.internal.clearcut.zzcg.zze>*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zze>;
 							}
-							export class zzf<ContainingType, Type>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzbr<any,any>*/ {
-								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzf<any,any>>;
+							export class zzf<ContainingType, Type> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzbr<any,any>*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzf<any, any>>;
 							}
 							export class zzg extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcg.zzg>;
@@ -24712,7 +24704,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzck<T>  extends java.lang.Object {
+						export class zzck<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzck<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzck<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -24785,7 +24777,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzcn<E>  extends java.lang.Object {
+						export class zzcn<E> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcn<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzcn<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -24896,7 +24888,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzct<K>  extends java.util.Map.Entry<any,any> {
+						export class zzct<K> extends java.util.Map.Entry<any, any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzct<any>>;
 							public getValue(): any;
 							public getKey(): any;
@@ -24915,9 +24907,9 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzcu<K>  extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+						export class zzcu<K> extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzcu<any>>;
-							public constructor(param0: java.util.Iterator<java.util.Map.Entry<any,any>>);
+							public constructor(param0: java.util.Iterator<java.util.Map.Entry<any, any>>);
 							public hasNext(): boolean;
 							public remove(): void;
 						}
@@ -25162,8 +25154,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzdg<K, V>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdg<any,any>>;
+						export class zzdg<K, V> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdg<any, any>>;
 						}
 					}
 				}
@@ -25178,8 +25170,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzdh<K, V>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdh<any,any>>;
+						export class zzdh<K, V> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdh<any, any>>;
 						}
 					}
 				}
@@ -25194,16 +25186,16 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzdi<K, V>  extends java.util.LinkedHashMap<any,any> {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdi<any,any>>;
-							public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
+						export class zzdi<K, V> extends java.util.LinkedHashMap<any, any> {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdi<any, any>>;
+							public entrySet(): java.util.Set<java.util.Map.Entry<any, any>>;
 							public hashCode(): number;
 							public remove(param0: any): any;
 							public clear(): void;
 							public isMutable(): boolean;
 							public put(param0: any, param1: any): any;
 							public equals(param0: any): boolean;
-							public putAll(param0: java.util.Map<any,any>): void;
+							public putAll(param0: java.util.Map<any, any>): void;
 						}
 					}
 				}
@@ -25224,8 +25216,8 @@ declare module com {
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzdj interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 							 */
 							public constructor(implementation: {
-								zzg(param0: any): java.util.Map<any,any>;
-								zzh(param0: any): java.util.Map<any,any>;
+								zzg(param0: any): java.util.Map<any, any>;
+								zzh(param0: any): java.util.Map<any, any>;
 								zzi(param0: any): boolean;
 								zzj(param0: any): any;
 								zzk(param0: any): any;
@@ -25428,7 +25420,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzds<T>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzef<any>*/ {
+						export class zzds<T> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzef<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzds<any>>;
 							public hashCode(param0: any): number;
 							public newInstance(): any;
@@ -25463,7 +25455,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzdu<T>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzef<any>*/ {
+						export class zzdu<T> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzef<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdu<any>>;
 							public hashCode(param0: any): number;
 							public newInstance(): any;
@@ -25570,7 +25562,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzdz<MessageType>  extends java.lang.Object {
+						export class zzdz<MessageType> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzdz<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzdz<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -25592,7 +25584,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zze extends com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> implements any /* com.google.android.gms.clearcut.zzb*/  {
+						export class zze extends com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> implements any /* com.google.android.gms.clearcut.zzb*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zze>;
 						}
 					}
@@ -25624,7 +25616,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzeb<E>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzav<any>*/ {
+						export class zzeb<E> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzav<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzeb<any>>;
 							public remove(param0: number): any;
 							public set(param0: number, param1: any): any;
@@ -25696,7 +25688,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzef<T>  extends java.lang.Object {
+						export class zzef<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzef<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.clearcut.zzef<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -25769,10 +25761,10 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzei<K, V>  extends java.util.AbstractMap<any,any> {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzei<any,any>>;
+						export class zzei<K, V> extends java.util.AbstractMap<any, any> {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzei<any, any>>;
 							public get(param0: any): any;
-							public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
+							public entrySet(): java.util.Set<java.util.Map.Entry<any, any>>;
 							public size(): number;
 							public hashCode(): number;
 							public remove(param0: any): any;
@@ -25810,7 +25802,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzek extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+						export class zzek extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzek>;
 							public hasNext(): boolean;
 							public remove(): void;
@@ -25830,7 +25822,7 @@ declare module com {
 					export module clearcut {
 						export class zzel extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzer*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzel>;
-							public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+							public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 						}
 					}
 				}
@@ -25918,7 +25910,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzeq extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+						export class zzeq extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzeq>;
 							public hasNext(): boolean;
 							public remove(): void;
@@ -25936,13 +25928,13 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzer extends java.util.AbstractSet<java.util.Map.Entry<any,any>> {
+						export class zzer extends java.util.AbstractSet<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzer>;
 							public contains(param0: any): boolean;
 							public size(): number;
 							public remove(param0: any): boolean;
 							public clear(): void;
-							public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+							public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 						}
 					}
 				}
@@ -26048,8 +26040,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export abstract class zzex<T, B>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzex<any,any>>;
+						export abstract class zzex<T, B> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzex<any, any>>;
 						}
 					}
 				}
@@ -26098,7 +26090,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzf extends com.google.android.gms.common.api.internal.TaskApiCall<com.google.android.gms.internal.clearcut.zzj,java.lang.Void> {
+						export class zzf extends com.google.android.gms.common.api.internal.TaskApiCall<com.google.android.gms.internal.clearcut.zzj, java.lang.Void> {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzf>;
 						}
 					}
@@ -26509,7 +26501,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzfu<M>  extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfz*/ {
+						export class zzfu<M> extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfz*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzfu<any>>;
 							public constructor();
 						}
@@ -26526,8 +26518,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzfv<M, T>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzfv<any,any>>;
+						export class zzfv<M, T> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzfv<any, any>>;
 							public hashCode(): number;
 							public equals(param0: any): boolean;
 						}
@@ -26667,12 +26659,12 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzgc extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzgc,com.google.android.gms.internal.clearcut.zzgc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+						export class zzgc extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzgc,com.google.android.gms.internal.clearcut.zzgc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgc>;
 							public isInitialized(): boolean;
 						}
 						export module zzgc {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzgc,com.google.android.gms.internal.clearcut.zzgc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzgc,com.google.android.gms.internal.clearcut.zzgc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgc.zza>;
 								public isInitialized(): boolean;
 							}
@@ -26710,52 +26702,52 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge>;
 						}
 						export module zzge {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zza,com.google.android.gms.internal.clearcut.zzge.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zza,com.google.android.gms.internal.clearcut.zzge.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zza,com.google.android.gms.internal.clearcut.zzge.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zza,com.google.android.gms.internal.clearcut.zzge.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zza.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzge.zzb,com.google.android.gms.internal.clearcut.zzge.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzge.zzb,com.google.android.gms.internal.clearcut.zzge.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzb>;
 								public isInitialized(): boolean;
 							}
 							export module zzb {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzge.zzb,com.google.android.gms.internal.clearcut.zzge.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzge.zzb,com.google.android.gms.internal.clearcut.zzge.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzb.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzc extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzc,com.google.android.gms.internal.clearcut.zzge.zzc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzc extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzc,com.google.android.gms.internal.clearcut.zzge.zzc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzc>;
 								public isInitialized(): boolean;
 							}
 							export module zzc {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzc,com.google.android.gms.internal.clearcut.zzge.zzc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzc,com.google.android.gms.internal.clearcut.zzge.zzc.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzc.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzd extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzd,com.google.android.gms.internal.clearcut.zzge.zzd.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzd extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzd,com.google.android.gms.internal.clearcut.zzge.zzd.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzd>;
 								public isInitialized(): boolean;
 							}
 							export module zzd {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzd,com.google.android.gms.internal.clearcut.zzge.zzd.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzd,com.google.android.gms.internal.clearcut.zzge.zzd.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzd.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zze extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zze,com.google.android.gms.internal.clearcut.zzge.zze.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zze extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zze,com.google.android.gms.internal.clearcut.zzge.zze.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zze>;
 								public isInitialized(): boolean;
 							}
 							export module zze {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zze,com.google.android.gms.internal.clearcut.zzge.zze.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zze,com.google.android.gms.internal.clearcut.zzge.zze.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zze.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26764,22 +26756,22 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zze.zzb>*/;
 								}
 							}
-							export class zzf extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzf,com.google.android.gms.internal.clearcut.zzge.zzf.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzf extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzf,com.google.android.gms.internal.clearcut.zzge.zzf.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzf>;
 								public isInitialized(): boolean;
 							}
 							export module zzf {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzf,com.google.android.gms.internal.clearcut.zzge.zzf.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzf,com.google.android.gms.internal.clearcut.zzge.zzf.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzf.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzg extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzg,com.google.android.gms.internal.clearcut.zzge.zzg.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzg extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzg,com.google.android.gms.internal.clearcut.zzge.zzg.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzg>;
 								public isInitialized(): boolean;
 							}
 							export module zzg {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzg,com.google.android.gms.internal.clearcut.zzge.zzg.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzg,com.google.android.gms.internal.clearcut.zzge.zzg.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzg.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26788,27 +26780,27 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzg.zzb>*/;
 								}
 							}
-							export class zzh extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzh,com.google.android.gms.internal.clearcut.zzge.zzh.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzh extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzh,com.google.android.gms.internal.clearcut.zzge.zzh.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzh>;
 								public isInitialized(): boolean;
 							}
 							export module zzh {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzh,com.google.android.gms.internal.clearcut.zzge.zzh.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzh,com.google.android.gms.internal.clearcut.zzge.zzh.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzh.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzi extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzi,com.google.android.gms.internal.clearcut.zzge.zzi.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzi extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzi,com.google.android.gms.internal.clearcut.zzge.zzi.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzi>;
 								public isInitialized(): boolean;
 							}
 							export module zzi {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzi,com.google.android.gms.internal.clearcut.zzge.zzi.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzi,com.google.android.gms.internal.clearcut.zzge.zzi.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzi.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzj extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzj,com.google.android.gms.internal.clearcut.zzge.zzj.zzb>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzj extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzj,com.google.android.gms.internal.clearcut.zzge.zzj.zzb>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzj>;
 								public isInitialized(): boolean;
 							}
@@ -26817,47 +26809,47 @@ declare module com {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzj.zza>;
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzj.zza>*/;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzj,com.google.android.gms.internal.clearcut.zzge.zzj.zzb>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzj,com.google.android.gms.internal.clearcut.zzge.zzj.zzb>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzj.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzk extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzk,com.google.android.gms.internal.clearcut.zzge.zzk.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzk extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzk,com.google.android.gms.internal.clearcut.zzge.zzk.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzk>;
 								public isInitialized(): boolean;
 							}
 							export module zzk {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzk,com.google.android.gms.internal.clearcut.zzge.zzk.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzk,com.google.android.gms.internal.clearcut.zzge.zzk.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzk.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzl extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzl,com.google.android.gms.internal.clearcut.zzge.zzl.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzl extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzl,com.google.android.gms.internal.clearcut.zzge.zzl.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzl>;
 								public isInitialized(): boolean;
 							}
 							export module zzl {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzl,com.google.android.gms.internal.clearcut.zzge.zzl.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzl,com.google.android.gms.internal.clearcut.zzge.zzl.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzl.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzm extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzm,com.google.android.gms.internal.clearcut.zzge.zzm.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzm extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzm,com.google.android.gms.internal.clearcut.zzge.zzm.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzm>;
 								public isInitialized(): boolean;
 							}
 							export module zzm {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzm,com.google.android.gms.internal.clearcut.zzge.zzm.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzm,com.google.android.gms.internal.clearcut.zzge.zzm.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzm.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzn extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzn,com.google.android.gms.internal.clearcut.zzge.zzn.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzn extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzn,com.google.android.gms.internal.clearcut.zzge.zzn.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzn>;
 								public isInitialized(): boolean;
 							}
 							export module zzn {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzn,com.google.android.gms.internal.clearcut.zzge.zzn.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzn,com.google.android.gms.internal.clearcut.zzge.zzn.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzn.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26870,12 +26862,12 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzn.zzc>*/;
 								}
 							}
-							export class zzo extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzge.zzo,com.google.android.gms.internal.clearcut.zzge.zzo.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzo extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzge.zzo,com.google.android.gms.internal.clearcut.zzge.zzo.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzo>;
 								public isInitialized(): boolean;
 							}
 							export module zzo {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzge.zzo,com.google.android.gms.internal.clearcut.zzge.zzo.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzge.zzo,com.google.android.gms.internal.clearcut.zzge.zzo.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzo.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26884,22 +26876,22 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzo.zzb>*/;
 								}
 							}
-							export class zzp extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzp,com.google.android.gms.internal.clearcut.zzge.zzp.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzp extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzp,com.google.android.gms.internal.clearcut.zzge.zzp.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzp>;
 								public isInitialized(): boolean;
 							}
 							export module zzp {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzp,com.google.android.gms.internal.clearcut.zzge.zzp.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzp,com.google.android.gms.internal.clearcut.zzge.zzp.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzp.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzq extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzge.zzq,com.google.android.gms.internal.clearcut.zzge.zzq.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzq extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzd<com.google.android.gms.internal.clearcut.zzge.zzq,com.google.android.gms.internal.clearcut.zzge.zzq.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzq>;
 								public isInitialized(): boolean;
 							}
 							export module zzq {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzge.zzq,com.google.android.gms.internal.clearcut.zzge.zzq.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zzc<com.google.android.gms.internal.clearcut.zzge.zzq,com.google.android.gms.internal.clearcut.zzge.zzq.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzq.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26912,22 +26904,22 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzq.zzc>*/;
 								}
 							}
-							export class zzr extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzr,com.google.android.gms.internal.clearcut.zzge.zzr.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzr extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzr,com.google.android.gms.internal.clearcut.zzge.zzr.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzr>;
 								public isInitialized(): boolean;
 							}
 							export module zzr {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzr,com.google.android.gms.internal.clearcut.zzge.zzr.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzr,com.google.android.gms.internal.clearcut.zzge.zzr.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzr.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzs extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzs,com.google.android.gms.internal.clearcut.zzge.zzs.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzs extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzs,com.google.android.gms.internal.clearcut.zzge.zzs.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzs>;
 								public isInitialized(): boolean;
 							}
 							export module zzs {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzs,com.google.android.gms.internal.clearcut.zzge.zzs.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzs,com.google.android.gms.internal.clearcut.zzge.zzs.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzs.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26940,12 +26932,12 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzs.zzc>*/;
 								}
 							}
-							export class zzt extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzt,com.google.android.gms.internal.clearcut.zzge.zzt.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzt extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzt,com.google.android.gms.internal.clearcut.zzge.zzt.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzt>;
 								public isInitialized(): boolean;
 							}
 							export module zzt {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzt,com.google.android.gms.internal.clearcut.zzge.zzt.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzt,com.google.android.gms.internal.clearcut.zzge.zzt.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzt.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26954,22 +26946,22 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzt.zzb>*/;
 								}
 							}
-							export class zzu extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzu,com.google.android.gms.internal.clearcut.zzge.zzu.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzu extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzu,com.google.android.gms.internal.clearcut.zzge.zzu.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzu>;
 								public isInitialized(): boolean;
 							}
 							export module zzu {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzu,com.google.android.gms.internal.clearcut.zzge.zzu.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzu,com.google.android.gms.internal.clearcut.zzge.zzu.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzu.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzv extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzv,com.google.android.gms.internal.clearcut.zzge.zzv.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzv extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzv,com.google.android.gms.internal.clearcut.zzge.zzv.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzv>;
 								public isInitialized(): boolean;
 							}
 							export module zzv {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzv,com.google.android.gms.internal.clearcut.zzge.zzv.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzv,com.google.android.gms.internal.clearcut.zzge.zzv.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzv.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26978,12 +26970,12 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzv.zzb>*/;
 								}
 							}
-							export class zzw extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzw,com.google.android.gms.internal.clearcut.zzge.zzw.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzw extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzw,com.google.android.gms.internal.clearcut.zzge.zzw.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzw>;
 								public isInitialized(): boolean;
 							}
 							export module zzw {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzw,com.google.android.gms.internal.clearcut.zzge.zzw.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzw,com.google.android.gms.internal.clearcut.zzge.zzw.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzw.zza>;
 									public isInitialized(): boolean;
 								}
@@ -26992,12 +26984,12 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.clearcut.zzge.zzw.zzb>*/;
 								}
 							}
-							export class zzx extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzx,com.google.android.gms.internal.clearcut.zzge.zzx.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zzx extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzge.zzx,com.google.android.gms.internal.clearcut.zzge.zzx.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzx>;
 								public isInitialized(): boolean;
 							}
 							export module zzx {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzx,com.google.android.gms.internal.clearcut.zzge.zzx.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzge.zzx,com.google.android.gms.internal.clearcut.zzge.zzx.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzge.zzx.zza>;
 									public isInitialized(): boolean;
 								}
@@ -27244,12 +27236,12 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgt>;
 						}
 						export module zzgt {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzgt.zza,com.google.android.gms.internal.clearcut.zzgt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzgt.zza,com.google.android.gms.internal.clearcut.zzgt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgt.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzgt.zza,com.google.android.gms.internal.clearcut.zzgt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzgt.zza,com.google.android.gms.internal.clearcut.zzgt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgt.zza.zza>;
 									public isInitialized(): boolean;
 								}
@@ -27308,22 +27300,22 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgw>;
 						}
 						export module zzgw {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzgw.zza,com.google.android.gms.internal.clearcut.zzgw.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzgw.zza,com.google.android.gms.internal.clearcut.zzgw.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgw.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzgw.zza,com.google.android.gms.internal.clearcut.zzgw.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzgw.zza,com.google.android.gms.internal.clearcut.zzgw.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgw.zza.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzgw.zza.zzb,com.google.android.gms.internal.clearcut.zzgw.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzgw.zza.zzb,com.google.android.gms.internal.clearcut.zzgw.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgw.zza.zzb>;
 									public isInitialized(): boolean;
 									public getEventCode(): number;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzgw.zza.zzb,com.google.android.gms.internal.clearcut.zzgw.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzgw.zza.zzb,com.google.android.gms.internal.clearcut.zzgw.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgw.zza.zzb.zza>;
 										public isInitialized(): boolean;
 									}
@@ -27359,7 +27351,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzgy extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzgy>*/ implements java.lang.Cloneable  {
+						export class zzgy extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzgy>*/ implements java.lang.Cloneable {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgy>;
 							public constructor();
 							public hashCode(): number;
@@ -27378,7 +27370,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzgz extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzgz>*/ implements java.lang.Cloneable  {
+						export class zzgz extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzgz>*/ implements java.lang.Cloneable {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzgz>;
 							public constructor();
 							public hashCode(): number;
@@ -27415,7 +27407,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzha extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzha>*/ implements java.lang.Cloneable  {
+						export class zzha extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzha>*/ implements java.lang.Cloneable {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzha>;
 							public constructor();
 							public hashCode(): number;
@@ -27434,7 +27426,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module clearcut {
-						export class zzhb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzhb>*/ implements java.lang.Cloneable  {
+						export class zzhb extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzfu<com.google.android.gms.internal.clearcut.zzhb>*/ implements java.lang.Cloneable {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzhb>;
 							public constructor();
 							public hashCode(): number;
@@ -27697,12 +27689,12 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzt>;
 						}
 						export module zzt {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzt.zza,com.google.android.gms.internal.clearcut.zzt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg<com.google.android.gms.internal.clearcut.zzt.zza,com.google.android.gms.internal.clearcut.zzt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzt.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzt.zza,com.google.android.gms.internal.clearcut.zzt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.clearcut.zzcg.zza<com.google.android.gms.internal.clearcut.zzt.zza,com.google.android.gms.internal.clearcut.zzt.zza.zza>*/ implements any /* com.google.android.gms.internal.clearcut.zzdq*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.clearcut.zzt.zza.zza>;
 									public isInitialized(): boolean;
 								}
@@ -28604,7 +28596,7 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh>;
 						}
 						export module zzabh {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zza.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zza.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zza>;
 								public isInitialized(): boolean;
 							}
@@ -28614,22 +28606,22 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzabh.zza.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zza.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zza.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zza.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzb>;
 								public isInitialized(): boolean;
 							}
 							export module zzb {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzb.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzc,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzc,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzc>;
 								public isInitialized(): boolean;
 							}
@@ -28639,26 +28631,26 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
-								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzc,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzc,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzc>;
 									public isInitialized(): boolean;
 								}
-								export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd>;
 									public isInitialized(): boolean;
 								}
 								export module zzd {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzc.zzd.zza>;
 										public isInitialized(): boolean;
 									}
@@ -28669,67 +28661,67 @@ declare module com {
 									public toString(): string;
 								}
 							}
-							export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzd>;
 								public isInitialized(): boolean;
 							}
 							export module zzd {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzd,com.google.android.gms.internal.firebase_ml.zzabh.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzd.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zze extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zze,com.google.android.gms.internal.firebase_ml.zzabh.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zze extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zze,com.google.android.gms.internal.firebase_ml.zzabh.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zze>;
 								public isInitialized(): boolean;
 							}
 							export module zze {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zze,com.google.android.gms.internal.firebase_ml.zzabh.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zze,com.google.android.gms.internal.firebase_ml.zzabh.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zze.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzf,com.google.android.gms.internal.firebase_ml.zzabh.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzf,com.google.android.gms.internal.firebase_ml.zzabh.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzf>;
 								public isInitialized(): boolean;
 							}
 							export module zzf {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzf,com.google.android.gms.internal.firebase_ml.zzabh.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzf,com.google.android.gms.internal.firebase_ml.zzabh.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzf.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzg extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzg,com.google.android.gms.internal.firebase_ml.zzabh.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzg extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzg,com.google.android.gms.internal.firebase_ml.zzabh.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzg>;
 								public isInitialized(): boolean;
 							}
 							export module zzg {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzg,com.google.android.gms.internal.firebase_ml.zzabh.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzg,com.google.android.gms.internal.firebase_ml.zzabh.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzg.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzh extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzh,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzh extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzh,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzh>;
 								public isInitialized(): boolean;
 							}
 							export module zzh {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza>;
 									public isInitialized(): boolean;
 								}
 								export module zza {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zza.zza>;
 										public isInitialized(): boolean;
 									}
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzh,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzh,com.google.android.gms.internal.firebase_ml.zzabh.zzh.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzh.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzi extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzi,com.google.android.gms.internal.firebase_ml.zzabh.zzi.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzi extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzabh.zzi,com.google.android.gms.internal.firebase_ml.zzabh.zzi.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzi>;
 								public isInitialized(): boolean;
 							}
@@ -28739,17 +28731,17 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzabh.zzi.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzi,com.google.android.gms.internal.firebase_ml.zzabh.zzi.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzabh.zzi,com.google.android.gms.internal.firebase_ml.zzabh.zzi.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzi.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzj extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzc<com.google.android.gms.internal.firebase_ml.zzabh.zzj,com.google.android.gms.internal.firebase_ml.zzabh.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzj extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzc<com.google.android.gms.internal.firebase_ml.zzabh.zzj,com.google.android.gms.internal.firebase_ml.zzabh.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzj>;
 								public isInitialized(): boolean;
 							}
 							export module zzj {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzd<com.google.android.gms.internal.firebase_ml.zzabh.zzj,com.google.android.gms.internal.firebase_ml.zzabh.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzd<com.google.android.gms.internal.firebase_ml.zzabh.zzj,com.google.android.gms.internal.firebase_ml.zzabh.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzabh.zzj.zza>;
 									public isInitialized(): boolean;
 								}
@@ -29654,11 +29646,11 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zziq<K, V>  extends java.util.AbstractMap<any,any> implements java.lang.Cloneable  {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zziq<any,any>>;
+						export class zziq<K, V> extends java.util.AbstractMap<any, any> implements java.lang.Cloneable {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zziq<any, any>>;
 							public constructor();
 							public get(param0: any): any;
-							public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
+							public entrySet(): java.util.Set<java.util.Map.Entry<any, any>>;
 							public set(param0: number, param1: any): any;
 							public remove(param0: number): any;
 							public size(): number;
@@ -29669,12 +29661,12 @@ declare module com {
 							public containsValue(param0: any): boolean;
 						}
 						export module zziq {
-							export class zza extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+							export class zza extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zziq.zza>;
 								public hasNext(): boolean;
 								public remove(): void;
 							}
-							export class zzb extends java.util.Map.Entry<any,any> {
+							export class zzb extends java.util.Map.Entry<any, any> {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zziq.zzb>;
 								public setValue(param0: any): any;
 								public getValue(): any;
@@ -29682,10 +29674,10 @@ declare module com {
 								public hashCode(): number;
 								public getKey(): any;
 							}
-							export class zzc extends java.util.AbstractSet<java.util.Map.Entry<any,any>> {
+							export class zzc extends java.util.AbstractSet<java.util.Map.Entry<any, any>> {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zziq.zzc>;
 								public size(): number;
-								public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+								public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 							}
 						}
 					}
@@ -29837,7 +29829,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zziz extends java.util.Map.Entry<string,any> {
+						export class zziz extends java.util.Map.Entry<string, any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zziz>;
 							public getValue(): any;
 							public hashCode(): number;
@@ -29857,7 +29849,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzja extends java.util.AbstractMap<string,any> {
+						export class zzja extends java.util.AbstractMap<string, any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzja>;
 							public get(param0: any): any;
 							public containsKey(param0: any): boolean;
@@ -29875,7 +29867,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzjb extends java.util.AbstractSet<java.util.Map.Entry<string,any>> {
+						export class zzjb extends java.util.AbstractSet<java.util.Map.Entry<string, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzjb>;
 							public size(): number;
 							public clear(): void;
@@ -29894,7 +29886,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzjc extends java.util.Iterator<java.util.Map.Entry<string,any>> {
+						export class zzjc extends java.util.Iterator<java.util.Map.Entry<string, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzjc>;
 							public hasNext(): boolean;
 							public remove(): void;
@@ -29951,17 +29943,17 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzjf extends java.util.AbstractMap<string,any> implements java.lang.Cloneable  {
+						export class zzjf extends java.util.AbstractMap<string, any> implements java.lang.Cloneable {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzjf>;
 							public constructor();
 							public get(param0: any): any;
-							public entrySet(): java.util.Set<java.util.Map.Entry<string,any>>;
+							public entrySet(): java.util.Set<java.util.Map.Entry<string, any>>;
 							public constructor(param0: any /* java.util.EnumSet<com.google.android.gms.internal.firebase_ml.zzjf.zzb>*/);
 							public remove(param0: any): any;
-							public putAll(param0: java.util.Map<any,any>): void;
+							public putAll(param0: java.util.Map<any, any>): void;
 						}
 						export module zzjf {
-							export class zza extends java.util.Iterator<java.util.Map.Entry<string,any>> {
+							export class zza extends java.util.Iterator<java.util.Map.Entry<string, any>> {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzjf.zza>;
 								public hasNext(): boolean;
 								public remove(): void;
@@ -29970,11 +29962,11 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzjf.zzb>;
 								public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzjf.zzb>*/;
 							}
-							export class zzc extends java.util.AbstractSet<java.util.Map.Entry<string,any>> {
+							export class zzc extends java.util.AbstractSet<java.util.Map.Entry<string, any>> {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzjf.zzc>;
 								public clear(): void;
 								public size(): number;
-								public iterator(): java.util.Iterator<java.util.Map.Entry<string,any>>;
+								public iterator(): java.util.Iterator<java.util.Map.Entry<string, any>>;
 							}
 						}
 					}
@@ -30425,7 +30417,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzlr<T>  extends java.util.Iterator<any> {
+						export abstract class zzlr<T> extends java.util.Iterator<any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzlr<any>>;
 							public constructor();
 							public hasNext(): boolean;
@@ -30445,7 +30437,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzls<T>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmi<any>*/ {
+						export class zzls<T> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmi<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzls<any>>;
 							public get(): any;
 							public hashCode(): number;
@@ -30718,7 +30710,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzmi<T>  extends java.io.Serializable {
+						export abstract class zzmi<T> extends java.io.Serializable {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzmi<any>>;
 							public get(): any;
 							public isPresent(): boolean;
@@ -30810,7 +30802,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzmn<T>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmi<any>*/ {
+						export class zzmn<T> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmi<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzmn<any>>;
 							public get(): any;
 							public hashCode(): number;
@@ -30939,7 +30931,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzmu<E>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zznc<any>*/ {
+						export abstract class zzmu<E> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zznc<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzmu<any>>;
 							public constructor();
 							public previousIndex(): number;
@@ -30980,7 +30972,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzmw<E>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmx<any>*/ {
+						export abstract class zzmw<E> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmx<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzmw<any>>;
 							public contains(param0: any): boolean;
 							/** @deprecated */
@@ -31015,7 +31007,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzmx<E>  extends java.util.AbstractCollection<any> implements java.io.Serializable  {
+						export abstract class zzmx<E> extends java.util.AbstractCollection<any> implements java.io.Serializable {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzmx<any>>;
 							/** @deprecated */
 							public addAll(param0: java.util.Collection<any>): boolean;
@@ -31063,7 +31055,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzmz<E>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmu<any>*/ {
+						export class zzmz<E> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmu<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzmz<any>>;
 							public get(param0: number): any;
 						}
@@ -31080,7 +31072,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzna<E>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmw<any>*/ {
+						export class zzna<E> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzmw<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzna<any>>;
 							public size(): number;
 							public get(param0: number): any;
@@ -31114,7 +31106,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zznc<E>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zznd<any>*/ implements java.util.ListIterator<any>  {
+						export abstract class zznc<E> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zznd<any>*/ implements java.util.ListIterator<any>  {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zznc<any>>;
 							public constructor();
 							/** @deprecated */
@@ -31135,7 +31127,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zznd<E>  extends java.util.Iterator<any> {
+						export abstract class zznd<E> extends java.util.Iterator<any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zznd<any>>;
 							public constructor();
 							/** @deprecated */
@@ -31278,52 +31270,52 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns>;
 						}
 						export module zzns {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zza,com.google.android.gms.internal.firebase_ml.zzns.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zza,com.google.android.gms.internal.firebase_ml.zzns.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zza,com.google.android.gms.internal.firebase_ml.zzns.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zza,com.google.android.gms.internal.firebase_ml.zzns.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zza.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zza.zzb,com.google.android.gms.internal.firebase_ml.zzns.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zza.zzb,com.google.android.gms.internal.firebase_ml.zzns.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zza.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zza.zzb,com.google.android.gms.internal.firebase_ml.zzns.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zza.zzb,com.google.android.gms.internal.firebase_ml.zzns.zza.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zza.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzaa extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaa,com.google.android.gms.internal.firebase_ml.zzns.zzaa.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzaa extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaa,com.google.android.gms.internal.firebase_ml.zzns.zzaa.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaa>;
 								public isInitialized(): boolean;
 							}
 							export module zzaa {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaa,com.google.android.gms.internal.firebase_ml.zzns.zzaa.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaa,com.google.android.gms.internal.firebase_ml.zzns.zzaa.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaa.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzab extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzab,com.google.android.gms.internal.firebase_ml.zzns.zzab.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzab extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzab,com.google.android.gms.internal.firebase_ml.zzns.zzab.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzab>;
 								public isInitialized(): boolean;
 							}
 							export module zzab {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzab,com.google.android.gms.internal.firebase_ml.zzns.zzab.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzab,com.google.android.gms.internal.firebase_ml.zzns.zzab.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzab.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzac extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzac,com.google.android.gms.internal.firebase_ml.zzns.zzac.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzac extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzac,com.google.android.gms.internal.firebase_ml.zzns.zzac.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzac>;
 								public isInitialized(): boolean;
 							}
 							export module zzac {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzac,com.google.android.gms.internal.firebase_ml.zzns.zzac.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzac,com.google.android.gms.internal.firebase_ml.zzns.zzac.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzac.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31348,22 +31340,22 @@ declare module com {
 									public toString(): string;
 								}
 							}
-							export class zzad extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzc<com.google.android.gms.internal.firebase_ml.zzns.zzad,com.google.android.gms.internal.firebase_ml.zzns.zzad.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzad extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzc<com.google.android.gms.internal.firebase_ml.zzns.zzad,com.google.android.gms.internal.firebase_ml.zzns.zzad.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzad>;
 								public isInitialized(): boolean;
 							}
 							export module zzad {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzd<com.google.android.gms.internal.firebase_ml.zzns.zzad,com.google.android.gms.internal.firebase_ml.zzns.zzad.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzd<com.google.android.gms.internal.firebase_ml.zzns.zzad,com.google.android.gms.internal.firebase_ml.zzns.zzad.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzad.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzae extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzae,com.google.android.gms.internal.firebase_ml.zzns.zzae.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzae extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzae,com.google.android.gms.internal.firebase_ml.zzns.zzae.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzae>;
 								public isInitialized(): boolean;
 							}
 							export module zzae {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzae,com.google.android.gms.internal.firebase_ml.zzns.zzae.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzae,com.google.android.gms.internal.firebase_ml.zzns.zzae.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzae.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31373,37 +31365,37 @@ declare module com {
 									public toString(): string;
 								}
 							}
-							export class zzaf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaf,com.google.android.gms.internal.firebase_ml.zzns.zzaf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzaf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaf,com.google.android.gms.internal.firebase_ml.zzns.zzaf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaf>;
 								public isInitialized(): boolean;
 							}
 							export module zzaf {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaf,com.google.android.gms.internal.firebase_ml.zzns.zzaf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaf,com.google.android.gms.internal.firebase_ml.zzns.zzaf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaf.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzag extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzag,com.google.android.gms.internal.firebase_ml.zzns.zzag.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzag extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzag,com.google.android.gms.internal.firebase_ml.zzns.zzag.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzag>;
 								public isInitialized(): boolean;
 							}
 							export module zzag {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzag,com.google.android.gms.internal.firebase_ml.zzns.zzag.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzag,com.google.android.gms.internal.firebase_ml.zzns.zzag.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzag.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzah extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzah,com.google.android.gms.internal.firebase_ml.zzns.zzah.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzah extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzah,com.google.android.gms.internal.firebase_ml.zzns.zzah.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzah>;
 								public isInitialized(): boolean;
 							}
 							export module zzah {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzah,com.google.android.gms.internal.firebase_ml.zzns.zzah.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzah,com.google.android.gms.internal.firebase_ml.zzns.zzah.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzah.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzai extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzai,com.google.android.gms.internal.firebase_ml.zzns.zzai.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzai extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzai,com.google.android.gms.internal.firebase_ml.zzns.zzai.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzai>;
 								public isInitialized(): boolean;
 							}
@@ -31413,17 +31405,17 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzai.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzai,com.google.android.gms.internal.firebase_ml.zzns.zzai.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzai,com.google.android.gms.internal.firebase_ml.zzns.zzai.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzai.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzaj extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaj,com.google.android.gms.internal.firebase_ml.zzns.zzaj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzaj extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaj,com.google.android.gms.internal.firebase_ml.zzns.zzaj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaj>;
 								public isInitialized(): boolean;
 							}
 							export module zzaj {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaj,com.google.android.gms.internal.firebase_ml.zzns.zzaj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaj,com.google.android.gms.internal.firebase_ml.zzns.zzaj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaj.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31438,32 +31430,32 @@ declare module com {
 									public toString(): string;
 								}
 							}
-							export class zzak extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzak,com.google.android.gms.internal.firebase_ml.zzns.zzak.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzak extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzak,com.google.android.gms.internal.firebase_ml.zzns.zzak.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzak>;
 								public isInitialized(): boolean;
 							}
 							export module zzak {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzak,com.google.android.gms.internal.firebase_ml.zzns.zzak.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzak,com.google.android.gms.internal.firebase_ml.zzns.zzak.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzak.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzak.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzal extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzal,com.google.android.gms.internal.firebase_ml.zzns.zzal.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzal extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzal,com.google.android.gms.internal.firebase_ml.zzns.zzal.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzal>;
 								public isInitialized(): boolean;
 							}
 							export module zzal {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzal,com.google.android.gms.internal.firebase_ml.zzns.zzal.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzal,com.google.android.gms.internal.firebase_ml.zzns.zzal.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzal.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31473,7 +31465,7 @@ declare module com {
 									public toString(): string;
 								}
 							}
-							export class zzam extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzam,com.google.android.gms.internal.firebase_ml.zzns.zzam.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzam extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzam,com.google.android.gms.internal.firebase_ml.zzns.zzam.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzam>;
 								public isInitialized(): boolean;
 							}
@@ -31488,92 +31480,92 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzam.zzb>*/;
 									public toString(): string;
 								}
-								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzam,com.google.android.gms.internal.firebase_ml.zzns.zzam.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzam,com.google.android.gms.internal.firebase_ml.zzns.zzam.zzc>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzam.zzc>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzan extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzan,com.google.android.gms.internal.firebase_ml.zzns.zzan.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzan extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzan,com.google.android.gms.internal.firebase_ml.zzns.zzan.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzan>;
 								public isInitialized(): boolean;
 							}
 							export module zzan {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzan,com.google.android.gms.internal.firebase_ml.zzns.zzan.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzan,com.google.android.gms.internal.firebase_ml.zzns.zzan.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzan.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzao extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzao,com.google.android.gms.internal.firebase_ml.zzns.zzao.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzao extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzao,com.google.android.gms.internal.firebase_ml.zzns.zzao.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzao>;
 								public isInitialized(): boolean;
 							}
 							export module zzao {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzao,com.google.android.gms.internal.firebase_ml.zzns.zzao.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzao,com.google.android.gms.internal.firebase_ml.zzns.zzao.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzao.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzap extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzap,com.google.android.gms.internal.firebase_ml.zzns.zzap.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzap extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzap,com.google.android.gms.internal.firebase_ml.zzns.zzap.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzap>;
 								public isInitialized(): boolean;
 							}
 							export module zzap {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzap,com.google.android.gms.internal.firebase_ml.zzns.zzap.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzap,com.google.android.gms.internal.firebase_ml.zzns.zzap.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzap.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzaq extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzaq extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq>;
 								public isInitialized(): boolean;
 							}
 							export module zzaq {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza>;
 									public isInitialized(): boolean;
 								}
 								export module zza {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zza.zza>;
 										public isInitialized(): boolean;
 									}
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzb>;
 									public isInitialized(): boolean;
 								}
-								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc>;
 									public isInitialized(): boolean;
 								}
 								export module zzc {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzc.zza>;
 										public isInitialized(): boolean;
 									}
 								}
-								export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd>;
 									public isInitialized(): boolean;
 								}
 								export module zzd {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaq.zzd.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzar extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzar,com.google.android.gms.internal.firebase_ml.zzns.zzar.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzar extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzar,com.google.android.gms.internal.firebase_ml.zzns.zzar.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzar>;
 								public isInitialized(): boolean;
 							}
 							export module zzar {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzar,com.google.android.gms.internal.firebase_ml.zzns.zzar.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzar,com.google.android.gms.internal.firebase_ml.zzns.zzar.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzar.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzas extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzas,com.google.android.gms.internal.firebase_ml.zzns.zzas.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzas extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzas,com.google.android.gms.internal.firebase_ml.zzns.zzas.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzas>;
 								public isInitialized(): boolean;
 							}
@@ -31583,47 +31575,47 @@ declare module com {
 									public toString(): string;
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzas.zza>*/;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzas,com.google.android.gms.internal.firebase_ml.zzns.zzas.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzas,com.google.android.gms.internal.firebase_ml.zzns.zzas.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzas.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzat extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzat,com.google.android.gms.internal.firebase_ml.zzns.zzat.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzat extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzat,com.google.android.gms.internal.firebase_ml.zzns.zzat.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzat>;
 								public isInitialized(): boolean;
 							}
 							export module zzat {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzat,com.google.android.gms.internal.firebase_ml.zzns.zzat.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzat,com.google.android.gms.internal.firebase_ml.zzns.zzat.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzat.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzau extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzau,com.google.android.gms.internal.firebase_ml.zzns.zzau.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzau extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzau,com.google.android.gms.internal.firebase_ml.zzns.zzau.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzau>;
 								public isInitialized(): boolean;
 							}
 							export module zzau {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzau,com.google.android.gms.internal.firebase_ml.zzns.zzau.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzau,com.google.android.gms.internal.firebase_ml.zzns.zzau.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzau.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzav extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzav,com.google.android.gms.internal.firebase_ml.zzns.zzav.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzav extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzav,com.google.android.gms.internal.firebase_ml.zzns.zzav.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzav>;
 								public isInitialized(): boolean;
 							}
 							export module zzav {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzav,com.google.android.gms.internal.firebase_ml.zzns.zzav.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzav,com.google.android.gms.internal.firebase_ml.zzns.zzav.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzav.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzaw extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaw,com.google.android.gms.internal.firebase_ml.zzns.zzaw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzaw extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaw,com.google.android.gms.internal.firebase_ml.zzns.zzaw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaw>;
 								public isInitialized(): boolean;
 							}
 							export module zzaw {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaw,com.google.android.gms.internal.firebase_ml.zzns.zzaw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaw,com.google.android.gms.internal.firebase_ml.zzns.zzaw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaw.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31633,17 +31625,17 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzaw.zzb>*/;
 								}
 							}
-							export class zzax extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzax,com.google.android.gms.internal.firebase_ml.zzns.zzax.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzax extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzax,com.google.android.gms.internal.firebase_ml.zzns.zzax.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzax>;
 								public isInitialized(): boolean;
 							}
 							export module zzax {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzax,com.google.android.gms.internal.firebase_ml.zzns.zzax.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzax,com.google.android.gms.internal.firebase_ml.zzns.zzax.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzax.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzay extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzay,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzay extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzay,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzay>;
 								public isInitialized(): boolean;
 							}
@@ -31653,57 +31645,57 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzay.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzay,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzay,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzb>;
 									public isInitialized(): boolean;
 								}
-								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc>;
 									public isInitialized(): boolean;
 								}
 								export module zzc {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzay.zzc.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzaz extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaz,com.google.android.gms.internal.firebase_ml.zzns.zzaz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzaz extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzaz,com.google.android.gms.internal.firebase_ml.zzns.zzaz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaz>;
 								public isInitialized(): boolean;
 							}
 							export module zzaz {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaz,com.google.android.gms.internal.firebase_ml.zzns.zzaz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzaz,com.google.android.gms.internal.firebase_ml.zzns.zzaz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzaz.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzb>;
 								public isInitialized(): boolean;
 							}
 							export module zzb {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzb.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzb.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzba extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzba,com.google.android.gms.internal.firebase_ml.zzns.zzba.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzba extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzba,com.google.android.gms.internal.firebase_ml.zzns.zzba.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzba>;
 								public isInitialized(): boolean;
 							}
 							export module zzba {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzba,com.google.android.gms.internal.firebase_ml.zzns.zzba.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzba,com.google.android.gms.internal.firebase_ml.zzns.zzba.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzba.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31713,12 +31705,12 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzba.zzb>*/;
 								}
 							}
-							export class zzbb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzbb,com.google.android.gms.internal.firebase_ml.zzns.zzbb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzbb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzbb,com.google.android.gms.internal.firebase_ml.zzns.zzbb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzbb>;
 								public isInitialized(): boolean;
 							}
 							export module zzbb {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzbb,com.google.android.gms.internal.firebase_ml.zzns.zzbb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzbb,com.google.android.gms.internal.firebase_ml.zzns.zzbb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzbb.zza>;
 									public isInitialized(): boolean;
 								}
@@ -31728,207 +31720,207 @@ declare module com {
 									public toString(): string;
 								}
 							}
-							export class zzbc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzbc,com.google.android.gms.internal.firebase_ml.zzns.zzbc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzbc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzbc,com.google.android.gms.internal.firebase_ml.zzns.zzbc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzbc>;
 								public isInitialized(): boolean;
 							}
 							export module zzbc {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzbc,com.google.android.gms.internal.firebase_ml.zzns.zzbc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzbc,com.google.android.gms.internal.firebase_ml.zzns.zzbc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzbc.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzbd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzbd,com.google.android.gms.internal.firebase_ml.zzns.zzbd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzbd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzbd,com.google.android.gms.internal.firebase_ml.zzns.zzbd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzbd>;
 								public isInitialized(): boolean;
 							}
 							export module zzbd {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzbd,com.google.android.gms.internal.firebase_ml.zzns.zzbd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzbd,com.google.android.gms.internal.firebase_ml.zzns.zzbd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzbd.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzc extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzc>;
 								public isInitialized(): boolean;
 							}
 							export module zzc {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzc,com.google.android.gms.internal.firebase_ml.zzns.zzc.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzc.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzc.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzd extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzd>;
 								public isInitialized(): boolean;
 							}
 							export module zzd {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzd,com.google.android.gms.internal.firebase_ml.zzns.zzd.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzd.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzd.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zze extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zze,com.google.android.gms.internal.firebase_ml.zzns.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zze extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zze,com.google.android.gms.internal.firebase_ml.zzns.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zze>;
 								public isInitialized(): boolean;
 							}
 							export module zze {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zze,com.google.android.gms.internal.firebase_ml.zzns.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zze,com.google.android.gms.internal.firebase_ml.zzns.zze.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zze.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zze.zzb,com.google.android.gms.internal.firebase_ml.zzns.zze.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zze.zzb,com.google.android.gms.internal.firebase_ml.zzns.zze.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zze.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zze.zzb,com.google.android.gms.internal.firebase_ml.zzns.zze.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zze.zzb,com.google.android.gms.internal.firebase_ml.zzns.zze.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zze.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzf,com.google.android.gms.internal.firebase_ml.zzns.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzf,com.google.android.gms.internal.firebase_ml.zzns.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzf>;
 								public isInitialized(): boolean;
 							}
 							export module zzf {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzf,com.google.android.gms.internal.firebase_ml.zzns.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzf,com.google.android.gms.internal.firebase_ml.zzns.zzf.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzf.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzf.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzg extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzg,com.google.android.gms.internal.firebase_ml.zzns.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzg extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzg,com.google.android.gms.internal.firebase_ml.zzns.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzg>;
 								public isInitialized(): boolean;
 							}
 							export module zzg {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzg,com.google.android.gms.internal.firebase_ml.zzns.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzg,com.google.android.gms.internal.firebase_ml.zzns.zzg.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzg.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzg.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzh extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzh,com.google.android.gms.internal.firebase_ml.zzns.zzh.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzh extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzh,com.google.android.gms.internal.firebase_ml.zzns.zzh.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzh>;
 								public isInitialized(): boolean;
 							}
 							export module zzh {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzh,com.google.android.gms.internal.firebase_ml.zzns.zzh.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzh,com.google.android.gms.internal.firebase_ml.zzns.zzh.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzh.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzh.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzi extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzi,com.google.android.gms.internal.firebase_ml.zzns.zzi.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzi extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzi,com.google.android.gms.internal.firebase_ml.zzns.zzi.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzi>;
 								public isInitialized(): boolean;
 							}
 							export module zzi {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzi,com.google.android.gms.internal.firebase_ml.zzns.zzi.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzi,com.google.android.gms.internal.firebase_ml.zzns.zzi.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzi.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzi.zzb.zza>;
 										public isInitialized(): boolean;
 									}
 								}
 							}
-							export class zzj extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzj,com.google.android.gms.internal.firebase_ml.zzns.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzj extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzj,com.google.android.gms.internal.firebase_ml.zzns.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzj>;
 								public isInitialized(): boolean;
 							}
 							export module zzj {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzj,com.google.android.gms.internal.firebase_ml.zzns.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzj,com.google.android.gms.internal.firebase_ml.zzns.zzj.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzj.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzk extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzk,com.google.android.gms.internal.firebase_ml.zzns.zzk.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzk extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzk,com.google.android.gms.internal.firebase_ml.zzns.zzk.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzk>;
 								public isInitialized(): boolean;
 							}
 							export module zzk {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzk,com.google.android.gms.internal.firebase_ml.zzns.zzk.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzk,com.google.android.gms.internal.firebase_ml.zzns.zzk.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzk.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzl extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzl,com.google.android.gms.internal.firebase_ml.zzns.zzl.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzl extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzl,com.google.android.gms.internal.firebase_ml.zzns.zzl.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzl>;
 								public isInitialized(): boolean;
 							}
 							export module zzl {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzl,com.google.android.gms.internal.firebase_ml.zzns.zzl.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzl,com.google.android.gms.internal.firebase_ml.zzns.zzl.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzl.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzm extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzm,com.google.android.gms.internal.firebase_ml.zzns.zzm.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzm extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzm,com.google.android.gms.internal.firebase_ml.zzns.zzm.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzm>;
 								public isInitialized(): boolean;
 							}
 							export module zzm {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzm,com.google.android.gms.internal.firebase_ml.zzns.zzm.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzm,com.google.android.gms.internal.firebase_ml.zzns.zzm.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzm.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzn extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzn,com.google.android.gms.internal.firebase_ml.zzns.zzn.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzn extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzn,com.google.android.gms.internal.firebase_ml.zzns.zzn.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzn>;
 								public isInitialized(): boolean;
 							}
@@ -31938,126 +31930,126 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zzns.zzn.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzn,com.google.android.gms.internal.firebase_ml.zzns.zzn.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzn,com.google.android.gms.internal.firebase_ml.zzns.zzn.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzn.zzb>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzo extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzo,com.google.android.gms.internal.firebase_ml.zzns.zzo.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzo extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzo,com.google.android.gms.internal.firebase_ml.zzns.zzo.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzo>;
 								public isInitialized(): boolean;
 							}
 							export module zzo {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzo,com.google.android.gms.internal.firebase_ml.zzns.zzo.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzo,com.google.android.gms.internal.firebase_ml.zzns.zzo.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzo.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzp extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzp,com.google.android.gms.internal.firebase_ml.zzns.zzp.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzp extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzp,com.google.android.gms.internal.firebase_ml.zzns.zzp.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzp>;
 								public isInitialized(): boolean;
 							}
 							export module zzp {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzp,com.google.android.gms.internal.firebase_ml.zzns.zzp.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzp,com.google.android.gms.internal.firebase_ml.zzns.zzp.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzp.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzq extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzq,com.google.android.gms.internal.firebase_ml.zzns.zzq.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzq extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzq,com.google.android.gms.internal.firebase_ml.zzns.zzq.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzq>;
 								public isInitialized(): boolean;
 							}
 							export module zzq {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzq,com.google.android.gms.internal.firebase_ml.zzns.zzq.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzq,com.google.android.gms.internal.firebase_ml.zzns.zzq.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzq.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzr extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzr,com.google.android.gms.internal.firebase_ml.zzns.zzr.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzr extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzr,com.google.android.gms.internal.firebase_ml.zzns.zzr.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzr>;
 								public isInitialized(): boolean;
 							}
 							export module zzr {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzr,com.google.android.gms.internal.firebase_ml.zzns.zzr.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzr,com.google.android.gms.internal.firebase_ml.zzns.zzr.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzr.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzs extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzs,com.google.android.gms.internal.firebase_ml.zzns.zzs.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzs extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzs,com.google.android.gms.internal.firebase_ml.zzns.zzs.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzs>;
 								public isInitialized(): boolean;
 							}
 							export module zzs {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzs,com.google.android.gms.internal.firebase_ml.zzns.zzs.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzs,com.google.android.gms.internal.firebase_ml.zzns.zzs.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzs.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzt extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzt,com.google.android.gms.internal.firebase_ml.zzns.zzt.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzt extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzt,com.google.android.gms.internal.firebase_ml.zzns.zzt.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzt>;
 								public isInitialized(): boolean;
 							}
 							export module zzt {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzt,com.google.android.gms.internal.firebase_ml.zzns.zzt.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzt,com.google.android.gms.internal.firebase_ml.zzns.zzt.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzt.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzu extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzu,com.google.android.gms.internal.firebase_ml.zzns.zzu.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzu extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzu,com.google.android.gms.internal.firebase_ml.zzns.zzu.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzu>;
 								public isInitialized(): boolean;
 							}
 							export module zzu {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzu,com.google.android.gms.internal.firebase_ml.zzns.zzu.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzu,com.google.android.gms.internal.firebase_ml.zzns.zzu.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzu.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzv extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzv,com.google.android.gms.internal.firebase_ml.zzns.zzv.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzv extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzv,com.google.android.gms.internal.firebase_ml.zzns.zzv.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzv>;
 								public isInitialized(): boolean;
 							}
 							export module zzv {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzv,com.google.android.gms.internal.firebase_ml.zzns.zzv.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzv,com.google.android.gms.internal.firebase_ml.zzns.zzv.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzv.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzw extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzw,com.google.android.gms.internal.firebase_ml.zzns.zzw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzw extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzw,com.google.android.gms.internal.firebase_ml.zzns.zzw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzw>;
 								public isInitialized(): boolean;
 							}
 							export module zzw {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzw,com.google.android.gms.internal.firebase_ml.zzns.zzw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzw,com.google.android.gms.internal.firebase_ml.zzns.zzw.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzw.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzx extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzx,com.google.android.gms.internal.firebase_ml.zzns.zzx.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzx extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzx,com.google.android.gms.internal.firebase_ml.zzns.zzx.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzx>;
 								public isInitialized(): boolean;
 							}
 							export module zzx {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzx,com.google.android.gms.internal.firebase_ml.zzns.zzx.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzx,com.google.android.gms.internal.firebase_ml.zzns.zzx.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzx.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzy extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzy,com.google.android.gms.internal.firebase_ml.zzns.zzy.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzy extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzy,com.google.android.gms.internal.firebase_ml.zzns.zzy.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzy>;
 								public isInitialized(): boolean;
 							}
 							export module zzy {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzy,com.google.android.gms.internal.firebase_ml.zzns.zzy.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzy,com.google.android.gms.internal.firebase_ml.zzns.zzy.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzy.zza>;
 									public isInitialized(): boolean;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb>;
 									public isInitialized(): boolean;
 								}
 								export module zzb {
-									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+									export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb,com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 										public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzy.zzb.zza>;
 										public isInitialized(): boolean;
 									}
@@ -32068,12 +32060,12 @@ declare module com {
 									}
 								}
 							}
-							export class zzz extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzz,com.google.android.gms.internal.firebase_ml.zzns.zzz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzz extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zzns.zzz,com.google.android.gms.internal.firebase_ml.zzns.zzz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzz>;
 								public isInitialized(): boolean;
 							}
 							export module zzz {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzz,com.google.android.gms.internal.firebase_ml.zzns.zzz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zzns.zzz,com.google.android.gms.internal.firebase_ml.zzns.zzz.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzns.zzz.zza>;
 									public isInitialized(): boolean;
 								}
@@ -32912,8 +32904,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzps<K, V>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzps<any,any>>;
+						export abstract class zzps<K, V> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzps<any, any>>;
 							public constructor();
 							public create(param0: K): V;
 							public get(param0: K): V;
@@ -32947,8 +32939,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzpu<T, S>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzpu<any,any>>;
+						export class zzpu<T, S> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzpu<any, any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzpu<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 							 */
@@ -33197,7 +33189,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzqh<T>  extends java.lang.Object {
+						export class zzqh<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzqh<any>>;
 							public hashCode(): number;
 							public toString(): string;
@@ -33284,7 +33276,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzqm<K>  extends java.lang.Object {
+						export class zzqm<K> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzqm<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzqm<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -33602,7 +33594,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzrd extends com.google.android.gms.tasks.SuccessContinuation<any,any> {
+						export class zzrd extends com.google.android.gms.tasks.SuccessContinuation<any, any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzrd>;
 							public then(param0: any): com.google.android.gms.tasks.Task<any>;
 							public then(param0: any): com.google.android.gms.tasks.Task<any>;
@@ -33849,17 +33841,17 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zztg>;
 						}
 						export module zztg {
-							export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zztg.zza,com.google.android.gms.internal.firebase_ml.zztg.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zztg.zza,com.google.android.gms.internal.firebase_ml.zztg.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zztg.zza>;
 								public isInitialized(): boolean;
 							}
 							export module zza {
-								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zztg.zza,com.google.android.gms.internal.firebase_ml.zztg.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zza extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zztg.zza,com.google.android.gms.internal.firebase_ml.zztg.zza.zza>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zztg.zza.zza>;
 									public isInitialized(): boolean;
 								}
 							}
-							export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zztg.zzb,com.google.android.gms.internal.firebase_ml.zztg.zzb.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+							export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<com.google.android.gms.internal.firebase_ml.zztg.zzb,com.google.android.gms.internal.firebase_ml.zztg.zzb.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zztg.zzb>;
 								public isInitialized(): boolean;
 							}
@@ -33869,7 +33861,7 @@ declare module com {
 									public static values(): any /* native.Array<com.google.android.gms.internal.firebase_ml.zztg.zzb.zza>*/;
 									public toString(): string;
 								}
-								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zztg.zzb,com.google.android.gms.internal.firebase_ml.zztg.zzb.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
+								export class zzb extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<com.google.android.gms.internal.firebase_ml.zztg.zzb,com.google.android.gms.internal.firebase_ml.zztg.zzb.zzb>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
 									public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zztg.zzb.zzb>;
 									public isInitialized(): boolean;
 								}
@@ -34060,8 +34052,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzvk<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzyn*/ {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzvk<any,any>>;
+						export abstract class zzvk<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzyn*/ {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzvk<any, any>>;
 							public constructor();
 							public isInitialized(): boolean;
 						}
@@ -34078,8 +34070,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzvl<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzyk*/ {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzvl<any,any>>;
+						export abstract class zzvl<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzyk*/ {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzvl<any, any>>;
 							public constructor();
 							public isInitialized(): boolean;
 							public toByteArray(): native.Array<number>;
@@ -34097,7 +34089,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzvm<MessageType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzyx<any>*/ {
+						export class zzvm<MessageType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzyx<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzvm<any>>;
 							public constructor();
 						}
@@ -34148,7 +34140,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzvp<E>  extends java.util.AbstractList<any> implements any /* com.google.android.gms.internal.firebase_ml.zzxl<any>*/  {
+						export abstract class zzvp<E> extends java.util.AbstractList<any> implements any /* com.google.android.gms.internal.firebase_ml.zzxl<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzvp<any>>;
 							public addAll(param0: number, param1: java.util.Collection<any>): boolean;
 							public remove(param0: number): any;
@@ -34577,8 +34569,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzwm<ContainingType, Type>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwm<any,any>>;
+						export class zzwm<ContainingType, Type> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwm<any, any>>;
 						}
 					}
 				}
@@ -34658,7 +34650,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzwq<T>  extends java.lang.Object {
+						export abstract class zzwq<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwq<any>>;
 						}
 					}
@@ -34674,10 +34666,10 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzwr<T>  extends java.lang.Object {
+						export class zzwr<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwr<any>>;
 							public hashCode(): number;
-							public iterator(): java.util.Iterator<java.util.Map.Entry<T,any>>;
+							public iterator(): java.util.Iterator<java.util.Map.Entry<T, any>>;
 							public equals(param0: any): boolean;
 							public isInitialized(): boolean;
 							public isImmutable(): boolean;
@@ -34711,7 +34703,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzwt<T>  extends java.lang.Comparable<any> {
+						export class zzwt<T> extends java.lang.Comparable<any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwt<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzwt<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -34833,8 +34825,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzwz<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvl<any,any>*/ {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz<any,any>>;
+						export abstract class zzwz<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvl<any,any>*/ {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz<any, any>>;
 							public constructor();
 							public hashCode(): number;
 							public toString(): string;
@@ -34842,30 +34834,30 @@ declare module com {
 							public isInitialized(): boolean;
 						}
 						export module zzwz {
-							export class zza<T>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvm<any>*/ {
+							export class zza<T> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvm<any>*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zza<any>>;
 								public constructor(param0: any);
 								public constructor();
 							}
-							export class zzb<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvk<any,any>*/ {
-								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzb<any,any>>;
+							export class zzb<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvk<any,any>*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzb<any, any>>;
 								public constructor(param0: any);
 								public isInitialized(): boolean;
 								public constructor();
 							}
-							export abstract class zzc<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<any,any>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
-								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzc<any,any>>;
+							export abstract class zzc<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz<any,any>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzc<any, any>>;
 								public isInitialized(): boolean;
 								public constructor();
 							}
-							export class zzd<MessageType, BuilderType>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<any,any>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/  {
-								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzd<any,any>>;
+							export class zzd<MessageType, BuilderType> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwz.zzb<any,any>*/ implements any /* com.google.android.gms.internal.firebase_ml.zzym*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzd<any, any>>;
 								public constructor(param0: any);
 								public isInitialized(): boolean;
 								public constructor();
 							}
-							export class zze<ContainingType, Type>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwm<any,any>*/ {
-								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zze<any,any>>;
+							export class zze<ContainingType, Type> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwm<any,any>*/ {
+								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zze<any, any>>;
 							}
 							export class zzf extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzwt<com.google.android.gms.internal.firebase_ml.zzwz.zzf>*/ {
 								public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzwz.zzf>;
@@ -34994,7 +34986,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzxf<T>  extends java.lang.Object {
+						export class zzxf<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzxf<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzxf<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -35093,8 +35085,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzxj<F, T>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzxj<any,any>>;
+						export class zzxj<F, T> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzxj<any, any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzxj<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 							 */
@@ -35132,7 +35124,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzxl<E>  extends java.lang.Object {
+						export class zzxl<E> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzxl<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzxl<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -35226,9 +35218,9 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzxq<K>  extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+						export class zzxq<K> extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzxq<any>>;
-							public constructor(param0: java.util.Iterator<java.util.Map.Entry<any,any>>);
+							public constructor(param0: java.util.Iterator<java.util.Map.Entry<any, any>>);
 							public hasNext(): boolean;
 							public remove(): void;
 						}
@@ -35245,7 +35237,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzxr<K>  extends java.util.Map.Entry<any,any> {
+						export class zzxr<K> extends java.util.Map.Entry<any, any> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzxr<any>>;
 							public getValue(): any;
 							public getKey(): any;
@@ -35457,8 +35449,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzyc<K, V>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyc<any,any>>;
+						export class zzyc<K, V> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyc<any, any>>;
 						}
 					}
 				}
@@ -35489,16 +35481,16 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzye<K, V>  extends java.util.LinkedHashMap<any,any> {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzye<any,any>>;
-							public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
+						export class zzye<K, V> extends java.util.LinkedHashMap<any, any> {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzye<any, any>>;
+							public entrySet(): java.util.Set<java.util.Map.Entry<any, any>>;
 							public hashCode(): number;
 							public remove(param0: any): any;
 							public clear(): void;
 							public isMutable(): boolean;
 							public put(param0: any, param1: any): any;
 							public equals(param0: any): boolean;
-							public putAll(param0: java.util.Map<any,any>): void;
+							public putAll(param0: java.util.Map<any, any>): void;
 						}
 					}
 				}
@@ -35513,8 +35505,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzyf<K, V>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyf<any,any>>;
+						export class zzyf<K, V> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyf<any, any>>;
 							public constructor(param0: any /* com.google.android.gms.internal.firebase_ml.zzaan*/, param1: K, param2: any /* com.google.android.gms.internal.firebase_ml.zzaan*/, param3: V);
 						}
 					}
@@ -35552,8 +35544,8 @@ declare module com {
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzyh interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 							 */
 							public constructor(implementation: {
-								zzu(param0: any): java.util.Map<any,any>;
-								zzw(param0: any): java.util.Map<any,any>;
+								zzu(param0: any): java.util.Map<any, any>;
+								zzw(param0: any): java.util.Map<any, any>;
 								zzx(param0: any): boolean;
 								zzy(param0: any): any;
 								zzz(param0: any): any;
@@ -35724,7 +35716,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzyo<T>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzze<any>*/ {
+						export class zzyo<T> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzze<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyo<any>>;
 							public hashCode(param0: any): number;
 							public newInstance(): any;
@@ -35759,7 +35751,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzyq<T>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzze<any>*/ {
+						export class zzyq<T> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzze<any>*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyq<any>>;
 							public hashCode(param0: any): number;
 							public newInstance(): any;
@@ -35904,7 +35896,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzyx<MessageType>  extends java.lang.Object {
+						export class zzyx<MessageType> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyx<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzyx<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -35926,7 +35918,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzyy<E>  extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvp<any>*/ implements java.util.RandomAccess  {
+						export class zzyy<E> extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzvp<any>*/ implements java.util.RandomAccess {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzyy<any>>;
 							public remove(param0: number): any;
 							public set(param0: number, param1: any): any;
@@ -36033,7 +36025,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzze<T>  extends java.lang.Object {
+						export class zzze<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzze<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.internal.firebase_ml.zzze<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -36140,10 +36132,10 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzzj<K, V>  extends java.util.AbstractMap<any,any> {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzj<any,any>>;
+						export class zzzj<K, V> extends java.util.AbstractMap<any, any> {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzj<any, any>>;
 							public get(param0: any): any;
-							public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
+							public entrySet(): java.util.Set<java.util.Map.Entry<any, any>>;
 							public size(): number;
 							public hashCode(): number;
 							public remove(param0: any): any;
@@ -36167,7 +36159,7 @@ declare module com {
 					export module firebase_ml {
 						export class zzzk extends java.lang.Object /* com.google.android.gms.internal.firebase_ml.zzzq*/ {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzk>;
-							public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+							public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 						}
 					}
 				}
@@ -36182,7 +36174,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzzl extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+						export class zzzl extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzl>;
 							public hasNext(): boolean;
 							public remove(): void;
@@ -36273,13 +36265,13 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzzq extends java.util.AbstractSet<java.util.Map.Entry<any,any>> {
+						export class zzzq extends java.util.AbstractSet<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzq>;
 							public contains(param0: any): boolean;
 							public size(): number;
 							public remove(param0: any): boolean;
 							public clear(): void;
-							public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
+							public iterator(): java.util.Iterator<java.util.Map.Entry<any, any>>;
 						}
 					}
 				}
@@ -36294,7 +36286,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export class zzzr extends java.util.Iterator<java.util.Map.Entry<any,any>> {
+						export class zzzr extends java.util.Iterator<java.util.Map.Entry<any, any>> {
 							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzr>;
 							public hasNext(): boolean;
 							public remove(): void;
@@ -36386,8 +36378,8 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module firebase_ml {
-						export abstract class zzzw<T, B>  extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzw<any,any>>;
+						export abstract class zzzw<T, B> extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.gms.internal.firebase_ml.zzzw<any, any>>;
 						}
 					}
 				}
@@ -36605,7 +36597,7 @@ declare module com {
 			export module gms {
 				export module internal {
 					export module phenotype {
-						export class zzh<T>  extends java.lang.Object {
+						export class zzh<T> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.internal.phenotype.zzh<any>>;
 							public static init(param0: globalAndroid.content.Context): void;
 							public static maybeInit(param0: globalAndroid.content.Context): void;
@@ -36688,7 +36680,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module phenotype {
-					export abstract class PhenotypeFlag<T>  extends java.lang.Object {
+					export abstract class PhenotypeFlag<T> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.phenotype.PhenotypeFlag<any>>;
 						public static maybeInit(param0: globalAndroid.content.Context): void;
 						public get(): T;
@@ -36701,7 +36693,7 @@ declare module com {
 							public createFlag(param0: string, param1: string): com.google.android.gms.phenotype.PhenotypeFlag<string>;
 							public withPhenotypePrefix(param0: string): com.google.android.gms.phenotype.PhenotypeFlag.Factory;
 						}
-						export class zza<V>  extends java.lang.Object {
+						export class zza<V> extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.gms.phenotype.PhenotypeFlag.zza<any>>;
 							/**
 							 * Constructs a new instance of the com.google.android.gms.phenotype.PhenotypeFlag$zza interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -36838,7 +36830,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module phenotype {
-					export class zzi extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable implements any /* java.lang.Comparable<com.google.android.gms.phenotype.zzi>*/  {
+					export class zzi extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable implements any /* java.lang.Comparable<com.google.android.gms.phenotype.zzi>*/ {
 						public static class: java.lang.Class<com.google.android.gms.phenotype.zzi>;
 						public static CREATOR: any /* globalAndroid.os.Parcelable.Creator<com.google.android.gms.phenotype.zzi>*/;
 						public name: string;
@@ -36888,7 +36880,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module phenotype {
-					export class zzl extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.internal.phenotype.zze,com.google.android.gms.common.api.Api.ApiOptions.NoOptions> {
+					export class zzl extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.internal.phenotype.zze, com.google.android.gms.common.api.Api.ApiOptions.NoOptions> {
 						public static class: java.lang.Class<com.google.android.gms.phenotype.zzl>;
 					}
 				}
@@ -37039,7 +37031,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module security {
-					export class zza extends globalAndroid.os.AsyncTask<java.lang.Void,java.lang.Void,java.lang.Integer> {
+					export class zza extends globalAndroid.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Integer> {
 						public static class: java.lang.Class<com.google.android.gms.security.zza>;
 					}
 				}
@@ -37083,7 +37075,7 @@ declare module com {
 			export module gms {
 				export module signin {
 					export module internal {
-						export class SignInClientImpl extends com.google.android.gms.common.internal.GmsClient<com.google.android.gms.signin.internal.zaf> implements com.google.android.gms.signin.zad  {
+						export class SignInClientImpl extends com.google.android.gms.common.internal.GmsClient<com.google.android.gms.signin.internal.zaf> implements com.google.android.gms.signin.zad {
 							public static class: java.lang.Class<com.google.android.gms.signin.internal.SignInClientImpl>;
 							public getStartServiceAction(): string;
 							public requiresGooglePlayServices(): boolean;
@@ -37376,7 +37368,7 @@ declare module com {
 				export module signin {
 					export class zaa {
 						public static class: java.lang.Class<com.google.android.gms.signin.zaa>;
-						public static zaph: com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.signin.internal.SignInClientImpl,com.google.android.gms.signin.SignInOptions>;
+						public static zaph: com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.signin.internal.SignInClientImpl, com.google.android.gms.signin.SignInOptions>;
 						public static API: com.google.android.gms.common.api.Api<com.google.android.gms.signin.SignInOptions>;
 					}
 				}
@@ -37390,7 +37382,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module signin {
-					export class zab extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.signin.internal.SignInClientImpl,com.google.android.gms.signin.SignInOptions> {
+					export class zab extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.signin.internal.SignInClientImpl, com.google.android.gms.signin.SignInOptions> {
 						public static class: java.lang.Class<com.google.android.gms.signin.zab>;
 					}
 				}
@@ -37404,7 +37396,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module signin {
-					export class zac extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.signin.internal.SignInClientImpl,any> {
+					export class zac extends com.google.android.gms.common.api.Api.AbstractClientBuilder<com.google.android.gms.signin.internal.SignInClientImpl, any> {
 						public static class: java.lang.Class<com.google.android.gms.signin.zac>;
 					}
 				}
@@ -37620,8 +37612,8 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class Continuation<TResult, TContinuationResult>  extends java.lang.Object {
-						public static class: java.lang.Class<com.google.android.gms.tasks.Continuation<any,any>>;
+					export class Continuation<TResult, TContinuationResult> extends java.lang.Object {
+						public static class: java.lang.Class<com.google.android.gms.tasks.Continuation<any, any>>;
 						/**
 						 * Constructs a new instance of the com.google.android.gms.tasks.Continuation<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 						 */
@@ -37664,7 +37656,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class OnCompleteListener<TResult>  extends java.lang.Object {
+					export class OnCompleteListener<TResult> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.tasks.OnCompleteListener<any>>;
 						/**
 						 * Constructs a new instance of the com.google.android.gms.tasks.OnCompleteListener<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -37708,7 +37700,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class OnSuccessListener<TResult>  extends java.lang.Object {
+					export class OnSuccessListener<TResult> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.tasks.OnSuccessListener<any>>;
 						/**
 						 * Constructs a new instance of the com.google.android.gms.tasks.OnSuccessListener<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -37767,8 +37759,8 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class SuccessContinuation<TResult, TContinuationResult>  extends java.lang.Object {
-						public static class: java.lang.Class<com.google.android.gms.tasks.SuccessContinuation<any,any>>;
+					export class SuccessContinuation<TResult, TContinuationResult> extends java.lang.Object {
+						public static class: java.lang.Class<com.google.android.gms.tasks.SuccessContinuation<any, any>>;
 						/**
 						 * Constructs a new instance of the com.google.android.gms.tasks.SuccessContinuation<any,any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 						 */
@@ -37789,27 +37781,27 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export abstract class Task<TResult>  extends java.lang.Object {
+					export abstract class Task<TResult> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.tasks.Task<any>>;
 						public addOnFailureListener(param0: com.google.android.gms.tasks.OnFailureListener): com.google.android.gms.tasks.Task<TResult>;
-						public continueWithTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public continueWithTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public addOnFailureListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnFailureListener): com.google.android.gms.tasks.Task<TResult>;
 						public addOnCompleteListener(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.OnCompleteListener<TResult>): com.google.android.gms.tasks.Task<TResult>;
-						public continueWithTask(param0: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public continueWithTask(param0: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public addOnFailureListener(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.OnFailureListener): com.google.android.gms.tasks.Task<TResult>;
 						public addOnCompleteListener(param0: com.google.android.gms.tasks.OnCompleteListener<TResult>): com.google.android.gms.tasks.Task<TResult>;
-						public continueWith(param0: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
-						public continueWith(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public continueWith(param0: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
+						public continueWith(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public addOnCanceledListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnCanceledListener): com.google.android.gms.tasks.Task<TResult>;
 						public addOnSuccessListener(param0: com.google.android.gms.tasks.OnSuccessListener<any>): com.google.android.gms.tasks.Task<TResult>;
 						public isSuccessful(): boolean;
 						public addOnSuccessListener(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.OnSuccessListener<any>): com.google.android.gms.tasks.Task<TResult>;
 						public addOnSuccessListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnSuccessListener<any>): com.google.android.gms.tasks.Task<TResult>;
 						public addOnCanceledListener(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.OnCanceledListener): com.google.android.gms.tasks.Task<TResult>;
-						public onSuccessTask(param0: com.google.android.gms.tasks.SuccessContinuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public onSuccessTask(param0: com.google.android.gms.tasks.SuccessContinuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public constructor();
 						public addOnCompleteListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnCompleteListener<TResult>): com.google.android.gms.tasks.Task<TResult>;
-						public onSuccessTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.SuccessContinuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public onSuccessTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.SuccessContinuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public addOnCanceledListener(param0: com.google.android.gms.tasks.OnCanceledListener): com.google.android.gms.tasks.Task<TResult>;
 						public getResult(): TResult;
 						public isComplete(): boolean;
@@ -37828,7 +37820,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class TaskCompletionSource<TResult>  extends java.lang.Object {
+					export class TaskCompletionSource<TResult> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.tasks.TaskCompletionSource<any>>;
 						public trySetResult(param0: TResult): boolean;
 						public getTask(): com.google.android.gms.tasks.Task<TResult>;
@@ -37962,11 +37954,11 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzc<TResult, TContinuationResult>  extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
-						public static class: java.lang.Class<com.google.android.gms.tasks.zzc<any,any>>;
+					export class zzc<TResult, TContinuationResult> extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
+						public static class: java.lang.Class<com.google.android.gms.tasks.zzc<any, any>>;
 						public cancel(): void;
 						public onComplete(param0: com.google.android.gms.tasks.Task<any>): void;
-						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any,any>, param2: any /* com.google.android.gms.tasks.zzu<any>*/);
+						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any, any>, param2: any /* com.google.android.gms.tasks.zzu<any>*/);
 					}
 				}
 			}
@@ -37994,12 +37986,12 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zze<TResult, TContinuationResult>  extends java.lang.Object {
-						public static class: java.lang.Class<com.google.android.gms.tasks.zze<any,any>>;
+					export class zze<TResult, TContinuationResult> extends java.lang.Object {
+						public static class: java.lang.Class<com.google.android.gms.tasks.zze<any, any>>;
 						public onFailure(param0: java.lang.Exception): void;
 						public onComplete(param0: com.google.android.gms.tasks.Task<TResult>): void;
 						public cancel(): void;
-						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<TResult,com.google.android.gms.tasks.Task<TContinuationResult>>, param2: any /* com.google.android.gms.tasks.zzu<TContinuationResult>*/);
+						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<TResult, com.google.android.gms.tasks.Task<TContinuationResult>>, param2: any /* com.google.android.gms.tasks.zzu<TContinuationResult>*/);
 						public onSuccess(param0: TContinuationResult): void;
 						public onCanceled(): void;
 						public onSuccess(param0: TResult): void;
@@ -38030,7 +38022,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzg<TResult>  extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
+					export class zzg<TResult> extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzg<any>>;
 						public onComplete(param0: com.google.android.gms.tasks.Task<any>): void;
 						public cancel(): void;
@@ -38063,7 +38055,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzi<TResult>  extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
+					export class zzi<TResult> extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzi<any>>;
 						public cancel(): void;
 						public onComplete(param0: com.google.android.gms.tasks.Task<any>): void;
@@ -38095,7 +38087,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzk<TResult>  extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
+					export class zzk<TResult> extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzk<any>>;
 						public cancel(): void;
 						public onComplete(param0: com.google.android.gms.tasks.Task<any>): void;
@@ -38127,7 +38119,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzm<TResult>  extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
+					export class zzm<TResult> extends java.lang.Object /* com.google.android.gms.tasks.zzq<any>*/ {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzm<any>>;
 						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.OnSuccessListener<any>);
 						public cancel(): void;
@@ -38159,9 +38151,9 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzo<TResult, TContinuationResult>  extends java.lang.Object {
-						public static class: java.lang.Class<com.google.android.gms.tasks.zzo<any,any>>;
-						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.SuccessContinuation<TResult,TContinuationResult>, param2: any /* com.google.android.gms.tasks.zzu<TContinuationResult>*/);
+					export class zzo<TResult, TContinuationResult> extends java.lang.Object {
+						public static class: java.lang.Class<com.google.android.gms.tasks.zzo<any, any>>;
+						public constructor(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.SuccessContinuation<TResult, TContinuationResult>, param2: any /* com.google.android.gms.tasks.zzu<TContinuationResult>*/);
 						public onFailure(param0: java.lang.Exception): void;
 						public onComplete(param0: com.google.android.gms.tasks.Task<TResult>): void;
 						public cancel(): void;
@@ -38195,7 +38187,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzq<TResult>  extends java.lang.Object {
+					export class zzq<TResult> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzq<any>>;
 						/**
 						 * Constructs a new instance of the com.google.android.gms.tasks.zzq<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -38219,7 +38211,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzr<TResult>  extends java.lang.Object {
+					export class zzr<TResult> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzr<any>>;
 					}
 				}
@@ -38263,25 +38255,25 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzu<TResult>  extends com.google.android.gms.tasks.Task<any> {
+					export class zzu<TResult> extends com.google.android.gms.tasks.Task<any> {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzu<any>>;
 						public setResult(param0: any): void;
 						public addOnCompleteListener(param0: com.google.android.gms.tasks.OnCompleteListener<any>): com.google.android.gms.tasks.Task<any>;
 						public addOnCanceledListener(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.OnCanceledListener): com.google.android.gms.tasks.Task<any>;
 						public addOnSuccessListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnSuccessListener<any>): com.google.android.gms.tasks.Task<any>;
-						public continueWithTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
-						public continueWithTask(param0: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
-						public continueWith(param0: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
-						public continueWith(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public continueWithTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
+						public continueWithTask(param0: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
+						public continueWith(param0: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
+						public continueWith(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.Continuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public isSuccessful(): boolean;
 						public trySetResult(param0: any): boolean;
 						public setException(param0: java.lang.Exception): void;
 						public addOnSuccessListener(param0: com.google.android.gms.tasks.OnSuccessListener<any>): com.google.android.gms.tasks.Task<any>;
 						public addOnFailureListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnFailureListener): com.google.android.gms.tasks.Task<any>;
-						public onSuccessTask(param0: com.google.android.gms.tasks.SuccessContinuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public onSuccessTask(param0: com.google.android.gms.tasks.SuccessContinuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public trySetException(param0: java.lang.Exception): boolean;
 						public getResult(): any;
-						public onSuccessTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.SuccessContinuation<any,any>): com.google.android.gms.tasks.Task<any>;
+						public onSuccessTask(param0: java.util.concurrent.Executor, param1: com.google.android.gms.tasks.SuccessContinuation<any, any>): com.google.android.gms.tasks.Task<any>;
 						public addOnCanceledListener(param0: globalAndroid.app.Activity, param1: com.google.android.gms.tasks.OnCanceledListener): com.google.android.gms.tasks.Task<any>;
 						public isComplete(): boolean;
 						public isCanceled(): boolean;
@@ -38326,7 +38318,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzw extends com.google.android.gms.tasks.Continuation<java.lang.Void,java.util.List<any>> {
+					export class zzw extends com.google.android.gms.tasks.Continuation<java.lang.Void, java.util.List<any>> {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzw>;
 						public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					}
@@ -38341,7 +38333,7 @@ declare module com {
 		export module android {
 			export module gms {
 				export module tasks {
-					export class zzx extends com.google.android.gms.tasks.Continuation<java.lang.Void,com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.tasks.Task<any>>>> {
+					export class zzx extends com.google.android.gms.tasks.Continuation<java.lang.Void, com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.tasks.Task<any>>>> {
 						public static class: java.lang.Class<com.google.android.gms.tasks.zzx>;
 						public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					}
@@ -38759,7 +38751,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module components {
-				export class Component<T>  extends java.lang.Object {
+				export class Component<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.components.Component<any>>;
 					public getDependencies(): java.util.Set<com.google.firebase.components.Dependency>;
 					public isValue(): boolean;
@@ -38779,7 +38771,7 @@ declare module com {
 					public static of(param0: java.lang.Class, param1: any): com.google.firebase.components.Component<any>;
 				}
 				export module Component {
-					export class Builder<T>  extends java.lang.Object {
+					export class Builder<T> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.firebase.components.Component.Builder<any>>;
 						public eagerInDefaultApp(): com.google.firebase.components.Component.Builder<T>;
 						public factory(param0: com.google.firebase.components.ComponentFactory<T>): com.google.firebase.components.Component.Builder<T>;
@@ -38824,7 +38816,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module components {
-				export class ComponentDiscovery<T>  extends java.lang.Object {
+				export class ComponentDiscovery<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.components.ComponentDiscovery<any>>;
 					public static forContext(param0: globalAndroid.content.Context, param1: java.lang.Class<any>): com.google.firebase.components.ComponentDiscovery<globalAndroid.content.Context>;
 					public discover(): java.util.List<com.google.firebase.components.ComponentRegistrar>;
@@ -38835,7 +38827,7 @@ declare module com {
 						public retrieve(param0: any): java.util.List<string>;
 						public retrieve(param0: globalAndroid.content.Context): java.util.List<string>;
 					}
-					export class RegistrarNameRetriever<T>  extends java.lang.Object {
+					export class RegistrarNameRetriever<T> extends java.lang.Object {
 						public static class: java.lang.Class<com.google.firebase.components.ComponentDiscovery.RegistrarNameRetriever<any>>;
 						/**
 						 * Constructs a new instance of the com.google.firebase.components.ComponentDiscovery$RegistrarNameRetriever interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -38870,7 +38862,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module components {
-				export class ComponentFactory<T>  extends java.lang.Object {
+				export class ComponentFactory<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.components.ComponentFactory<any>>;
 					/**
 					 * Constructs a new instance of the com.google.firebase.components.ComponentFactory<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -39019,7 +39011,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module components {
-				export class Lazy<T>  extends com.google.firebase.inject.Provider<any> {
+				export class Lazy<T> extends com.google.firebase.inject.Provider<any> {
 					public static class: java.lang.Class<com.google.firebase.components.Lazy<any>>;
 					public get(): any;
 					public constructor(param0: com.google.firebase.inject.Provider<any>);
@@ -39086,7 +39078,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module events {
-				export class Event<T>  extends java.lang.Object {
+				export class Event<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.events.Event<any>>;
 					public constructor(param0: java.lang.Class<T>, param1: T);
 					public toString(): string;
@@ -39102,7 +39094,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module events {
-				export class EventHandler<T>  extends java.lang.Object {
+				export class EventHandler<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.events.EventHandler<any>>;
 					/**
 					 * Constructs a new instance of the com.google.firebase.events.EventHandler<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -39551,7 +39543,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export abstract class zzan<T>  extends java.lang.Object {
+				export abstract class zzan<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.iid.zzan<any>>;
 					public toString(): string;
 				}
@@ -39615,7 +39607,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzas extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zzas extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzas>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -39881,7 +39873,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzc extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zzc extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzc>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -39908,7 +39900,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zze extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zze extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zze>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -39922,7 +39914,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzf extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zzf extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzf>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -39998,7 +39990,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzk extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zzk extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzk>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -40052,7 +40044,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzo extends com.google.android.gms.tasks.SuccessContinuation<any,any> {
+				export class zzo extends com.google.android.gms.tasks.SuccessContinuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzo>;
 					public then(param0: any): com.google.android.gms.tasks.Task<any>;
 					public then(param0: any): com.google.android.gms.tasks.Task<any>;
@@ -40132,7 +40124,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzu extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zzu extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzu>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -40146,7 +40138,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module iid {
-				export class zzv extends com.google.android.gms.tasks.Continuation<any,any> {
+				export class zzv extends com.google.android.gms.tasks.Continuation<any, any> {
 					public static class: java.lang.Class<com.google.firebase.iid.zzv>;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
 					public then(param0: com.google.android.gms.tasks.Task<any>): any;
@@ -40217,7 +40209,7 @@ declare module com {
 	export module google {
 		export module firebase {
 			export module inject {
-				export class Provider<T>  extends java.lang.Object {
+				export class Provider<T> extends java.lang.Object {
 					public static class: java.lang.Class<com.google.firebase.inject.Provider<any>>;
 					/**
 					 * Constructs a new instance of the com.google.firebase.inject.Provider<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -40951,7 +40943,7 @@ declare module com {
 				export module common {
 					export module internal {
 						export module modeldownload {
-							export class RemoteModelManagerInterface<TRemote>  extends java.lang.Object {
+							export class RemoteModelManagerInterface<TRemote> extends java.lang.Object {
 								public static class: java.lang.Class<com.google.firebase.ml.common.internal.modeldownload.RemoteModelManagerInterface<any>>;
 								/**
 								 * Constructs a new instance of the com.google.firebase.ml.common.internal.modeldownload.RemoteModelManagerInterface<any> interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -42050,7 +42042,7 @@ declare module com {
 					export class FirebaseModelOutputs {
 						public static class: java.lang.Class<com.google.firebase.ml.custom.FirebaseModelOutputs>;
 						public getOutput(param0: number): any;
-						public constructor(param0: java.util.Map<java.lang.Integer,any>);
+						public constructor(param0: java.util.Map<java.lang.Integer, any>);
 					}
 				}
 			}
@@ -42386,7 +42378,7 @@ declare module org {
 				public getOutputTensor(param0: number): org.tensorflow.lite.Tensor;
 				public run(param0: any, param1: any): void;
 				public getInputTensor(param0: number): org.tensorflow.lite.Tensor;
-				public runForMultipleInputsOutputs(param0: native.Array<any>, param1: java.util.Map<java.lang.Integer,any>): void;
+				public runForMultipleInputsOutputs(param0: native.Array<any>, param1: java.util.Map<java.lang.Integer, any>): void;
 				/** @deprecated */
 				public setUseNNAPI(param0: boolean): void;
 				/** @deprecated */

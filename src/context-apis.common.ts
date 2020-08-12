@@ -7,7 +7,7 @@ import {
 
 import { GeolocationProvider, getGeolocationProvider } from "./geolocation";
 
-const recognizerTypes = [Resolution.LOW, Resolution.MEDIUM];
+const recognizerTypes = [Resolution.LOW, Resolution.MEDIUM, Resolution.HIGH];
 
 export class Common extends Observable {
   async init(): Promise<void> {
