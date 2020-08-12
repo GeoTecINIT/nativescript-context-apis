@@ -1,15 +1,23 @@
 import { connectionType, getConnectionType } from "tns-core-modules/connectivity";
 import { RecognizerManager } from "../../recognizer-manager";
 import { StartOptions } from "../..";
-import { hasPermission } from "nativescript-permissions";
 import { isCustomModelReady, getCustomModel } from "./tf-model.android";
+import { ActivityRecognizerManager, getActivityRecognizerManager } from "./activity-recognizer/activity-recognizer-manager.android";
+import { recognizersStateStoreDb } from "../../state/store";
+import { Resolution } from "../../..";
 
 export class AndroidHighResRecognizerManager implements RecognizerManager {
+
+    private activityRecognizerManager: ActivityRecognizerManager;
+    constructor() {
+        this.activityRecognizerManager = getActivityRecognizerManager();
+    }
 
     isReady(): boolean {
         return isCustomModelReady();
     }
 
+    // TODO: Maybe ask for battery optimizations disabling (and check in isReady) 
     async prepare(): Promise<void> {
         if (!isCustomModelReady()) {
             if (!this.isNetworkAvailable()) {
@@ -19,12 +27,28 @@ export class AndroidHighResRecognizerManager implements RecognizerManager {
         }
     }
 
-    startListening(options?: StartOptions): Promise<void> {
-        throw new Error("Method not implemented.");
+    async startListening(options?: StartOptions): Promise<void> {
+        const isActive = await recognizersStateStoreDb.isActive(Resolution.HIGH);
+        if (isActive) {
+            this.stopListening();
+        }
+
+        if (!this.isReady()) {
+            throw new Error(
+                "Manager is not ready!. Call isReady() before start listening."
+            );
+        }
+
+        this.activityRecognizerManager.requestActivityUpdates();
     }
 
-    stopListening(): Promise<void> {
-        throw new Error("Method not implemented.");
+    async stopListening(): Promise<void> {
+        const isActive = await recognizersStateStoreDb.isActive(Resolution.HIGH);
+        if (!isActive) {
+            return;
+        }
+
+        this.activityRecognizerManager.disableActivityUpdates();
     }
 
     private isNetworkAvailable(): boolean {

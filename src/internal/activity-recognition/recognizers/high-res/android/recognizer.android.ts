@@ -21,6 +21,7 @@ export class AndroidHighResRecognizer extends AbstractActivityRecognizer {
         );
     }
 
+    // TODO: Maybe other data type than ActivityUpdate is required
     onActivityDetected(result: ActivityUpdate) {
         this.callbackManager.notifyAll({
             type: result.type,
