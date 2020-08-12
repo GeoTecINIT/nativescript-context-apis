@@ -5,6 +5,7 @@ import {
 } from "nativescript-context-apis/internal/activity-recognition";
 import { AndroidLowResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/low-res/android/recognizer.android";
 import { AndroidMediumResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/medium-res/android/recognizer.android";
+import { AndroidHighResRecognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/android/recognizer.android";
 
 describe("Activity recognition module", () => {
     it("returns a low res recognizer when asked", () => {
@@ -26,4 +27,15 @@ describe("Activity recognition module", () => {
             expect(mediumResRecognizer).not.toBeNull();
         }
     });
+
+    it("returns a high res recognizer when asked", () => {
+        const highResRecognizer = getActivityRecognizer(Resolution.HIGH);
+        if (androidApp) {
+            expect(highResRecognizer).toBeInstanceOf(
+                AndroidHighResRecognizer
+            );
+        } else {
+            expect(highResRecognizer).toBeNull();
+        }
+    })
 });
