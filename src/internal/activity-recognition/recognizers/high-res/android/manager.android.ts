@@ -1,30 +1,40 @@
-import { connectionType, getConnectionType } from "tns-core-modules/connectivity";
+import { android as androidApp } from "tns-core-modules/application/application";
 import { RecognizerManager } from "../../recognizer-manager";
 import { StartOptions } from "../..";
-import { isCustomModelReady, getCustomModel } from "./tf-model.android";
 import { ActivityRecognizerManager, getActivityRecognizerManager } from "./activity-recognizer/activity-recognizer-manager.android";
 import { recognizersStateStoreDb } from "../../state/store";
 import { Resolution } from "../../..";
 
 export class AndroidHighResRecognizerManager implements RecognizerManager {
 
-    private activityRecognizerManager: ActivityRecognizerManager;
-    constructor() {
-        this.activityRecognizerManager = getActivityRecognizerManager();
+    private appPackage: string;
+    constructor(private activityRecognizerManager: ActivityRecognizerManager = getActivityRecognizerManager(),
+        private powerManager: android.os.PowerManager = androidApp.context.getSystemService(
+            android.content.Context.POWER_SERVICE
+        ),
+    ) {
+        this.appPackage = androidApp.context.getPackageName();
     }
 
     isReady(): boolean {
-        return isCustomModelReady();
+        if (android.os.Build.VERSION.SDK_INT < 23) {
+            return true;
+        }
+
+        return this.powerManager.isIgnoringBatteryOptimizations(this.appPackage);
     }
 
-    // TODO: Maybe ask for battery optimizations disabling (and check in isReady) 
     async prepare(): Promise<void> {
-        if (!isCustomModelReady()) {
-            if (!this.isNetworkAvailable()) {
-                throw new Error("Internet connection required to download model!");
-            }
-            await getCustomModel();
+        if (!androidApp.foregroundActivity) {
+            return;
         }
+
+        const intent = new android.content.Intent(
+            android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+            android.net.Uri.parse(`package:${this.appPackage}`)
+        );
+
+        androidApp.foregroundActivity.startActivity(intent);
     }
 
     async startListening(options?: StartOptions): Promise<void> {
@@ -49,12 +59,5 @@ export class AndroidHighResRecognizerManager implements RecognizerManager {
         }
 
         this.activityRecognizerManager.disableActivityUpdates();
-    }
-
-    private isNetworkAvailable(): boolean {
-        const type = getConnectionType();
-        const wifiAvailable = type === connectionType.wifi;
-        const mobileAvailable = type === connectionType.mobile;
-        return wifiAvailable || mobileAvailable;
     }
 }
