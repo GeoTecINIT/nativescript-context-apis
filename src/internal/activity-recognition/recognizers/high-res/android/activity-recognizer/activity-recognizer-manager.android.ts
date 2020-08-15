@@ -1,11 +1,14 @@
-import { getAccelerometerGatherer, AccelerometerData } from "./accelerometer-gatherer.android";
+import { getAccelerometerGatherer } from "./accelerometer-gatherer.android";
+import { getAccelerometerRecorder, AccelerometerRecords } from "../../accelerometer-recorder";
+import { extractFeatureFromRecords } from "../../feature-extraction";
 
 export class ActivityRecognizerManager {
-    constructor(private accelerometerGatherer = getAccelerometerGatherer()) {
+    constructor(private accelerometerGatherer = getAccelerometerGatherer(),
+        private accelerometerRecorder = getAccelerometerRecorder()) {
     }
 
     requestActivityUpdates(): void {
-        this.accelerometerGatherer.setEnoughRecordsCallback(this.enoughAccelerometerRecordsGathered);
+        this.accelerometerRecorder.setEnoughRecordsCallback(this.enoughAccelerometerRecordsGathered);
         this.accelerometerGatherer.startGathering();
     }
 
@@ -13,9 +16,9 @@ export class ActivityRecognizerManager {
         this.accelerometerGatherer.stopGathering();
     }
 
-    private enoughAccelerometerRecordsGathered(records: AccelerometerData[]): void {
+    private enoughAccelerometerRecordsGathered(records: AccelerometerRecords): void {
         // TODO: DO SOMETHING (⌐■_■)
-        console.log(`ActivityRecognizerManager: ${JSON.stringify(records)}`);
+        extractFeatureFromRecords(records);
     }
 }
 

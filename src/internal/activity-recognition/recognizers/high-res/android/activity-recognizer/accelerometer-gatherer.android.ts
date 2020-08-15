@@ -1,19 +1,14 @@
 import { AndroidSensors, AndroidSensorListener, SensorDelay } from 'nativescript-android-sensors';
-
-const LIMIT = 50;
+import { AccelerometerRecorder, AccelerometerData, getAccelerometerRecorder } from '../../accelerometer-recorder';
 
 export class AccelerometerGatherer {
 
     private accelerometer: android.hardware.Sensor;
-    private accelerometerRecords: AccelerometerData[];
-    private _enoughRecordsCallback: (records: AccelerometerData[]) => void;
+    private accelerometerRecords: AccelerometerRecorder;
     private _sensorListener;
 
     constructor(private sensors = new AndroidSensors()) {
-    }
-
-    setEnoughRecordsCallback(callback: (records: AccelerometerData[]) => void): void {
-        this._enoughRecordsCallback = callback;
+        this.accelerometerRecords = getAccelerometerRecorder();
     }
 
     // TODO: Android Sensors plugin uses a background thread for the gathering.
@@ -22,7 +17,7 @@ export class AccelerometerGatherer {
     // and wakelocks must be implemented.
     startGathering() {
         this.sensors.setListener(this.getSensorListener());
-        this.accelerometerRecords = [];
+        this.accelerometerRecords.clearRecords();
         this.accelerometer = this.sensors.startSensor(
             android.hardware.Sensor.TYPE_ACCELEROMETER,
             SensorDelay.GAME
@@ -61,27 +56,8 @@ export class AccelerometerGatherer {
     }
 
     private addNewRecord(record: AccelerometerData): void {
-        this.accelerometerRecords.push(record);
-
-        if (this.accelerometerRecords.length !== LIMIT) {
-            return;
-        }
-
-        this._enoughRecordsCallback(this.accelerometerRecords.slice());
-        this.removeHalfRecords();
+        this.accelerometerRecords.addNewRecord(record);
     }
-
-    private removeHalfRecords(): void {
-        const start = LIMIT / 2;
-        this.accelerometerRecords = this.accelerometerRecords.slice(start);
-    }
-}
-
-export interface AccelerometerData {
-    x: number;
-    y: number;
-    z: number;
-    timestamp: number;
 }
 
 let _instance: AccelerometerGatherer;
