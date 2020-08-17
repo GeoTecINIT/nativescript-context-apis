@@ -1,14 +1,17 @@
 import { AndroidSensors, AndroidSensorListener, SensorDelay } from 'nativescript-android-sensors';
-import { AccelerometerRecorder, AccelerometerData, getAccelerometerRecorder } from '../../accelerometer-recorder';
 
-export class AccelerometerGatherer {
+import { AbstractAccelerometerGatherer } from '../../recognition-engine/abstract-accelerometer-gatherer';
+import { AccelerometerData, getAccelerometerRecorder, AccelerometerRecorder } from '../../recognition-engine/accelerometer-recorder';
+import { AccelerometerGatherer } from '../../recognition-engine/accelerometer-gatherer';
+
+export class AndroidAccelerometerGatherer extends AbstractAccelerometerGatherer {
 
     private accelerometer: android.hardware.Sensor;
-    private accelerometerRecords: AccelerometerRecorder;
     private _sensorListener;
 
-    constructor(private sensors = new AndroidSensors()) {
-        this.accelerometerRecords = getAccelerometerRecorder();
+    constructor(private sensors: AndroidSensors,
+        accelerometerRecords: AccelerometerRecorder) {
+        super(accelerometerRecords);
     }
 
     // TODO: Android Sensors plugin uses a background thread for the gathering.
@@ -54,16 +57,15 @@ export class AccelerometerGatherer {
         }
         return this._sensorListener;
     }
-
-    private addNewRecord(record: AccelerometerData): void {
-        this.accelerometerRecords.addNewRecord(record);
-    }
 }
 
 let _instance: AccelerometerGatherer;
-export function getAccelerometerGatherer(): AccelerometerGatherer {
+export function getAndroidAccelerometerGatherer(): AccelerometerGatherer {
     if (!_instance) {
-        _instance = new AccelerometerGatherer();
+        _instance = new AndroidAccelerometerGatherer(
+            new AndroidSensors(),
+            getAccelerometerRecorder()
+        );
     }
     return _instance;
 }

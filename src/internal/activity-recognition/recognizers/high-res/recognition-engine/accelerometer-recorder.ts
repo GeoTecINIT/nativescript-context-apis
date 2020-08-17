@@ -13,7 +13,7 @@ export class AccelerometerRecorder {
         return this.x.length;
     }
 
-    constructor() {
+    constructor(private limit: number) {
         this.x = [];
         this.y = [];
         this.z = [];
@@ -26,7 +26,7 @@ export class AccelerometerRecorder {
         this.z.push(accelerometerData.z);
         this.timestamps.push(accelerometerData.timestamp);
 
-        if (this.size !== LIMIT) {
+        if (this.size !== this.limit) {
             return;
         }
 
@@ -53,7 +53,7 @@ export class AccelerometerRecorder {
     }
 
     private removeHalfRecords(): void {
-        const start = LIMIT / 2;
+        const start = this.limit / 2;
         this.x = this.x.slice(start);
         this.y = this.y.slice(start);
         this.z = this.z.slice(start);
@@ -81,7 +81,7 @@ export interface AccelerometerRecords {
 let _instance;
 export function getAccelerometerRecorder(): AccelerometerRecorder {
     if (!_instance) {
-        _instance = new AccelerometerRecorder();
+        _instance = new AccelerometerRecorder(LIMIT);
     }
 
     return _instance;

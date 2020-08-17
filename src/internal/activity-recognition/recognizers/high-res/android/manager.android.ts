@@ -1,9 +1,9 @@
 import { android as androidApp } from "tns-core-modules/application/application";
 import { RecognizerManager } from "../../recognizer-manager";
 import { StartOptions } from "../..";
-import { ActivityRecognizerManager, getActivityRecognizerManager } from "./activity-recognizer/activity-recognizer-manager.android";
 import { recognizersStateStoreDb } from "../../state/store";
 import { Resolution } from "../../..";
+import { ActivityRecognizerManager, getActivityRecognizerManager } from "../recognition-engine/activity-recognizer-manager";
 
 export class AndroidHighResRecognizerManager implements RecognizerManager {
 
