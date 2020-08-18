@@ -1,7 +1,7 @@
 import { android as androidApp } from "tns-core-modules/application/application";
 import { getAndroidAccelerometerGatherer } from "../android/gatherer/accelerometer-gatherer.android";
 import { AccelerometerGatherer } from "./accelerometer-gatherer";
-import { RecognizerOptions, Recognizer } from "./abstract-recognizer";
+import { Recognizer } from "./abstract-recognizer";
 import { getAndroidRecongizer } from "./android/recognizer.android";
 
 export function getAccelerometerGatherer(): AccelerometerGatherer {
@@ -12,9 +12,9 @@ export function getAccelerometerGatherer(): AccelerometerGatherer {
     }
 }
 
-export function getRecognizer(options: RecognizerOptions): Recognizer {
+export function getRecognizer(): Recognizer {
     if (androidApp) {
-        return getAndroidRecongizer(options);
+        return getAndroidRecongizer();
     } else {
         return null;
     }

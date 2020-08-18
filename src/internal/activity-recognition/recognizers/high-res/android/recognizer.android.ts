@@ -3,11 +3,14 @@ import { RecognizerStateStore, recognizersStateStoreDb } from "../../state/store
 import { RecognizerManager } from "../../recognizer-manager";
 import { Resolution } from "../../..";
 import { RecognizerCallbackManager } from "../../callback-manager";
-import { ActivityUpdate } from "../../medium-res/android/recognizer.android";
 import { Transition } from "../../../activity-change";
 import { AndroidHighResRecognizerManager } from "./manager.android";
+import { RecognizerOptions } from "../recognition-engine/abstract-recognizer";
+import { HumanActivity } from "../../../human-activity";
+import { getAndroidRecongizer } from "../recognition-engine/android/recognizer.android";
 
 export class AndroidHighResRecognizer extends AbstractActivityRecognizer {
+
     constructor(
         recognizerState: RecognizerStateStore,
         callbackManager: RecognizerCallbackManager,
@@ -21,8 +24,12 @@ export class AndroidHighResRecognizer extends AbstractActivityRecognizer {
         );
     }
 
-    // TODO: Maybe other data type than ActivityUpdate is required
-    onActivityDetected(result: ActivityUpdate) {
+    initializeRecongnizer(options: RecognizerOptions) {
+        // I know, ugly af
+        getAndroidRecongizer().initializeRecognizer(options);
+    }
+
+    onActivityDetected(result: ActivityDetected) {
         this.callbackManager.notifyAll({
             type: result.type,
             transition: Transition.STARTED,
@@ -30,6 +37,12 @@ export class AndroidHighResRecognizer extends AbstractActivityRecognizer {
             timestamp: result.timestamp
         });
     }
+}
+
+export interface ActivityDetected {
+    type: HumanActivity;
+    confidence: number;
+    timestamp: Date;
 }
 
 let _instance: AndroidHighResRecognizer;

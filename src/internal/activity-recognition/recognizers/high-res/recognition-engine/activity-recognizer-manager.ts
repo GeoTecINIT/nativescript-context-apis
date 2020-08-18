@@ -1,11 +1,13 @@
 import { getAccelerometerRecorder, AccelerometerRecords, AccelerometerRecorder } from "./accelerometer-recorder";
 import { extractFeatureFromRecords, Features } from "./feature-extraction";
-import { getAccelerometerGatherer } from ".";
+import { getAccelerometerGatherer, getRecognizer } from ".";
 import { AccelerometerGatherer } from "./accelerometer-gatherer";
+import { Recognizer } from "./abstract-recognizer";
 
 export class ActivityRecognizerManager {
     constructor(private accelerometerGatherer: AccelerometerGatherer,
-        private accelerometerRecorder: AccelerometerRecorder) {
+        private accelerometerRecorder: AccelerometerRecorder,
+        private recognizer: Recognizer) {
     }
 
     requestActivityUpdates(): void {
@@ -19,7 +21,7 @@ export class ActivityRecognizerManager {
 
     private enoughAccelerometerRecordsGathered(records: AccelerometerRecords): void {
         const features: Features = extractFeatureFromRecords(records);
-        // TODO: DO SOMETHING (⌐■_■)
+        this.recognizer.recognize(features);
     }
 }
 
@@ -28,7 +30,8 @@ export function getActivityRecognizerManager() {
     if (!_instance) {
         _instance = new ActivityRecognizerManager(
             getAccelerometerGatherer(),
-            getAccelerometerRecorder()
+            getAccelerometerRecorder(),
+            getRecognizer()
         );
     }
     return _instance;

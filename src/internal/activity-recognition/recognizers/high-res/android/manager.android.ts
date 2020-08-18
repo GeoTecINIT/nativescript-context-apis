@@ -4,11 +4,14 @@ import { StartOptions } from "../..";
 import { recognizersStateStoreDb } from "../../state/store";
 import { Resolution } from "../../..";
 import { ActivityRecognizerManager, getActivityRecognizerManager } from "../recognition-engine/activity-recognizer-manager";
+import { RecognizerOptions } from "../recognition-engine/abstract-recognizer";
+import { getAndroidRecongizer } from "../recognition-engine/android/recognizer.android";
 
 export class AndroidHighResRecognizerManager implements RecognizerManager {
 
     private appPackage: string;
-    constructor(private activityRecognizerManager: ActivityRecognizerManager = getActivityRecognizerManager(),
+    constructor(
+        private activityRecognizerManager: ActivityRecognizerManager = getActivityRecognizerManager(),
         private powerManager: android.os.PowerManager = androidApp.context.getSystemService(
             android.content.Context.POWER_SERVICE
         ),
@@ -21,11 +24,17 @@ export class AndroidHighResRecognizerManager implements RecognizerManager {
             return true;
         }
 
+        if (!getAndroidRecongizer().isReady()) {
+            console.log("Call initializeRecognizer() first!");
+            return false;
+        }
+
         return this.powerManager.isIgnoringBatteryOptimizations(this.appPackage);
     }
 
     async prepare(): Promise<void> {
-        if (!androidApp.foregroundActivity) {
+        if (!androidApp.foregroundActivity ||
+            this.powerManager.isIgnoringBatteryOptimizations(this.appPackage)) {
             return;
         }
 
