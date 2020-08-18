@@ -6,10 +6,10 @@ import { RecognizerCallbackManager } from "../../callback-manager";
 import { Transition } from "../../../activity-change";
 import { AndroidHighResRecognizerManager } from "./manager.android";
 import { RecognizerOptions } from "../recognition-engine/abstract-recognizer";
-import { HumanActivity } from "../../../human-activity";
 import { getAndroidRecongizer } from "../recognition-engine/android/recognizer.android";
+import { ActivityDetected, ActivityNotifier } from "..";
 
-export class AndroidHighResRecognizer extends AbstractActivityRecognizer {
+export class AndroidHighResRecognizer extends AbstractActivityRecognizer implements ActivityNotifier {
 
     constructor(
         recognizerState: RecognizerStateStore,
@@ -37,12 +37,6 @@ export class AndroidHighResRecognizer extends AbstractActivityRecognizer {
             timestamp: result.timestamp
         });
     }
-}
-
-export interface ActivityDetected {
-    type: HumanActivity;
-    confidence: number;
-    timestamp: Date;
 }
 
 let _instance: AndroidHighResRecognizer;

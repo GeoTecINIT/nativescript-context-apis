@@ -3,7 +3,8 @@ import { AbstractRecognizer, Probas } from "../abstract-recognizer";
 import { Features } from "../feature-extraction";
 
 import ByteBuffer = java.nio.ByteBuffer;
-import { getAndroidHighResRecognizer, ActivityDetected } from "../../android/recognizer.android";
+import { getAndroidHighResRecognizer } from "../../android/recognizer.android";
+import { ActivityDetected } from "../..";
 
 export class AndroidRecognizer extends AbstractRecognizer {
 
@@ -11,9 +12,9 @@ export class AndroidRecognizer extends AbstractRecognizer {
         super();
     }
 
-    recognize(features: Features) {
+    recognize(features: Features): ActivityDetected {
         if (!this.isReady()) {
-            return;
+            return null;
         }
 
         const inputBuffer = this.createInputBuffer(features);
@@ -24,7 +25,7 @@ export class AndroidRecognizer extends AbstractRecognizer {
         const probas: Probas = this.getMostProbable(outputBuffer);
         const activityDetected: ActivityDetected = this.predict(probas);
 
-        getAndroidHighResRecognizer().onActivityDetected(activityDetected);
+        return activityDetected;
     }
 
     getInterpreter(): org.tensorflow.lite.Interpreter {
