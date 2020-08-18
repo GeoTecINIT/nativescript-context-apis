@@ -9,7 +9,7 @@ export function extractFeatureFromRecords(records: AccelerometerRecords): Featur
     const [maxX, maxY, maxZ] = extractFeature(max, records);
     const [minX, minY, minZ] = extractFeature(min, records);
 
-    return [
+    const features = [
         ...pitchAndRoll(records),
         meanX, meanY, meanZ,
         ...extractFeature(median, records),
@@ -21,6 +21,8 @@ export function extractFeatureFromRecords(records: AccelerometerRecords): Featur
         ...extractFeature(diffs, records),
         ...extractFeature(zeroCrossings, records, [meanX, meanY, meanZ])
     ];
+
+    return normalize(features);
 }
 
 function extractFeature(feature: FeatureExtractionFunction, records: AccelerometerRecords, params?: number[]): number[] {
@@ -99,4 +101,10 @@ function zeroCrossings(array: AxisData, mean: number): number {
     }
 
     return crossings;
+}
+
+function normalize(features: Features): Features {
+    const maxVal = max(features);
+    const minVal = min(features);
+    return features.map(x => (x - minVal) / (maxVal - minVal));
 }
