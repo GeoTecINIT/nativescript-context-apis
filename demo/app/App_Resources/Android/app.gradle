@@ -1,5 +1,9 @@
 // Add your native dependencies here:
-
+dependencies {
+  implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.3'
+  implementation 'com.google.firebase:firebase-storage:19.1.1'
+  implementation 'com.google.firebase:firebase-auth:17.0.0'
+}
 // Uncomment to add recyclerview-v7 dependency
 //dependencies {
 //	implementation 'com.android.support:recyclerview-v7:+'
@@ -11,10 +15,13 @@
 
 android {
   defaultConfig {
-    minSdkVersion 17
+    minSdkVersion 21
     generatedDensities = []
+    applicationId = "org.nativescript.demo"
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
   }
 }
+
+apply plugin: 'com.google.gms.google-services'
