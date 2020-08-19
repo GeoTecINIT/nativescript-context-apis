@@ -3,6 +3,7 @@ import { extractFeatureFromRecords, Features } from "./feature-extraction";
 import { getAccelerometerGatherer, getRecognizer } from ".";
 import { AccelerometerGatherer } from "./accelerometer-gatherer";
 import { Recognizer } from "./abstract-recognizer";
+import { getHighResRecognizer, ActivityNotifier, ActivityDetected } from "..";
 
 export class ActivityRecognizerManager {
     constructor(private accelerometerGatherer: AccelerometerGatherer,
@@ -21,7 +22,8 @@ export class ActivityRecognizerManager {
 
     private enoughAccelerometerRecordsGathered(records: AccelerometerRecords): void {
         const features: Features = extractFeatureFromRecords(records);
-        this.recognizer.recognize(features);
+        const activityDetected: ActivityDetected = this.recognizer.recognize(features);
+        (getHighResRecognizer() as ActivityNotifier).onActivityDetected(activityDetected);
     }
 }
 
