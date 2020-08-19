@@ -11,9 +11,6 @@ describe("Accelerometer recorder", () => {
         timestamp: 159766167
     }
 
-    spyOn
-    spyOnProperty(recorder, "size");
-
     it("allows to add a new record", () => {
         const prevSize = recorder.size;
         recorder.addNewRecord(accelerometerData);
@@ -31,11 +28,14 @@ describe("Accelerometer recorder", () => {
     })
 
     it("removes half records when it reached the limit", () => {
+        const callbackMock = jasmine.createSpy();
+        recorder.setEnoughRecordsCallback(callbackMock);
         recorder.addNewRecord(accelerometerData);
         recorder.addNewRecord(accelerometerData);
         recorder.addNewRecord(accelerometerData);
         recorder.addNewRecord(accelerometerData);
 
+        expect(callbackMock).toHaveBeenCalled();
         expect(recorder.size).toBe(limit / 2);
     })
 

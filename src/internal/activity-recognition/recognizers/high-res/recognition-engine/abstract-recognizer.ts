@@ -3,26 +3,31 @@ import { Features } from "./feature-extraction";
 import { HumanActivity } from "../../../human-activity";
 import { ActivityDetected } from "..";
 
-export type Probas = [string, number][];
+export type Proba = [string, number];
+
+// const DEFAULT_PREDICITON_MEMORY = 5;
+// const DEFAULT_K_BESTS = 3;
 
 export abstract class AbstractRecognizer implements Recognizer {
 
-    protected _interpreter: org.tensorflow.lite.Interpreter;
+    protected _interpreter;
     protected _labels: string[];
     protected options: RecognizerOptions;
-    private memory: Probas[];
-    private confidence: number[];
+    // private memory: Probas[];
+    // private confidence: number[];
 
     constructor() {
     }
 
     abstract recognize(features: Features): ActivityDetected;
 
-    abstract getInterpreter(): org.tensorflow.lite.Interpreter;
+    abstract getInterpreter();
 
-    predict(probas: Probas): ActivityDetected {
+    /*predict(probas: Probas): ActivityDetected {
         this.memory.push(probas);
-
+        console.log("Memory --> " + this.memory);
+        console.log("Memory --> " + this.memory.length);
+        console.log("Confidence -->" + this.confidence);
         const fixedProbas = {};
         for (let i = this.memory.length - 1; i >= 0; i--) {
             for (let j = 0; j < this.memory[i].length; j++) {
@@ -45,18 +50,19 @@ export abstract class AbstractRecognizer implements Recognizer {
         }
 
         return this.buildActivityDetected(fixedProbasArray[0]);
-    }
+    }*/
 
     initializeRecognizer(options: RecognizerOptions) {
-        options.predicitonMemory = options.predicitonMemory ? options.predicitonMemory : 5;
-        options.kBest = options.kBest ? options.kBest : 3;
         this.options = options;
+
+        /*options.predicitonMemory = options.predicitonMemory ? options.predicitonMemory : DEFAULT_PREDICITON_MEMORY;
+        options.kBest = options.kBest ? options.kBest : DEFAULT_K_BESTS;
         this.memory = [];
         this.confidence = [];
 
         for (let i = 0; i < options.predicitonMemory; i++) {
             this.confidence[i] = (i + 1) / options.predicitonMemory;
-        }
+        }*/
     }
 
     isReady() {
@@ -65,15 +71,14 @@ export abstract class AbstractRecognizer implements Recognizer {
 
     getLabels(): string[] {
         if (!this._labels) {
-            const labelsPath = fs.knownFolders.currentApp().path + this.options.labelsFile;
-            const content = fs.File.fromPath(labelsPath).readSync();
+            const content = fs.File.fromPath(this.options.labelsFilePath).readSync();
             this._labels = content.split("\n");
         }
 
         return this._labels;
     }
 
-    private buildActivityDetected(proba: [string, number]): ActivityDetected {
+    protected buildActivityDetected(proba: Proba): ActivityDetected {
         return {
             type: this.mapActivityName(proba[0]),
             confidence: proba[1],
@@ -100,14 +105,13 @@ export abstract class AbstractRecognizer implements Recognizer {
 
 export interface Recognizer {
     recognize(features: Features): ActivityDetected;
-    predict(probas: Probas): ActivityDetected;
-    getInterpreter(): org.tensorflow.lite.Interpreter;
+    getInterpreter();
     getLabels(): string[];
 }
 
 export interface RecognizerOptions {
-    localModelFile: string;
-    labelsFile: string;
-    predicitonMemory?: number;
-    kBest?: number;
+    localModelFilePath: string;
+    labelsFilePath: string;
+    // predicitonMemory?: number;
+    // kBest?: number;
 }

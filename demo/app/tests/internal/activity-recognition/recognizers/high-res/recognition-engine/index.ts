@@ -1,5 +1,8 @@
 import { AccelerometerRecorder, AccelerometerData, AccelerometerRecords } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/accelerometer-recorder";
 import { AccelerometerGatherer } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/accelerometer-gatherer";
+import { Recognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/abstract-recognizer";
+import { ActivityDetected } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res";
+import { Features } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/feature-extraction";
 
 export function createAccelerometerGathererMock(): AccelerometerGatherer {
     return {
@@ -33,4 +36,18 @@ export function createAccelerometerRecorderMock(): AccelerometerRecorder {
             return;
         }
     } as unknown as AccelerometerRecorder;
+}
+
+export function createRecognizerMock(): Recognizer {
+    return {
+        recognize(features: Features): ActivityDetected {
+            return null;
+        },
+        getInterpreter() {
+            return null;
+        },
+        getLabels(): string[] {
+            return null;
+        }
+    }
 }

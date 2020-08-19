@@ -1,9 +1,7 @@
-import * as fs from "tns-core-modules/file-system";
-import { AbstractRecognizer, Probas } from "../abstract-recognizer";
+import { AbstractRecognizer, Proba } from "../abstract-recognizer";
 import { Features } from "../feature-extraction";
 
 import ByteBuffer = java.nio.ByteBuffer;
-import { getAndroidHighResRecognizer } from "../../android/recognizer.android";
 import { ActivityDetected } from "../..";
 
 export class AndroidRecognizer extends AbstractRecognizer {
@@ -22,20 +20,16 @@ export class AndroidRecognizer extends AbstractRecognizer {
 
         this.getInterpreter().run(inputBuffer, outputBuffer);
 
-        const probas: Probas = this.getMostProbable(outputBuffer);
-        const activityDetected: ActivityDetected = this.predict(probas);
+        const probas: Proba = this.getMostProbable(outputBuffer);
+        const activityDetected: ActivityDetected = this.buildActivityDetected(probas);
 
         return activityDetected;
     }
 
-    getInterpreter(): org.tensorflow.lite.Interpreter {
+    getInterpreter() {
         if (!this._interpreter) {
-            const interpreterPath = fs.knownFolders.currentApp().path + this.options.localModelFile;
-            const content = fs.File.fromPath(interpreterPath).readSync();
-            const file = new java.io.File(interpreterPath);
-
-            new org.tensorflow.lite.Interpreter(file);
-            return new org.tensorflow.lite.Interpreter(content);
+            const file = new java.io.File(this.options.localModelFilePath);
+            return new org.tensorflow.lite.Interpreter(file);
         }
 
         return this._interpreter;
@@ -65,9 +59,7 @@ export class AndroidRecognizer extends AbstractRecognizer {
         return size * dataTypeSize / java.lang.Byte.SIZE;
     }
 
-    private getMostProbable(outputBuffer: ByteBuffer): Probas {
-        const limit = this.options.kBest ? this.options.kBest : 3;
-
+    private getMostProbable(outputBuffer: ByteBuffer): Proba {
         outputBuffer.rewind();
         const probaBuffer: java.nio.FloatBuffer = outputBuffer.asFloatBuffer();
 
@@ -79,7 +71,7 @@ export class AndroidRecognizer extends AbstractRecognizer {
 
         probas.sort((a, b) => b[1] - a[1]);
 
-        return probas.slice(0, limit);
+        return probas[0];
     }
 }
 

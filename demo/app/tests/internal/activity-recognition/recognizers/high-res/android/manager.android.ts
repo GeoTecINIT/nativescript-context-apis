@@ -19,6 +19,7 @@ describe("Android high res recognition manager", () => {
             const isReady = recognizerManager.isReady();
             expect(isReady).toBeFalse();
         }
+        await recognizerManager.stopListening();
     });
 
     it("allows to stop listening to activity updates from the custom model", async () => {
@@ -28,9 +29,5 @@ describe("Android high res recognition manager", () => {
             const isReady = recognizerManager.isReady();
             expect(isReady).toBeFalse();
         }
-    });
-
-    afterAll(async () => {
-        await recognizerManager.stopListening();
     });
 })
