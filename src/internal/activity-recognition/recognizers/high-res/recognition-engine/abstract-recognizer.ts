@@ -1,5 +1,5 @@
 import * as fs from "tns-core-modules/file-system";
-import { Features } from "./feature-extraction";
+import { Features, TimedFeatures } from "./feature-extraction";
 import { HumanActivity } from "../../../human-activity";
 import { ActivityDetected } from "..";
 
@@ -19,7 +19,7 @@ export abstract class AbstractRecognizer implements Recognizer {
     constructor() {
     }
 
-    abstract recognize(features: Features): ActivityDetected;
+    abstract recognize(timedFeatures: TimedFeatures): ActivityDetected;
 
     abstract getInterpreter();
 
@@ -78,11 +78,11 @@ export abstract class AbstractRecognizer implements Recognizer {
         return this._labels;
     }
 
-    protected buildActivityDetected(proba: Proba): ActivityDetected {
+    protected buildActivityDetected(proba: Proba, timestamp: number): ActivityDetected {
         return {
             type: this.mapActivityName(proba[0]),
             confidence: proba[1],
-            timestamp: new Date()
+            timestamp: new Date(timestamp)
         };
     }
 
@@ -104,7 +104,7 @@ export abstract class AbstractRecognizer implements Recognizer {
 }
 
 export interface Recognizer {
-    recognize(features: Features): ActivityDetected;
+    recognize(timedFeatures: TimedFeatures): ActivityDetected;
     getInterpreter();
     getLabels(): string[];
 }

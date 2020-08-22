@@ -3,8 +3,9 @@ import { AccelerometerRecords } from "./accelerometer-recorder";
 type AxisData = number[];
 type FeatureExtractionFunction = (data: AxisData, param?: number) => number;
 export type Features = number[];
+export type TimedFeatures = { features: Features, timestamp: number };
 
-export function extractFeatureFromRecords(records: AccelerometerRecords): Features {
+export function extractFeaturesFromRecords(records: AccelerometerRecords): TimedFeatures {
     const [meanX, meanY, meanZ] = extractFeature(mean, records);
     const [maxX, maxY, maxZ] = extractFeature(max, records);
     const [minX, minY, minZ] = extractFeature(min, records);
@@ -22,7 +23,10 @@ export function extractFeatureFromRecords(records: AccelerometerRecords): Featur
         ...extractFeature(zeroCrossings, records, [meanX, meanY, meanZ])
     ];
 
-    return normalize(features);
+    return {
+        features: normalize(features),
+        timestamp: records.timestamps[records.timestamps.length - 1]
+    };
 }
 
 function extractFeature(feature: FeatureExtractionFunction, records: AccelerometerRecords, params?: number[]): number[] {

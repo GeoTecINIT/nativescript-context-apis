@@ -1,5 +1,5 @@
 import { AbstractRecognizer, Proba } from "../abstract-recognizer";
-import { Features } from "../feature-extraction";
+import { Features, TimedFeatures } from "../feature-extraction";
 
 import ByteBuffer = java.nio.ByteBuffer;
 import { ActivityDetected } from "../..";
@@ -10,10 +10,12 @@ export class AndroidRecognizer extends AbstractRecognizer {
         super();
     }
 
-    recognize(features: Features): ActivityDetected {
+    recognize(timedFeatures: TimedFeatures): ActivityDetected {
         if (!this.isReady()) {
             return null;
         }
+        const features: Features = timedFeatures.features;
+        const timestamp: number = timedFeatures.timestamp;
 
         const inputBuffer = this.createInputBuffer(features);
         const outputBuffer = this.createOutputBuffer();
@@ -21,7 +23,7 @@ export class AndroidRecognizer extends AbstractRecognizer {
         this.getInterpreter().run(inputBuffer, outputBuffer);
 
         const probas: Proba = this.getMostProbable(outputBuffer);
-        const activityDetected: ActivityDetected = this.buildActivityDetected(probas);
+        const activityDetected: ActivityDetected = this.buildActivityDetected(probas, timestamp);
 
         return activityDetected;
     }
@@ -52,7 +54,7 @@ export class AndroidRecognizer extends AbstractRecognizer {
     private createBuffer(size: number, dataTypeSize: any): ByteBuffer {
         const bufferSize: number = this.getSizeInBytes(size, dataTypeSize);
 
-        return ByteBuffer.allocateDirect(size).order(java.nio.ByteOrder.nativeOrder());
+        return ByteBuffer.allocateDirect(bufferSize).order(java.nio.ByteOrder.nativeOrder());
     }
 
     private getSizeInBytes(size: number, dataTypeSize: any): number {
