@@ -71,7 +71,7 @@ export abstract class AbstractRecognizer implements Recognizer {
 
     getLabels(): string[] {
         if (!this._labels) {
-            const content = fs.File.fromPath(this.options.labelsFilePath).readSync();
+            const content = fs.File.fromPath(this.options.labelsFilePath).readTextSync();
             this._labels = content.split("\n");
         }
 
@@ -82,7 +82,7 @@ export abstract class AbstractRecognizer implements Recognizer {
         return {
             type: this.mapActivityName(proba[0]),
             confidence: proba[1],
-            timestamp: new Date(timestamp)
+            timestamp: new Date(timestamp * 1000) // Convert timestamp from seconds to milliseconds, and then to Date.
         };
     }
 
@@ -94,17 +94,22 @@ export abstract class AbstractRecognizer implements Recognizer {
                 return HumanActivity.RUNNING;
             case "STILL":
                 return HumanActivity.STILL;
+            case "SIT":
+                return HumanActivity.SIT;
+            case "SIT_FEAR":
+                return HumanActivity.SIT_FEAR;
             default:
                 throw new Error(
                     `Unrecognized activity: ${name}.`
                 );
-            // TODO: Add more...
         }
     }
 }
 
 export interface Recognizer {
     recognize(timedFeatures: TimedFeatures): ActivityDetected;
+    isReady(): boolean;
+    initializeRecognizer(options: RecognizerOptions): void;
     getInterpreter();
     getLabels(): string[];
 }

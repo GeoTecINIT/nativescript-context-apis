@@ -1,4 +1,4 @@
-import { AbstractRecognizer, Proba } from "../abstract-recognizer";
+import { AbstractRecognizer, Proba, Recognizer } from "../abstract-recognizer";
 import { Features, TimedFeatures } from "../feature-extraction";
 
 import ByteBuffer = java.nio.ByteBuffer;
@@ -78,7 +78,7 @@ export class AndroidRecognizer extends AbstractRecognizer {
 }
 
 let _instance: AndroidRecognizer;
-export function getAndroidRecongizer() {
+export function getAndroidRecongizer(): Recognizer {
     if (!_instance) {
         _instance = new AndroidRecognizer();
     }

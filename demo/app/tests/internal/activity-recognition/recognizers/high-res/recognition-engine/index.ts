@@ -1,6 +1,6 @@
 import { AccelerometerRecorder, AccelerometerData, AccelerometerRecords } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/accelerometer-recorder";
 import { AccelerometerGatherer } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/accelerometer-gatherer";
-import { Recognizer } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/abstract-recognizer";
+import { Recognizer, RecognizerOptions } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/abstract-recognizer";
 import { ActivityDetected } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res";
 import { TimedFeatures } from "nativescript-context-apis/internal/activity-recognition/recognizers/high-res/recognition-engine/feature-extraction";
 
@@ -41,6 +41,12 @@ export function createAccelerometerRecorderMock(): AccelerometerRecorder {
 export function createRecognizerMock(): Recognizer {
     return {
         recognize(timedFeatures: TimedFeatures): ActivityDetected {
+            return null;
+        },
+        isReady(): boolean {
+            return true;
+        },
+        initializeRecognizer(options: RecognizerOptions) {
             return null;
         },
         getInterpreter() {

@@ -13,11 +13,9 @@ describe("Activity Recognizer Manager", () => {
     beforeEach(() => {
         accelerometerGatherer = createAccelerometerGathererMock();
         accelerometerRecorder = createAccelerometerRecorderMock();
-        recognizer = createRecognizerMock();
         manager = new ActivityRecognizerManager(
             accelerometerGatherer,
             accelerometerRecorder,
-            recognizer
         );
 
         spyOn(accelerometerGatherer, "startGathering");

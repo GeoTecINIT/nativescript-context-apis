@@ -8,7 +8,7 @@ import { getHighResRecognizer, ActivityNotifier, ActivityDetected } from "..";
 export class ActivityRecognizerManager {
     constructor(private accelerometerGatherer: AccelerometerGatherer,
         private accelerometerRecorder: AccelerometerRecorder,
-        private recognizer: Recognizer) {
+    ) {
     }
 
     requestActivityUpdates(): void {
@@ -22,7 +22,7 @@ export class ActivityRecognizerManager {
 
     private enoughAccelerometerRecordsGathered(records: AccelerometerRecords): void {
         const features: TimedFeatures = extractFeaturesFromRecords(records);
-        const activityDetected: ActivityDetected = this.recognizer.recognize(features);
+        const activityDetected: ActivityDetected = getRecognizer().recognize(features);
         (getHighResRecognizer() as ActivityNotifier).onActivityDetected(activityDetected);
     }
 }
@@ -32,8 +32,7 @@ export function getActivityRecognizerManager() {
     if (!_instance) {
         _instance = new ActivityRecognizerManager(
             getAccelerometerGatherer(),
-            getAccelerometerRecorder(),
-            getRecognizer()
+            getAccelerometerRecorder()
         );
     }
     return _instance;

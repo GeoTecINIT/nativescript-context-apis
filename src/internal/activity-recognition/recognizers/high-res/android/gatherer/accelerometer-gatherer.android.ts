@@ -35,7 +35,6 @@ export class AndroidAccelerometerGatherer extends AbstractAccelerometerGatherer 
         if (!this._sensorListener) {
             this._sensorListener = new AndroidSensorListener({
                 onSensorChanged: result => {
-                    console.log('SensorChangedEvent', result);
                     const parsedData = JSON.parse(result);
                     const rawData = parsedData.data;
 
@@ -51,7 +50,7 @@ export class AndroidAccelerometerGatherer extends AbstractAccelerometerGatherer 
                     sensor: android.hardware.Sensor,
                     accuracy: number
                 ) => {
-                    console.log('accuracy', accuracy);
+                    console.log('AccuracyChanged:', accuracy);
                 }
             });
         }

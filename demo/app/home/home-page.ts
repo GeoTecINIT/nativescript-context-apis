@@ -215,7 +215,7 @@ async function downloadModelResources(): Promise<RecognizerOptions> {
 
 async function downloadModelFile(): Promise<string> {
     const firebaseModelManager: FirebaseModelManager = FirebaseModelManager.getInstance();
-    const remoteModel: FirebaseCustomRemoteModel = new FirebaseCustomRemoteModel.Builder("mi_modelo_pocho").build();
+    const remoteModel: FirebaseCustomRemoteModel = new FirebaseCustomRemoteModel.Builder("activity-recognition").build();
     const conditions: FirebaseModelDownloadConditions = new FirebaseModelDownloadConditions.Builder().build();
 
     const downloadTask = firebaseModelManager.download(remoteModel, conditions);
