@@ -12,6 +12,10 @@ import BootReceiver = es.uji.geotec.contextapis.BootReceiver;
 import BootReceiverDelegate = es.uji.geotec.contextapis.BootReceiverDelegate;
 import { getBootReceiver } from "./internal/activity-recognition/recognizers/boot-receiver.android";
 
+import AccelerometerRecordingService = es.uji.geotec.contextapis.activityrecognition.AccelerometerRecordingService;
+import AccelerometerRecordingServiceDelegate = es.uji.geotec.contextapis.activityrecognition.AccelerometerRecordingServiceDelegate;
+import { getAccelerometerRecordingService } from "./internal/activity-recognition/recognizers/high-res/recognition-engine/android/accelerometer-recording-service.android";
+
 export class ContextApis extends Common {
   async init(): Promise<void> {
     this.wireUpNativeComponents();
@@ -22,6 +26,7 @@ export class ContextApis extends Common {
     this.wireUpBootReceiver();
     this.wireUpActivityTransitionReceiver();
     this.wireUpActivityUpdateReceiver();
+    this.wireUpAccelerometerRecordingService();
   }
 
   private wireUpBootReceiver() {
@@ -47,6 +52,16 @@ export class ContextApis extends Common {
       new ActivityUpdateReceiverDelegate({
         onReceive: (context, intent) =>
           getAndroidActivityUpdateReceiver().onReceive(context, intent),
+      })
+    );
+  }
+
+  private wireUpAccelerometerRecordingService() {
+    AccelerometerRecordingService.setAccelerometerRecordingServiceDelegate(
+      new AccelerometerRecordingServiceDelegate({
+        onCreate: (nativeService) => getAccelerometerRecordingService().onCreate(nativeService),
+        onStartCommand: (intent, flags, startId) => getAccelerometerRecordingService().onStartCommand(intent, flags, startId),
+        onDestroy: () => getAccelerometerRecordingService().onDestroy(),
       })
     );
   }

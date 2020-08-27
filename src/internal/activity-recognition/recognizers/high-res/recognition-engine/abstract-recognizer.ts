@@ -82,7 +82,7 @@ export abstract class AbstractRecognizer implements Recognizer {
         return {
             type: this.mapActivityName(proba[0]),
             confidence: proba[1],
-            timestamp: new Date(timestamp * 1000) // Convert timestamp from seconds to milliseconds, and then to Date.
+            timestamp: new Date(timestamp)
         };
     }
 

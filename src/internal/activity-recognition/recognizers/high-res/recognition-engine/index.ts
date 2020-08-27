@@ -1,5 +1,5 @@
 import { android as androidApp } from "tns-core-modules/application/application";
-import { getAndroidAccelerometerGatherer } from "../android/gatherer/accelerometer-gatherer.android";
+import { getAndroidAccelerometerGatherer } from "./android/accelerometer-gatherer.android";
 import { AccelerometerGatherer } from "./accelerometer-gatherer";
 import { Recognizer } from "./abstract-recognizer";
 import { getAndroidRecongizer } from "./android/recognizer.android";
