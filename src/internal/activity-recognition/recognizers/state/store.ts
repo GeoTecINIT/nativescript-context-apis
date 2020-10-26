@@ -93,7 +93,10 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
 
     const prevData = await this.getRecognizerData(recognizer);
     if (!prevData) {
-      this.database.createDocument({ type: DOC_TYPE, ...newData }, recognizer);
+      this.database.createDocument(
+        { docType: DOC_TYPE, ...newData },
+        recognizer
+      );
       return;
     }
     this.database.updateDocument(recognizer, newData);
