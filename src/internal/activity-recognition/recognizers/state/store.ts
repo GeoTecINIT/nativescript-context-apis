@@ -16,7 +16,8 @@ export interface RecognizerStateStore {
   ): Promise<void>;
 }
 
-const DATABASE_NAME = "recognizers-state";
+const DATABASE_NAME = "context-apis";
+const DOC_TYPE = "recognizer-state";
 
 class RecognizersStateStoreDb implements RecognizerStateStore {
   private database: Couchbase;
@@ -92,7 +93,7 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
 
     const prevData = await this.getRecognizerData(recognizer);
     if (!prevData) {
-      this.database.createDocument(newData, recognizer);
+      this.database.createDocument({ type: DOC_TYPE, ...newData }, recognizer);
       return;
     }
     this.database.updateDocument(recognizer, newData);
