@@ -332,19 +332,6 @@ Before requesting user's current location some options can be customized in orde
 | acquireLocation(options: [AcquireOptions](#geolocation-acquire-options) | `Promise<Geolocation>` | Allows to obtain user's current location |
 | locationStream(options: [StreamOptions](#geolocation-stream-options) | `Observable<Geolocation>` | Allows to actively obtain user's location updates |
 
-## Known issues
-
-### nanoSQL2
-
-If your application depends on [nanoSQL 2](https://www.npmjs.com/package/@nano-sql/adapter-sqlite-nativescript) for data persistence, you should check which database is in use (and change it, if applicable) before running a query against your database. You can do it as follows:
-
-```ts
-if (nSQL().selectedDB !== dbName) {
-  nSQL().useDatabase(dbName);
-}
-nSQL(tableName).query(...);
-```
-
 ## Plugin authors
 
 <a href="https://github.com/agonper" title="Alberto González Pérez">

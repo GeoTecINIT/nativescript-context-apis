@@ -1,6 +1,5 @@
 import { HumanActivity, Resolution, StartOptions } from "../../index";
-import { pluginDb } from "../../../persistence/plugin-db";
-import { recognizersStateModel } from "./model";
+import { Couchbase } from "nativescript-couchbase-plugin";
 
 export interface RecognizerStateStore {
   isActive(recognizer: Resolution): Promise<boolean>;
@@ -17,8 +16,15 @@ export interface RecognizerStateStore {
   ): Promise<void>;
 }
 
+const DATABASE_NAME = "context-apis";
+const DOC_TYPE = "recognizer-state";
+
 class RecognizersStateStoreDb implements RecognizerStateStore {
-  private tableName = recognizersStateModel.name;
+  private database: Couchbase;
+
+  constructor() {
+    this.database = new Couchbase(DATABASE_NAME);
+  }
 
   async isActive(recognizer: Resolution): Promise<boolean> {
     const recognizerData = await this.getRecognizerData(recognizer);
@@ -38,7 +44,7 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
     if (!recognizerData) {
       return null;
     }
-    return JSON.parse(recognizerData.startOptions);
+    return recognizerData.startOptions;
   }
 
   async markAsActive(
@@ -53,15 +59,12 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
   }
 
   async getLastActivity(recognizer: Resolution): Promise<HumanActivity> {
-    const instance = await this.db();
-    const rows = await instance
-      .query("select")
-      .where(["id", "=", recognizer])
-      .exec();
-    if (rows.length === 0) {
+    const recognizerData = this.database.getDocument(recognizer);
+
+    if (!recognizerData) {
       return null;
     }
-    const lastActivity = rows[0].lastActivity;
+    const lastActivity = recognizerData.lastActivity;
     return lastActivity ? lastActivity : null;
   }
 
@@ -73,11 +76,8 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
     if (!isActive) {
       return null;
     }
-    const instance = await this.db(`${this.tableName}.lastActivity`);
-    await instance
-      .query("upsert", activity)
-      .where(["id", "=", recognizer])
-      .exec();
+
+    this.database.updateDocument(recognizer, { lastActivity: activity });
   }
 
   private async updateStatus(
@@ -85,33 +85,31 @@ class RecognizersStateStoreDb implements RecognizerStateStore {
     active: boolean,
     startOptions: StartOptions = {}
   ) {
-    const instance = await this.db();
-    await instance
-      .query("upsert", {
-        id: recognizer,
-        active,
-        startOptions: JSON.stringify(startOptions),
-        lastActivity: null,
-      })
-      .exec();
+    const newData = {
+      active,
+      startOptions,
+      lastActivity: null,
+    };
+
+    const prevData = await this.getRecognizerData(recognizer);
+    if (!prevData) {
+      this.database.createDocument(
+        { docType: DOC_TYPE, ...newData },
+        recognizer
+      );
+      return;
+    }
+    this.database.updateDocument(recognizer, newData);
   }
 
   private async getRecognizerData(
     recognizer: Resolution
   ): Promise<{ [key: string]: any }> {
-    const instance = await this.db();
-    const rows = await instance
-      .query("select")
-      .where(["id", "=", recognizer])
-      .exec();
-    if (rows.length === 0) {
+    const recognizerData = this.database.getDocument(recognizer);
+    if (!recognizerData) {
       return null;
     }
-    return rows[0];
-  }
-
-  private db(tableName = this.tableName) {
-    return pluginDb.instance(tableName);
+    return recognizerData;
   }
 }
 
