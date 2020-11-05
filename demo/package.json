@@ -1,31 +1,24 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.demo",
-    "tns-android": {
-      "version": "6.5.0"
-    },
-    "tns-ios": {
-      "version": "6.5.0"
-    }
-  },
   "description": "NativeScript Application",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
+    "@nativescript/core": "~7.0.0",
     "@nativescript/theme": "~2.3.0",
+    "@nativescript/unit-test-runner": "^1.0.2",
     "nativescript-context-apis": "file:../src",
-    "nativescript-unit-test-runner": "^0.7.0",
-    "rxjs": "^6.5.5",
-    "tns-core-modules": "~6.5.0"
+    "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@types/jasmine": "3.5.9",
-    "karma": "5.0.9",
-    "karma-jasmine": "3.1.1",
+    "@nativescript/android": "7.0.1",
+    "@nativescript/ios": "~7.0.0",
+    "@nativescript/webpack": "~3.0.0",
+    "@types/jasmine": "3.5.14",
+    "karma": "5.2.3",
+    "karma-jasmine": "4.0.1",
     "karma-nativescript-launcher": "0.4.0",
     "karma-webpack": "3.0.5",
-    "nativescript-dev-webpack": "~1.5.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.9.0"
   },
   "gitHead": "20a65d338ae8f8911087ab6615b89363f864b07b",
   "readme": "NativeScript Application"
