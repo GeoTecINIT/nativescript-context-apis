@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/nativescript-context-apis.svg)](https://www.npmjs.com/package/nativescript-context-apis)
 [![npm](https://img.shields.io/npm/dm/nativescript-context-apis.svg)](https://www.npmjs.com/package/nativescript-context-apis)
-[![Build Status](https://travis-ci.com/GeoTecINIT/nativescript-task-dispatcher.svg?token=cYMN5eetmCX8aPqFVaQb&branch=master)](https://travis-ci.com/GeoTecINIT/nativescript-context-apis)
+[![Build Status](https://dev.azure.com/GeoTecINIT/nativescript-context-apis/_apis/build/status/GeoTecINIT.nativescript-context-apis?branchName=master)](https://dev.azure.com/GeoTecINIT/nativescript-context-apis/_build/latest?definitionId=1&branchName=master)
 
 Painless access to contextual information for your NativeScript apps. Does your app need to know where is your user located at or which kind of activity is she doing? This is your plugin.
 
