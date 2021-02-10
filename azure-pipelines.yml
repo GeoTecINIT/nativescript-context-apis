@@ -45,4 +45,4 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'test-reports/**/report.xml'
+    testResultsFiles: 'demo/test-reports/**/report.xml'
