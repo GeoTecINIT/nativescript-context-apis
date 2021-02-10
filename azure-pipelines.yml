@@ -22,22 +22,23 @@ steps:
     echo no | npm install -g nativescript@6.8.0
     tns usage-reporting disable
     tns error-reporting disable
-  displayName: 'install NativeScript CLI'
+  displayName: 'Install NativeScript CLI'
 
 - script: |
+    cd src
     npm install
-  displayName: 'npm install'
-
-- script: |
-    npm run lint
+    npm run ci.tslint
   displayName: 'Lint'
 
 - script: |
-    tns build android
+    cd demo
+    npm install
+    tns build android --bundle --env.uglify --env.snapshot
   displayName: 'Build'
 
 - script: |
     ./ci-tools/wait-for-emulator.sh
+    cd demo
     tns test android --watch false --justlaunch
   displayName: 'Test'
 
