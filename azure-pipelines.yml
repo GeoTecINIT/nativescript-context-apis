@@ -1,0 +1,47 @@
+trigger:
+  branches:
+    include:
+      - master
+  tags:
+    include:
+      - v*
+pr:
+  - master
+  
+
+pool:
+  vmImage: 'macos-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    echo no | npm install -g nativescript@6.8.0
+    tns usage-reporting disable
+    tns error-reporting disable
+  displayName: 'install NativeScript CLI'
+
+- script: |
+    npm install
+  displayName: 'npm install'
+
+- script: |
+    npm run lint
+  displayName: 'Lint'
+
+- script: |
+    tns build android
+  displayName: 'Build'
+
+- script: |
+    ./ci-tools/wait-for-emulator.sh
+    tns test android --watch false --justlaunch
+  displayName: 'Test'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'test-reports/**/report.xml'
