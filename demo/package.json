@@ -1,21 +1,25 @@
 {
+  "nativescript": {
+    "id": "org.nativescript.demo"
+  },
   "description": "NativeScript Application",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@nativescript/core": "~7.0.0",
+    "@nativescript/core": "~7.3.0",
     "@nativescript/theme": "~2.3.0",
     "@nativescript/unit-test-runner": "^1.0.2",
     "nativescript-context-apis": "file:../src",
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@nativescript/android": "7.0.1",
-    "@nativescript/ios": "~7.0.0",
+    "@nativescript/android": "~7.0.0",
+    "@nativescript/ios": "~7.1.0",
     "@nativescript/webpack": "~3.0.0",
-    "@types/jasmine": "3.5.14",
+    "@types/jasmine": "3.6.9",
     "karma": "5.2.3",
     "karma-jasmine": "4.0.1",
+    "karma-junit-reporter": "2.0.1",
     "karma-nativescript-launcher": "0.4.0",
     "karma-webpack": "3.0.5",
     "typescript": "~3.9.0"
