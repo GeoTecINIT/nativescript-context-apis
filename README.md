@@ -40,10 +40,17 @@ android {
 
 ## Installation
 
-Run the following command in your project's root folder:
+Run the following command in your project's root folder.
+
+NS7+:
 
 ```javascript
 tns plugin add nativescript-context-apis
+```
+
+NS6:
+```javascript
+tns plugin add nativescript-context-apis@1.0.3
 ```
 
 (Optional) You'll need RxJS also to properly work with geolocation streams
