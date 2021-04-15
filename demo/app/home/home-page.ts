@@ -4,12 +4,7 @@ a code-behind file. The code-behind is a great place to place your view
 logic, and to set up your page’s data binding.
 */
 
-import { NavigatedData, Page } from "tns-core-modules/ui/page";
-import {
-    on,
-    resumeEvent,
-    suspendEvent,
-} from "tns-core-modules/application/application";
+import { NavigatedData, Page, Application } from "@nativescript/core";
 
 import { HomeViewModel } from "./home-view-model";
 
@@ -31,7 +26,7 @@ export function onNavigatingTo(args: NavigatedData) {
 
     let locationSubscription: Subscription;
 
-    on(resumeEvent, () => {
+    Application.on(Application.resumeEvent, () => {
         if (!_preparing) {
             printCurrentLocation().catch((err) => {
                 console.error(`Could not print current location: ${err}`);
@@ -46,7 +41,7 @@ export function onNavigatingTo(args: NavigatedData) {
         listenToActivityChanges();
     });
 
-    on(suspendEvent, () => {
+    Application.on(Application.suspendEvent, () => {
         if (locationSubscription) {
             locationSubscription.unsubscribe();
         }

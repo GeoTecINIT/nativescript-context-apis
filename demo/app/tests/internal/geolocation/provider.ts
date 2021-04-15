@@ -126,7 +126,7 @@ describe("Geolocation provider", () => {
                 onChange(locations[i]);
                 i++;
             });
-            return intervalId;
+            return (intervalId as unknown) as number;
         });
         spyOn(adapter, "stopListening").and.callFake((listenerId) => {
             clearInterval(listenerId);

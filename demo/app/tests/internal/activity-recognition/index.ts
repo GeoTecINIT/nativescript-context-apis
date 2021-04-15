@@ -1,4 +1,4 @@
-import { android as androidApp } from "tns-core-modules/application/application";
+import { Application } from "@nativescript/core";
 import {
     getActivityRecognizer,
     Resolution,
@@ -9,7 +9,7 @@ import { AndroidMediumResRecognizer } from "nativescript-context-apis/internal/a
 describe("Activity recognition module", () => {
     it("returns a low res recognizer when asked", () => {
         const lowResRecognizer = getActivityRecognizer(Resolution.LOW);
-        if (androidApp) {
+        if (Application.android) {
             expect(lowResRecognizer).toBeInstanceOf(AndroidLowResRecognizer);
         } else {
             expect(lowResRecognizer).not.toBeNull();
@@ -18,7 +18,7 @@ describe("Activity recognition module", () => {
 
     it("returns a medium res recognizer when asked", () => {
         const mediumResRecognizer = getActivityRecognizer(Resolution.MEDIUM);
-        if (androidApp) {
+        if (Application.android) {
             expect(mediumResRecognizer).toBeInstanceOf(
                 AndroidMediumResRecognizer
             );

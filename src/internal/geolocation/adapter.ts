@@ -38,4 +38,4 @@ export class GeolocationAdapter {
 }
 
 export { Options, Location } from "nativescript-geolocation";
-export { Accuracy } from "tns-core-modules/ui/enums";
+export { Accuracy } from "@nativescript/core/ui/enums";
