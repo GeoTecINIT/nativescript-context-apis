@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Download latest version of command line tools
+wget "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O commandlinetools.zip
+unzip commandlinetools.zip -d $ANDROID_HOME/
+
 # Install AVD files
 echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
 
