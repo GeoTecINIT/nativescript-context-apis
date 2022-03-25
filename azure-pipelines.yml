@@ -18,6 +18,12 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
+
 - script: |
     echo no | npm install -g nativescript@7
     tns usage-reporting disable
