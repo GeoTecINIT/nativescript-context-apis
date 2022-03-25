@@ -1,6 +1,9 @@
 import { Accuracy, GeolocationAdapter, Options } from "./adapter";
-import { Geolocation } from "./geolocation";
+import { Geolocation, GeolocationLike as GL } from "./geolocation";
 import { Observable } from "rxjs";
+
+export { Geolocation };
+export type GeolocationLike = GL;
 
 const SECONDS = 1e3;
 const MINUTES = 60 * SECONDS;
@@ -54,8 +57,6 @@ export interface StreamOptions extends AcquireOptions {
   maxAge?: number;
   saveBattery?: boolean;
 }
-
-export { Geolocation, GeolocationLike } from "./geolocation";
 
 function geolocationOptionsToPluginOptions(
   options: AcquireOptions | StreamOptions

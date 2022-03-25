@@ -29,4 +29,6 @@ export {
   RecognitionCallback,
 } from "./recognizers";
 export { HumanActivity } from "./human-activity";
-export { ActivityChange, Transition } from "./activity-change";
+import { ActivityChange as AC, Transition } from "./activity-change";
+export type ActivityChange = AC;
+export { Transition } from "./activity-change";

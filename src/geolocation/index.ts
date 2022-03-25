@@ -1,8 +1,1 @@
-export {
-  getGeolocationProvider,
-  GeolocationProvider,
-  Geolocation,
-  GeolocationLike,
-  AcquireOptions,
-  StreamOptions,
-} from "../internal/geolocation";
+export * from "../internal/geolocation";
