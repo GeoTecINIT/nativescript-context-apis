@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ls $ANDROID_HOME/cmdline-tools
+
 # Install AVD files
 echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
 
