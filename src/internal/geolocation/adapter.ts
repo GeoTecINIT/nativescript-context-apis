@@ -1,12 +1,15 @@
 import {
-  Options,
+  Options as O,
   Location,
   isEnabled,
   enableLocationRequest,
   getCurrentLocation,
   watchLocation,
   clearWatch,
-} from "nativescript-geolocation";
+} from "@nativescript/geolocation";
+export type Options = O;
+export { Location };
+export { Accuracy } from "@nativescript/core/ui/enums";
 
 export class GeolocationAdapter {
   isReady(): Promise<boolean> {
@@ -36,6 +39,3 @@ export class GeolocationAdapter {
     clearWatch(watchId);
   }
 }
-
-export { Options, Location } from "nativescript-geolocation";
-export { Accuracy } from "@nativescript/core/ui/enums";
