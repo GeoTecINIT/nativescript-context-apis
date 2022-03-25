@@ -3,12 +3,15 @@
 # Download latest version of command line tools
 wget "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O commandlinetools.zip
 unzip commandlinetools.zip -d $ANDROID_HOME/
+mv $ANDROID_HOME/cmdline-tools $ANDROID_HOME/tools
+mkdir $ANDROID_HOME/cmdline-tools
+mv $ANDROID_HOME/tools $ANDROID_HOME/cmdline-tools/tools
 
 # Install AVD files
-echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
+echo "y" | $ANDROID_HOME/cmdline-tools/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
 
 # Create emulator
-echo "no" | $ANDROID_HOME/cmdline-tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
+echo "no" | $ANDROID_HOME/cmdline-tools/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
 
 $ANDROID_HOME/emulator/emulator -list-avds
 
