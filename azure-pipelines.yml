@@ -26,9 +26,14 @@ steps:
 
 - script: |
     echo no | npm install -g nativescript
-    tns usage-reporting disable
-    tns error-reporting disable
+    ns usage-reporting disable
+    ns error-reporting disable
   displayName: 'Install NativeScript CLI'
+
+- script: |
+    cd demo
+    ns doctor
+  displayName: 'NativeScript environment check'
 
 - script: |
     cd src
@@ -39,13 +44,13 @@ steps:
 - script: |
     cd demo
     npm install
-    tns build android --bundle --env.uglify --env.snapshot
+    ns build android --bundle --env.uglify --env.snapshot
   displayName: 'Build'
 
 - script: |
     ./ci-tools/wait-for-emulator.sh
     cd demo
-    tns test android --watch false --justlaunch
+    ns test android --watch false --justlaunch
   displayName: 'Test'
 
 - task: PublishTestResults@2
