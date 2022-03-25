@@ -31,11 +31,6 @@ steps:
   displayName: 'Install NativeScript CLI'
 
 - script: |
-    cd demo
-    ns doctor
-  displayName: 'NativeScript environment check'
-
-- script: |
     cd src
     npm install
     npm run ci.tslint
