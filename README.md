@@ -22,6 +22,8 @@ What we plan to offer in the future:
 
 ### Android only
 
+#### Google Play Services conflicts
+
 Given that we rely on [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) and use Google Play Services APIs for activity detection on Android devices, you might find Google Play Services version conflicts with other installed plugins.
 
 In order to avoid them, we advise you to force a specific Google Play Services version. For a better human activity detection functionality, version 17 or above is highly recommended. In order to do so, please, indicate the Google Play Services Version number in your `app/App_Resources/Android/before-plugins.gradle` file (if the file does not exist, just create it):
@@ -36,6 +38,26 @@ android {
 }
 ```
 
+#### Permissions
+
+In order to use geolocation on Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml` inside the `App_Resources/Android/src/main` dir:
+
+```xml
+  <!-- Always include this permission -->
+  <!-- This permission is for "approximate" location data -->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+  <!-- Include only if your app benefits from precise location access. -->
+  <!-- This permission is for "precise" location data -->
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+  <!-- Required only when requesting background location access on
+       Android 10 (API level 29) and higher. -->
+  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+```
+
+More information can be found in the [Android docs here](https://developer.android.com/training/location/permissions).
+
 > Source: [https://github.com/NativeScript/nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation)
 
 ## Installation
@@ -45,7 +67,7 @@ Run the following command in your project's root folder.
 NS7+:
 
 ```javascript
-tns plugin add nativescript-context-apis
+ns plugin add nativescript-context-apis
 ```
 
 NS6:

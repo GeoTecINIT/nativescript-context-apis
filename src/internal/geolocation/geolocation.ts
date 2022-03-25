@@ -1,4 +1,4 @@
-import { Location, distance } from "nativescript-geolocation";
+import { Location, distance } from "@nativescript/geolocation";
 
 export class Geolocation extends Location {
   constructor(location: Location | GeolocationLike) {
