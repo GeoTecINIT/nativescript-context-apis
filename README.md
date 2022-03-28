@@ -226,13 +226,12 @@ async function printLocationUpdates(): Promise<Subscription> {
           maxAge: 60000, // And filter-out old locations
       });
 
-    return stream.subscribe(
-        (location) => {
-            console.log(`New location acquired!: ${JSON.stringify(location)}`);
-        },
-        (error) =>
+    return stream.subscribe({
+        next: (location) =>
+            console.log(`New location acquired!: ${JSON.stringify(location)}`),
+        error: (error) =>
             console.error(`Location updates could not be acquired: ${error}`)
-    );
+    });
 }
 ```
 
