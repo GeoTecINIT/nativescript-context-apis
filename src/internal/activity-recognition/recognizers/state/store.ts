@@ -1,5 +1,5 @@
 import { HumanActivity, Resolution, StartOptions } from "../../index";
-import { Couchbase } from "nativescript-couchbase-plugin";
+import { CouchBase } from "@triniwiz/nativescript-couchbase";
 
 export interface RecognizerStateStore {
   isActive(recognizer: Resolution): Promise<boolean>;
@@ -20,10 +20,10 @@ const DATABASE_NAME = "context-apis";
 const DOC_TYPE = "recognizer-state";
 
 class RecognizersStateStoreDb implements RecognizerStateStore {
-  private database: Couchbase;
+  private database: CouchBase;
 
   constructor() {
-    this.database = new Couchbase(DATABASE_NAME);
+    this.database = new CouchBase(DATABASE_NAME);
   }
 
   async isActive(recognizer: Resolution): Promise<boolean> {
