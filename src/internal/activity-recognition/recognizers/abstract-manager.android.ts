@@ -93,7 +93,7 @@ export abstract class AndroidAbstractRecognizerManager
       androidApp.context,
       0,
       this.getReceiverIntent(),
-      PendingIntent.FLAG_NO_CREATE
+      android.os.Build.VERSION.SDK_INT >= 23 ? PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_NO_CREATE
     );
     return pendingIntent !== null;
   }
@@ -105,7 +105,7 @@ export abstract class AndroidAbstractRecognizerManager
         androidApp.context,
         0,
         receiverIntent,
-        0
+        android.os.Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_MUTABLE : 0
       );
     }
     return this.pendingIntent;
