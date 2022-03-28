@@ -98,7 +98,7 @@ export function listenToActivityChanges(addListener = false) {
     activityRecognizers.forEach((recognizerType) => {
         listenToActivityChangesFor(recognizerType, addListener).catch((err) => {
             console.error(
-                `An error occurred while listening to ${recognizerType} res activity changes: ${err}`
+                `An error occurred while listening to ${recognizerType} res activity changes: ${JSON.stringify(err)}`
             );
         });
     });
@@ -162,7 +162,7 @@ async function prepareGeolocationProvider(
         await _preparing;
         return true;
     } catch (e) {
-        console.error(`GeolocationProvider couldn't be prepared: ${e}`);
+        console.error(`GeolocationProvider couldn't be prepared: ${JSON.stringify(e)}`);
         return false;
     } finally {
         _preparing = null;
