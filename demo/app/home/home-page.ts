@@ -21,39 +21,39 @@ export function onNavigatingTo(args: NavigatedData) {
 
     page.bindingContext = new HomeViewModel();
 
+    let preparing = true;
     let locationSubscription: Subscription;
-
     Application.on(Application.resumeEvent, () => {
-        if (!_preparing) {
+        if (!preparing) {
             printCurrentLocation().catch((err) => {
                 console.error(`Could not print current location: ${err}`);
-            });
-            printLocationUpdates()
+            }).then(() => printLocationUpdates()
                 .then((subscription) => (locationSubscription = subscription))
                 .catch(
                     (err) =>
-                        `An error occurred while getting location updates: ${err}`
-                );
+                        `An error occurred while getting location updates: ${err}`)
+            ).then(() => listenToActivityChanges());
         }
-        listenToActivityChanges();
     });
 
     Application.on(Application.suspendEvent, () => {
-        if (locationSubscription) {
-            locationSubscription.unsubscribe();
+        if (!preparing) {
+            if (locationSubscription) {
+                locationSubscription.unsubscribe();
+            }
+            stopListeningToChanges();
         }
-        stopListeningToChanges();
     });
 
     printCurrentLocation().catch((err) => {
         console.error(`Could not print current location: ${err}`);
-    });
-    printLocationUpdates()
+    }).then(() => printLocationUpdates()
         .then((subscription) => (locationSubscription = subscription))
         .catch(
             (err) => `An error occurred while getting location updates: ${err}`
-        );
-    listenToActivityChanges(true);
+        )
+    ).then(() => listenToActivityChanges(true))
+        .then(() => preparing = false);
 }
 
 async function printCurrentLocation() {
@@ -90,14 +90,16 @@ async function printLocationUpdates(): Promise<Subscription> {
     });
 }
 
-export function listenToActivityChanges(addListener = false) {
-    activityRecognizers.forEach((recognizerType) => {
-        listenToActivityChangesFor(recognizerType, addListener).catch((err) => {
+export async function listenToActivityChanges(addListener = false) {
+    for (const recognizerType of activityRecognizers) {
+        try {
+            await listenToActivityChangesFor(recognizerType, addListener);
+        } catch (err) {
             console.error(
                 `An error occurred while listening to ${recognizerType} res activity changes: ${JSON.stringify(err)}`
             );
-        });
-    });
+        }
+    }
 }
 
 function stopListeningToChanges() {
