@@ -22,6 +22,8 @@ What we plan to offer in the future:
 
 ### Android only
 
+> Android SDK 22 (5.1) is required as a minimum due to the dependency of this plugin on [@triniwiz/nativescript-couchbase](https://github.com/triniwiz/nativescript-plugins/tree/master/packages/nativescript-couchbase)
+
 #### Google Play Services conflicts
 
 Given that we rely on [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) and use Google Play Services APIs for activity detection on Android devices, you might find Google Play Services version conflicts with other installed plugins.
