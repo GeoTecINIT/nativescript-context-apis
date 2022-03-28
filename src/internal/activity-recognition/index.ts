@@ -23,11 +23,7 @@ export function getActivityRecognizer(
   }
 }
 
-export {
-  ActivityRecognizer,
-  StartOptions,
-  RecognitionCallback,
-} from "./recognizers";
+export * from "./recognizers";
 export { HumanActivity } from "./human-activity";
 import { ActivityChange as AC, Transition } from "./activity-change";
 export type ActivityChange = AC;
