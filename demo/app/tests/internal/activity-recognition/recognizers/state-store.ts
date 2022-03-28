@@ -10,7 +10,7 @@ describe("Recognizers state store", () => {
 
     it("returns if a recognizer is active or not", async () => {
         const isActive = await recognizersStateStoreDb.isActive(recognizer);
-        expect(isActive == true || isActive == false).toBeTrue();
+        expect(isActive === true || isActive === false).toBeTrue();
     });
 
     it("returns the start options of a recognizer marked as active", async () => {
