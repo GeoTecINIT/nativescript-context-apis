@@ -11,10 +11,7 @@ import { HomeViewModel } from "./home-view-model";
 import { contextApis } from "nativescript-context-apis";
 import { Resolution } from "nativescript-context-apis/activity-recognition";
 
-import {
-    GeolocationProvider,
-    Geolocation,
-} from "nativescript-context-apis/geolocation";
+import { GeolocationProvider } from "nativescript-context-apis/geolocation";
 import { of, Subscription } from "rxjs";
 
 const activityRecognizers = [Resolution.LOW, Resolution.MEDIUM];
@@ -83,15 +80,14 @@ async function printLocationUpdates(): Promise<Subscription> {
               timeout: 5000,
               maxAge: 60000,
           })
-        : of<Geolocation>(null);
+        : of(null);
 
-    return stream.subscribe(
-        (location) => {
-            console.log(`New location acquired!: ${JSON.stringify(location)}`);
-        },
-        (error) =>
+    return stream.subscribe({
+        next: (location) =>
+            console.log(`New location acquired!: ${JSON.stringify(location)}`),
+        error: (error) =>
             console.error(`Location updates could not be acquired: ${error}`)
-    );
+    });
 }
 
 export function listenToActivityChanges(addListener = false) {

@@ -10,7 +10,7 @@
     "@nativescript/theme": "~2.3.0",
     "@nativescript/unit-test-runner": "^1.0.2",
     "nativescript-context-apis": "file:../src",
-    "rxjs": "^6.5.5"
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
     "@nativescript/android": "7.0.1",
