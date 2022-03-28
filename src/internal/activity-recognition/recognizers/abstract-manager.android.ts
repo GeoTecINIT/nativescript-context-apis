@@ -1,6 +1,7 @@
 import { RecognizerManager } from "./recognizer-manager";
 import { hasPermission, requestPermission } from "nativescript-permissions";
 import { android as androidApp } from "@nativescript/core/application";
+import { Utils } from "@nativescript/core";
 
 import { StartOptions } from "./index";
 
@@ -56,7 +57,7 @@ export abstract class AndroidAbstractRecognizerManager
     }
 
     const task = this.handleStart(
-      androidApp.context,
+      Utils.android.getApplicationContext(),
       this.getPendingIntent(),
       options
     );
@@ -69,7 +70,7 @@ export abstract class AndroidAbstractRecognizerManager
     }
 
     const pendingIntent = this.getPendingIntent();
-    const task = this.handleStop(androidApp.context, pendingIntent);
+    const task = this.handleStop(Utils.android.getApplicationContext(), pendingIntent);
 
     pendingIntent.cancel();
     this.pendingIntent = null;
@@ -90,7 +91,7 @@ export abstract class AndroidAbstractRecognizerManager
 
   private isUp(): boolean {
     const pendingIntent = PendingIntent.getBroadcast(
-      androidApp.context,
+      Utils.android.getApplicationContext(),
       0,
       this.getReceiverIntent(),
       android.os.Build.VERSION.SDK_INT >= 23 ? PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_NO_CREATE
@@ -102,7 +103,7 @@ export abstract class AndroidAbstractRecognizerManager
     if (!this.pendingIntent) {
       const receiverIntent = this.getReceiverIntent();
       this.pendingIntent = PendingIntent.getBroadcast(
-        androidApp.context,
+        Utils.android.getApplicationContext(),
         0,
         receiverIntent,
         android.os.Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_MUTABLE : 0
@@ -112,7 +113,7 @@ export abstract class AndroidAbstractRecognizerManager
   }
 
   private getReceiverIntent(): Intent {
-    return new Intent(androidApp.context, this.receiver);
+    return new Intent(Utils.android.getApplicationContext(), this.receiver);
   }
 }
 
@@ -121,7 +122,7 @@ const CONNECTION_RESULT_SUCCESS = 0;
 function isGooglePlayServicesAvailable() {
   return (
     GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
-      androidApp.context
+      Utils.android.getApplicationContext()
     ) === CONNECTION_RESULT_SUCCESS
   );
 }
