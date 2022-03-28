@@ -9,7 +9,8 @@ import {
 } from "@nativescript/geolocation";
 export type Options = O;
 export { Location };
-export { Accuracy } from "@nativescript/core/ui/enums";
+import { CoreTypes } from "@nativescript/core";
+export const Accuracy = CoreTypes.Accuracy;
 
 export class GeolocationAdapter {
   isReady(): Promise<boolean> {
