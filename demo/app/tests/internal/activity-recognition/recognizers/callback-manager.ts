@@ -79,7 +79,7 @@ function listenActivityChanges(
 function failOnActivityChange(
     callbackManager: RecognizerCallbackManager,
     timeout: number,
-    onAdd: (number) => void
+    onAdd: (num: number) => void
 ): Promise<void> {
     return new Promise((resolve, reject) => {
         const listenerId = callbackManager.add((_) =>
