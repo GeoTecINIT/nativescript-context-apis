@@ -61,7 +61,7 @@
 	},
 	"dependencies": {
 		"@nativescript/geolocation": "^8.0.2",
-		"nativescript-couchbase-plugin": "^0.9.6",
+		"@triniwiz/nativescript-couchbase": "1.2.5",
 		"nativescript-permissions": "1.3.11",
 		"rxjs": "^6.5.5"
 	},
