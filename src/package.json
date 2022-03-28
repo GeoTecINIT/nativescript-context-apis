@@ -63,7 +63,7 @@
 		"@nativescript/geolocation": "^8.0.2",
 		"@triniwiz/nativescript-couchbase": "1.2.5",
 		"nativescript-permissions": "1.3.11",
-		"rxjs": "^6.5.5"
+		"rxjs": "^7.5.5"
 	},
 	"bootstrapper": "nativescript-plugin-seed"
 }
