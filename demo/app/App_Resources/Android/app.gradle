@@ -10,12 +10,8 @@
 // create a file named before-plugins.gradle in the current directory and place it there
 
 android {
-  // todo: remove once ndk 23+ is supported
-  ndkVersion "22.1.7171670"
-  compileSdkVersion 30
   defaultConfig {
     minSdkVersion 22
-    targetSdkVersion 30
     generatedDensities = []
   }
   aaptOptions {
