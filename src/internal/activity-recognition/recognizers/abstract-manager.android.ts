@@ -70,7 +70,10 @@ export abstract class AndroidAbstractRecognizerManager
     }
 
     const pendingIntent = this.getPendingIntent();
-    const task = this.handleStop(Utils.android.getApplicationContext(), pendingIntent);
+    const task = this.handleStop(
+      Utils.android.getApplicationContext(),
+      pendingIntent
+    );
 
     pendingIntent.cancel();
     this.pendingIntent = null;
@@ -94,7 +97,9 @@ export abstract class AndroidAbstractRecognizerManager
       Utils.android.getApplicationContext(),
       0,
       this.getReceiverIntent(),
-      android.os.Build.VERSION.SDK_INT >= 23 ? PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_NO_CREATE
+      android.os.Build.VERSION.SDK_INT >= 31
+        ? PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_MUTABLE
+        : PendingIntent.FLAG_NO_CREATE
     );
     return pendingIntent !== null;
   }
