@@ -63,7 +63,7 @@ More information can be found in the [Android docs here](https://developer.andro
 
 > Source: [https://github.com/NativeScript/nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation)
 
-#### Human activity detection
+##### Human activity detection
 
 In order to receive human activity changes on Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml` inside the `App_Resources/Android/src/main` dir:
 
