@@ -42,25 +42,38 @@ android {
 
 #### Permissions
 
+##### Geolocation
+
 In order to use geolocation on Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml` inside the `App_Resources/Android/src/main` dir:
 
 ```xml
-  <!-- Always include this permission -->
-  <!-- This permission is for "approximate" location data -->
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!-- Always include this permission if your app needs location access -->
+<!-- This permission is for "approximate" location data -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-  <!-- Include only if your app benefits from precise location access. -->
-  <!-- This permission is for "precise" location data -->
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!-- Include only if your app benefits from precise location access. -->
+<!-- This permission is for "precise" location data -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-  <!-- Required only when requesting background location access on
-       Android 10 (API level 29) and higher. -->
-  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+<!-- Required only when requesting background location access on Android 10 (API level 29) and higher. -->
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 ```
 
 More information can be found in the [Android docs here](https://developer.android.com/training/location/permissions).
 
 > Source: [https://github.com/NativeScript/nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation)
+
+##### Human activity detection
+
+In order to receive human activity changes on Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml` inside the `App_Resources/Android/src/main` dir:
+
+```xml
+<!-- The following two permissions are required if your app wants to receive human activity changes -->
+<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+<uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+```
+
+More information can be found in the [Android docs here](https://developer.android.com/about/versions/10/privacy/changes#physical-activity-recognition).
 
 ## Installation
 
