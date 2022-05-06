@@ -119,7 +119,7 @@ function fixStreamOptions(options: StreamOptions): StreamOptions {
   ) {
     copy.interval = MIN_SCAN_INTERVAL;
   }
-  if (copy.continueOnFailure !== undefined) {
+  if (copy.continueOnFailure === undefined) {
     copy.continueOnFailure = false;
   }
 
