@@ -137,7 +137,7 @@ async function printWifiScanUpdates(): Promise<Subscription> {
     const stream = ok
         ? provider.wifiFingerprintStream({
               ensureAlwaysNew: true,
-              grouping: FingerprintGrouping.MAX,
+              grouping: FingerprintGrouping.NONE,
               continueOnFailure: true,
           })
         : of(null);
