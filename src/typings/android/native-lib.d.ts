@@ -5,9 +5,7 @@ declare namespace es {
     export namespace geotec {
       export namespace contextapis {
         export class BootReceiver {
-          public static class: java.lang.Class<
-            es.uji.geotec.contextapis.BootReceiver
-          >;
+          public static class: java.lang.Class<es.uji.geotec.contextapis.BootReceiver>;
           public static setBootReceiverDelegate(
             param0: es.uji.geotec.contextapis.BootReceiverDelegate
           ): void;
@@ -28,9 +26,7 @@ declare namespace es {
       export namespace contextapis {
         export class BootReceiverDelegate extends es.uji.geotec.contextapis
           .common.BroadcastReceiverDelegate {
-          public static class: java.lang.Class<
-            es.uji.geotec.contextapis.BootReceiverDelegate
-          >;
+          public static class: java.lang.Class<es.uji.geotec.contextapis.BootReceiverDelegate>;
           /**
            * Constructs a new instance of the es.uji.geotec.contextapis.BootReceiverDelegate interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
            */
@@ -56,9 +52,7 @@ declare namespace es {
     export namespace geotec {
       export namespace contextapis {
         export class BuildConfig {
-          public static class: java.lang.Class<
-            es.uji.geotec.contextapis.BuildConfig
-          >;
+          public static class: java.lang.Class<es.uji.geotec.contextapis.BuildConfig>;
           public static DEBUG: boolean;
           public static LIBRARY_PACKAGE_NAME: string;
           public static APPLICATION_ID: string;
@@ -79,9 +73,7 @@ declare namespace es {
       export namespace contextapis {
         export namespace activityrecognition {
           export class ActivityTransitionReceiver {
-            public static class: java.lang.Class<
-              es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiver
-            >;
+            public static class: java.lang.Class<es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiver>;
             public onReceive(
               param0: globalAndroid.content.Context,
               param1: globalAndroid.content.Intent
@@ -104,9 +96,7 @@ declare namespace es {
         export namespace activityrecognition {
           export class ActivityTransitionReceiverDelegate extends es.uji.geotec
             .contextapis.common.BroadcastReceiverDelegate {
-            public static class: java.lang.Class<
-              es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiverDelegate
-            >;
+            public static class: java.lang.Class<es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiverDelegate>;
             /**
              * Constructs a new instance of the es.uji.geotec.contextapis.activityrecognition.ActivityTransitionReceiverDelegate interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
              */
@@ -134,9 +124,7 @@ declare namespace es {
       export namespace contextapis {
         export namespace activityrecognition {
           export class ActivityUpdateReceiver {
-            public static class: java.lang.Class<
-              es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiver
-            >;
+            public static class: java.lang.Class<es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiver>;
             public onReceive(
               param0: globalAndroid.content.Context,
               param1: globalAndroid.content.Intent
@@ -159,9 +147,7 @@ declare namespace es {
         export namespace activityrecognition {
           export class ActivityUpdateReceiverDelegate extends es.uji.geotec
             .contextapis.common.BroadcastReceiverDelegate {
-            public static class: java.lang.Class<
-              es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiverDelegate
-            >;
+            public static class: java.lang.Class<es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiverDelegate>;
             /**
              * Constructs a new instance of the es.uji.geotec.contextapis.activityrecognition.ActivityUpdateReceiverDelegate interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
              */
@@ -189,9 +175,7 @@ declare namespace es {
       export namespace contextapis {
         export namespace common {
           export class BroadcastReceiverDelegate {
-            public static class: java.lang.Class<
-              es.uji.geotec.contextapis.common.BroadcastReceiverDelegate
-            >;
+            public static class: java.lang.Class<es.uji.geotec.contextapis.common.BroadcastReceiverDelegate>;
             /**
              * Constructs a new instance of the es.uji.geotec.contextapis.common.BroadcastReceiverDelegate interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
              */
@@ -219,15 +203,66 @@ declare namespace es {
       export namespace contextapis {
         export namespace common {
           export class ReceiverActivationCache {
-            public static class: java.lang.Class<
-              es.uji.geotec.contextapis.common.ReceiverActivationCache
-            >;
+            public static class: java.lang.Class<es.uji.geotec.contextapis.common.ReceiverActivationCache>;
             public constructor(
               param0: globalAndroid.content.Context,
               param1: globalAndroid.content.Intent
             );
             public getContext(): globalAndroid.content.Context;
             public getIntent(): globalAndroid.content.Intent;
+          }
+        }
+      }
+    }
+  }
+}
+
+declare namespace es {
+  export namespace uji {
+    export namespace geotec {
+      export namespace contextapis {
+        export namespace wifi {
+          export class WifiScanReceiver {
+            public static class: java.lang.Class<es.uji.geotec.contextapis.wifi.WifiScanReceiver>;
+            public onReceive(
+              param0: globalAndroid.content.Context,
+              param1: globalAndroid.content.Intent
+            ): void;
+            /**
+             * Constructs a new instance of the es.uji.geotec.contextapis.wifi.WifiScanReceiver interface with the provided implementation.
+             */
+            public constructor(
+              param0: es.uji.geotec.contextapis.wifi.WifiScanReceiverDelegate
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+declare namespace es {
+  export namespace uji {
+    export namespace geotec {
+      export namespace contextapis {
+        export namespace wifi {
+          export class WifiScanReceiverDelegate extends es.uji.geotec
+            .contextapis.common.BroadcastReceiverDelegate {
+            public static class: java.lang.Class<es.uji.geotec.contextapis.wifi.WifiScanReceiverDelegate>;
+            /**
+             * Constructs a new instance of the es.uji.geotec.contextapis.wifi.WifiScanReceiverDelegate interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+             */
+            public constructor(implementation: {
+              onReceive(
+                param0: globalAndroid.content.Context,
+                param1: globalAndroid.content.Intent
+              ): void;
+            });
+            public constructor();
+            public onReceive(
+              param0: globalAndroid.content.Context,
+              param1: globalAndroid.content.Intent
+            ): void;
           }
         }
       }
