@@ -47,9 +47,11 @@ export class WifiScanProvider {
           for (let i = 0; i < grouping; i++) {
             const result = await this.adapter.acquireWifiFingerprint(true);
             subscriber.next(result);
-            await new Promise((resolve) =>
-              setTimeout(resolve, MIN_SCAN_INTERVAL)
-            );
+            if (i !== grouping - 1) {
+              await new Promise((resolve) =>
+                setTimeout(resolve, MIN_SCAN_INTERVAL)
+              );
+            }
             if (unsubscribed) break;
           }
         } catch (err) {
