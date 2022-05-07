@@ -49,16 +49,17 @@ export function onNavigatingTo(args: NavigatedData) {
 
 async function showUpdates(addListeners = false): Promise<void> {
     const steps: Array<() => Promise<any>> = [
+        () => listenToActivityChanges(addListeners),
+        () =>
+            printCurrentLocation().catch((err) => {
+                console.error("Could not print current location. Reason:", err);
+            }),
         () =>
             printWifiScanResult().catch((err) => {
                 console.error(
                     "Could not print current nearby wifi scan. Reason:",
                     err
                 );
-            }),
-        () =>
-            printCurrentLocation().catch((err) => {
-                console.error("Could not print current location. Reason:", err);
             }),
         () =>
             printLocationUpdates()
@@ -78,7 +79,6 @@ async function showUpdates(addListeners = false): Promise<void> {
                         err
                     )
                 ),
-        () => listenToActivityChanges(addListeners),
     ];
     for (const step of steps) {
         await step();
