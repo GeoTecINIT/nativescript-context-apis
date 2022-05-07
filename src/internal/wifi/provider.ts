@@ -46,13 +46,13 @@ export class WifiScanProvider {
         try {
           for (let i = 0; i < grouping; i++) {
             const result = await this.adapter.acquireWifiFingerprint(true);
-            subscriber.next(result);
-            if (i !== grouping - 1) {
-              await new Promise((resolve) =>
-                setTimeout(resolve, MIN_SCAN_INTERVAL)
-              );
-            }
             if (unsubscribed) break;
+            subscriber.next(result);
+
+            if (i === grouping - 1) break;
+            await new Promise((resolve) =>
+              setTimeout(resolve, MIN_SCAN_INTERVAL)
+            );
           }
         } catch (err) {
           if (continueOnFailure) {
@@ -80,9 +80,11 @@ export class WifiScanProvider {
     continueOnFailure: boolean
   ): Observable<WifiFingerprint> {
     return new Observable<WifiFingerprint>((subscriber) => {
+      let unsubscribed = false;
       const performScan = async () => {
         try {
           const result = await this.adapter.acquireWifiFingerprint(false);
+          if (unsubscribed) return;
           subscriber.next(result);
         } catch (err) {
           if (continueOnFailure) {
@@ -99,6 +101,7 @@ export class WifiScanProvider {
       }, interval);
 
       return () => {
+        unsubscribed = true;
         clearInterval(intervalId);
       };
     });
