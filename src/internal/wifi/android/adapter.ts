@@ -29,11 +29,10 @@ export class AndroidWifiScanAdapter implements WifiScanAdapter {
 
     try {
       await this.setupScanReceiver();
-      return this.getLastFingerprint();
+      return this.getLastFingerprint(true);
     } catch (err) {
       if (ensureIsNew) throw err;
-      console.error("WifiScanAdapter error:", err);
-      return this.getLastFingerprint();
+      return this.getLastFingerprint(false);
     }
   }
 
@@ -78,10 +77,11 @@ export class AndroidWifiScanAdapter implements WifiScanAdapter {
     });
   }
 
-  private getLastFingerprint(): WifiFingerprint {
+  private getLastFingerprint(updateReceived: boolean): WifiFingerprint {
     const results = this.wifiManager.getScanResults();
     return {
       seen: getSeenWifiApsFrom(results),
+      isNew: updateReceived,
       timestamp: new Date(),
     };
   }

@@ -1,5 +1,6 @@
 export interface WifiFingerprint {
   seen: Array<WifiApInfo>;
+  isNew: boolean;
   timestamp: Date;
 }
 
