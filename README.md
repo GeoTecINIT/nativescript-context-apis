@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dm/nativescript-context-apis.svg)](https://www.npmjs.com/package/nativescript-context-apis)
 [![Build Status](https://dev.azure.com/GeoTecINIT/nativescript-context-apis/_apis/build/status/GeoTecINIT.nativescript-context-apis?branchName=master)](https://dev.azure.com/GeoTecINIT/nativescript-context-apis/_build/latest?definitionId=1&branchName=master)
 
-Painless access to contextual information for your NativeScript apps. Does your app need to know where are your users located? See the Wi-Fi APs that surround them? Or perhaps which kind of activities are they doing? If the answer to any of these questions is yes, then, this is your plugin.
+Painless access to contextual information for your NativeScript apps. Does your app need to know where are your users located? See the Wi-Fi APs that surround them? Maybe the nearby BLE devices? Or perhaps which kind of activities are they doing? If the answer to any of these questions is yes, then, this is your plugin.
 
 Currently we offer:
 
@@ -13,6 +13,7 @@ Currently we offer:
 | **Current user location and location stream (with distance filtering)**                       | Coarse- and fine-grained location reporting. We offer the functionality set by the [nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation) plugin, extending it with [RxJS Observable](https://rxjs-dev.firebaseapp.com/guide/observable) streams for location stream. By obtaining user locations wrapped in an Observable, you'll able to filter them, take the best one among a small amount or control the stream quite easily by means of the [RxJS Operators](https://rxjs-dev.firebaseapp.com/guide/operators).                                                                                                                                                                                                                    | ✅       | ✅       |
 | **Coarse- and medium-grained human activity detection**                                       | Coarse activity detection (user being still, walking, running, riding a bike or on a vehicle) will notify your app when the user starts or ends an activity and when did that happen. Medium grained detection will allow you to specify the detection interval and leaves for you in-activity filtering. For example, the plugin will report a transition from being in a vehicle to being still when the vehicle stops at a traffic light, thing that does not happen with the coarse activity detection mechanism. [More info here](https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient).                                                                                                                     | ✅       | Planned |
 | **List current nearby Wi-Fi APs (a.k.a Wi-Fi fingerprinting) and obtain fingerprint updates** | Simple and batched Wi-Fi fingerprint reporting. We offer two ways of obtaining updates regarding nearby Wi-Fi APs: at a fixed, faster rate (with duplicates) and at the minimum slower rate which ensures all reported scans are new. The later either can be configured to offer a continuous flow of single scans (no grouping) or to provide scans in batches of 2 (intermediate grouping) or 4 (maximum grouping) fingerprints, complying with the latest limitations of the Android OS. Similarly to location updates, wifi scans can be delivered through [RxJS Observable](https://rxjs-dev.firebaseapp.com/guide/observable), hence allowing all the powerful [RxJS Operators](https://rxjs-dev.firebaseapp.com/guide/operators) to be applied on top of them. | ✅       | ❌       |
+| **List current nearby BLE devices and obtain updates regarding their presence**               | Simple and batched BLE scan reporting. The interval and the mode of the scan can be configured, making it suitable for multiple use cases. By combining a scanning of 0 reporting interval with a low latency mode, devices can be reported as soon as they are detected. Whilst more energy-efficient strategies are possible with larger reporting intervals and low power usage modes. Equally to location and Wi-Fi fingerprint updates, BLE scan updates are delivered through [RxJS Observable](https://rxjs-dev.firebaseapp.com/guide/observable), thus offering a lot of flexibility to process the list of detected devices.                                                                                                                                  | ✅       | ❌       |
 
 What we plan to offer in the future:
 - Low level access to on-device sensors (accelerometer, gyroscope, compass, etc.).
@@ -49,7 +50,11 @@ Next, for each one of the information sources that this plugin offers, you can s
 
 > **Note**: If your app is expected to use more than one of the information sources offered by this plugin, **we advise to avoid just copying and pasting the content of each of the following sections** inside your application manifest. Check twice for duplicated permissions (e.g., location permissions necessary for both location and Wi-Fi to work) to avoid possible manifest merging errors. 
 
-##### Geolocation
+Click on each of the collapsible sections bellow to see the specific permissions required by each information source:
+
+<details>
+
+<summary>Geolocation</summary>
 
 In order to access geolocation in Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml`:
 
@@ -70,7 +75,11 @@ More information can be found in the [Android docs here](https://developer.andro
 
 > Source: [https://github.com/NativeScript/nativescript-geolocation](https://github.com/NativeScript/nativescript-geolocation)
 
-##### Human activity detection
+</details>
+
+<details>
+
+<summary>Human activity detection</summary>
 
 In order to receive human activity changes in Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml`:
 
@@ -82,7 +91,11 @@ In order to receive human activity changes in Android, you'll need to add the fo
 
 More information can be found in the [Android docs here](https://developer.android.com/about/versions/10/privacy/changes#physical-activity-recognition).
 
-##### Wi-Fi scan updates
+</details>
+
+<details>
+
+<summary>Wi-Fi scan updates</summary>
 
 In order to receive Wi-Fi scan updates in Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml`:
 
@@ -95,6 +108,35 @@ In order to receive Wi-Fi scan updates in Android, you'll need to add the follow
 ```
 
 More information can be found in the [Android docs here](https://developer.android.com/guide/topics/connectivity/wifi-scan).
+
+</details>
+
+<details>
+
+<summary>BLE scan updates</summary>
+
+In order to receive BLE scan updates in Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml`:
+
+```xml
+<!-- ALL the following permissions are required in order to ask and retrieve BLE scan updates -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+<uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+```
+
+More information can be found in the [Android docs here](https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner#startScan(android.bluetooth.le.ScanCallback)).
+
+Additionally, the BLE scanning API uses the [well-known scanning library](https://github.com/NordicSemiconductor/Android-Scanner-Compat-Library) developed by Nordic Semiconductors. To ensure this library is only included when the BLE scanning apis are meant to be accessed. To do that, you'll have to update your app's `app.gradle` file located inside the `App_Resources/Android/src` folder as follows:
+
+```gradle
+// Uncomment
+dependencies {
+    implementation 'no.nordicsemi.android.support.v18:scanner:1.6.0'
+}
+```
+
+</details>
 
 ## Installation
 
@@ -155,7 +197,7 @@ platformNativeScriptDynamic().bootstrapModule(AppModule);
 
 ### Geolocation
 
-In case you want to obtain geolocation updates, first of all you'll need to check if you have permissions to do so and if not, ask them as follows:
+In case you want to obtain geolocation updates, first you'll need to check if you have permissions to do so and if not, ask for them as follows:
 
 ```ts
 import { contextApis } from "nativescript-context-apis";
@@ -209,7 +251,7 @@ async function printLocationUpdates(): Promise<Subscription> {
 
 ### Human activity detection
 
-In case you want to obtain coarse grained human activity changes, first of all you'll need to check if you have permissions to do so and if not, ask them as follows:
+In case you want to obtain coarse grained human activity changes, first you'll need to check if you have permissions to do so and if not, ask them for as follows:
 
 ```ts
 import { contextApis } from "nativescript-context-apis";
@@ -277,7 +319,7 @@ recognizer.stopRecognizing();
 
 ### Nearby Wi-Fi APs updates
 
-In case you want to obtain Wi-Fi scan updates, first of all you'll need to check if you have permissions to do so and if not, ask them as follows:
+In case you want to obtain Wi-Fi scan updates, first you'll need to check if you have permissions to do so and if not, ask for them as follows:
 
 ```ts
 import { contextApis } from "nativescript-context-apis";
@@ -291,13 +333,13 @@ async function checkWifiScanAccessStatus(): Promise<void> {
 }
 ```
 
-Once done (keep in mind that `isReady()` and `prepare()` methods are asynchronous), you'll be able to ask for current nearby Wi-Fi APs information or a stream of Wi-Fi scan updates:
+Once done (keep in mind that `isReady()` and `prepare()` methods are asynchronous), you'll be able to ask for current nearby Wi-Fi APs' information or a stream of Wi-Fi scan updates:
 
 ```ts
 import { contextApis } from "nativescript-context-apis";
 
-// You can get the current nearby Wi-Fi APs information like this
-async function printCurrentLocation() {
+// You can get the current nearby Wi-Fi APs' information like this
+async function printCurrentNearbyWiFiAPs() {
     const provider = contextApis.wifiScanProvider;
     const scanResult = await provider.acquireWifiFingerprint(
             true // Ensures the scan result is new (true by default), 
@@ -329,6 +371,70 @@ async function printWifiScanUpdates(): Promise<Subscription> {
 }
 ```
 
+### Nearby BLE devices updates
+
+In case you want to obtain BLE scan updates, first you'll need to check if you have permissions to do so and if not, ask for them as follows:
+
+```ts
+import { contextApis } from "nativescript-context-apis";
+
+async function checkBleScanAccessStatus(): Promise<void> {
+    const provider = contextApis.bleScanProvider;
+    const isReady = await provider.isReady();
+    if (!isReady) {
+      await provider.prepare();
+    }
+}
+```
+
+Once done (keep in mind that `isReady()` and `prepare()` methods are asynchronous), you'll be able to ask for current nearby BLE devices' information or a stream of BLE scan updates:
+
+```ts
+import { contextApis } from "nativescript-context-apis";
+import { BleScanMode } from "nativescript-context-apis/ble";
+
+// You can get the current nearby BLE devices' information like this
+async function printCurrentNearbyBleDevices() {
+    const provider = contextApis.bleScanProvider;
+    const scanResult = await provider.acquireBleScan({
+        scanTime: 5000, // (optional) when not specified it will wait until seeing a device and inmediatelly return, 
+                        // otherwise it accumulates the seen devices and outputs after the scan time finishes.
+                        // It may throw a timeout when used in conjunction with a list of iBeacon UUIDs 
+                        // (in case no known beacon has been detected in the meantime)  
+        scanMode: BleScanMode.BALANCED, // (optional) Can be LOW_POWER or LOW_LATENCY too. BALANCED by default
+        iBeaconUuids: [
+            // (optional) add a list of iBeacon UUIDs if you're just looking for known beacons
+        ],
+    });
+    console.log("Current nearby BLE devices:", scanResult);
+}
+
+// Or a BLE scan updates stream
+import { Subscription } from "rxjs";
+
+async function printWifiScanUpdates(): Promise<Subscription> {
+    const provider = contextApis.bleScanProvider;
+    
+    const stream = provider.bleScanStream({
+        reportInterval: 2000, // (optional) when not specified it will output a result as soon as a device is seen, 
+                              // otherwise it accumulates the detected devices and outputs when told
+        scanMode: BleScanMode.LOW_LATENCY, // (optional) same as for the acquire method
+        iBeaconUuids: [
+            // (optional) Same as for the acquire method
+        ],
+    })
+
+    return stream.subscribe({
+        next: (bleScanResult) =>
+            console.log(
+                `New ble scan result!: ${JSON.stringify(bleScanResult)}`
+            ),
+        error: (error) =>
+            console.error(`Ble scan result could not be acquired: ${error}`),
+    });
+}
+```
+
 > Note: Check plugin demo app for further usage details
 
 ## API
@@ -339,8 +445,13 @@ async function printWifiScanUpdates(): Promise<Subscription> {
 | geolocationProvider                                                                | [`GeolocationProvider`](#geolocationprovider) | Property which gives access to the geolocation provider singleton                                  |
 | getActivityRecognizer(resolution: [Resolution](#available-recognizer-resolutions)) | [`ActivityRecognizer`](#activityrecognizer)   | Meant to be called on application start. Only needed if your app listens to human activity changes |
 | wifiScanProvider                                                                   | [`WifiScanProvider`](#wifiscanprovider)       | Property which gives access to the Wi-Fi scan provider singleton                                   |
+| bleScanProvider                                                                    | [`BleScanProvider`](#blescanprovider)         | Property which gives access to the BLE scan provider singleton                                     |
 
-### Geolocation access
+Click on each of the collapsible sections bellow to see more API details for each information source:
+
+<details>
+
+<summary>Geolocation access</summary>
 
 #### [Geolocation](./src/internal/geolocation/geolocation.ts)
 
@@ -394,14 +505,18 @@ Before requesting user's location updates some options can be customized in orde
 
 #### [GeolocationProvider](./src/internal/geolocation/index.ts)
 
-| Method signature                                                        | Return type               | Description                                                                                                                                              |
-|-------------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| isReady()                                                               | `boolean`                 | Allows to check if the provider is ready or not (i.e., required permissions have been granted)                                                           |
-| prepare()                                                               | `Promise<boolean>`        | Allows to prepare the provider for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
-| acquireLocation(options: [AcquireOptions](#geolocation-acquire-options) | `Promise<Geolocation>`    | Allows to obtain user's current location                                                                                                                 |
-| locationStream(options: [StreamOptions](#geolocation-stream-options)    | `Observable<Geolocation>` | Allows to actively obtain user's location updates                                                                                                        |
+| Method signature                                                         | Return type               | Description                                                                                                                                              |
+|--------------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| isReady()                                                                | `boolean`                 | Allows to check if the provider is ready or not (i.e., required permissions have been granted)                                                           |
+| prepare()                                                                | `Promise<boolean>`        | Allows to prepare the provider for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
+| acquireLocation(options: [AcquireOptions](#geolocation-acquire-options)) | `Promise<Geolocation>`    | Allows to obtain user's current location                                                                                                                 |
+| locationStream(options: [StreamOptions](#geolocation-stream-options))    | `Observable<Geolocation>` | Allows to actively obtain user's location updates                                                                                                        |
 
-### Human activity recognition
+</details>
+
+<details>
+
+<summary>Human activity recognition</summary>
 
 #### Available recognizer resolutions
 
@@ -456,7 +571,11 @@ Before requesting user's location updates some options can be customized in orde
 | listenActivityChanges(callback: (activityChange: ActivityChange) => void)     | `number`           | Add an activity changes listener                                                                                                                                    |
 | stopListening(listenerId?: number)                                            | `void`             | Remove an activity changes listener. If no listener number is passed by, all the listeners will be removed instead                                                  |
 
-### Nearby Wi-Fi APs information access
+</details>
+
+<details>
+
+<summary>Nearby Wi-Fi APs' information access</summary>
 
 #### [WifiFingerprint](./src/internal/wifi/fingerprint.ts)
 
@@ -543,12 +662,102 @@ Before requesting updates on information about the nearby Wi-Fi APs some options
 
 #### [WifiScanProvider](./src/internal/wifi/provider.ts)
 
-| Method signature                                                                     | Return type                   | Description                                                                                                                                              |
-|--------------------------------------------------------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| isReady()                                                                            | `boolean`                     | Allows to check if the provider is ready or not (i.e., required permissions have been granted)                                                           |
-| prepare()                                                                            | `Promise<boolean>`            | Allows to prepare the provider for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
-| acquireWifiFingerprint(ensureIsNew: [boolean](#wi-fi-fingerprint-acquire-parameters) | `Promise<WifiFingerprint>`    | Allows to obtain information about the nearby Wi-Fi APs (fingerprinting)                                                                                 |
-| wifiFingerprintStream(options: [StreamOptions](#wi-fi-fingerprint-stream-options)    | `Observable<WifiFingerprint>` | Allows to actively obtain information about the nearby Wi-Fi APs (fingerprinting)                                                                        |
+| Method signature                                                                      | Return type                   | Description                                                                                                                                              |
+|---------------------------------------------------------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| isReady()                                                                             | `boolean`                     | Allows to check if the provider is ready or not (i.e., required permissions have been granted)                                                           |
+| prepare()                                                                             | `Promise<boolean>`            | Allows to prepare the provider for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
+| acquireWifiFingerprint(ensureIsNew: [boolean](#wi-fi-fingerprint-acquire-parameters)) | `Promise<WifiFingerprint>`    | Allows to obtain information about the nearby Wi-Fi APs (fingerprinting)                                                                                 |
+| wifiFingerprintStream(options: [StreamOptions](#wi-fi-fingerprint-stream-options))    | `Observable<WifiFingerprint>` | Allows to actively obtain information about the nearby Wi-Fi APs (fingerprinting)                                                                        |
+
+</details>
+
+<details>
+
+<summary>Nearby BLE devices' information access</summary>
+
+#### [BleScanResult](./src/internal/ble/scan-result.ts)
+
+| Property  | Type                                     | Description                                                                           |
+|-----------|------------------------------------------|---------------------------------------------------------------------------------------|
+| seen      | [`Array<BleDeviceInfo>`](#bledeviceinfo) | The list of BLE devices (and their information) which have been seen during this scan |
+| timestamp | `Date`                                   | The timestamp at which this scan was finished.                                        |
+
+#### [BleDeviceInfo](./src/internal/ble/scan-result.ts)
+
+| Property            | Type                             | Description                                                                                                                                                                            |
+|---------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| address             | `string`                         | Device's MAC address                                                                                                                                                                   |
+| name                | `string`                         | Device's name (can be empty)                                                                                                                                                           |
+| advertiseFlags      | `number`                         | The advertising flags indicating the discoverable mode and capability of the device (-1 when not set)                                                                                  |
+| advertisingSid      | `number`                         | Device's advertising SID (255 when not present)                                                                                                                                        |
+| advertisingInterval | `number`                         | Ranges from 6 (7.5ms) to 65536 (81918.75ms), in units of 1.25ms (0 when not present)                                                                                                   |
+| txPowerLevel        | `number`                         | Transmission power level of the packet in dBm (-2147483648, a.k.a -inf, when not set). The difference between the `txPowerLevel` and the `rssi` can be used to calculate the path loss |
+| txPower             | `number`                         | Transmission power in dBm. Ranges from -127 to 126 (127 when not present)                                                                                                              |
+| primaryPhy          | [`PhyType`](#phytype)            | Can be: 1M, coded or none (when the device does not support retrieving this information)                                                                                               |
+| secondaryPhy        | [`PhyType`](#phytype)            | Can be: 2M, coded or none (when either the device does not support retrieving this information or the BLE device does not use a secondary physical channel)                            |
+| serviceUuids        | `Array<string>`                  | A set of BLE service UUIDs offered by the device (do not confuse with iBeacon UUIDs, these come later)                                                                                 |
+| legacy              | `boolean`                        | When true, indicates that the detected device's spec is prior to the BLEv5 specification                                                                                               |
+| connectable         | `boolean`                        | When true, indicates that the detected device accepts input connections                                                                                                                |
+| iBeacon             | [`IBeaconData`](#ibeacondata)    | Undefined when the detected device does not broadcast iBeacon data. If defined, contains an object with the UUID, Major and Minor numbers of the beacon                                |
+| rssi                | `number`                         | The received signal level with which this app has been seen during the scan                                                                                                            |
+| ageNanos            | `number`                         | The number of nanoseconds (counting from phone boot) after which this device has been seen                                                                                             |
+
+#### [PhyType](./src/internal/ble/scan-result.ts)
+
+| Type                        | Description                                                                               |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| `PhyType.UNUSED`            | The physical channel is not in use or the phone cannot detect its type (Android SDK < 26) |
+| `PhyType.LE_1M`             | The device uses the primary physical channel                                              |
+| `PhyType.LE_2M`             | The device uses the secondary physical channel                                            |
+| `PhyType.LE_CODED`          | The device uses the respective physical channel with a mask                               |
+
+#### [IBeaconData](./src/internal/ble/scan-result.ts)
+
+| Property | Type     | Description                                                            |
+|----------|----------|------------------------------------------------------------------------|
+| uuid     | `number` | The UUID of the iBeacon deployment                                     |
+| major    | `number` | The iBeacon major number used to identify a beacon within a deployment |
+| minor    | `number` | The iBeacon minor number used to identify a beacon within a deployment |
+
+
+#### BLE scan acquire options
+
+Before requesting current information about the nearby BLE devices some options can be customized in order to achieve the expected result.
+
+| Property     | Type                          | Description                                                                                                                                                                                                                                     |
+|--------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| scanTime     | `boolean`                     | Indicates the amount of time to wait for while scanning. When 0 it waits until the first device is detected. Note: when is 0 and at least one iBeacon deployment UUID has been set it will wait until the firs beacon is seen. Use it with care |
+| scanMode     | [`BleScanMode`](#blescanmode) | Indicates the scan mode to use (see linked enum for more information)                                                                                                                                                                           |
+| iBeaconUuids | `Array<string>`               | Optionally indicate a list of iBeacon deployment UUIDs to just report scan results containing them                                                                                                                                              |
+
+#### [BleScanMode](./src/internal/ble/common.ts)
+
+| Type                      | Description                                                                                                                                    |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BleScanMode.LOW_POWER`   | Scans for 0.5s and waits for 4.5s before running another scan. Good for using it in combination with scan times and intervals greater than 5s. |
+| `BleScanMode.LOW_LATENCY` | Scans using the highest frequency, with no waits. Very power hungry, use with care                                                             |
+| `BleScanMode.BALANCED`    | In the middle of the other two. Scans for 2s and waits for 3s. Great reliability / battery usage balance                                       |
+
+#### BLE scan stream options
+
+Before requesting updates on information about the nearby BLE devices some options can be customized in order to achieve the expected result.
+
+| Property       | Type                          | Description                                                                                                                                                                                                                                                             |
+|----------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| reportInterval | `boolean`                     | Indicates the amount of time to wait between reporting the list of the devices which have been detected since the last successful scan. When 0 it notifies right after seeing a new device. Note: the reporting frequency can end up being quite high. Use it with care |
+| scanMode       | [`BleScanMode`](#blescanmode) | Indicates the scan mode to use (see linked enum for more information)                                                                                                                                                                                                   |
+| iBeaconUuids   | `Array<string>`               | Optionally indicate a list of iBeacon deployment UUIDs to just report scan results containing them                                                                                                                                                                      |
+
+#### [BleScanProvider](./src/internal/wifi/provider.ts)
+
+| Method signature                                                          | Return type                 | Description                                                                                                                                              |
+|---------------------------------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| isReady()                                                                 | `boolean`                   | Allows to check if the provider is ready or not (i.e., required permissions have been granted)                                                           |
+| prepare()                                                                 | `Promise<boolean>`          | Allows to prepare the provider for its usage (i.e., ask the required permissions). **WARNING! Only call this method if your app is visible to the user** |
+| acquireBleScan(options: [AcquireOptions](#ble-scan-acquire-options))      | `Promise<BleScanResult>`    | Allows to obtain information about the nearby BLE devices as soon as one is detected or after the specified scan time                                    |
+| wifiFingerprintStream(options: [StreamOptions](#ble-scan-stream-options)) | `Observable<BleScanResult>` | Allows to actively obtain information about the nearby BLE devices as soon as they are detected or in batches when indicating a report interval          |
+
+</details>
 
 ## Plugin authors
 
