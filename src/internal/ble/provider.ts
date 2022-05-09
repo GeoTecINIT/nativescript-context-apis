@@ -1,5 +1,12 @@
 import { BleScanAdapter, BleScanMode } from "./common";
-import { filter, firstValueFrom, map, Observable } from "rxjs";
+import {
+  filter,
+  firstValueFrom,
+  map,
+  Observable,
+  throwError,
+  timeout,
+} from "rxjs";
 import { BleScanResult } from "./scan-result";
 
 export class BleScanProvider {
@@ -21,7 +28,13 @@ export class BleScanProvider {
         .streamBleScanResults(safeOptions.scanTime, safeOptions.scanMode)
         .pipe(
           map((result) => filterByUuid(result, safeOptions.iBeaconUuids)),
-          filter((result) => !!result)
+          filter((result) => !!result),
+          safeOptions.scanTime > 0
+            ? timeout({
+                first: safeOptions.scanTime + 100,
+                with: () => throwError(() => new Error("BLE scan timed-out")),
+              })
+            : undefined
         )
     );
   }
