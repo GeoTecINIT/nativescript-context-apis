@@ -17,8 +17,7 @@ import {
     FingerprintGrouping,
     WifiScanProvider,
 } from "nativescript-context-apis/wifi";
-import { BleScanProvider } from "nativescript-context-apis/ble";
-import { BleScanMode } from "nativescript-context-apis/internal/ble";
+import { BleScanProvider, BleScanMode } from "nativescript-context-apis/ble";
 
 const I_BEACON_UUIDS = [
     // Place your iBeacon UUIDs here to just report beacon updates!
