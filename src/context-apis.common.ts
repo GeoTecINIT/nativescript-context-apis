@@ -7,6 +7,7 @@ import {
 
 import { GeolocationProvider, getGeolocationProvider } from "./geolocation";
 import { getWifiScanProvider, WifiScanProvider } from "./wifi";
+import { BleScanProvider, getBleScanProvider } from "./internal/ble";
 
 const recognizerTypes = [Resolution.LOW, Resolution.MEDIUM];
 
@@ -29,5 +30,9 @@ export class Common extends Observable {
 
   get wifiScanProvider(): WifiScanProvider {
     return getWifiScanProvider();
+  }
+
+  get bleScanProvider(): BleScanProvider {
+    return getBleScanProvider();
   }
 }
