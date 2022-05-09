@@ -5,6 +5,9 @@
   "description": "NativeScript Application",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
+  "scripts": {
+    "setup": "npm i && ts-patch install"
+  },
   "dependencies": {
     "@nativescript/core": "~8.2.0",
     "@nativescript/theme": "~2.3.0",
@@ -24,6 +27,7 @@
     "karma-junit-reporter": "2.0.1",
     "karma-nativescript-launcher": "0.4.0",
     "nyc": "15.1.0",
+    "ts-patch": "^2.0.1",
     "typescript": "~4.5.5"
   },
   "gitHead": "20a65d338ae8f8911087ab6615b89363f864b07b",

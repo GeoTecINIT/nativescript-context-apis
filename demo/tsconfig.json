@@ -22,7 +22,11 @@
 				"./node_modules/*"
 			]
 		},
-		"removeComments": false
+		"removeComments": false,
+    "plugins": [{
+      "transform": "@nativescript/webpack/dist/transformers/NativeClass",
+      "type": "raw"
+    }]
 	},
 	"exclude": [
 		"node_modules",
