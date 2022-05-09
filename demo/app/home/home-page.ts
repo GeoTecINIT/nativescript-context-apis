@@ -16,12 +16,19 @@ import { of, Subscription } from "rxjs";
 import {
     FingerprintGrouping,
     WifiScanProvider,
-} from "nativescript-context-apis/internal/wifi";
+} from "nativescript-context-apis/wifi";
+import { BleScanProvider } from "nativescript-context-apis/ble";
+import { BleScanMode } from "nativescript-context-apis/internal/ble";
+
+const I_BEACON_UUIDS = [
+    // Place your iBeacon UUIDs here to just report beacon updates!
+];
 
 const activityRecognizers = [Resolution.LOW, Resolution.MEDIUM];
 
 let locationSubscription: Subscription;
 let wifiScanSubscription: Subscription;
+let bleScanSubscription: Subscription;
 export function onNavigatingTo(args: NavigatedData) {
     const page = <Page>args.object;
 
@@ -40,6 +47,7 @@ export function onNavigatingTo(args: NavigatedData) {
         if (!preparing) {
             locationSubscription?.unsubscribe();
             wifiScanSubscription?.unsubscribe();
+            bleScanSubscription?.unsubscribe();
             stopListeningToChanges();
         }
     });
@@ -55,9 +63,16 @@ async function showUpdates(addListeners = false): Promise<void> {
                 console.error("Could not print current location. Reason:", err);
             }),
         () =>
+            printBleScanResult().catch((err) => {
+                console.error(
+                    "Could not print current nearby BLE devices. Reason:",
+                    err
+                );
+            }),
+        () =>
             printWifiScanResult().catch((err) => {
                 console.error(
-                    "Could not print current nearby wifi scan. Reason:",
+                    "Could not print current nearby wifi APs. Reason:",
                     err
                 );
             }),
@@ -67,6 +82,15 @@ async function showUpdates(addListeners = false): Promise<void> {
                 .catch((err) =>
                     console.error(
                         "An error occurred while getting location updates. Reason:",
+                        err
+                    )
+                ),
+        () =>
+            printBleScanUpdates()
+                .then((subscription) => (bleScanSubscription = subscription))
+                .catch((err) =>
+                    console.error(
+                        "An error occurred while getting ble scan updates. Reason:",
                         err
                     )
                 ),
@@ -103,6 +127,19 @@ async function printWifiScanResult() {
     if (ok) {
         const fingerprint = await provider.acquireWifiFingerprint(true);
         console.log(`Last wifi scan result: ${JSON.stringify(fingerprint)}`);
+    }
+}
+
+async function printBleScanResult() {
+    const provider = contextApis.bleScanProvider;
+    const ok = await prepareBleScanProvider(provider);
+    if (ok) {
+        const bleScanResult = await provider.acquireBleScan({
+            scanTime: 5000,
+            scanMode: BleScanMode.BALANCED,
+            iBeaconUuids: I_BEACON_UUIDS,
+        });
+        console.log(`Last ble scan result: ${JSON.stringify(bleScanResult)}`);
     }
 }
 
@@ -149,6 +186,28 @@ async function printWifiScanUpdates(): Promise<Subscription> {
             ),
         error: (error) =>
             console.error(`Wifi scan result could not be acquired: ${error}`),
+    });
+}
+
+async function printBleScanUpdates(): Promise<Subscription> {
+    const provider = contextApis.bleScanProvider;
+    const ok = await prepareBleScanProvider(provider);
+
+    const stream = ok
+        ? provider.bleScanStream({
+              reportInterval: 2000,
+              scanMode: BleScanMode.LOW_LATENCY,
+              iBeaconUuids: I_BEACON_UUIDS,
+          })
+        : of(null);
+
+    return stream.subscribe({
+        next: (bleScanResult) =>
+            console.log(
+                `New ble scan result!: ${JSON.stringify(bleScanResult)}`
+            ),
+        error: (error) =>
+            console.error(`Ble scan result could not be acquired: ${error}`),
     });
 }
 
@@ -255,5 +314,30 @@ async function prepareWifiScanProvider(
         return false;
     } finally {
         _preparingWifiProv = null;
+    }
+}
+
+let _preparingBleProv: Promise<any>;
+async function prepareBleScanProvider(
+    provider: BleScanProvider
+): Promise<boolean> {
+    const isReady = await provider.isReady();
+    if (isReady) {
+        return true;
+    }
+
+    try {
+        if (!_preparingBleProv) {
+            _preparingBleProv = provider.prepare();
+        }
+        await _preparingBleProv;
+        return true;
+    } catch (e) {
+        console.error(
+            `BleScanProvider couldn't be prepared: ${JSON.stringify(e)}`
+        );
+        return false;
+    } finally {
+        _preparingBleProv = null;
     }
 }
