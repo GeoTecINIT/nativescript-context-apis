@@ -4,7 +4,7 @@ a code-behind file. The code-behind is a great place to place your view
 logic, and to set up your page’s data binding.
 */
 
-import { NavigatedData, Page, Application } from "@nativescript/core";
+import { Application, NavigatedData, Page } from "@nativescript/core";
 
 import { HomeViewModel } from "./home-view-model";
 
@@ -13,47 +13,76 @@ import { Resolution } from "nativescript-context-apis/activity-recognition";
 
 import { GeolocationProvider } from "nativescript-context-apis/geolocation";
 import { of, Subscription } from "rxjs";
+import {
+    FingerprintGrouping,
+    WifiScanProvider,
+} from "nativescript-context-apis/internal/wifi";
 
 const activityRecognizers = [Resolution.LOW, Resolution.MEDIUM];
 
+let locationSubscription: Subscription;
+let wifiScanSubscription: Subscription;
 export function onNavigatingTo(args: NavigatedData) {
     const page = <Page>args.object;
 
     page.bindingContext = new HomeViewModel();
 
     let preparing = true;
-    let locationSubscription: Subscription;
     Application.on(Application.resumeEvent, () => {
         if (!preparing) {
-            printCurrentLocation().catch((err) => {
-                console.error(`Could not print current location: ${err}`);
-            }).then(() => printLocationUpdates()
-                .then((subscription) => (locationSubscription = subscription))
-                .catch(
-                    (err) =>
-                        `An error occurred while getting location updates: ${err}`)
-            ).then(() => listenToActivityChanges());
+            showUpdates().catch((err) =>
+                console.error("Could not show updates. Reason: ", err)
+            );
         }
     });
 
     Application.on(Application.suspendEvent, () => {
         if (!preparing) {
-            if (locationSubscription) {
-                locationSubscription.unsubscribe();
-            }
+            locationSubscription?.unsubscribe();
+            wifiScanSubscription?.unsubscribe();
             stopListeningToChanges();
         }
     });
 
-    printCurrentLocation().catch((err) => {
-        console.error(`Could not print current location: ${err}`);
-    }).then(() => printLocationUpdates()
-        .then((subscription) => (locationSubscription = subscription))
-        .catch(
-            (err) => `An error occurred while getting location updates: ${err}`
-        )
-    ).then(() => listenToActivityChanges(true))
-        .then(() => preparing = false);
+    showUpdates().then(() => (preparing = false));
+}
+
+async function showUpdates(addListeners = false): Promise<void> {
+    const steps: Array<() => Promise<any>> = [
+        () => listenToActivityChanges(addListeners),
+        () =>
+            printCurrentLocation().catch((err) => {
+                console.error("Could not print current location. Reason:", err);
+            }),
+        () =>
+            printWifiScanResult().catch((err) => {
+                console.error(
+                    "Could not print current nearby wifi scan. Reason:",
+                    err
+                );
+            }),
+        () =>
+            printLocationUpdates()
+                .then((subscription) => (locationSubscription = subscription))
+                .catch((err) =>
+                    console.error(
+                        "An error occurred while getting location updates. Reason:",
+                        err
+                    )
+                ),
+        () =>
+            printWifiScanUpdates()
+                .then((subscription) => (wifiScanSubscription = subscription))
+                .catch((err) =>
+                    console.error(
+                        "An error occurred while getting wifi scan updates. Reason:",
+                        err
+                    )
+                ),
+    ];
+    for (const step of steps) {
+        await step();
+    }
 }
 
 async function printCurrentLocation() {
@@ -65,6 +94,15 @@ async function printCurrentLocation() {
             timeout: 5000,
         });
         console.log(`Current location: ${JSON.stringify(location)}`);
+    }
+}
+
+async function printWifiScanResult() {
+    const provider = contextApis.wifiScanProvider;
+    const ok = await prepareWifiScanProvider(provider);
+    if (ok) {
+        const fingerprint = await provider.acquireWifiFingerprint(true);
+        console.log(`Last wifi scan result: ${JSON.stringify(fingerprint)}`);
     }
 }
 
@@ -86,7 +124,31 @@ async function printLocationUpdates(): Promise<Subscription> {
         next: (location) =>
             console.log(`New location acquired!: ${JSON.stringify(location)}`),
         error: (error) =>
-            console.error(`Location updates could not be acquired: ${error}`)
+            console.error(`Location updates could not be acquired: ${error}`),
+    });
+}
+
+async function printWifiScanUpdates(): Promise<Subscription> {
+    const provider = contextApis.wifiScanProvider;
+    const ok = await prepareWifiScanProvider(provider);
+
+    await new Promise((resolve) => setTimeout(resolve, 30000));
+
+    const stream = ok
+        ? provider.wifiFingerprintStream({
+              ensureAlwaysNew: true,
+              grouping: FingerprintGrouping.NONE,
+              continueOnFailure: true,
+          })
+        : of(null);
+
+    return stream.subscribe({
+        next: (fingerprint) =>
+            console.log(
+                `New wifi scan result!: ${JSON.stringify(fingerprint)}`
+            ),
+        error: (error) =>
+            console.error(`Wifi scan result could not be acquired: ${error}`),
     });
 }
 
@@ -96,7 +158,9 @@ export async function listenToActivityChanges(addListener = false) {
             await listenToActivityChangesFor(recognizerType, addListener);
         } catch (err) {
             console.error(
-                `An error occurred while listening to ${recognizerType} res activity changes: ${JSON.stringify(err)}`
+                `An error occurred while listening to ${recognizerType} res activity changes: ${JSON.stringify(
+                    err
+                )}`
             );
         }
     }
@@ -144,7 +208,7 @@ async function listenToActivityChangesFor(
     );
 }
 
-let _preparing: Promise<any>;
+let _preparingGeoProv: Promise<any>;
 async function prepareGeolocationProvider(
     provider: GeolocationProvider
 ): Promise<boolean> {
@@ -154,15 +218,42 @@ async function prepareGeolocationProvider(
     }
 
     try {
-        if (!_preparing) {
-            _preparing = provider.prepare();
+        if (!_preparingGeoProv) {
+            _preparingGeoProv = provider.prepare();
         }
-        await _preparing;
+        await _preparingGeoProv;
         return true;
     } catch (e) {
-        console.error(`GeolocationProvider couldn't be prepared: ${JSON.stringify(e)}`);
+        console.error(
+            `GeolocationProvider couldn't be prepared: ${JSON.stringify(e)}`
+        );
         return false;
     } finally {
-        _preparing = null;
+        _preparingGeoProv = null;
+    }
+}
+
+let _preparingWifiProv: Promise<any>;
+async function prepareWifiScanProvider(
+    provider: WifiScanProvider
+): Promise<boolean> {
+    const isReady = await provider.isReady();
+    if (isReady) {
+        return true;
+    }
+
+    try {
+        if (!_preparingWifiProv) {
+            _preparingWifiProv = provider.prepare();
+        }
+        await _preparingWifiProv;
+        return true;
+    } catch (e) {
+        console.error(
+            `WifiScanProvider couldn't be prepared: ${JSON.stringify(e)}`
+        );
+        return false;
+    } finally {
+        _preparingWifiProv = null;
     }
 }

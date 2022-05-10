@@ -6,6 +6,7 @@ import {
 } from "./activity-recognition";
 
 import { GeolocationProvider, getGeolocationProvider } from "./geolocation";
+import { getWifiScanProvider, WifiScanProvider } from "./wifi";
 
 const recognizerTypes = [Resolution.LOW, Resolution.MEDIUM];
 
@@ -24,5 +25,9 @@ export class Common extends Observable {
 
   get geolocationProvider(): GeolocationProvider {
     return getGeolocationProvider();
+  }
+
+  get wifiScanProvider(): WifiScanProvider {
+    return getWifiScanProvider();
   }
 }
