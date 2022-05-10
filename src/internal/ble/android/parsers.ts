@@ -84,7 +84,7 @@ function iBeaconDataFrom(
   const [beaconFound, startByte] = findIBeaconData(bytes);
   if (!beaconFound) return undefined;
 
-  const uuidBytes = new Array(16).fill(0);
+  const uuidBytes = Array.create("byte", 16);
   java.lang.System.arraycopy(bytes, startByte + 4, uuidBytes, 0, 16);
   const hexUuidString = bytesToHex(uuidBytes);
 
