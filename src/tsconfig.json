@@ -19,7 +19,11 @@
         "noImplicitAny": false,
         "noImplicitReturns": true,
         "noImplicitUseStrict": false,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "plugins": [{
+            "transform": "@nativescript/webpack/dist/transformers/NativeClass",
+            "type": "raw"
+        }]
     },
     "exclude": [
         "node_modules"

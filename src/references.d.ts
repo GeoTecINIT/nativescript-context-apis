@@ -3,3 +3,4 @@
 
 /// <reference path="./typings/android/native-lib.d.ts" />
 /// <reference path="./typings/android/play-services-location.d.ts" />
+/// <reference path="./typings/android/nordic-scanner.d.ts" />

@@ -32,13 +32,13 @@ steps:
 
 - script: |
     cd src
-    npm install
+    npm run setup
     npm run ci.tslint
   displayName: 'Lint'
 
 - script: |
     cd demo
-    npm install
+    npm run setup
     ns build android --bundle --env.uglify --env.snapshot
   displayName: 'Build'
 
