@@ -88,6 +88,7 @@ function fixScanningOptions<T extends ScanningOptions>(options: T): T {
   if (copy.iBeaconUuids === undefined) {
     copy.iBeaconUuids = [];
   }
+  copy.iBeaconUuids = copy.iBeaconUuids.map((uuid) => uuid.toLowerCase());
   return copy;
 }
 
@@ -97,7 +98,7 @@ function filterByUuid(
 ): BleScanResult {
   if (uuids.length === 0) return results;
   const filteredSeen = results.seen.filter(
-    (info) => info.iBeacon && uuids.includes(info.iBeacon.uuid)
+    (info) => info.iBeacon && uuids.includes(info.iBeacon.uuid.toLowerCase())
   );
   if (filteredSeen.length === 0) return null;
   return { ...results, seen: filteredSeen };
