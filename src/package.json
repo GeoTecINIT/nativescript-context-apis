@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-context-apis",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"description": "Painless access to contextual information for your NativeScript apps",
 	"main": "context-apis",
 	"typings": "index.d.ts",
