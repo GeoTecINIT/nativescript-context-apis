@@ -18,7 +18,9 @@ export class AndroidBleScanAdapter implements BleScanAdapter {
     ).getAdapter(),
     private sdkVersion = android.os.Build.VERSION.SDK_INT,
     private activityGetter = () => Application.android.foregroundActivity
-  ) {}
+  ) {
+    setupNativeCallback();
+  }
 
   async isReady(): Promise<boolean> {
     const locFeaturesReady = await isEnabled();
@@ -117,34 +119,38 @@ function nativeScanModeFrom(mode: BleScanMode): number {
   }
 }
 
-@NativeClass
-class BleScanCallback extends no.nordicsemi.android.support.v18.scanner
-  .ScanCallback {
-  constructor(
-    private onResults: (
+let BleScanCallback;
+function setupNativeCallback() {
+  @NativeClass
+  class NativeBleScanCallback extends no.nordicsemi.android.support.v18.scanner
+    .ScanCallback {
+    constructor(
+      private onResults: (
+        results: java.util.List<no.nordicsemi.android.support.v18.scanner.ScanResult>
+      ) => void,
+      private onError: (error: Error) => void
+    ) {
+      super();
+      // @ts-ignore
+      return global.__native(this);
+    }
+
+    onScanResult(
+      _callbackType: number,
+      result: no.nordicsemi.android.support.v18.scanner.ScanResult
+    ) {
+      this.onResults(java.util.Arrays.asList([result]));
+    }
+
+    onBatchScanResults(
       results: java.util.List<no.nordicsemi.android.support.v18.scanner.ScanResult>
-    ) => void,
-    private onError: (error: Error) => void
-  ) {
-    super();
-    // @ts-ignore
-    return global.__native(this);
-  }
+    ) {
+      this.onResults(results);
+    }
 
-  onScanResult(
-    _callbackType: number,
-    result: no.nordicsemi.android.support.v18.scanner.ScanResult
-  ) {
-    this.onResults(java.util.Arrays.asList([result]));
+    onScanFailed(errorCode: number) {
+      this.onError(new Error(`BLE scan failed with error code: ${errorCode}`));
+    }
   }
-
-  onBatchScanResults(
-    results: java.util.List<no.nordicsemi.android.support.v18.scanner.ScanResult>
-  ) {
-    this.onResults(results);
-  }
-
-  onScanFailed(errorCode: number) {
-    this.onError(new Error(`BLE scan failed with error code: ${errorCode}`));
-  }
+  BleScanCallback = NativeBleScanCallback;
 }
