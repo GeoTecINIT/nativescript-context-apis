@@ -715,7 +715,7 @@ Before requesting updates on information about the nearby Wi-Fi APs some options
 
 | Property | Type     | Description                                                            |
 |----------|----------|------------------------------------------------------------------------|
-| uuid     | `number` | The UUID of the iBeacon deployment                                     |
+| uuid     | `string` | The UUID of the iBeacon deployment                                     |
 | major    | `number` | The iBeacon major number used to identify a beacon within a deployment |
 | minor    | `number` | The iBeacon minor number used to identify a beacon within a deployment |
 
