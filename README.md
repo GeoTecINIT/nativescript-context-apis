@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/nativescript-context-apis.svg)](https://www.npmjs.com/package/nativescript-context-apis)
 [![npm](https://img.shields.io/npm/dm/nativescript-context-apis.svg)](https://www.npmjs.com/package/nativescript-context-apis)
 [![Build Status](https://dev.azure.com/GeoTecINIT/nativescript-context-apis/_apis/build/status/GeoTecINIT.nativescript-context-apis?branchName=master)](https://dev.azure.com/GeoTecINIT/nativescript-context-apis/_build/latest?definitionId=1&branchName=master)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6866226.svg)](https://doi.org/10.5281/zenodo.6866226)
 
 Painless access to contextual information for your NativeScript apps. Does your app need to know where are your users located? See the Wi-Fi APs that surround them? Maybe the nearby BLE devices? Or perhaps which kind of activities are they doing? If the answer to any of these questions is yes, then, this is your plugin.
 
