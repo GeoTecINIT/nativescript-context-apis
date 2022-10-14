@@ -18,15 +18,22 @@ export function getSeenWifiApsFrom(
 function getWifiApInformationFrom(
   result: android.net.wifi.ScanResult
 ): WifiApInfo {
+  const sdkVersion = android.os.Build.VERSION.SDK_INT;
   return {
     ssid: result.SSID,
     bssid: result.BSSID,
     capabilities: result.capabilities,
     frequency: result.frequency,
-    centerFreq0: result.centerFreq0 ?? 0,
-    centerFreq1: result.centerFreq1 ?? 0,
-    bandwidth: getChannelBandwidthFrom(result.channelWidth),
-    standard: getWifiStandardFrom(result.getWifiStandard()),
+    centerFreq0: sdkVersion >= 23 ? result.centerFreq0 : -1,
+    centerFreq1: sdkVersion >= 23 ? result.centerFreq1 : -1,
+    bandwidth:
+      sdkVersion >= 23
+        ? getChannelBandwidthFrom(result.channelWidth)
+        : ChannelBandwidth.UNSPECIFIED,
+    standard:
+      sdkVersion >= 30
+        ? getWifiStandardFrom(result.getWifiStandard())
+        : WifiStandard.UNKNOWN,
     ageMicro: result.timestamp,
     chainsInfo: getWifiChainInfosFrom(result),
     rssi: result.level,
@@ -75,8 +82,12 @@ function getWifiChainInfosFrom(
   result: android.net.wifi.ScanResult
 ): Array<WifiChainInfo> {
   try {
-    const stringifiedResult = result.toString();
-    const rawChainInfos = stringifiedResult.split("Radio Chain Infos: ")[1];
+    const stringResult = result.toString();
+    const splitResult = stringResult.split("Radio Chain Infos: ");
+    if (splitResult.length < 2) {
+      return [];
+    }
+    const rawChainInfos = splitResult[1];
     const splitChainInfos = [
       ...rawChainInfos.matchAll(/id=\d*, level=-?\d*/g),
     ].map((match) => match[0]);
